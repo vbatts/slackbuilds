@@ -1,0 +1,12 @@
+wxGTK:	wxGTK
+wxGTK:	
+wxGTK:	wxWidgets lets developers create applications for
+wxGTK:	Win32, Mac OS X, GTK+, X11, Motif, WinCE, and more using
+wxGTK:	one codebase. It can be used from languages such as
+wxGTK:	C++, Python, Perl, and C#/.NET. Unlike other cross-
+wxGTK:	platform toolkits, wxWidgets applications look and
+wxGTK:	feel native. This is because wxWidgets uses the 
+wxGTK:	platform's own native controls rather than emulating them.
+wxGTK:	
+wxGTK:	http://www.wxwidgets.org
+wxGTK:	

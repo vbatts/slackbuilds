@@ -1,0 +1,12 @@
+wxX11:	wxX11
+wxX11:	
+wxX11:	wxWidgets lets developers create applications for
+wxX11:	Win32, Mac OS X, GTK+, X11, Motif, WinCE, and more using
+wxX11:	one codebase. It can be used from languages such as
+wxX11:	C++, Python, Perl, and C#/.NET. Unlike other cross-
+wxX11:	platform toolkits, wxWidgets applications look and
+wxX11:	feel native. This is because wxWidgets uses the 
+wxX11:	platform's own native controls rather than emulating them.
+wxX11:	
+wxX11:	http://www.wxwidgets.org
+wxX11:	

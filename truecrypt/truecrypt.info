@@ -1,0 +1,7 @@
+PRGNAME="truecrypt"
+HOMEPAGE="http://www.truecrypt.org/"
+DOWNLOAD="http://www.truecrypt.org/downloads/transient/9fb2b5a18a/TrueCrypt%205.0%20Source.tar.gz"
+MD5SUM="5f3cf15d477e17374b0a959c4fa012c7"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@batts.mine.nu"
+APPROVED=""

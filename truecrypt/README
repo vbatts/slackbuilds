@@ -1,0 +1,19 @@
+dependencies:
+  * wxGTK
+  * fuse
+
+TrueCrypt requires you to agree to their Licensing before downloading,
+so there is not a direct link, therefor the DOWNLOAD link in truecrypt.info, will not work for you.
+To get the source bundle, 
+ + go to "http://www.truecrypt.org/downloads2.php", 
+ + in the top drop box, choose the 'tar.gz' instead of 'zip'
+ + to the right of the License box, check the 'I Agree' box
+ + the click the 'Download' button between the two.
+
+
+
+you'll need to have freshly built wxGTK, or have the wxGTK-2.8.7.tar.gz source in this CWD
+because truecrypt builds against the wxGTK source,
+this particular truecrypt.SlackBuild looks to /tmp/SBo/wxGTK-2.8.7/
+
+vb

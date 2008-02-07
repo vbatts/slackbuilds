@@ -1,0 +1,2 @@
+this package is built with the '--disable-gui' flag, which requires GTK1 or GTK2. 
+if you needed it for that purpose, then you need to track down those gtk dependencies.

@@ -1,0 +1,67 @@
+#!/bin/sh
+##
+## x11-ssh-askpass
+#
+## a handy x11 app for entering ssh key passphrases
+##  "http://www.jmknoble.net/software/x11-ssh-askpass/"
+##
+##
+## prepared by "Vincent Batts <vbatts@batts.mine.nu>"
+
+CWD=`pwd`
+TMP=${TMP:-/tmp}
+PKG=$TMP/package-x11-ssh-askpass
+rm -rf $PKG
+mkdir -p $PKG/usr
+
+VERSION=1.2.4.1
+ARCH=${ARCH:-i486}
+BUILD=2
+
+if [ "$ARCH" = "i386" ]; then
+  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
+elif [ "$ARCH" = "i486" ]; then
+  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2"
+fi
+
+cd $TMP
+rm -rf x11-ssh-askpass-$VERSION
+tar xzvf $CWD/x11-ssh-askpass-$VERSION.tar.gz
+cd x11-ssh-askpass-$VERSION
+
+chown -R root:root .
+find . -perm 666 -exec chmod 644 {} \;
+find . -perm 664 -exec chmod 644 {} \;
+CFLAGS="$SLKCFLAGS" \
+./configure \
+  --prefix=/usr \
+  --mandir=/usr/X11/man/ \
+  $ARCH-slackware-linux
+xmkmf || exit 1
+make includes || exit 1
+make -j3 || exit 1
+make install DESTDIR=$PKG || exit 1
+make install.man || exit 1
+
+( cd $PKG
+  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+)
+
+mkdir -p $PKG/usr/doc/x11-ssh-askpass-$VERSION
+cp -a \
+  README \
+  $PKG/usr/doc/x11-ssh-askpass-$VERSION
+
+# In case they ever add this stuff:
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $TMP/package-x11-ssh-askpass
+makepkg -l y -c n ../x11-ssh-askpass-$VERSION-$ARCH-$BUILD.tgz
+
