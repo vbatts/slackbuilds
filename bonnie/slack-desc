@@ -1,11 +1,12 @@
 bonnie:  bonnie - 1.4
 bonnie:  
+bonnie:  Bonnie is a simple but useful tool to determine the
+bonnie:  speed of your filesystem, your OS' caching, the underlying
+bonnie:  device and your libc.
 bonnie:  
 bonnie:  
 bonnie:  
 bonnie:  
 bonnie:  
 bonnie:  
-bonnie:  
-bonnie:  
-bonnie:  
+  
