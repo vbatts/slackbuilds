@@ -1,0 +1,8 @@
+PRGNAME="xbench"
+VERSION="0.2"
+HOMEPAGE="ftp://ftp.x.org/contrib/utilities/"
+DOWNLOAD="ftp://ftp.x.org/contrib/utilities/xbench-0.2-srcbin.tar.gz"
+MD5SUM="b54f14d257acef9f4a3e388460568eed"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@batts.mine.nu"
+APPROVED=""
