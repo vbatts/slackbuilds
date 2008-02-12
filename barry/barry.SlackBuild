@@ -63,9 +63,7 @@ cp -a udev/10-blackberry.rules udev/99-barry-perms \
   $PKG/etc/udev/rules.d/
 
 mkdir -p $PKG/etc/modprobe.d
-cat << EOF > $PKG/etc/modprobe.d/barry.new
-blacklist berry-charge
-EOF
+echo "blacklist berry-charge" > $PKG/etc/modprobe.d/barry.new
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
