@@ -1,0 +1,5 @@
+PRGNAM=exiv2
+VERSION=0.15
+HOMEPAGE=http://www.exiv2.org/
+DOWNLOAD=http://www.exiv2.org/exiv2-0.15.tar.gz
+MD5SUM=bb18d19e1d6fb255dadda456cadec00e
