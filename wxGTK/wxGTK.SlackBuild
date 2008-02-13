@@ -1,19 +1,12 @@
 #!/bin/sh
 
-# Slackware build script for <appname>
+# Slackware build script for wxGTK
 
-# Written by (your name) (your contact information)
+# Written by Chess Griffin <chess at chessgriffin dot com>
+# with lots of key help from Eric Hameleers and the SBo
+# admins.  Thanks for all the help!
 
-# (add license information here if you desire; otherwise, 
-# all submissions are considered to be in the public domain)
-# Some licenses may incorporate the "Written by" information 
-# above, and if so, that line can be omitted
-# We strongly suggest *not* using GPL for scripts, as it requires
-# a copy of the GPL to be distributed with it.  Since the GPL 
-# itself is longer than any build script will be, this just doesn't
-# make good sense...
-
-set -e
+# Modified by the SlackBuilds.org project
 
 PRGNAM=wxGTK
 VERSION=2.8.7
@@ -25,93 +18,68 @@ TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
+# If you don't want a unicode-enabled build, change to NO or
+# pass UNICODE=NO ./wxGTK.SlackBuild when building
+UNICODE=${UNICODE:-YES}
+
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
 elif [ "$ARCH" = "i686" ]; then
   SLKCFLAGS="-O2 -march=i686 -mtune=i686"
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
 fi
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
-cd $TMP
+cd $TMP || exit 1
 rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
-cd $PRGNAM-$VERSION
+tar -xzvf $CWD/$PRGNAM-$VERSION.tar.gz || exit 1
+cd $PRGNAM-$VERSION || exit 1
 chown -R root:root .
-find . \
- \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
- -exec chmod 755 {} \; -o \
- \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
- -exec chmod 644 {} \;
+chmod -R u+w,go+r-w,a-s .
 
-XPREF=$(pkg-config --variable=prefix x11) || true
-[ "$XPREF" == "" ] && XPREF='/usr/X11R6'
+# Set unicode flag as desired by UNICODE variable
+if [ "$UNICODE" = "YES" ]; then
+  _do_unicode="en"
+elif [ "$UNICODE" = "NO" ]; then
+  _do_unicode="dis"
+fi
 
-
-# Your application will probably need different configure flags;
-# these are provided as an example only. 
-# Be sure to build only shared libraries unless there's some need for
-# static.
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
   --sysconfdir=/etc \
-  --localstatedir=/var \
-  --mandir=/usr/man
+  --enable-shared \
+  --${_do_unicode}able-unicode \
+  || exit 1
 
-# Compile the application and install it into the $PKG directory
-make
-make install DESTDIR=$PKG
+make || exit 1
+make install DESTDIR=$PKG || exit 1
 
-# Strip binaries and libraries - this can be done with 'make install-strip'
-# in many source trees, and that's usually acceptable if so, but if not, 
-# use this:
 ( cd $PKG
   find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
   find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
 )
 
-# Compress man pages
-# If the man pages are installed to /usr/share/man instead, you'll need to either
-# add the --mandir=/usr/man flag to configure or move them manually after the
-# make install process is run.
-#( cd $PKG/usr/man
-#  find . -type f -exec gzip -9 {} \;
-#  for i in $( find . -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
-#)
+# Now let's fix the broken symlink created by the package
+cd $PKG/usr/bin
+  rm wx-config
+  if [ "$UNICODE" = "YES" ]; then
+    ln -s /usr/lib/wx/config/gtk2-unicode-release-2.6 wx-config
+  elif [ "$UNICODE" = "NO" ]; then
+    ln -s /usr/lib/wx/config/gtk2-ansi-release-2.6 wx-config
+  fi
+cd -
 
-# Compress info pages and remove the package's dir file
-# If no info pages are installed by the software, don't leave this in the script
-#rm -f $PKG/usr/info/dir
-#gzip -9 $PKG/usr/info/*.info*
-
-# Remove perllocal.pod and other special files that don't need to be installed,
-# as they will overwrite what's already on the system.  If this is not needed, 
-# remove it from the script.
-( cd $PKG
-  # Remove 'special' files
-  find . -name perllocal.pod \
-    -o -name ".packlist" \
-    -o -name "*.bs" \
-    | xargs rm -f
-)
-
-# Copy program documentation into the package
-# The included documentation varies from one application to another, so be sure
-# to adjust your script as needed
-# Also, include the SlackBuild script in the documentation directory
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -ar docs/* $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a CHANGES-GTK.txt CHANGES.txt COPYING.LIB INSTALL.txt LICENCE.txt \
+  README-GTK.txt README.txt TODO.txt  $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
-# Copy the slack-desc (and a custom doinst.sh if necessary) into ./install
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
-# Make the package; be sure to leave it in $OUTPUT
-# If package symlinks need to be created during install *before*
-# your custom contents of doinst.sh runs, then add the -p switch to
-# the makepkg command below -- see makepkg(8) for details
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz
