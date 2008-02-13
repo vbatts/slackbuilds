@@ -12,8 +12,9 @@ To get the source bundle,
 
 
 
-you'll need to have freshly built wxGTK, or have the wxGTK-2.8.7.tar.gz source in this CWD
-because truecrypt builds against the wxGTK source,
+you'll need to have the wxGTK-2.8.7.tar.gz source in this CWD
+because truecrypt builds against the wxGTK source, wxGTK doesn't have to been installed,
+just the source code needs to be present.
 this particular truecrypt.SlackBuild looks to /tmp/SBo/wxGTK-2.8.7/
 
 vb
