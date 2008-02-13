@@ -1,0 +1,35 @@
+# Set default version/arch/build.  You can override these settings
+# in the SlackBuild scripts for each package (koffice, for example,
+# usually has a different version number), or by setting your own
+# environment variables.
+
+[ -z $VERSION ] && export VERSION=4.0.1
+[ -z $ARCH ] && export ARCH=i486
+[ -z $BUILD ] && export BUILD=1
+
+# Target arch should be set to i486 for any 32-bit x86, unless
+# you want problems finding your compiler.
+if [ -z $TARGET ]; then
+  if [ "$ARCH" = "i486" ]; then
+    export TARGET=i486
+  elif [ "$ARCH" = "s390" ]; then
+    export TARGET=s390
+  elif [ "$ARCH" = "x86_64" ]; then
+    export TARGET=x86_64
+  fi
+fi
+
+# Use this as CFLAGS and CXXFLAGS:
+if [ -z "$CPUOPT" ]; then
+  if [ "$ARCH" = "i486" ]; then
+    export CPUOPT="-O2 -march=i486 -mtune=i686"
+  elif [ "$ARCH" = "s390" ]; then
+    export CPUOPT="-O2"
+  elif [ "$ARCH" = "x86_64" ]; then
+    export CPUOPT="-O2 -fPIC"
+  fi
+fi
+
+# Number of jobs to compile at once:
+[ -z "$NUMJOBS" ] && export NUMJOBS=-j6
+

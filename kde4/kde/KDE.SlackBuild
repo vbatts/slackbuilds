@@ -1,0 +1,68 @@
+#!/bin/sh
+# Build (and install) all KDE packages.
+# Written for Slackware by volkerdi@slackware.com.
+# Modified for KDE4 by Robby Workman <rworkman@slackware.com>
+
+# Recommended:  install CUPS first if you want KDE to support it.
+# We use an annoying delay to encourage CUPS adoption.  ;-)
+if [ ! -r /var/log/packages/cups-* ]; then
+  echo "Don't want CUPS support, huh?"
+  sleep 10
+fi
+
+# These are also prerequisites (located in the L series)
+# l/pcre  l/libxml2  l/libxslt
+# boost, clucene, eigen, ladspa_sdk, liblrdf, qca*, qimageblitz,
+# qt4, raptor, rasqal, redland, soprano, strigi
+
+# kdeaccessibility builds plugins for epos, festival, flite, freetts, and
+# hadifix, so they should work with kde if any of those are installed later
+
+# Set the config option variables if they are not already set:
+[ -r ./KDE.options ] && . ./KDE.options
+
+# This avoids compiling a version number into KDE's .la files:
+QTDIR=/usr/lib/qt
+export QTDIR
+
+if [ -d kdebase ]; then
+  . ./kdebase/profile.d/kde.sh
+fi
+
+# kdelibs, kdepimlibs, and kdebase must be done first
+for module in kdelibs kdepimlibs kdebase ; do
+  cd $module
+  ./$module.SlackBuild
+  if [ $? = 0 ]; then
+    installpkg /tmp/${module}-*.tgz
+  else
+    echo "${module} failed to build."
+    exit 1
+  fi
+  cd - ;
+done
+
+# Order shouldn't matter for the rest of these
+for module in \
+  kdebase-runtime \
+  kdebase-workspace \
+  kdebindings \
+  kdeaccessibility \
+  kdeutils \
+  kdemultimedia \
+  kdenetwork \
+  kdeadmin \
+  kdeartwork \
+  kdegames \
+  kdetoys \
+  kdeedu \
+  kdegraphics \
+  kdesdk \
+  kdewebdev \
+  kdepim ; 
+do  
+  cd $module
+  ./$module.SlackBuild
+  cd -
+done
+
