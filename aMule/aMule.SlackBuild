@@ -36,7 +36,7 @@ chmod -R u+w,go+r-w,a-s .
 # not an aMule bug, and it's fixed on the 2.8.0 version.
 # Patch provided by arekm <arekm@pld-linux.org> and approved by the
 # aMule maintainer (see website)
-#cat $CWD/aMule-wx2.80.patch | patch -p1 || exit 1
+cat $CWD/aMule-wx2.80.patch | patch -p1 || exit 1
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
