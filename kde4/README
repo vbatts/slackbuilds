@@ -1,0 +1,145 @@
+Updated Sun Feb 10 19:58:31 CST 2008
+
+kde-4.0.1 is not intended as a replacement for the stable kde-3.5.x series; 
+rather, this is more of a "preview" release mainly geared for interested 
+users and developers of add-on applications.
+
+##############################################################################
+For those intending to build from source:
+
+The build order used for the kde packages is what you see in the main
+KDE.SlackBuild script; you will need the jdk package installed (at least
+when building soprano).
+
+Build order for dependencies:
+  1. boost   2. qt   3. eigen   4. clucene   5. raptor   6. rasqal   
+  7. redland   8. strigi   9. soprano   10. qimageblitz   11. qca   
+  12. qca-$plugins   13. optional/*  14. poppler & poppler-data
+The poppler and poppler-data packages should be built after installing qt 
+(so that the poppler-qt4 stuff will build).
+##############################################################################
+
+##############################################################################
+For those intending to install the packages:
+
+You'll need to uninstall *all* kde apps, including qca, qca-tls, and knemo.
+Also, the stock packages of qt, poppler, and poppler-data should be removed.  
+This qt package does NOT peacefully coexist with the one in Slackware.  
+Once you've removed all of the above, install these packages.
+Be sure to run "xwmconfig" as your user account afterward.
+
+Note that kdepim was not released with this due to some licensing issues,
+and for those same reasons, no qca-gnupg package is built this time.
+It was not intended to be included for public consumption with 4.0.0.
+##############################################################################
+
+
+Thanks to Heinz Wiesinger for spending more time looking into the dependency
+  tree than I did, and then putting together the list below.
+The ones I placed in deps/optional/ are the ones that *I* think would be good
+  additions.  This is not to say that there aren't others that would also be
+  useful, nor does it imply that critical functionality is lost if they're
+  not present.  Note that I *did* build against these optional deps, so the
+  packages will almost certainly require them to work properly.
+
+
+KDE 4.0 dependencies for Slackware-current
+------------------------------------------
+
+-) eigen uses qt4 only for tests. If tests are disabled, no qt dependency
+
+-) strigi can use exiv2 (picture meta data support)
+
+-) soprano can use Java JNI - needed for openrdf-sesame2 storage support 
+	(preferred over redland)  ** This is what needs jdk **
+
+-) kdelibs
+	can use enchant - Sonnet, KDE4's languaging framework, will use
+		enchant and elixir extensively in the future.
+		enchant is a wrapper around aspell, ispell, hspell, myspell
+	can use openexr - Support for EXR-Images. These are HDR-Images,
+		probably only of interest for photographers.
+	can use avahi - avahi is a network service discovery daemon
+	can use hspell - hspell is a hebrew spell checker
+	can use jasper - jasper is an implementation of the JPEG2000 format. 
+		Meant to be the future of web graphics. License issues (I think)
+
+-) kdebase-runtime can use openexr
+
+-) kdebase-workspace
+	can use either network-manager or libnm-util - user friendly network 
+		management.
+	can use libcaptury - Movie capture framework. Used also to capture 
+		scenes from OpenGL games. Screen-recording?
+	can use libxklavier - XKB-rule management, best supported 
+		implementation for KDE4
+	can use libraw1394 - raw1394 (Firewire) support for solid?
+
+-) kdegraphics
+	gwenview won't build without exiv2
+	kamera won't build without libgphoto2
+	can use poppler-qt4 -- PDF support for okular
+	can use libgs -- PS support for okular --- should be included in 
+		gnu-ghostscript, but kde doesn't find it.
+		I think okular is the only app using this library; others 
+			depend on the binary.
+	can use djvulibre - DjVu support for okular
+	can use libchm - CHM support for okular
+
+-) kdenetwork
+	can use openslp - SLP (Service Location Protocol) support for krfb
+	can use qt-tapioca - qt-bindings for tapioca, probably depends on 
+		telepathy and qt-telepathy
+	can use decibel - one of the pillars of KDE4, depends on qt-tapioca
+	can use sqlite - database storage for kopete's statistics plugin
+	can use libvncserver - needed to build krfb / VNC support in krdc
+	can use mDNS - needed for KDE's service discovery feature in krfb,
+		krdc, and dnssd ioslave
+
+-) kdepim
+	gnokii - Needed to provide the ability to import and export KDE 
+		addressbook entries to/from mobile phones that are accessible
+		via gnokii
+	mysql-embedded - Needed for the MySQL/Embedded Akonadi backend. Sqlite
+		will be used instead. (I would prefer mysql)
+	libmapi - openchange MAPI Client Library. OpenChange / Exchange server 
+		support. (Probably depends on samba 4)
+	opensync - Needed to provide syncing functionality in KDE PIM 
+		applications. Necessary to compile kitchensync.
+	gammu - used by kmobiletools, better supported engine for phone 
+		connection (alternative is at-engine)
+	libmal - Needed for KPilot's Avantgo conduit.
+
+-) kdeedu
+	ocaml - needed by kalzium (but kalzium builds and runs without it)
+	libfacile - needed by kalziem, depends on ocaml (same as above)
+	sbig - SBIG Universal driver, + kernel modules, used by kstars 
+	libnova - used by kstars
+	libcfitsio - used by kstars
+	openbabel - used by kalzium
+
+-) kdeutils
+	tpctl - ThinkPad support for klaptopdaemon
+	libzip - Zip support for ark
+
+-) kdebindings
+	qscintilla
+	qwt - qt widgets for technical applications
+	gmcs, gacutil - need by qyoto (C#-Bindings)
+
+-) kdegames
+	ggz-client-libs - online gaming support for kdegames
+
+-) Koffice
+	kdepimlibs, eigen, qimageblitz
+	mysql-embedded
+	gsl - KSpread's solver plugin will not be built without this library.
+	gmm - The Krita panorama plugin will not be built without it.
+	glew - The Krita shader filter plugin will not be built without it.
+	glpk - The Krita painterly mixer plugin will not be built without it.
+	exiv2 - The Krita JPEG filter will not be built without it.
+	openexr - The Krita OpenEXR filter will not be built without it.
+	graphicsmagick - The Krita GraphicsMagick filter for various file 
+		formats (including PSD, XCF) will not be built without it.
+	poppler-qt4 - The Krita PDF filter will not be built without it.
+
