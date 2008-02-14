@@ -5,15 +5,15 @@
 # make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':'.
 
-           |-----handy-ruler------------------------------------------------------|
-kdegraphics: kdegraphics (KDE graphics programs)
-kdegraphics:
-kdegraphics: Graphics programs for KDE, including:  kdvi (displays TeX's device
-kdegraphics: independent .dvi files), kfax (displays fax files), kfract (a fractal
-kdegraphics: generator), kghostview (displays postscript .ps files), kpaint (a
-kdegraphics: simple drawing program), kruler (an onscreen ruler), ksnapshot (a
-kdegraphics: screenshot utility), and kview (displays many graphic file formats).
-kdegraphics:
-kdegraphics:
-kdegraphics:
-kdegraphics:
+            |-----handy-ruler------------------------------------------------------|
+kdegraphics4: kdegraphics4 (KDE graphics programs)
+kdegraphics4:
+kdegraphics4: Graphics programs for KDE, including:  kdvi (displays TeX's device
+kdegraphics4: independent .dvi files), kfax (displays fax files), kfract (a fractal
+kdegraphics4: generator), kghostview (displays postscript .ps files), kpaint (a
+kdegraphics4: simple drawing program), kruler (an onscreen ruler), ksnapshot (a
+kdegraphics4: screenshot utility), and kview (displays many graphic file formats).
+kdegraphics4:
+kdegraphics4:
+kdegraphics4:
+kdegraphics4:

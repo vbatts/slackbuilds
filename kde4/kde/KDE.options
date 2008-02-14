@@ -33,3 +33,8 @@ fi
 # Number of jobs to compile at once:
 [ -z "$NUMJOBS" ] && export NUMJOBS=-j6
 
+# adding the qt4 executables the to build path
+if [ -d /usr/lib/qt4 ] ; then 
+  QTDIR=/usr/lib/qt4
+  PATH=$QTDIR/bin:$PATH
+fi

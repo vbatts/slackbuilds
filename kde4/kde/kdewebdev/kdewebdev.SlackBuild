@@ -1,8 +1,9 @@
 #!/bin/sh
 
+PKGNAME=kdewebdev4
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-kdewebdev
+PKG=$TMP/package-$PKGNAME
 
 # Set the config option variables if they are not already set:
 if [ -r ../KDE.options ]; then
@@ -15,19 +16,23 @@ if [ -r ./local.options ]; then
 fi
 
 # Avoid a version number in .la files:
-if [ -d /usr/lib/qt ]; then
-  QTDIR=/usr/lib/qt
+if [ -d /usr/lib/qt4 ]; then
+  QTDIR=/usr/lib/qt4
 fi
 
 set -e	# Exit on most errors
 
+INSTALLDIR="/opt/kde4"
 rm -rf $PKG
 mkdir -p $PKG/usr
+mkdir -p $PKG/$INSTALLDIR/lib
 
 # First, build and install Tidy:
-cd tidy 
+cd ./tidy/ 
   echo "Building htmltidy..."
-  sh ./tidy.build $PKG
+  ./tidy.SlackBuild
+  installpkg /tmp/tidy-*tgz
+  ln -s /usr/lib/libtidy-0.99.so.0.0.0 $PKG/$INSTALLDIR/lib/libtidy.so
 cd -
 
 cd $TMP
@@ -46,11 +51,11 @@ cd build
   cmake \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_PREFIX="$INSTALLDIR" \
     -DMAN_INSTALL_DIR=/usr/man \
-    -DSYSCONF_INSTALL_DIR=/etc/kde \
-    -DLIBTIDY_INCLUDE_DIR=$PKG/usr/include \
-    -DLIBTIDY_LIBRARIES=$PKG/usr/lib/libtidy.so \
+    -DSYSCONF_INSTALL_DIR=/etc/kde4 \
+    -DLIBTIDY_INCLUDE_DIR=$PKG/$INSTALLDIR/include \
+    -DLIBTIDY_LIBRARIES=$PKG/$INSTALLDIR/lib/libtidy.so \
     ..
    make $NUMJOBS
    make install DESTDIR=$PKG
@@ -60,9 +65,9 @@ if [ -d $PKG/usr/man ]; then
   gzip -9 $PKG/usr/man/man?/*
 fi
 
-mkdir -p $PKG/usr/doc/kdewebdev-$VERSION
+mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a AUTHORS COPYING* ChangeLog INSTALL* NEWS PACKAGING README TODO VERSION \
-  $PKG/usr/doc/kdewebdev-$VERSION
+  $PKG/usr/doc/$PKGNAME-$VERSION
 
 ( cd $PKG
   find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
@@ -74,5 +79,5 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 zcat $CWD/doinst.sh.gz > $PKG/install/doinst.sh
 
 cd $PKG
-/sbin/makepkg -l y -c n /tmp/kdewebdev-$VERSION-$ARCH-$BUILD.tgz
+/sbin/makepkg -l y -c n /tmp/$PKGNAME-$VERSION-$ARCH-$BUILD.tgz
 

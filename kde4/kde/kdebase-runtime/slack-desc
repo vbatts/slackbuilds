@@ -6,14 +6,14 @@
 # leave one space after the ':'.
 
                |-----handy-ruler--------------------------------------------|
-kdebase-runtime: kdebase-runtime 
-kdebase-runtime:
-kdebase-runtime: This package contains core components of the KDE base 
-kdebase-runtime: runtime module.
-kdebase-runtime:
-kdebase-runtime:
-kdebase-runtime:
-kdebase-runtime:
-kdebase-runtime:
-kdebase-runtime:
-kdebase-runtime:
+kdebase4-runtime: kdebase4-runtime 
+kdebase4-runtime:
+kdebase4-runtime: This package contains core components of the KDE base 
+kdebase4-runtime: runtime module.
+kdebase4-runtime:
+kdebase4-runtime:
+kdebase4-runtime:
+kdebase4-runtime:
+kdebase4-runtime:
+kdebase4-runtime:
+kdebase4-runtime:

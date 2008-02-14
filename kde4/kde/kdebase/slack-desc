@@ -5,15 +5,15 @@
 # exactly 11 lines for the formatting to be correct.  It's also customary to
 # leave one space after the ':'.
 
-       |-----handy-ruler------------------------------------------------------|
-kdebase: kdebase (KDE base package)
-kdebase:
-kdebase: kdebase is the second mandatory package (besides kdelibs) for
-kdebase: the K Desktop Environment. Here we have various applications 
-kdebase: and infrastructure files and libraries.
-kdebase:
-kdebase:
-kdebase:
-kdebase:
-kdebase:
-kdebase:
+        |-----handy-ruler------------------------------------------------------|
+kdebase4: kdebase4 (KDE4 base package)
+kdebase4:
+kdebase4: kdebase4 is the second mandatory package (besides kdelibs4) for
+kdebase4: the K Desktop Environment. Here we have various applications 
+kdebase4: and infrastructure files and libraries.
+kdebase4:
+kdebase4:
+kdebase4:
+kdebase4:
+kdebase4:
+kdebase4:

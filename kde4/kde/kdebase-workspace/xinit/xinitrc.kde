@@ -24,5 +24,14 @@ if [ -f $usermodmap ]; then
     xmodmap $usermodmap
 fi
 
+if [ -d $QT4DIR ]; then
+  if [ -d $KDE4DIR ]; then
+    QTDIR=$QT4DIR
+    KDEDIR=$KDE4DIR
+    PATH=$KDEDIR/bin:$QTDIR/bin:$PATH
+    export QTDIR KDEDIR PATH
+  fi
+fi
+
 # Start the window manager:
 startkde
