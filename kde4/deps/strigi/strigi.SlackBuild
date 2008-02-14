@@ -53,7 +53,7 @@ find . \
 
 mkdir -p build
 cd build
-  QTDIR=/usr/lib/qt \
+  QTDIR=/usr/lib/qt4 \
   PATH=$QTDIR/bin:$PATH \
   cmake \
     -DENABLE_INOTIFY:BOOL=ON \
