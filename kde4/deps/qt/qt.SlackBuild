@@ -23,7 +23,7 @@
 # Merged some ideas from Alex Sarmardzic's script for qt4 at SlackBuilds.org
 # ^^ Modified by Robby Workman <rworkman@slackware.com> for QT4 & KDE4
 
-PKGNAM=qt
+PKGNAM=qt4
 VERSION=${VERSION:-4.3.3}
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-2}
@@ -70,7 +70,7 @@ make -j6
 make install INSTALL_ROOT=$PKG
 
 # The infamous qt -> qt-${VERSION} link that lets us cheat on the QTDIR ;-)
-( cd $PKG/usr/lib ; ln -sf qt-${VERSION} qt )
+( cd $PKG/usr/lib ; ln -sf qt-${VERSION} qt4 )
 
 # Link the shared libraries into /usr/lib:
 ( cd $PKG/usr/lib
@@ -91,21 +91,21 @@ fi
 
 # Add profile scripts
 mkdir -p $PKG/etc/profile.d
-cat $CWD/profile.d/qt.sh > $PKG/etc/profile.d/qt.sh
-cat $CWD/profile.d/qt.csh > $PKG/etc/profile.d/qt.csh
+cat $CWD/profile.d/qt.sh > $PKG/etc/profile.d/qt4.sh
+cat $CWD/profile.d/qt.csh > $PKG/etc/profile.d/qt4.csh
 chmod 0755 $PKG/etc/profile.d/*
 
 # Put a ton of links to more "normal" places.  I'd just use a prefix of /usr, but it
 # creates a ton of new (and ambiguously named) /usr directories...
-mkdir -p $PKG/usr/bin
-( cd $PKG/usr/bin
-  for file in \
-    assistant designer linguist lrelease lupdate moc pixeltool qdbus \
-    qdbuscpp2xml qdbusviewer qdbusxml2cpp qmake qt3to4 qtconfig rcc uic uic3 ;
-  do
-    ln -sf /usr/lib/qt-$VERSION/bin/$file .
-  done
-)
+#mkdir -p $PKG/usr/bin
+#( cd $PKG/usr/bin
+#  for file in \
+#    assistant designer linguist lrelease lupdate moc pixeltool qdbus \
+#    qdbuscpp2xml qdbusviewer qdbusxml2cpp qmake qt3to4 qtconfig rcc uic uic3 ;
+#  do
+#    ln -sf /usr/lib/qt-$VERSION/bin/$file .
+#  done
+#)
 
 mkdir -p $PKG/usr/lib/pkgconfig
 ( cd $PKG/usr/lib/pkgconfig
