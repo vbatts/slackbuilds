@@ -42,7 +42,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG
 cd $TMP
 rm -rf ${PKGNAM}-${VERSION}
-tar xjvf $CWD/${PKGNAM}-$VERSION.tar.bz2 || exit 1
+tar xzvf $CWD/${PKGNAM}-$VERSION.tar.gz || exit 1
 cd ${PKGNAM}-$VERSION || exit 1
 # Make sure ownerships and permissions are sane:
 chown -R root:root .
