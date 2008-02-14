@@ -27,13 +27,17 @@ rm -rf $PKG
 mkdir -p $PKG/usr
 mkdir -p $PKG/$INSTALLDIR/lib
 
+VERSION_KDE=$VERSION
 # First, build and install Tidy:
 cd ./tidy/ 
+  unset VERSION
   echo "Building htmltidy..."
   ./tidy.SlackBuild
   installpkg /tmp/tidy-*tgz
   ln -s /usr/lib/libtidy-0.99.so.0.0.0 $PKG/$INSTALLDIR/lib/libtidy.so
 cd -
+VERSION=$VERSION_KDE
+unset VERSION_KDE
 
 cd $TMP
 echo "Building kdewebdev-$VERSION.tar.bz2..."

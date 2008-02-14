@@ -60,6 +60,7 @@ for module in \
   kdegraphics \
   kdesdk \
   kdewebdev \
+  koffice \
   kdepim ; 
 do  
   cd $module
