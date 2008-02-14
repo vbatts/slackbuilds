@@ -22,19 +22,20 @@ fi
 [ -r ./KDE.options ] && . ./KDE.options
 
 # This avoids compiling a version number into KDE's .la files:
-QTDIR=/usr/lib/qt
-export QTDIR
+QTDIR=/usr/lib/qt4
+PATH=/opt/kde4/bin:$QTDIR/bin:$PATH
+export QTDIR PATH
 
 if [ -d kdebase ]; then
   . ./kdebase/profile.d/kde.sh
 fi
 
 # kdelibs, kdepimlibs, and kdebase must be done first
-for module in kdelibs kdepimlibs kdebase ; do
+for module in kdelibs kdepimlibs kdebase ; do 
   cd $module
   ./$module.SlackBuild
   if [ $? = 0 ]; then
-    installpkg /tmp/${module}-*.tgz
+    installpkg /tmp/${module}4-*.tgz
   else
     echo "${module} failed to build."
     exit 1
