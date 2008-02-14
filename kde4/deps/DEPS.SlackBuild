@@ -1,0 +1,65 @@
+#!/bin/sh
+# Build (and install) all KDE dependency packages.
+# Written for Slackware by volkerdi@slackware.com.
+# Modified for KDE4 - deps by Vincent Batts <vbatts@batts.mine.nu>
+
+OWD=$(pwd)
+
+# This avoids compiling a version number into KDE's .la files:
+QTDIR=/usr/lib/qt4
+PATH=/opt/kde4/bin:$QTDIR/bin:$PATH
+export QTDIR PATH
+
+# 
+for module in \
+    boost \
+    qt \
+    eigen \
+    clucene \
+    raptor \
+    rasqal \
+    redland \
+    strigi \
+    soprano \
+    qimageblitz \
+    qca \
+    qca-cyrus-sasl \
+    qca-gnupg \
+    qca-ossl ; do 
+  cd $module
+  ./$module.SlackBuild
+  #if [ $? = 0 ]; then
+  #  installpkg /tmp/${module}*.tgz
+  #else
+  #  echo "${module} failed to build."
+  #  exit 1
+  #fi
+  cd - ;
+done
+
+cd $OWD/optional
+# Order shouldn't matter for the rest of these
+for module in \
+  chmlib \
+  enchant \
+  exiv2 \
+  libraw1394 \
+  libvncserver \
+  libxklavier \
+  libzip \
+  poppler \
+  poppler-data ;
+do  
+  cd $module
+  ./$module.SlackBuild
+  #if [ $? = 0 ]; then
+  #  installpkg /tmp/${module}*.tgz
+  #else
+  #  echo "${module} failed to build."
+  #  exit 1
+  #fi
+  cd - ;
+done
+cd $OWD
+
+
