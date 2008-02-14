@@ -28,12 +28,12 @@ for module in \
     qca-ossl ; do 
   cd $module
   ./$module.SlackBuild
-  #if [ $? = 0 ]; then
-  #  installpkg /tmp/${module}*.tgz
-  #else
-  #  echo "${module} failed to build."
-  #  exit 1
-  #fi
+  if [ $? = 0 ]; then
+    installpkg /tmp/${module}*.tgz
+  else
+    echo "${module} failed to build."
+    exit 1
+  fi
   cd - ;
 done
 
@@ -52,12 +52,12 @@ for module in \
 do  
   cd $module
   ./$module.SlackBuild
-  #if [ $? = 0 ]; then
-  #  installpkg /tmp/${module}*.tgz
-  #else
-  #  echo "${module} failed to build."
-  #  exit 1
-  #fi
+  if [ $? = 0 ]; then
+    installpkg /tmp/${module}*.tgz
+  else
+    echo "${module} failed to build."
+    exit 1
+  fi
   cd - ;
 done
 cd $OWD
