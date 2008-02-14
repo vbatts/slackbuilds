@@ -26,7 +26,7 @@
 PKGNAM=qt4
 VERSION=${VERSION:-4.3.3}
 ARCH=${ARCH:-i486}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-2_vbatts}
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
