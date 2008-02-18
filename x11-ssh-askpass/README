@@ -1,1 +1,35 @@
 x11-ssh-askpass is an X11-based passphrase dialog for use with OpenSSH.
+
+
+** HOWTO **
+to utilize this service, you will need a key in $HOME/.ssh/, 
+like an id_rsa or id_dsa
+and permissions need to be `chmod 700 $HOME/.ssh/ `
+if you log on using kdm, then just create the file $HOME/.xprofile
+with following contents,
+<xprofile>
+#!/bin/sh
+ 
+usessh=yes
+
+if test "$usessh" = "yes" -a -d /home/vbatts/.ssh ; then
+  SSH_ASKPASS="/usr/libexec/x11-ssh-askpass"
+  if [ -x  ] ; then 
+    export SSH_ASKPASS
+    ssh-agent > $HOME/.ssh/agent
+    . $HOME/.ssh/agent
+    ssh-add
+  fi
+fi
+
+</xprofile>
+
+if you are launching X from console then you can edit your $HOME/.xinitrc 
+to source $HOME/.xprofile file, or just add the previous contents to it.
+
+
+
+
+
+vb
+
