@@ -62,7 +62,7 @@ export CFLAGS="$SLKCFLAGS"
 export CXXFLAGS="$SLKCFLAGS"
 export OPENSOURCE_CXXFLAGS="$SLKCFLAGS"
 echo "yes" | ./configure \
-  -prefix /usr/lib/qt-$VERSION \
+  -prefix /usr/lib/qt4 \
   -nomake examples \
   -nomake demos 
 
@@ -70,11 +70,11 @@ make -j6
 make install INSTALL_ROOT=$PKG
 
 # The infamous qt -> qt-${VERSION} link that lets us cheat on the QTDIR ;-)
-( cd $PKG/usr/lib ; ln -sf qt-${VERSION} qt4 )
+( cd $PKG/usr/lib ; ln -sf qt4 qt-${VERSION} )
 
 # Link the shared libraries into /usr/lib:
 ( cd $PKG/usr/lib
-  for file in qt-$VERSION/lib/*.so* ; do
+  for file in ./qt4/lib/*.so* ; do
     ln -sf $file .
   done
 )
@@ -113,7 +113,7 @@ mkdir -p $PKG/usr/lib/pkgconfig
     QtDBus.pc QtGui.pc QtNetwork.pc QtOpenGL.pc QtScript.pc \
     QtSql.pc QtSvg.pc QtTest.pc QtUiTools.pc QtXml.pc ;
   do
-    ln -sf /usr/lib/qt-$VERSION/lib/pkgconfig/$file . ;
+    ln -sf /usr/lib/qt4/lib/pkgconfig/$file . ;
   done
 )
 
@@ -122,7 +122,7 @@ mkdir -p $PKG/usr/doc/$PKGNAM-$VERSION
 cp -a GPL_EXCEPTION.TXT GPL_EXCEPTION_ADDENDUM.TXT INSTALL LICENSE.GPL \
   LICENSE.QPL OPENSOURCE-NOTICE.TXT README changes-$VERSION \
   $PKG/usr/doc/$PKGNAM-$VERSION
-( cd $PKG/usr/doc/$PKGNAM-$VERSION ; ln -sf /usr/lib/qt/doc/html . )
+( cd $PKG/usr/doc/$PKGNAM-$VERSION ; ln -sf /usr/lib/qt4/doc/html . )
 
 mkdir -p $PKG/install
 zcat $CWD/doinst.sh.gz > $PKG/install/doinst.sh
