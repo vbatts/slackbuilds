@@ -4,3 +4,5 @@ gnucash is opensource accounting software
 ___
 initially it is dependent on guile, and slib
 
+also it depends on swig, gconf, gtkhtml, and gtkprint
+which lead to bonobo ...
