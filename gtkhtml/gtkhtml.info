@@ -1,0 +1,8 @@
+PRGNAM="gtkhtml"
+VERSION="3.17.91"
+HOMEPAGE="http://www.gnome.org/"
+DOWNLOAD="http://ftp.acc.umu.se/pub/GNOME/sources/gtkhtml/3.17/gtkhtml-3.17.91.tar.gz"
+MD5SUM="5b0c77b370d1125dcdd1630e99f541ee"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@batts.mine.nu"
+APPROVED=""
