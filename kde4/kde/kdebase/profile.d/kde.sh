@@ -1,8 +1,7 @@
 #!/bin/sh
 # KDE additions:
 KDE4DIR=/opt/kde4
-KDE4DIRS=/opt/kde4
-export KDE4DIR KDE4DIRS
+export KDE4DIR
 if [ ! "$XDG_CONFIG_DIRS" = "" ]; then
   XDG_CONFIG_DIRS=$XDG_CONFIG_DIRS:/etc/kde4/xdg
 else
