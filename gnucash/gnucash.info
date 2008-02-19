@@ -1,0 +1,8 @@
+PRGNAM="gnucash"
+VERSION="2.2.3"
+HOMEPAGE="http://www.gnucash.org/"
+DOWNLOAD="http://downloads.sourceforge.net/gnucash/gnucash-2.2.3.tar.bz2"
+MD5SUM="a90e2d01e3c487d36e9a5f5fd82d2149" 
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@batts.mine.nu"
+APPROVED=""
