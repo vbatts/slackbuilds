@@ -44,6 +44,7 @@ cp -a \
   $PKG/usr/doc/guile-$VERSION
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd /tmp/package-guile
 makepkg -l y -c n ../guile-$VERSION-$ARCH-$BUILD.tgz
