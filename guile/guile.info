@@ -1,0 +1,8 @@
+PRGNAM="guile"
+VERSION="1.8.3"
+HOMEPAGE="http://www.gnu.org/software/guile/"
+DOWNLOAD="ftp://ftp.gnu.org/gnu/guile/guile-1.8.3.tar.gz"
+MD5SUM="7fd016924e1bc3e273f4009a080942de"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@batts.mine.nu"
+APPROVED=""

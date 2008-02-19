@@ -1,0 +1,9 @@
+guile: guile - Project GNU's Extension Library
+guile:  
+guile:  Guile is an interpreter for Scheme, packaged as a 
+guile:  library that you can link into your applications 
+guile:  to give them their own scripting language.
+guile:  
+guile:  http://www.gnu.org/software/guile/
+guile:  
+guile:  
