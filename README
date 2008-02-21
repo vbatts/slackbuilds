@@ -1,0 +1,28 @@
+SlackBuild Projects
+
+they are here, working or not
+
+** PUBLISHED @ SlackBuilds.org **
+  barry
+  x11-ssh-askpass
+  bonnie
+  bonniexx
+
+
+** STABLE **
+  kde4 (and all subdirectories)
+  blokkal 
+  wxGTK
+  wxX11
+  fuse
+  gconf
+  orbit
+  truecrypt
+  guile
+
+
+** BROKEN **
+  xbench
+  vncserver 
+  gtkhtml
+  gnucash
