@@ -7,11 +7,12 @@
 
      |-----handy-ruler----------------------------------------------------|
 vncserver: 
+vncserver:  vncserver (server for remote desktop connections
 vncserver:
-vncserver: TightVNC is a free remote control software package derived
-vncserver: from the popular VNC software.
+vncserver:  TightVNC is a free remote control software package derived
+vncserver:  from the popular VNC software.
 vncserver:
-vncserver: See our website: http://www.tightvnc.com
+vncserver:  Official project's website: http://www.tightvnc.com
 vncserver:
 vncserver:
 vncserver:

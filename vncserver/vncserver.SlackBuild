@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Slackware build script for tight vncserver
+# Slackware build script for vncserver
 
 # Copyright 2007 Vincent Batts - http://batts.mine.nu
 # All rights reserved.
@@ -26,11 +26,14 @@ PRGNAM=vncserver
 VERSION=1.3.9
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
-TAG=${TAG:-_SBo}	# the "_SBo" is required
+TAG=${TAG:-_SBo}
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
-OUTPUT=${OUTPUT:-/tmp}	# Drop the package in /tmp
+OUTPUT=${OUTPUT:-/tmp}
+
+SRCDIR=vnc_unixsrc
+SRC=tightvnc-${VERSION}_unixsrc.tar.bz2
 
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
@@ -40,14 +43,12 @@ elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2"
 fi
 
-set -e
-
 rm -rf $PKG
 mkdir -p $TMP $PKG
 cd $TMP
-rm -rf vnc_unixsrc
-tar jxvf $CWD/tightvnc-${VERSION}_unixsrc.tar.bz2
-cd vnc_unixsrc
+rm -rf ${SRCDIR}
+tar jxvf ${CWD}/${SRC}
+cd ${SRCDIR}
 chown -R root:root . >/dev/null 2>&1 
 find . \
 \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -55,8 +56,8 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-xmkmf
-make World
+xmkmf || exit 1
+make World || exit 1
 cd Xvnc
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
@@ -64,13 +65,14 @@ CXXFLAGS="$SLKCFLAGS" \
   --prefix=/usr \
   --sysconfdir=/etc \
   --localstatedir=/var \
-  --mandir=/usr/man
+  --mandir=/usr/man || exit 1
 
-make World
+make World || exit 1
+## if you want the full Xvnc installation, headers and all, you can un-comment this
 #make install DESTDIR=$PKG
 cd -
 mkdir -p $PKG/usr/bin $PKG/usr/man/man1
-./vncinstall $PKG/usr/bin $PKG/usr/man
+./vncinstall $PKG/usr/bin $PKG/usr/man || exit 1
 
 
 ( cd $PKG
