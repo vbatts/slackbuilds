@@ -70,7 +70,7 @@ make World
 #make install DESTDIR=$PKG
 cd -
 mkdir -p $PKG/usr/bin $PKG/usr/man/man1
-./vncinstall $PKG/usr $PKG/usr/man
+./vncinstall $PKG/usr/bin $PKG/usr/man
 
 
 ( cd $PKG
@@ -84,7 +84,7 @@ mkdir -p $PKG/usr/bin $PKG/usr/man/man1
 )
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a ChangeLog WhatsNew LICENSE.TXT README $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a ChangeLog WhatsNew LICENCE.TXT README $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
