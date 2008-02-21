@@ -4,13 +4,12 @@
 
 # Written by Vincent Batts, vbatts@batts.mine.nu
 
-set -e
-
 PRGNAM=bonnie
 VERSION=1.4
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
+
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
@@ -22,11 +21,13 @@ elif [ "$ARCH" = "i686" ]; then
   SLKCFLAGS="-O2 -march=i686 -mtune=i686"
 fi
 
+set -e
+
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-tar xjvf $CWD/$PRGNAM-$VERSION.tar.bz2
+tar xvf $CWD/$PRGNAM-$VERSION.tar.bz2
 cd $PRGNAM
 chown -R root:root .
 find . \
@@ -35,19 +36,16 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-CFLAGS="$SLKCFLAGS" \
-CXXFLAGS="$SLKCFLAGS" \
-make
-sed -i 's/-o man//g' Makefile
-make install DESTDIR=$PKG
+# Remove the forced setting of 'man' ownership to manpages
+# Slackware doesn't have a 'man' user
+sed -i 's/-o man/-o root/g' Makefile
 
-( cd $PKG
-  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
-  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
-)
+make CFLAGS="$SLKCFLAGS"
+make install MANDIR=/usr/man DESTDIR=$PKG
+strip --strip-unneeded $PKG/usr/bin/bonnie
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a Instructions README $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a Instructions README bonnie.doc $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
