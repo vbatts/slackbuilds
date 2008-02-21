@@ -14,15 +14,15 @@ they are here, working or not
   blokkal 
   wxGTK
   wxX11
-  fuse
   gconf
+  fuse
   orbit
   truecrypt
   guile
+  vncserver 
 
 
 ** BROKEN **
   xbench
-  vncserver 
   gtkhtml
   gnucash
