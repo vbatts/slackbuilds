@@ -1,2 +1,6 @@
 This package is based on the official SlackBuild,
 and is intended to upgrade the existing guile slackpkg
+
+and guile is not dependent on it, but slib should be installed first, 
+because for guile to implement using the slib extensions, /usr/share/slib
+needs to exist first ;)

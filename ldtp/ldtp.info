@@ -1,0 +1,8 @@
+PRGNAME="ldtp"
+VERSION="1.0.0"
+HOMEPAGE="http://download.freedesktop.org/ldtp/"
+DOWNLOAD="http://download.freedesktop.org/ldtp/1.x/1.0.x/ldtp-1.0.0.tar.gz"
+MD5SUM="b3fc52b1ab2c48b825bcc463003d95f9"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@batts.mine.nu"
+APPROVED=""
