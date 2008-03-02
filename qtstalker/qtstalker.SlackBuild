@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Slackware build script for gtkhtml
+# Slackware build script for <appname>
 
-# Written by gtksource 3.
+# Written by (your name) (your contact information)
 
 # (add license information here if you desire; otherwise, 
 # all submissions are considered to be in the public domain)
@@ -36,9 +36,9 @@ set -e
 #   command || exit 1
 # then that's also acceptable.
 
-PRGNAM=
-VERSION=3.17.91
-ARCH=${ARCH:-i486}
+PRGNAM=appname		# replace with name of program
+VERSION=1.4.1		# replace with version of program
+ARCH=${ARCH:-i486}	# this should not change
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}	# the "_SBo" is required
 CWD=$(pwd)
