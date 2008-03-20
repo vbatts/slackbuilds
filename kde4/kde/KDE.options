@@ -3,9 +3,9 @@
 # usually has a different version number), or by setting your own
 # environment variables.
 
-[ -z $VERSION ] && export VERSION=4.0.1
+[ -z $VERSION ] && export VERSION=4.0.66
 [ -z $ARCH ] && export ARCH=i486
-[ -z $BUILD ] && export BUILD=1
+[ -z $BUILD ] && export BUILD=1_vbatts
 
 # Target arch should be set to i486 for any 32-bit x86, unless
 # you want problems finding your compiler.
