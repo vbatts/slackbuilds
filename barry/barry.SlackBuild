@@ -10,7 +10,7 @@
 
 VERSION=0.11
 ARCH=${ARCH:-i486}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_SBo}
 
 CWD=$(pwd)
@@ -70,4 +70,4 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/barry-$VERSION-$ARCH-$BUILD.tgz
+/sbin/makepkg -l y -c n $OUTPUT/barry-$VERSION-$ARCH-$BUILD$TAG.tgz
