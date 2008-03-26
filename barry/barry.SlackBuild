@@ -8,7 +8,7 @@
 ##
 ## Written by "Vincent Batts <vbatts@batts.mine.nu>"
 
-VERSION=0.11
+VERSION=0.12
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-3}
 TAG=${TAG:-_SBo}
