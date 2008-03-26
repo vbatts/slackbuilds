@@ -1,0 +1,7 @@
+BlackBerry backup/restore and GPRS modem access
+
+Requires:
+ * OpenMotif
+ * Xlt
+ * libusb
+ * opensync (optional for attempting synchronization)
