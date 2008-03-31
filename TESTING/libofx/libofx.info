@@ -1,0 +1,8 @@
+PRGNAM="libofx"
+VERSION="0.9.0"
+HOMEPAGE="http://sourceforge.net/projects/libofx/"
+DOWNLOAD="http://downloads.sourceforge.net/libofx/libofx-0.9.0.tar.gz"
+MD5SUM="6e2172f0117f90805590bf755190b79e "
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@batts.mine.nu"
+APPROVED=""

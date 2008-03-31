@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# ivy script
+# JPackage Project <http://www.jpackage.org/>
+
+# Source functions library
+. /usr/share/java-utils/java-functions
+
+# Source system prefs
+if [ -f /etc/java/ivy.conf ] ; then
+  . /etc/java/ivy.conf
+fi
+
+# Source user prefs
+if [ -f $HOME/.ivyrc ] ; then
+  . $HOME/.ivyrc
+fi
+
+# Configuration
+MAIN_CLASS=fr.jayasoft.ivy.Main
+BASE_FLAGS=""
+BASE_OPTIONS=""
+BASE_JARS="ivy jakarta-commons-cli"
+
+# Set parameters
+set_jvm
+set_classpath $BASE_JARS
+set_flags $BASE_FLAGS
+set_options $BASE_OPTIONS
+
+# Let's start
+run "$@"
