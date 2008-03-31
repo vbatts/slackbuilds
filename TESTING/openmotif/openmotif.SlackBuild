@@ -56,21 +56,6 @@ make install DESTDIR=$PKG || exit 1
   for i in $( find . -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 )
 
-# Compress info pages and remove the package's dir file
-# If no info pages are installed by the software, don't leave this in the script
-rm -f $PKG/usr/info/dir
-gzip -9 $PKG/usr/info/*.info*
-
-# Remove perllocal.pod and other special files that don't need to be installed,
-# as they will overwrite what's already on the system.  If this is not needed, 
-# remove it from the script.
-( cd $PKG
-  # Remove 'special' files
-  find . -name perllocal.pod \
-    -o -name ".packlist" \
-    -o -name "*.bs" \
-    | xargs rm -f
-)
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a COPYRIGHT.MOTIF INSTALL.configure BUGREPORT ChangeLog LICENSE README RELNOTES RELEASE $PKG/usr/doc/$PRGNAM-$VERSION
@@ -80,9 +65,5 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
-# Make the package; be sure to leave it in $OUTPUT
-# If package symlinks need to be created during install *before*
-# your custom contents of doinst.sh runs, then add the -p switch to
-# the makepkg command below -- see makepkg(8) for details
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz
