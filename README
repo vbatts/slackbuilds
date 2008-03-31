@@ -28,6 +28,9 @@ they are here, working or not
   gtkhtml
   gnucash
   ldtp - 25.Feb.2008 - linux desktop testing project
+  atk
+  libonobo
+  at-spi
   qtstalker - 2.Mar.2008 - stock and finance ticker
   xlt
   openmotif
