@@ -21,6 +21,7 @@ they are here, working or not
   guile
   vncserver 
   ta-lib - 2.Mar.2008 - dependency for qtstalker, still needs slack-desc info
+  xlt - 31.mar.2008, ready to submit
 
 
 ** BROKEN **
@@ -32,6 +33,5 @@ they are here, working or not
   libonobo
   at-spi
   qtstalker - 2.Mar.2008 - stock and finance ticker
-  xlt
   openmotif
   xmlblackberry
