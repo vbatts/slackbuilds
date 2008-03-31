@@ -1,7 +1,9 @@
-xlt: xlt ( a motif library)
+xlt: xlt ( the libXlt library)
 xlt: 
-xlt: 
-xlt: 
-xlt: 
+xlt: The Xlt widget set is a group of larger and smaller utility 
+xlt: widgets, authored by Rick Scott unless stated otherwise. In
+xlt: addition the Xlt library also suppplied a couple of 
+xlt: convenience functions (and macros) to help with certain 
+xlt: tasks while programming with the Motif API.
 xlt: 
 xlt: 

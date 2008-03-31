@@ -7,7 +7,8 @@
 set -e
 
 PRGNAM=xlt
-VERSION=13.0.13
+BIG_PRGNAM=Xlt
+VERSION=11.1.11
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -25,9 +26,9 @@ fi
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION
-tar xzvf $CWD/Xtl-$VERSION.tar.gz || exit 1 
-cd $PRGNAM-$VERSION
+rm -rf $BIG_PRGNAM-$VERSION
+tar xzvf $CWD/$BIG_PRGNAM-$VERSION.tar.gz || exit 1 
+cd $BIG_PRGNAM-$VERSION
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -56,37 +57,19 @@ make install DESTDIR=$PKG || exit 1
   for i in $( find . -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 )
 
-# Compress info pages and remove the package's dir file
-# If no info pages are installed by the software, don't leave this in the script
-rm -f $PKG/usr/info/dir
-gzip -9 $PKG/usr/info/*.info*
+#rm -f $PKG/usr/info/dir
+#gzip -9 $PKG/usr/info/*.info*
 
-# Remove perllocal.pod and other special files that don't need to be installed,
-# as they will overwrite what's already on the system.  If this is not needed, 
-# remove it from the script.
-( cd $PKG
-  # Remove 'special' files
-  find . -name perllocal.pod \
-    -o -name ".packlist" \
-    -o -name "*.bs" \
-    | xargs rm -f
-)
 
-# Copy program documentation into the package
-# The included documentation varies from one application to another, so be sure
-# to adjust your script as needed
-# Also, include the SlackBuild script in the documentation directory
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a <documentation> $PKG/usr/doc/$PRGNAM-$VERSION
+mv -v $PKG/usr/$BIG_PRGNAM/doc/* $PKG/usr/doc/$PRGNAM-$VERSION/
+rm -rf $PKG/usr/$BIG_PRGNAM
+cp -a INSTALL COPYING COPYING.LIB AUTHORS ChangeLog NEWS README $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
-# Copy the slack-desc (and a custom doinst.sh if necessary) into ./install
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
-# Make the package; be sure to leave it in $OUTPUT
-# If package symlinks need to be created during install *before*
-# your custom contents of doinst.sh runs, then add the -p switch to
-# the makepkg command below -- see makepkg(8) for details
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz
