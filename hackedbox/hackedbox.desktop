@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=XSession
+Exec=hackedbox
+TryExec=hackedbox
+Name=hackedbox
+Comment=the hackedbox window manager

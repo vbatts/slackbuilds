@@ -4,8 +4,6 @@
 
 # Written by Vincent Batts, vbatts@batts.mine.nu
 
-set -e
-
 PRGNAM=hackedbox
 VERSION=0.8.5
 ARCH=${ARCH:-i486}
@@ -57,6 +55,12 @@ make install DESTDIR=$PKG || exit 1
   find . -type f -exec gzip -9 {} \;
   for i in $( find . -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 )
+
+mkdir -p $PKG/usr/share/apps/kdm/sessions/
+cat $CWD/hackedbox.desktop > $PKG/usr/share/apps/kdm/sessions/hackedbox.desktop
+
+mkdir -p $PKG/etc/X11/xinit/
+cat $CWD/xinitrc.hackedbox > $PKG/etc/X11/xinit/xinitrc.hackedbox
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a AUTHORS COPYING INSTALL ChangeLog README TODO $PKG/usr/doc/$PRGNAM-$VERSION
