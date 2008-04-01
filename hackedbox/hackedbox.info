@@ -1,0 +1,7 @@
+PRGNAM="hackedbox"
+VERSION="0.8.5"
+HOMEPAGE="http://www.scrudgeware.org/projects/Hackedbox"
+DOWNLOAD="http://www.scrudgeware.org/downloads/hackedbox-0.8.5.tar.gz"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@batts.mine.nu"
+APPROVED=""

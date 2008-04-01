@@ -1,0 +1,8 @@
+hackedbox:  hackedbox (the bastard son of blackbox)
+hackedbox:  
+hackedbox:  Hackedbox is a stripped down version of Blackbox - 
+hackedbox:  The X11 Window Manager (http://blackboxwm.sourceforge.net/). 
+hackedbox:  The toolbar and Slit have been removed. The goal of 
+hackedbox:  Hackedbox is to be a small "feature-set" window manager, 
+hackedbox:  with no bloat. There are no plans to add any functionality, 
+hackedbox:  only bugfixes and speed enhancements whenever possible.
