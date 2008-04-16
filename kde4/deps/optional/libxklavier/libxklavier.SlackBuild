@@ -24,7 +24,7 @@
 
 # Modified by Robby Workman <rworkman at slackware.com>
 
-VERSION=3.4
+VERSION=3.5
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 

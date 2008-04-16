@@ -1,5 +1,5 @@
 PRGNAM="raptor"
-VERSION="1.4.16"
+VERSION="1.4.17"
 HOMEPAGE="http://librdf.org/"
-DOWNLOAD="http://download.librdf.org/source/raptor-1.4.16.tar.gz"
-MD5SUM="49c16262e0aed0197a3e60ade7bec205"
+DOWNLOAD="http://download.librdf.org/source/raptor-1.4.17.tar.gz"
+MD5SUM="1cf4627c91fbe5f7ab3c358351a27f79"

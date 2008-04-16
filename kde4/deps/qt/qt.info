@@ -1,5 +1,5 @@
 PRGNAM="qt"
-VERSION="4.3.3"
+VERSION="4.4.0"
 HOMEPAGE="http://trolltech.com/products/qt"
-DOWNLOAD="ftp://ftp.trolltech.com/qt/source/qt-x11-opensource-src-4.3.3.tar.gz"
-MD5SUM="19678fe35170559cd6a6fa531c57799c"
+DOWNLOAD="ftp://ftp.trolltech.com/qt/source/qt-x11-opensource-src-4.4.0-rc1.tar.bz2"
+MD5SUM="9bb12f07372e2599e88e61778891b25d"

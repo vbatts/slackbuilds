@@ -26,7 +26,7 @@
 # bjam-build system mostly taken from SlackBuild by Eric Hameleers 
 # Script modified by Robby Workman - no copyright claims or added terms
 
-VERSION=1_34_1
+VERSION=1_35_0
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 
@@ -70,7 +70,7 @@ PYTHON_FLAGS="-sPYTHON_ROOT=/usr -sPYTHON_VERSION=$PYTHON_VERSION"
 
 # This fixes a critical bug that affects the construction of 
 # Boost.Function objects in a multi-threaded context.
-zcat $CWD/boost-1_34_1-function-bugfix.diff.gz | patch -p1 || exit 1
+#zcat $CWD/boost-1_34_1-function-bugfix.diff.gz | patch -p1 || exit 1
 
 # First build bjam, the boost build system:
 cd tools/jam/src
