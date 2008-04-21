@@ -12,7 +12,7 @@ they are here, working or not
 
 
 ** STABLE **
-  kde4 (and all subdirectories)
+  kde4, coexistisng with kde-3.5.x (and all subdirectories)
   wxGTK
   gconf
   fuse
