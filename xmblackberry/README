@@ -3,5 +3,5 @@ BlackBerry backup/restore and GPRS modem access
 Requires:
  * OpenMotif, theres a SlackBuild submitted, also found at http://batts.mine.nu/pub/src/SlackBuilds/openmotif/
  * Xlt, theres a SlackBuild submitted, also found at http://batts.mine.nu/pub/src/SlackBuilds/xlt/
- * libusb
+ * libusb, by default included in the Slackware full install
  * opensync (optional for attempting synchronization)

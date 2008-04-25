@@ -4,3 +4,9 @@ Open Motif is the freely available source code
 distribution for the Motif user interface component 
 toolkit. Open Motif is built on top of the standard
 X Toolkit(Xt) and X11 libraries.
+
+
+** DEPENDENCIES **
+xlt (libXlt libraries), this SlackBuild is currently available 
+  on http://batts.mine.nu/pub/src/SlackBuilds/xlt/, and should 
+  be on http://www.slackbuilds.org/ at some point.
