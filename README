@@ -16,7 +16,6 @@ they are here, working or not
   kde4, coexistisng with kde-3.5.x (and all subdirectories)
   wxGTK
   gconf
-  fuse
   orbit
   truecrypt
   guile
