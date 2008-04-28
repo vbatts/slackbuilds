@@ -1,8 +1,0 @@
-PRGNAM="fuse"
-VERSION="2.7.1"
-HOMEPAGE="http://fuse.sourceforge.net"
-DOWNLOAD="http://downloads.sourceforge.net/fuse/fuse-2.7.1.tar.gz"
-MD5SUM="f95b4a238a3df5a92e9013ecb55c2c17"
-MAINTAINER="core"
-EMAIL="eroc@linuxmail.org"
-APPROVED="rworkman"
