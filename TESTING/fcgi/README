@@ -1,0 +1,5 @@
+fast cgi
+
+ALSO, mod_fcgi for httpd
+  mod_fcgi can be found at 
+DOWNLOAD="http://superb-east.dl.sourceforge.net/sourceforge/mod-fcgid/mod_fcgid.2.2.tgz"
