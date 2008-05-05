@@ -1,0 +1,8 @@
+fcgi:  fcgi - Fast CGI
+fcgi:  
+fcgi:  is a language independent, scalable, open 
+fcgi:  extension to CGI that provides high perfomance
+fcgi:  without the limitations of server specific API's
+fcgi:  
+fcgi:  (http://www.fastcgi.com)
+fcgi:  

@@ -57,12 +57,12 @@ mkdir -p $PKG/$HTTPD_DIR/modules
 ln -s $HTTPD_DIR/build $PKG/$HTTPD_DIR/
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
-make top_dir=$PKG/$HTTPD_DIR
+make top_dir=$HTTPD_DIR
 cp ./.libs/mod_fcgid.so $PKG/$HTTPD_DIR/modules
 rm $PKG/$HTTPD_DIR/build
 
 mkdir -p $PKG/etc/httpd/extra
-cp $CWD/http-fcgi.conf $PKG/etc/httpd/extra/
+cp $CWD/httpd-fcgi.conf $PKG/etc/httpd/extra/
 
 ( cd $PKG
   find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
