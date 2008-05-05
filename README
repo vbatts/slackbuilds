@@ -20,11 +20,12 @@ they are here, working or not
   truecrypt
   guile
   ta-lib - 2.Mar.2008 - dependency for qtstalker, still needs slack-desc info
-  xlt - 31.mar.2008, ready to submit
-  openmotif - 31.mar.2008, ready to submit
-  xmlblackberry - 31.mar.2008, ready to submit
+  xlt - 31.mar.2008, ready to submit; 5.May.2008, submitted
+  openmotif - 31.mar.2008, ready to submit; 5.May.2008, submitted
+  xmlblackberry - 31.mar.2008, ready to submit; 5.May.2008, submitted
   hackedbox - 01.april.2008, ready to submit
-  ipcalc - 22.April.2008, ready to submit
+  ipcalc - 22.April.2008, ready to submit; 5.May.2008, submitted
+  fcgi - 5.May.2008, ready to submit; 5.May.2008, submitted
 
 
 ** TESTING/BROKEN **
