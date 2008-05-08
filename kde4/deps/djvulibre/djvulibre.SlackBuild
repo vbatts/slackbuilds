@@ -56,6 +56,8 @@ find . \
 # qt4 right now.  It won't matter, as we only need the headers and libs
 # anyway for okular to use, so ignore the warnings... :)
 
+QTDIR="/usr/lib/qt4"
+KDEDIR="/opt/kde4"
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
