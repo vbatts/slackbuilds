@@ -37,12 +37,17 @@ for module in \
   cd - ;
 done
 
-cd $OWD/optional
+#cd $OWD/optional
 # Order shouldn't matter for the rest of these
 for module in \
   chmlib \
+  akonadi \
   enchant \
   exiv2 \
+  ilmbase \
+  openexr \
+  sqlite \
+  djvulibre \
   libraw1394 \
   libvncserver \
   libxklavier \
@@ -60,6 +65,4 @@ do
   fi
   cd - ;
 done
-cd $OWD
-
-
+#cd $OWD
