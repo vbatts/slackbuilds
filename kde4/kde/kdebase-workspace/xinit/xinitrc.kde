@@ -28,8 +28,9 @@ if [ -d $QT4DIR ]; then
   if [ -d $KDE4DIR ]; then
     QTDIR=$QT4DIR
     KDEDIR=$KDE4DIR
+    KDEHOME=$KDE4HOME
     PATH=$KDEDIR/bin:$QTDIR/bin:$PATH
-    export QTDIR KDEDIR PATH
+    export QTDIR KDEDIR PATH KDEHOME
   fi
 fi
 
