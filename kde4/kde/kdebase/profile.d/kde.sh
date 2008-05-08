@@ -1,5 +1,7 @@
 #!/bin/sh
 # KDE additions:
+KDE4HOME="$HOME/.kde4"
+export KDE4HOME
 KDE4DIR=/opt/kde4
 export KDE4DIR
 if [ ! "$XDG_CONFIG_DIRS" = "" ]; then

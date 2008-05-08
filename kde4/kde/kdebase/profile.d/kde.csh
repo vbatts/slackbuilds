@@ -1,5 +1,6 @@
 #!/bin/csh
 # KDE additions:
+setenv KDE4HOME "$HOME/.kde4"
 if ( ! $?KDE4DIR ) then
     setenv KDE4DIR /opt/kde4
 endif
