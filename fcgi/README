@@ -1,10 +1,3 @@
-fast cgi
- is a language independent, scalable, open 
- extension to CGI that provides high perfomance
- without the limitations of server specific API's
- (http://www.fastcgi.com)
+fast cgi is a language independent, scalable, open extension to CGI that 
+provides high perfomance without the limitations of server specific API's
 
-ALSO, mod_fcgi for httpd
-  mod_fcgi can be found at 
-DOWNLOAD="http://superb-east.dl.sourceforge.net/sourceforge/mod-fcgid/mod_fcgid.2.2.tgz"
-MD5SUM="ce7d7b16e69643dbd549d43d85025983"
