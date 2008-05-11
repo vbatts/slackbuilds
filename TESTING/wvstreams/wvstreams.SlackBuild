@@ -1,11 +1,11 @@
 #!/bin/sh
 
-# Slackware build script for wvdial
+# Slackware build script for wvstreams
 
 # Written by Vincent Batts, vbatts@batts.mine.nu
 
-PRGNAM=wvdial
-VERSION=1.60
+PRGNAM=wvstreams
+VERSION=4.4.1
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -37,6 +37,7 @@ CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
+  --disable-testgui \
   --sysconfdir=/etc \
   --localstatedir=/var \
   --mandir=/usr/man || exit 1
@@ -49,31 +50,12 @@ make install DESTDIR=$PKG || exit 1
   find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
 )
 
-( cd $PKG/usr/man
-  find . -type f -exec gzip -9 {} \;
-  for i in $( find . -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
-)
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION || exit 1
+cp -a COPYING.LIB ChangeLog README README.TESTS $PKG/usr/doc/$PRGNAM-$VERSION
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild || exit 1 
 
-rm -f $PKG/usr/info/dir
-gzip -9 $PKG/usr/info/*.info*
+mkdir -p $PKG/install || exit 1
+cat $CWD/slack-desc > $PKG/install/slack-desc || exit 1
 
-# Remove perllocal.pod and other special files that don't need to be installed,
-# as they will overwrite what's already on the system.  If this is not needed, 
-# remove it from the script.
-( cd $PKG
-  # Remove 'special' files
-  find . -name perllocal.pod \
-    -o -name ".packlist" \
-    -o -name "*.bs" \
-    | xargs rm -f
-)
-
-mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a CHANGES COPYING.LIB ChangeLog FAQ README TODO MENUS $PKG/usr/doc/$PRGNAM-$VERSION
-cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
-
-mkdir -p $PKG/install
-cat $CWD/slack-desc > $PKG/install/slack-desc
-
-cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz
+cd $PKG || exit 1
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz || exit 1
