@@ -1,0 +1,9 @@
+WvDial,
+it's a program that makes it easy to connect your Linux 
+workstation to the Internet. It will automatically detect
+ your modem, and it can log into almost any Internet 
+provider's server without any special configuration.
+
+
+DEPENDENCIES:
+  * wvstreams < 4.4
