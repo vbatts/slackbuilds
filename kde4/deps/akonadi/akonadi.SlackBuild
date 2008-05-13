@@ -44,6 +44,11 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
+#KDE4 stuff
+export QTDIR=/usr/lib/qt4
+export KDEDIR=/opt/kde4
+export PATH=$QTDIR/bin:$KDEDIR/bin:$PATH
+
 # First, we have to build automoc4, which is required to build akonadi
 cd automoc
   mkdir -p build
