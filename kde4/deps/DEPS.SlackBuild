@@ -53,6 +53,7 @@ for module in \
   libvncserver \
   libxklavier \
   libzip \
+  libgphoto2 \
   poppler \
   poppler-data ;
 do  
