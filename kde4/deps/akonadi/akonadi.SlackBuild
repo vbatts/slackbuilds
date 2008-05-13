@@ -22,7 +22,7 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=0.80.0
+VERSION=svn_804721
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 
@@ -44,6 +44,21 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
+# First, we have to build automoc4, which is required to build akonadi
+cd automoc
+  mkdir -p build
+    cmake \
+      -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
+      -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
+      -DCMAKE_INSTALL_PREFIX=/usr \
+      -DMAN_INSTALL_DIR=/usr/man \
+      ..
+    make
+    # Yes, we'll spam the build box, but it won't matter...
+    make install
+    make install DESTDIR=$PKG
+cd -
+
 mkdir -p build
 cd build
   cmake \
@@ -61,7 +76,7 @@ if [ -d $PKG/usr/man ]; then
 fi
 
 mkdir -p $PKG/usr/doc/akonadi-$VERSION
-cp -a AUTHORS lgpl-license $PKG/usr/doc/akonadi-$VERSION
+cp -a AUTHORS INSTALL README lgpl-license $PKG/usr/doc/akonadi-$VERSION
 
 ( cd $PKG
   find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
