@@ -4,12 +4,16 @@ vbatts@batts.mine.nu
 they are here, working or not
 
 ** PUBLISHED @ SlackBuilds.org **
-  barry
+  barry :: Updated to v. 0.12, 12.May.2008
   x11-ssh-askpass
   bonnie
   bonniexx
   blokkal 
   wxX11
+  fcgi - 5.May.2008, ready to submit; 5.May.2008, submitted; 12.May.2008, published
+  ipcalc - 22.April.2008, ready to submit; 5.May.2008, submitted; 12.May.2008, published
+  wvstreams - 11.May.2008, ready to submit; 11.May.2008, submitted; 15.May.2008, Published
+  wvdial - 11.May.2008, ready to submit; 11.May.2008, submitted; 15.May.2008, Published
 
 
 ** STABLE **
@@ -24,10 +28,6 @@ they are here, working or not
   openmotif - 31.mar.2008, ready to submit; 5.May.2008, submitted
   xmlblackberry - 31.mar.2008, ready to submit; 5.May.2008, submitted
   hackedbox - 01.april.2008, ready to submit
-  ipcalc - 22.April.2008, ready to submit; 5.May.2008, submitted
-  fcgi - 5.May.2008, ready to submit; 5.May.2008, submitted
-  wvstreams - 11.May.2008, ready to submit; 11.May.2008, submitted
-  wvdial - 11.May.2008, ready to submit; 11.May.2008, submitted
 
 ** TESTING/BROKEN **
   xbench
