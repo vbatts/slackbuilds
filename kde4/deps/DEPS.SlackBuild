@@ -11,6 +11,7 @@ PATH=/opt/kde4/bin:$QTDIR/bin:$PATH
 export QTDIR PATH
 
 # 
+doit() {
 for module in \
     boost \
     qt \
@@ -36,12 +37,13 @@ for module in \
   fi
   cd - ;
 done
+}
 
-#cd $OWD/optional
 # Order shouldn't matter for the rest of these
+#for module in \
+#  chmlib \ 
+# akonadi \
 for module in \
-  chmlib \
-  akonadi \
   enchant \
   exiv2 \
   ilmbase \

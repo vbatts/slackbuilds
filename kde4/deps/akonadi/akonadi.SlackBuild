@@ -22,9 +22,13 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=svn_804721
+VERSION=r819117
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
+
+# This shouldn't be needed sooner or later, but for now...
+#MOC_VERSION=r810529
+# I bundled automoc into akonadi's tarball this time
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
@@ -50,18 +54,22 @@ export KDEDIR=/opt/kde4
 export PATH=$QTDIR/bin:$KDEDIR/bin:$PATH
 
 # First, we have to build automoc4, which is required to build akonadi
+#tar xf $CWD/automoc-$MOC_VERSION.tar.bz2
+#cd automoc-$MOC_VERSION
 cd automoc
-  mkdir -p build
-    cmake \
-      -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
-      -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
-      -DCMAKE_INSTALL_PREFIX=/usr \
-      -DMAN_INSTALL_DIR=/usr/man \
-      ..
-    make
-    # Yes, we'll spam the build box, but it won't matter...
-    make install
-    make install DESTDIR=$PKG
+  cmake \
+    -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
+    -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
+    -DCMAKE_INSTALL_PREFIX=/usr .
+  make
+  # We'll put that stuff in $PKG
+  make install DESTDIR=$PKG
+#  mkdir -p $PKG/usr/bin $PKG/usr/lib/automoc4
+#  install -m 0755 automoc4 $PKG/usr/bin
+#  install -m 0644 Automoc4Config.cmake automoc4.files.in \
+#    $PKG/usr/lib/automoc4
+  # and now we'll spam the build box, but it won't matter...
+  make install
 cd -
 
 mkdir -p build
