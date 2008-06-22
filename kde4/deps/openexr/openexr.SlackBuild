@@ -84,4 +84,4 @@ mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-/sbin/makepkg -l y -c n $TMP/$PRGNAM-$VERSION-$ARCH-$BUILD.tgz
+/sbin/makepkg -l y -c n /tmp/$PRGNAM-$VERSION-$ARCH-$BUILD.tgz

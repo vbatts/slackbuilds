@@ -22,14 +22,14 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-PKGNAME=chmlib
+PRGNAME=chmlib
 VERSION=0.39
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-$PKGNAME
+PKG=$TMP/package-$PRGNAME
 
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
@@ -44,9 +44,9 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG
 cd $TMP
-rm -rf $PKGNAME-$VERSION
-tar xvf $CWD/$PKGNAME-$VERSION.tar.bz2
-cd $PKGNAME-$VERSION
+rm -rf $PRGNAME-$VERSION
+tar xvf $CWD/$PRGNAME-$VERSION.tar.bz2
+cd $PRGNAME-$VERSION
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -58,7 +58,7 @@ CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
-  --docdir=/usr/doc/$PKGNAME-$VERSION \
+  --docdir=/usr/doc/$PRGNAME-$VERSION \
   --disable-static \
   --build=$ARCH-slackware-linux \
   --host=$ARCH-slackware-linux
@@ -73,11 +73,11 @@ rmdir $PKG/usr/bin # Kill unused directory
   find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
 )
 
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a AUTHORS COPYING NEWS README $PKG/usr/doc/$PKGNAME-$VERSION || true
+mkdir -p $PKG/usr/doc/$PRGNAME-$VERSION
+cp -a AUTHORS COPYING NEWS README $PKG/usr/doc/$PRGNAME-$VERSION || true
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-/sbin/makepkg -l y -c n ../$PKGNAME-$VERSION-$ARCH-$BUILD.tgz
+/sbin/makepkg -l y -c n /tmp/$PRGNAME-$VERSION-$ARCH-$BUILD.tgz

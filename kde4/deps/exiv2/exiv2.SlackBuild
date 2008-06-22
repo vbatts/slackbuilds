@@ -85,4 +85,4 @@ mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-/sbin/makepkg -l y -c n ../exiv2-$VERSION-$ARCH-$BUILD.tgz
+/sbin/makepkg -l y -c n /tmp/exiv2-$VERSION-$ARCH-$BUILD.tgz

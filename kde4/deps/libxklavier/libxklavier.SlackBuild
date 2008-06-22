@@ -83,4 +83,4 @@ mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-/sbin/makepkg -l y -c n ../libxklavier-$VERSION-$ARCH-$BUILD.tgz
+/sbin/makepkg -l y -c n /tmp/libxklavier-$VERSION-$ARCH-$BUILD.tgz

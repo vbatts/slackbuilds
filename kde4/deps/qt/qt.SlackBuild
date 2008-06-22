@@ -24,14 +24,14 @@
 # ^^ Modified by Robby Workman <rworkman@slackware.com> for QT4 & KDE4
 # ^^ Modified more by Vincent Batts <vbatts@batts.mine.nu> for QT4 & KDE4 to coexist
 
-PKGNAM=qt4
+PRGNAM=qt4
 VERSION=${VERSION:-4.4.0}
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-2_vbatts}
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-${PKGNAM}
+PKG=$TMP/package-${PRGNAM}
 
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
@@ -119,16 +119,16 @@ mkdir -p $PKG/usr/lib/pkgconfig
 )
 
 # Add a documentation directory:
-mkdir -p $PKG/usr/doc/$PKGNAM-$VERSION
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a GPL_EXCEPTION.TXT GPL_EXCEPTION_ADDENDUM.TXT INSTALL LICENSE.GPL2 LICENSE.GPL3 \
   LICENSE.QPL OPENSOURCE-NOTICE.TXT README \
-  $PKG/usr/doc/$PKGNAM-$VERSION
-( cd $PKG/usr/doc/$PKGNAM-$VERSION ; ln -sf /usr/lib/qt4/doc/html . )
+  $PKG/usr/doc/$PRGNAM-$VERSION
+( cd $PKG/usr/doc/$PRGNAM-$VERSION ; ln -sf /usr/lib/qt4/doc/html . )
 
 mkdir -p $PKG/install
 zcat $CWD/doinst.sh.gz > $PKG/install/doinst.sh
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-/sbin/makepkg -l y -c n /tmp/${PKGNAM}-$VERSION-$ARCH-$BUILD.tgz
+/sbin/makepkg -l y -c n /tmp/${PRGNAM}-$VERSION-$ARCH-$BUILD.tgz
 
