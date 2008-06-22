@@ -6,6 +6,7 @@
 OWD=$(pwd)
 
 export BUILD="1_vbatts"
+export TMP="/tmp/kde4-coex/deps/"
 
 # This avoids compiling a version number into KDE's .la files:
 export QTDIR=/usr/lib/qt4
