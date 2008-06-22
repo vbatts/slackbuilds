@@ -42,7 +42,9 @@ done
 # Order shouldn't matter for the rest of these
 for module in \
   chmlib \ 
- akonadi \
+  phonon \
+  sip \
+  akonadi \
   enchant \
   exiv2 \
   ilmbase \
@@ -50,13 +52,19 @@ for module in \
   sqlite \
   djvulibre \
   libarchive \
+  liboil \
+  libdvdread \
   libraw1394 \
   libvncserver \
   libxklavier \
   libzip \
   libgphoto2 \
   poppler \
-  poppler-data ;
+  poppler-data \
+  PyQt \
+  gstreamer \
+  gst-plugins-base \
+  QScintilla ;
 do  
   cd $module
   ./$module.SlackBuild
