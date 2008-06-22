@@ -5,10 +5,11 @@
 
 OWD=$(pwd)
 
+export BUILD="1_vbatts"
+
 # This avoids compiling a version number into KDE's .la files:
-QTDIR=/usr/lib/qt4
-PATH=/opt/kde4/bin:$QTDIR/bin:$PATH
-export QTDIR PATH
+export QTDIR=/usr/lib/qt4
+export PATH=/opt/kde4/bin:$QTDIR/bin:$PATH
 
 # 
 for module in \
