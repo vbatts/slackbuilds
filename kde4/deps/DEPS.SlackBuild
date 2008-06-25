@@ -41,8 +41,8 @@ done
 
 # Order shouldn't matter for the rest of these
 for module in \
-  chmlib \ 
   phonon \
+  chmlib \ 
   sip \
   akonadi \
   enchant \

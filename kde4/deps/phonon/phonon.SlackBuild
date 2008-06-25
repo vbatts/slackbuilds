@@ -30,6 +30,9 @@ CWD=$(pwd)
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-phonon
 
+QTDIR=/usr/lib/qt4
+PATH=$QTDIR/bin:$PATH
+
 set -e
 
 rm -rf $PKG
