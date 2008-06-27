@@ -44,7 +44,7 @@ done
 for module in \
   akonadi \ # provides the kdesupport needed by some of these subsequent packages
   phonon \
-  chmlib \ 
+  chmlib \
   sip \
   enchant \
   exiv2 \
@@ -77,4 +77,3 @@ do
   fi
   cd - ;
 done
-#cd $OWD
