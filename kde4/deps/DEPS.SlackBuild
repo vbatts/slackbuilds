@@ -41,7 +41,7 @@ done
 
 # Order shouldn't matter for the rest of these
 for module in \
-  akonadi \
+  akonadi \ # provides the kdesupport needed by some of these subsequent packages
   phonon \
   chmlib \ 
   sip \

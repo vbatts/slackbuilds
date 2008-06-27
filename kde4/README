@@ -14,7 +14,9 @@ when building soprano).
 Build order for dependencies:
   1. boost   2. qt   3. eigen   4. clucene   5. raptor   6. rasqal   
   7. redland   8. strigi   9. soprano   10. qimageblitz   11. qca   
-  12. qca-$plugins   13. optional/*  14. poppler & poppler-data
+  12. qca-$plugins   13. poppler & poppler-data  14. the 'optional' deps
+  have been moved in to the main folder, there isn't a particular order, but 
+  reference the deps/DEPS.SlackBuild
 The poppler and poppler-data packages should be built after installing qt 
 (so that the poppler-qt4 stuff will build).
 ##############################################################################
