@@ -41,10 +41,10 @@ done
 
 # Order shouldn't matter for the rest of these
 for module in \
+  akonadi \
   phonon \
   chmlib \ 
   sip \
-  akonadi \
   enchant \
   exiv2 \
   ilmbase \
