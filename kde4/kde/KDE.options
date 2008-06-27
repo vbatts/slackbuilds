@@ -3,7 +3,7 @@
 # usually has a different version number), or by setting your own
 # environment variables.
 
-[ -z $VERSION ] && export VERSION=4.0.82
+[ -z $VERSION ] && export VERSION=4.0.84
 [ -z $ARCH ] && export ARCH=i486
 [ -z $BUILD ] && export BUILD=1_vbatts
 
@@ -35,6 +35,6 @@ fi
 
 # adding the qt4 executables the to build path
 if [ -d /usr/lib/qt4 ] ; then 
-  QTDIR=/usr/lib/qt4
-  PATH=$QTDIR/bin:$PATH
+  export QTDIR=/usr/lib/qt4
+  export PATH=$QTDIR/bin:$PATH
 fi
