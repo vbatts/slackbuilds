@@ -69,14 +69,12 @@ do
   cd -
 done
 
-NotYet() {
-    for extragear in \
-	amarok \
-	k3b \
-	kaudiocreator ;
-    do
-	cd $extragear
-	./$extragear.SlackBuild
-	cd -
-    done
-}
+for extragear in \
+  amarok \
+  k3b \
+  kaudiocreator ;
+do
+  cd $extragear
+  ./$extragear.SlackBuild
+  cd -
+done
