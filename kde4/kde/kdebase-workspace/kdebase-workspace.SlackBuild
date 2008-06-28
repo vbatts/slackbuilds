@@ -72,9 +72,9 @@ sed -i 's/KDE/KDE4/g' \
   $PKG/$KDEDIR/share/apps/kdm/sessions/kde4.desktop
 sed -i 's/startkde/kde4/g' \
   $PKG/$KDEDIR/share/apps/kdm/sessions/kde4.desktop
-cat $CWD/sessions/kde3.desktop > $PKG/$KDEDIR/share/apps/kdm/sessions/kde3.desktop
+cat $CWD/sessions/kde3.desktop > $PKG/$KDEDIR/share/apps/kdm/sessions/kde.desktop
 sed -i 's/KDE/KDE3/g' \
-  $PKG/$KDEDIR/share/apps/kdm/sessions/kde3.desktop
+  $PKG/$KDEDIR/share/apps/kdm/sessions/kde.desktop
 mkdir -p $PKG/usr/share/apps/kdm/sessions/
 cp $PKG/$KDEDIR/share/apps/kdm/sessions/kde4.desktop $PKG/usr/share/apps/kdm/sessions/kde4.desktop
 
