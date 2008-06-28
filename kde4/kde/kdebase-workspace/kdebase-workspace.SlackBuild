@@ -82,9 +82,10 @@ cp $PKG/$KDEDIR/share/apps/kdm/sessions/kde4.desktop $PKG/usr/share/apps/kdm/ses
 cat << xxEOFxx > $PKG/$KDEDIR/bin/kde4
 #!/bin/sh
 
-KDEDIR=\$KDE4DIR
-QTDIR=\$QT4DIR
-PATH=\$KDEDIR/bin:\$QTDIR/bin:\$PATH
+export KDEDIR=\$KDE4DIR
+export QTDIR=\$QT4DIR
+export PATH=\$KDEDIR/bin:\$QTDIR/bin:\$PATH
+export KDEHOME=\$HOME/.kde4
 
 $(echo $KDEDIR)/bin/startkde
 
