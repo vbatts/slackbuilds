@@ -44,7 +44,13 @@ for module in \
   cd $module
   ./$module.SlackBuild
   if [ $? = 0 ]; then
-    installpkg /tmp/${module}4-*.tgz
+    if [ $module = 'kdebase-workspace' ] ; then
+      installpkg /tmp/kdebase4-workspace-*.tgz
+    elif [ $module = 'kdebase-runtime' ] ; then
+      installpkg /tmp/kdebase4-runtime-*.tgz
+    else
+      installpkg /tmp/${module}4-*.tgz
+    fi
   else
     echo "${module} failed to build."
     exit 1
