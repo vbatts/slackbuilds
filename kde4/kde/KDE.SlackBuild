@@ -10,14 +10,6 @@ if [ ! -r /var/log/packages/cups-* ]; then
   sleep 10
 fi
 
-# These are also prerequisites (located in the L series)
-# l/pcre  l/libxml2  l/libxslt
-# boost, clucene, eigen, ladspa_sdk, liblrdf, qca*, qimageblitz,
-# qt4, raptor, rasqal, redland, soprano, strigi
-
-# kdeaccessibility builds plugins for epos, festival, flite, freetts, and
-# hadifix, so they should work with kde if any of those are installed later
-
 # Set the config option variables if they are not already set:
 [ -r ./KDE.options ] && . ./KDE.options
 
@@ -25,9 +17,30 @@ if [ -d kdebase ]; then
   . ./kdebase/profile.d/kde.sh
 fi
 
-# kdelibs, kdepimlibs, and kdebase must be done first
-#for module in kdelibs kdepimlibs kdebase ; do 
-for module in kdelibs kdepimlibs kdebase ; do 
+for module in \
+  kdelibs \
+  kdepimlibs \
+  kdevplatform \
+  kdevelop \
+  kdebase-workspace \
+  kdebase \
+  kdebase-workspace \
+  kdebase-runtime \
+  kdeaccessibility \
+  kdeutils \
+  kdemultimedia \
+  kdenetwork \
+  kdeadmin \
+  kdeartwork \
+  kdegames \
+  kdetoys \
+  kdegraphics \
+  kdesdk \
+  kdewebdev \
+  kdepim \
+  kdeedu \
+  kdeplasmoids \
+  kdebindings ; do 
   cd $module
   ./$module.SlackBuild
   if [ $? = 0 ]; then
@@ -39,31 +52,6 @@ for module in kdelibs kdepimlibs kdebase ; do
   cd - ;
 done
 
-# Order shouldn't matter for the rest of these
-for module in \
-  kdebase-runtime \
-  kdebase-workspace \
-  kdebindings \
-  kdeaccessibility \
-  kdeutils \
-  kdemultimedia \
-  kdenetwork \
-  kdeadmin \
-  kdeartwork \
-  kdegames \
-  kdetoys \
-  kdeedu \
-  kdegraphics \
-  kdesdk \
-  kdewebdev \
-  koffice \
-  kdepim ; 
-do  
-  cd $module
-  ./$module.SlackBuild
-  cd -
-done
-
 for extragear in \
   amarok \
   k3b \
@@ -71,5 +59,6 @@ for extragear in \
 do
   cd $extragear
   ./$extragear.SlackBuild
+  installpkg /tmp/$extragear*.SlackBuild
   cd -
 done
