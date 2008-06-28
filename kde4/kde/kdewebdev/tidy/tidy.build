@@ -21,9 +21,10 @@
 
 # Modified by Robby Workman <rworkman@slackware.com> 20071221 
 # for new cvs pull and changed include directory for kde4's kdewebdev
+# New cvs version - 20080502
 
 PKGNAM=tidy
-VERSION=20071221T0904
+VERSION=20080502T0256
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 
@@ -31,22 +32,19 @@ CWD=$(pwd)
 TMP=${TMP:-/tmp}
 
 PKG=$1
-INSTALLDIR=$2
 
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
 elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
 elif [ "$ARCH" = "x86_64" ]; then
-  SLKCFLAGS="-O2"
+  SLKCFLAGS="-O2 -fPIC"
 fi
 
 cd $TMP
 rm -rf ${PKGNAM}
 tar xvf $CWD/${PKGNAM}-$VERSION.tar.bz2
-
 cd ${PKGNAM}
-
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -59,7 +57,7 @@ sh build/gnuauto/setup.sh
 
 CFLAGS="$SLKCFLAGS" \
 ./configure \
-  --prefix="$INSTALLDIR" \
+  --prefix=$KDEDIR \
   --includedir=/usr/include/tidy \
   --disable-static \
   --build=$ARCH-slackware-linux \
