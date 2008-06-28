@@ -67,6 +67,7 @@ sh build/gnuauto/setup.sh
 CFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=$KDEDIR \
+  --includedir=$KDEDIR/include/tidy \
   --disable-static \
   $ARCH-slackware-linux
 
