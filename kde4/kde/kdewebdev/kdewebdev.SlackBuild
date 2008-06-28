@@ -15,17 +15,11 @@ if [ -r ./local.options ]; then
   . ./local.options
 fi
 
-# Avoid a version number in .la files:
-if [ -d /usr/lib/qt4 ]; then
-  QTDIR=/usr/lib/qt4
-fi
-
 set -e	# Exit on most errors
 
-INSTALLDIR="/opt/kde4"
 rm -rf $PKG
 mkdir -p $PKG/usr
-mkdir -p $PKG/$INSTALLDIR/lib
+mkdir -p $PKG/$KDEDIR/lib
 
 VERSION_KDE=$VERSION
 # First, build and install Tidy:
@@ -34,7 +28,7 @@ cd ./tidy/
   echo "Building htmltidy..."
   ./tidy.SlackBuild
   installpkg /tmp/tidy-*tgz
-  ln -s /usr/lib/libtidy-0.99.so.0.0.0 $PKG/$INSTALLDIR/lib/libtidy.so
+  ln -s /usr/lib/libtidy-0.99.so.0.0.0 $PKG/$KDEDIR/lib/libtidy.so
 cd -
 VERSION=$VERSION_KDE
 unset VERSION_KDE
@@ -55,11 +49,11 @@ cd build
   cmake \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_INSTALL_PREFIX="$INSTALLDIR" \
+    -DCMAKE_INSTALL_PREFIX="$KDEDIR" \
     -DMAN_INSTALL_DIR=/usr/man \
     -DSYSCONF_INSTALL_DIR=/etc/kde4 \
-    -DLIBTIDY_INCLUDE_DIR=$PKG/$INSTALLDIR/include \
-    -DLIBTIDY_LIBRARIES=$PKG/$INSTALLDIR/lib/libtidy.so \
+    -DLIBTIDY_INCLUDE_DIR=$PKG/$KDEDIR/include \
+    -DLIBTIDY_LIBRARIES=$PKG/$KDEDIR/lib/libtidy.so \
     ..
    make $NUMJOBS
    make install DESTDIR=$PKG

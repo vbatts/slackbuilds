@@ -36,5 +36,11 @@ fi
 # adding the qt4 executables the to build path
 if [ -d /usr/lib/qt4 ] ; then 
   export QTDIR=/usr/lib/qt4
-  export PATH=$QTDIR/bin:$PATH
+  export KDEDIR=/opt/kde4
+  export PATH=$KDEDIR/bin:$QTDIR/bin:$PATH
 fi
+
+OWD=$(pwd)
+
+export BUILD="1_vbatts"
+export TMP="/tmp/kde4-coex/kde/"
