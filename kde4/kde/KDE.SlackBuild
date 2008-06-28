@@ -40,6 +40,9 @@ for module in \
   kdepim \
   kdeedu \
   kdeplasmoids \
+  amarok \
+  k3b \
+  kaudiocreator ;
   kdebindings ; do 
   cd $module
   ./$module.SlackBuild
@@ -56,15 +59,4 @@ for module in \
     exit 1
   fi
   cd - ;
-done
-
-for extragear in \
-  amarok \
-  k3b \
-  kaudiocreator ;
-do
-  cd $extragear
-  ./$extragear.SlackBuild
-  installpkg /tmp/$extragear*.SlackBuild
-  cd -
 done
