@@ -77,8 +77,7 @@ sed -i 's/KDE/KDE3/g' \
   $PKG/$KDEDIR/share/apps/kdm/sessions/kde3.desktop
 mkdir -p $PKG/usr/share/apps/kdm/sessions/
 cp $PKG/$KDEDIR/share/apps/kdm/sessions/kde4.desktop $PKG/usr/share/apps/kdm/sessions/kde4.desktop
-# don't ruin my home
-#cat $PKG/$KDEDIR/bin/startkde | sed -r 's/\$HOME\/.kde/\$HOME\/.kde4/g' > $PKG/$KDEDIR/bin/startkde
+
 cat << xxEOFxx > $PKG/$KDEDIR/bin/kde4
 #!/bin/sh
 
