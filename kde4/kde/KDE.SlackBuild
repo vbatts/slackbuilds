@@ -42,7 +42,7 @@ for module in \
   kdeplasmoids \
   amarok \
   k3b \
-  kaudiocreator /
+  kaudiocreator \
   kdebindings ; do 
   cd $module
   ./$module.SlackBuild
