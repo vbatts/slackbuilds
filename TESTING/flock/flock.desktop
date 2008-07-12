@@ -1,15 +1,10 @@
 [Desktop Entry]
 Encoding=UTF-8
-Exec=firefox %u
-Icon=/usr/share/pixmaps/firefox.png
+Exec=flock %u
+Icon=/usr/share/pixmaps/flock.png
 Type=Application
 Categories=Application;Network;
-Name=Firefox
-Name[bn]=ফায়ারফক্স
-Name[eo]=Mozilo Fajrovulpo
-Name[fi]=Mozilla Firefox
-Name[pa]=ਫਾਇਰਫੋਕਸ
-Name[tg]=Рӯбоҳи оташин
+Name=Flock
 GenericName=Web Browser
 GenericName[af]=Web Blaaier
 GenericName[ar]=متصفح ويب
