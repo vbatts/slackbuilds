@@ -28,6 +28,8 @@ they are here, working or not
   guile
   ta-lib - 2.Mar.2008 - dependency for qtstalker, still needs slack-desc info
   hackedbox - 01.april.2008, ready to submit
+  flock - 12.july.2008
+  flock2 - 12.july.2008
 
 ** TESTING/BROKEN **
   xbench

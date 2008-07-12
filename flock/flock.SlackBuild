@@ -1,4 +1,10 @@
 #!/bin/sh
+# This script is a modified version of what is available on 
+# slackware-12.1/source/xap/mozilla-firefox/
+# 
+# 
+# modified by Vincent Batts, vbatts@gmail.com 
+
 CWD=$(pwd)
 PRGNAM="flock"
 TMP=${TMP:-/tmp/SBo}
