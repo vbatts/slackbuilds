@@ -2,7 +2,8 @@
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
-PRGNAM=kdeplasmoids4
+#PRGNAM=kdeplasmoids4
+PRGNAM=kdeplasma4-addons
 PKG=$TMP/package-$PRGNAM
 
 # Set the config option variables if they are not already set:

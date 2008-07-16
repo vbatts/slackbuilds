@@ -3,7 +3,7 @@
 # usually has a different version number), or by setting your own
 # environment variables.
 
-[ -z $VERSION ] && export VERSION=4.0.84
+[ -z $VERSION ] && export VERSION=4.0.98
 [ -z $ARCH ] && export ARCH=i486
 [ -z $BUILD ] && export BUILD=1_vbatts
 
@@ -23,10 +23,16 @@ fi
 if [ -z "$CPUOPT" ]; then
   if [ "$ARCH" = "i486" ]; then
     export CPUOPT="-O2 -march=i486 -mtune=i686"
+    export CFLAGS="-O2 -march=i486 -mtune=i686"
+    export CXXFLAGS="-O2 -march=i486 -mtune=i686"
   elif [ "$ARCH" = "s390" ]; then
     export CPUOPT="-O2"
+    export CFLAGS="-O2"
+    export CXXFLAGS="-O2"
   elif [ "$ARCH" = "x86_64" ]; then
     export CPUOPT="-O2 -fPIC"
+    export CFLAGS="-O2 -fPIC"
+    export CXXFLAGS="-O2 -fPIC"
   fi
 fi
 

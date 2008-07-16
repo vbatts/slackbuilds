@@ -1,9 +1,9 @@
 #!/bin/sh
 
-PKGNAME=kdebase4-workspace
+PRGNAM=kdebase4-workspace
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-$PKGNAME
+PKG=$TMP/package-$PRGNAM
 
 # Set the config option variables if they are not already set:
 if [ -r ../KDE.options ]; then
@@ -21,9 +21,9 @@ rm -rf $PKG
 mkdir -p $PKG/usr
 mkdir -p $PKG/$KDEDIR
 cd $TMP
-echo "Building kdebase-workspace-$VERSION.tar.bz2..."
-tar xvf $CWD/kdebase-workspace-$VERSION.tar.bz2
-cd kdebase-workspace-$VERSION
+echo "Building ${PRGNAM/4/}-$VERSION.tar.bz2..."
+tar xvf $CWD/${PRGNAM/4/}-$VERSION.tar.bz2
+cd ${PRGNAM/4/}-$VERSION
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -63,14 +63,14 @@ sed -i 's/AllowRootLogin=false/AllowRootLogin=true/' \
 mv $PKG/$KDEDIR/share/config/kdm/kdmrc $PKG/$KDEDIR/share/config/kdm/kdmrc.new
 
 cp -a $PKG/$KDEDIR/share/config/kdm/Xsession $PKG/$KDEDIR/share/config/kdm/Xsession.orig
-cat $CWD/config/Xsession | sed -r 's/\/usr\/bin\/startkde/\/$(echo $KDEDIR)\/bin\/kde4/g' > $PKG/$KDEDIR/share/config/kdm/Xsession
+cat $CWD/config/Xsession | sed -r 's/\/usr\/bin\/startkde/\/$(echo $KDEDIR)\/bin\/startkde4/g' > $PKG/$KDEDIR/share/config/kdm/Xsession
 mv $PKG/$KDEDIR/share/config/kdm/backgroundrc $PKG/$KDEDIR/share/config/kdm/backgroundrc.new
 
 # Readjusting the <sessions>.desktop for co-existence of kde3 and kde4
 mv $PKG/$KDEDIR/share/apps/kdm/sessions/kde{,4}.desktop
 sed -i 's/KDE/KDE4/g' \
   $PKG/$KDEDIR/share/apps/kdm/sessions/kde4.desktop
-sed -i 's/startkde/kde4/g' \
+sed -i 's/startkde/startkde4/g' \
   $PKG/$KDEDIR/share/apps/kdm/sessions/kde4.desktop
 cat $CWD/sessions/kde3.desktop > $PKG/$KDEDIR/share/apps/kdm/sessions/kde.desktop
 sed -i 's/KDE/KDE3/g' \
@@ -78,18 +78,20 @@ sed -i 's/KDE/KDE3/g' \
 mkdir -p $PKG/usr/share/apps/kdm/sessions/
 cp $PKG/$KDEDIR/share/apps/kdm/sessions/kde4.desktop $PKG/usr/share/apps/kdm/sessions/kde4.desktop
 
-cat << xxEOFxx > $PKG/$KDEDIR/bin/kde4
+cat << xxEOFxx > $PKG/$KDEDIR/bin/startkde4
 #!/bin/sh
 
 export KDEDIR=\$KDE4DIR
 export QTDIR=\$QT4DIR
-export PATH=\$KDEDIR/bin:\$QTDIR/bin:\$PATH
+export PATH=\$QTDIR/bin:\$KDEDIR/bin:\$PATH
 export KDEHOME=\$HOME/.kde4
 
 $(echo $KDEDIR)/bin/startkde
 
+exit 0
+
 xxEOFxx
-chmod +x $PKG/$KDEDIR/bin/kde4
+chmod +x $PKG/$KDEDIR/bin/startkde4
 
 
 # Move the KDM files someplace FHS compliant:
@@ -97,8 +99,8 @@ mkdir -p $PKG/etc/kde4
 mv $PKG/$KDEDIR/share/config/kdm $PKG/etc/kde4
 ( cd $PKG/$KDEDIR/share/config ; ln -sf ../../../../etc/kde4/kdm . )
 
-mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a COPYING* README $PKG/usr/doc/$PKGNAME-$VERSION
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a COPYING* README $PKG/usr/doc/$PRGNAM-$VERSION
 
 ( cd $PKG
   find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
@@ -110,4 +112,4 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 zcat $CWD/doinst.sh.gz > $PKG/install/doinst.sh
 
 cd $PKG
-/sbin/makepkg -l y -c n /tmp/$PKGNAME-$VERSION-$ARCH-$BUILD.tgz
+/sbin/makepkg -l y -c n /tmp/$PRGNAM-$VERSION-$ARCH-$BUILD.tgz

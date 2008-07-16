@@ -31,21 +31,27 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
+export SLKCFLAGS=$CPUOPTS
 mkdir -p build
 cd build
+    #-DENABLE_PHONON=OFF \
+    #-DENABLE_PHONON_SMOKE=OFF \
+    #-DENABLE_KHTML=OFF \
   cmake \
-    -DENABLE_QYOTO:BOOL=OFF \
-    -DENABLE_QSCINTILLA_SHARP:BOOL=OFF \
-    -DENABLE_KIMONO:BOOL=OFF \
-    -DENABLE_PYKDE4:BOOL=OFF \
-    -DENABLE_SMOKE:BOOL=OFF \
+    -DENABLE_QYOTO=OFF \
+    -DENABLE_QSCINTILLA_SHARP=OFF \
+    -DENABLE_KIMONO=OFF \
+    -DENABLE_PYKDE4=OFF \
+    -DENABLE_SMOKE=OFF \
+    -DCMAKE_BACKWARDS_COMPATIBILITY="2.2" \
+    -DBUILD_csharp=OFF \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_INSTALL_PREFIX="$KDEDIR" \
     -DMAN_INSTALL_DIR=/usr/man \
     -DSYSCONF_INSTALL_DIR=/etc/kde4 \
     ..
-   make $NUMJOBS
+   MAKEFLAGS="$SLKCFLAGS" make $NUMJOBS
    make install DESTDIR=$PKG
 cd -
 
