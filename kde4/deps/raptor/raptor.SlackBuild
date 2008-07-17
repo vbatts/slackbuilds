@@ -24,7 +24,7 @@
 
 # Modified by Robby Workman - no added terms or copyright claims
 
-VERSION=1.4.17
+VERSION=1.4.18
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 

@@ -39,7 +39,7 @@ for module in \
   kdewebdev \
   kdepim \
   kdeedu \
-  kdeplasmoids \
+  kdeplasma-addons \
   amarok \
   k3b \
   kaudiocreator \

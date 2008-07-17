@@ -27,7 +27,7 @@ rm -rf $PKG
 mkdir -p $PKG/$KDEDIR
 cd $TMP
 echo "Building ${PRGNAM/4/}-$VERSION.tar.bz2..."
-tar xvf $CWD/${PRGNAM/4/}-$VERSION.tar.bz2
+tar xvf $CWD/../src/${PRGNAM/4/}-$VERSION.tar.bz2
 cd ${PRGNAM/4/}-$VERSION
 chown -R root:root .
 find . \

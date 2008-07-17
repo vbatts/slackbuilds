@@ -25,7 +25,7 @@
 # ^^ Modified more by Vincent Batts <vbatts@batts.mine.nu> for QT4 & KDE4 to coexist
 
 PRGNAM=qt4
-VERSION=${VERSION:-r816286}
+VERSION=${VERSION:-r829466}
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-2_vbatts}
 
@@ -57,6 +57,11 @@ find . \
 if [ $ARCH = "i486" ]; then
   zcat $CWD/qt.x86.cflags.diff.gz | patch -p1 || exit 1
 fi
+
+# This is only needed/wanted for qt-copy (the r###### version) that we're
+# building right now. It might require manual intervention, so don't walk
+# away during the build
+./apply_patches || true
 
 # Fix path to mysql header
 zcat $CWD/qt.mysql.h.diff.gz | patch -p1 || exit 1
