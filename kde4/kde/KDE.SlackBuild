@@ -40,6 +40,7 @@ for module in \
   kdepim \
   kdeedu \
   kdeplasma-addons \
+  guidance-power-manager \
   amarok \
   k3b \
   kaudiocreator \
@@ -51,6 +52,8 @@ for module in \
       installpkg /tmp/kdebase4-workspace-*.tgz
     elif [ $module = 'kdebase-runtime' ] ; then
       installpkg /tmp/kdebase4-runtime-*.tgz
+    elif [ $module = 'kdeplasma-addons' ] ; then
+      installpkg /tmp/kdeplasma4-addons-*.tgz
     else
       installpkg /tmp/${module}4-*.tgz
     fi

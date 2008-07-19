@@ -27,12 +27,16 @@ ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 
 # This shouldn't be needed sooner or later, but for now...
-#MOC_VERSION=r810529
+MOC_VERSION=r829724
 # I bundled automoc into akonadi's tarball this time
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-akonadi
+
+if [ -f ../DEPS.options ] ; then
+  . ../DEPS.options
+fi
 
 set -e
 
@@ -48,19 +52,14 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-#KDE4 stuff
-export QTDIR=/usr/lib/qt4
-export KDEDIR=/opt/kde4
-export PATH=$QTDIR/bin:$KDEDIR/bin:$PATH
-
 # First, we have to build automoc4, which is required to build akonadi
-#tar xf $CWD/automoc-$MOC_VERSION.tar.bz2
-#cd automoc-$MOC_VERSION
-cd automoc
+tar xf $CWD/automoc4-$MOC_VERSION.tar.bz2
+cd automoc4-$MOC_VERSION
+#cd automoc
   cmake \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_INSTALL_PREFIX=/usr .
+    -DCMAKE_INSTALL_PREFIX=${KDEDIR} .
   make
   # We'll put that stuff in $PKG
   make install DESTDIR=$PKG
@@ -77,7 +76,7 @@ cd build
   cmake \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_INSTALL_PREFIX=${KDEDIR} \
     -DMAN_INSTALL_DIR=/usr/man \
     ..
    make -j6

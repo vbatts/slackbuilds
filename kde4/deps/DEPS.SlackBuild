@@ -5,13 +5,9 @@
 
 OWD=$(pwd)
 
-export BUILD="1_coex"
-export TMP="/tmp/kde4-coex/deps/"
-
-# This avoids compiling a version number into KDE's .la files:
-export QTDIR=/usr/lib/qt4
-export KDEDIR=/opt/kde4
-export PATH=$KDEDIR/bin:$QTDIR/bin:$PATH
+if [ -f DEPS.options ] ; then
+  . DEPS.options
+fi
 
 # 
 for module in \
@@ -40,9 +36,12 @@ for module in \
   cd - ;
 done
 
-# Order shouldn't matter for the rest of these
-#  poppler-data \
+# Order: gstreamer requires liboil,
+#        phonon will build against gstreamer if its installed
 for module in \
+  liboil \
+  gstreamer \
+  gst-plugins-base \
   akonadi \
   phonon \
   chmlib \
@@ -57,7 +56,6 @@ for module in \
   libarchive \
   libdiscid \
   libmusicbrainz \
-  liboil \
   libdvdread \
   libraw1394 \
   libvncserver \
@@ -66,8 +64,6 @@ for module in \
   libgphoto2 \
   poppler \
   PyQt \
-  gstreamer \
-  gst-plugins-base \
   QScintilla ;
 do  
   cd $module

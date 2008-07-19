@@ -2,7 +2,6 @@
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
-#PRGNAM=kdeplasmoids4
 PRGNAM=kdeplasma4-addons
 PKG=$TMP/package-$PRGNAM
 

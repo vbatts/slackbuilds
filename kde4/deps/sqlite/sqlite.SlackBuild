@@ -60,7 +60,8 @@ CXXFLAGS="$SLKCFLAGS" \
   --prefix=/usr \
   --sysconfdir=/etc \
   --localstatedir=/var \
-  --docdir=/usr/doc/$PRGNAM-$VERSION \
+  --infodir=/usr/info/$PRGNAM-$VERSION \
+  --mandir=/usr/man \
   --enable-threadsafe \
   --enable-tempstore=yes \
   --enable-static=no \
