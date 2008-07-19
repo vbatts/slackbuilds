@@ -1,0 +1,8 @@
+If aRts is run with realtime priority (this is usually the
+default), then there's a good chance that KDE will hang at
+logout.  It does here, anyway, and online searching shows
+the problem is not Slackware specific.
+
+Until this is fixed upstream, adding this config file will
+cause aRts to default to not running realtime.
+

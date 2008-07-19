@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+        |-----handy-ruler------------------------------------------------------|
+qca-tls1: qca-tls1 (SSL/TLS plugin for QCA)
+qca-tls1:
+qca-tls1: This is a plugin to provide SSL/TLS capability to programs that
+qca-tls1: utilize the Qt Cryptographic Architecture (QCA).
+qca-tls1:
+qca-tls1: The qca-tls plugin was written by Justin Karneges.
+qca-tls1:
+qca-tls1:
+qca-tls1:
+qca-tls1:
+qca-tls1:
