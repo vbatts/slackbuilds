@@ -5,7 +5,7 @@
 
 [ -z $VERSION ] && export VERSION=4.0.98
 [ -z $ARCH ] && export ARCH=i486
-[ -z $BUILD ] && export BUILD=1_vbatts
+[ -z $BUILD ] && export BUILD=1_coex
 
 # Target arch should be set to i486 for any 32-bit x86, unless
 # you want problems finding your compiler.
@@ -37,7 +37,7 @@ if [ -z "$CPUOPT" ]; then
 fi
 
 # Number of jobs to compile at once:
-[ -z "$NUMJOBS" ] && export NUMJOBS=-j6
+[ -z "$NUMJOBS" ] && export NUMJOBS=-j3
 
 # adding the qt4 executables the to build path
 if [ -d /usr/lib/qt4 ] ; then 
@@ -47,6 +47,4 @@ if [ -d /usr/lib/qt4 ] ; then
 fi
 
 OWD=$(pwd)
-
-export BUILD="1_vbatts"
 export TMP="/tmp/kde4-coex/kde/"
