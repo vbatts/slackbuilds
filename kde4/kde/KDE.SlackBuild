@@ -49,13 +49,17 @@ for module in \
   ./$module.SlackBuild
   if [ $? = 0 ]; then
     if [ $module = 'kdebase-workspace' ] ; then
-      installpkg /tmp/kdebase4-workspace-*.tgz
+      upgradepkg --install-new /tmp/kdebase4-workspace-*.tgz
     elif [ $module = 'kdebase-runtime' ] ; then
-      installpkg /tmp/kdebase4-runtime-*.tgz
+      upgradepkg --install-new /tmp/kdebase4-runtime-*.tgz
     elif [ $module = 'kdeplasma-addons' ] ; then
-      installpkg /tmp/kdeplasma4-addons-*.tgz
+      upgradepkg --install-new /tmp/kdeplasma4-addons-*.tgz
+    elif [ $module = 'guidance-power-manager' ] ; then
+      upgradepkg --install-new /tmp/$module-*.tgz
+    elif [ $module = 'amarok' ] ; then
+      upgradepkg --install-new /tmp/${module}2-*.tgz
     else
-      installpkg /tmp/${module}4-*.tgz
+      upgradepkg --install-new /tmp/${module}4-*.tgz
     fi
   else
     echo "${module} failed to build."

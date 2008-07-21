@@ -6,7 +6,7 @@ PRGNAM=kaudiocreator
 PKG=$TMP/package-$PRGNAM
 
 # Set the config option variables if they are not already set:
-if [ -r ../KDE.options ]; then
+if [ -f ../KDE.options ]; then
   . ../KDE.options
 fi
 
@@ -38,9 +38,9 @@ find . \
 cmake \
   -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
   -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
-  -DCMAKE_INSTALL_PREFIX=/usr \
+  -DCMAKE_INSTALL_PREFIX=$KDEDIR \
   -DMAN_INSTALL_DIR=/usr/man \
-  -DSYSCONF_INSTALL_DIR=/etc/kde \
+  -DSYSCONF_INSTALL_DIR=/etc/kde4 \
   .
 make $NUMJOBS
 make install DESTDIR=$PKG
