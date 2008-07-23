@@ -1,0 +1,50 @@
+# Set default version/arch/build.  You can override these settings
+# in the SlackBuild scripts for each package (koffice, for example,
+# usually has a different version number), or by setting your own
+# environment variables.
+
+[ -z $VERSION ] && export VERSION=4.0.98
+[ -z $ARCH ] && export ARCH=i486
+[ -z $BUILD ] && export BUILD=1_coex
+
+# Target arch should be set to i486 for any 32-bit x86, unless
+# you want problems finding your compiler.
+if [ -z $TARGET ]; then
+  if [ "$ARCH" = "i486" ]; then
+    export TARGET=i486
+  elif [ "$ARCH" = "s390" ]; then
+    export TARGET=s390
+  elif [ "$ARCH" = "x86_64" ]; then
+    export TARGET=x86_64
+  fi
+fi
+
+# Use this as CFLAGS and CXXFLAGS:
+if [ -z "$CPUOPT" ]; then
+  if [ "$ARCH" = "i486" ]; then
+    export CPUOPT="-O2 -march=i486 -mtune=i686"
+    export CFLAGS="-O2 -march=i486 -mtune=i686"
+    export CXXFLAGS="-O2 -march=i486 -mtune=i686"
+  elif [ "$ARCH" = "s390" ]; then
+    export CPUOPT="-O2"
+    export CFLAGS="-O2"
+    export CXXFLAGS="-O2"
+  elif [ "$ARCH" = "x86_64" ]; then
+    export CPUOPT="-O2 -fPIC"
+    export CFLAGS="-O2 -fPIC"
+    export CXXFLAGS="-O2 -fPIC"
+  fi
+fi
+
+# Number of jobs to compile at once:
+[ -z "$NUMJOBS" ] && export NUMJOBS=-j3
+
+# adding the qt4 executables the to build path
+if [ -d /usr/lib/qt4 ] ; then 
+  export QTDIR=/usr/lib/qt4
+  export KDEDIR=/opt/kde4
+  export PATH=$KDEDIR/bin:$QTDIR/bin:$PATH
+fi
+
+OWD=$(pwd)
+export TMP="/tmp/kde4-coex/kde/"
