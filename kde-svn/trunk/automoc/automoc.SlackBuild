@@ -1,8 +1,8 @@
 #!/bin/sh 
 
-# Slackware build script for akonadi
+# Slackware build script for automoc
 
-# Copyright 2008  Robby Workman, Northport, Alabama, USA
+# Copyright 2008 Vincent Batts,
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -22,17 +22,15 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=$(svn info ${PRGNAM/4/} | grep '^Last Changed Rev:' | awk '{ print $4 }')
+PRGNAM=automoc
+VERSION=$(svn info ${PRGNAM} | grep '^Last Changed Rev:' | awk '{ print $4 }')
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 
-# This shouldn't be needed sooner or later, but for now...
-MOC_VERSION=r829724
-# I bundled automoc into akonadi's tarball this time
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-akonadi
+PKG=$TMP/package-$PRGNAM
 
 if [ -f ../DEPS.options ] ; then
   . ../DEPS.options
@@ -43,19 +41,17 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG
 cd $TMP
-tar xvf $CWD/akonadi-$VERSION.tar.bz2
-cd akonadi-$VERSION
-chown -R root:root .
-find . \
- \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
- -exec chmod 755 {} \; -o \
- \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
- -exec chmod 644 {} \;
+#chown -R root:root .
+#find . \
+# \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+# -exec chmod 755 {} \; -o \
+# \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+# -exec chmod 644 {} \;
 
 # First, we have to build automoc4, which is required to build akonadi
-tar xf $CWD/automoc4-$MOC_VERSION.tar.bz2
-cd automoc4-$MOC_VERSION
-#cd automoc
+rm -rf $TMP/$PRGNAM
+cp -av $PRGNAM $TMP/
+cd $TMP/$PRGNAM
   cmake \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
@@ -71,25 +67,6 @@ cd automoc4-$MOC_VERSION
   make install
 cd -
 
-mkdir -p build
-cd build
-  cmake \
-    -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_INSTALL_PREFIX=${KDEDIR} \
-    -DMAN_INSTALL_DIR=/usr/man \
-    ..
-   make -j6
-   make install DESTDIR=$PKG
-cd -
-
-if [ -d $PKG/usr/man ]; then
-  gzip -9 $PKG/usr/man/man?/*
-fi
-
-mkdir -p $PKG/usr/doc/akonadi-$VERSION
-cp -a AUTHORS INSTALL README lgpl-license $PKG/usr/doc/akonadi-$VERSION
-
 ( cd $PKG
   find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
   find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
@@ -100,5 +77,5 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 zcat $CWD/doinst.sh.gz > $PKG/install/doinst.sh
 
 cd $PKG
-/sbin/makepkg -l y -c n /tmp/akonadi-$VERSION-$ARCH-$BUILD.tgz
+/sbin/makepkg -l y -c n /tmp/$PRGNAM-$VERSION-$ARCH-$BUILD.tgz
 

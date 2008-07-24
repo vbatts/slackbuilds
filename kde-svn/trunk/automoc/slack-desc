@@ -6,14 +6,14 @@
 # customary to leave one space after the ':'.
 
        |-----handy-ruler-----------------------------------------------------|
-akonadi: akonadi (PIM storage service)
-akonadi: 
-akonadi: akonadi is an extensible cross-desktop storage service for PIM data 
-akonadi: and meta data providing concurrent read, write, and query access. 
-akonadi: It will provide a unique desktop wide object identification and 
-akonadi: retrieval.
-akonadi: 
-akonadi: Homepage: http://www.kdepim.org/akonadi/
-akonadi: 
-akonadi:
-akonadi: 
+automoc: 
+automoc: automoc (compiler auto-configuration assistant)
+automoc: 
+automoc:
+automoc:
+automoc:
+automoc: 
+automoc:
+automoc: 
+automoc:
+automoc: 
