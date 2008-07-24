@@ -44,5 +44,5 @@ export QTDIR=/usr/lib/qt4
 export KDEDIR=/opt/kde4
 export PATH=$KDEDIR/bin:$QTDIR/bin:$PATH
 
-OWD=$(pwd)
+#OWD=$(pwd)
 #export TMP="/tmp/kde4-coex/kde/"

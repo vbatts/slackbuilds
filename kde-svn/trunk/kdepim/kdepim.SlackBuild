@@ -1,10 +1,12 @@
 #!/bin/sh
 
+#Debugging for now
 set -x
+set -e	# Exit on most errors
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
-PRGNAM="kdepim"
+PRGNAM="kdepim4"
 PKG=$TMP/package-$PRGNAM
 
 
@@ -18,12 +20,10 @@ if [ -r ./local.options ]; then
   . ./local.options
 fi
 
-MINOR_REVISION=$(svn info ${PRGNAM} | grep '^Last Changed Rev:' | awk '{ print $4 }')
-
-set -e	# Exit on most errors
+MINOR_VERSION=$(svn info ${PRGNAM/4/} | grep '^Last Changed Rev:' | awk '{ print $4 }')
 
 rm -rf $PKG
-mkdir -p $PKG/$KDEDIR
+mkdir -p $PKG
 cd $TMP
 echo "Building ${PRGNAM}-${MAJOR_VERSION}.${MINOR_VERSION} ..."
 #tar xvf $CWD/../src/${PRGNAM}-$VERSION.tar.bz2
@@ -43,7 +43,7 @@ cd build-${PRGNAM}
     -DCMAKE_INSTALL_PREFIX=$KDEDIR \
     -DMAN_INSTALL_DIR=/usr/man \
     -DSYSCONF_INSTALL_DIR=/etc/kde4 \
-    ${CWD}/$PRGNAM/
+    ${CWD}/${PRGNAM/4/}/
    make $NUMJOBS
    make install DESTDIR=$PKG
 cd -
