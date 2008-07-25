@@ -1,9 +1,10 @@
 #!/bin/sh
 
-PKGNAME=kdepimlibs4
+PRGNAM=kdepimlibs4
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-$PKGNAME
+MINOR_VERSION=$(svn info ${PRGNAM/4/} | grep '^Last Changed Rev:' | awk '{ print $4 }')
 
 # Set the config option variables if they are not already set:
 if [ -r ../KDE.options ]; then
@@ -15,36 +16,29 @@ if [ -r ./local.options ]; then
   . ./local.options
 fi
 
-# Avoid a version number in .la files:
-if [ -d /usr/lib/qt4 ]; then
-  QTDIR=/usr/lib/qt4
-fi
-
 set -e	# Exit on most errors
 
 rm -rf $PKG
-mkdir -p $PKG/usr
-mkdir -p $PKG/opt/kde4
+mkdir -p $PKG/$KDEDIR
 cd $TMP
-echo "Building ${PKGNAME/4/}-$VERSION.tar.bz2..."
-tar xvf $CWD/../src/${PKGNAME/4/}-$VERSION.tar.bz2
-cd ${PKGNAME/4/}-$VERSION
-chown -R root:root .
-find . \
- \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
- -exec chmod 755 {} \; -o \
- \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
- -exec chmod 644 {} \;
+echo "Building ${PRGNAM}-$VERSION ..."
+#chown -R root:root .
+#find . \
+# \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
+# -exec chmod 755 {} \; -o \
+# \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
+# -exec chmod 644 {} \;
 
-mkdir -p build
-cd build
+rm -rf build-$PRGNAM
+mkdir -p build-$PRGNAM
+cd build-$PRGNAM
   cmake \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
     -DCMAKE_CXX_FLAGS:STRING="$SLKCFLAGS" \
-    -DCMAKE_INSTALL_PREFIX=/opt/kde4 \
+    -DCMAKE_INSTALL_PREFIX=$KDEDIR \
     -DMAN_INSTALL_DIR=/usr/man \
     -DSYSCONF_INSTALL_DIR=/etc/kde4 \
-    ..
+    $CWD/${PRGNAM/4/}/
    make $NUMJOBS
    make install DESTDIR=$PKG
 cd -
@@ -66,5 +60,5 @@ mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-/sbin/makepkg -l y -c n /tmp/$PKGNAME-$VERSION-$ARCH-$BUILD.tgz
+/sbin/makepkg -l y -c n /tmp/$PKGNAME-$MAJOR_VERSION.$MINOR_VERSION-$ARCH-$BUILD.tgz
 

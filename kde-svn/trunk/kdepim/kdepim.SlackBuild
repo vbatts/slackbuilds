@@ -1,14 +1,14 @@
 #!/bin/sh
 
 #Debugging for now
-set -x
+#set -x
 set -e	# Exit on most errors
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
 PRGNAM="kdepim4"
 PKG=$TMP/package-$PRGNAM
-
+MINOR_VERSION=$(svn info ${PRGNAM/4/} | grep '^Last Changed Rev:' | awk '{ print $4 }')
 
 # Set the config option variables if they are not already set:
 if [ -r ../KDE.options ]; then
@@ -20,7 +20,6 @@ if [ -r ./local.options ]; then
   . ./local.options
 fi
 
-MINOR_VERSION=$(svn info ${PRGNAM/4/} | grep '^Last Changed Rev:' | awk '{ print $4 }')
 
 rm -rf $PKG
 mkdir -p $PKG
@@ -35,6 +34,7 @@ echo "Building ${PRGNAM}-${MAJOR_VERSION}.${MINOR_VERSION} ..."
 # \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
 # -exec chmod 644 {} \;
 
+rm -rf build-$PRGNAM
 mkdir -p build-${PRGNAM}
 cd build-${PRGNAM}
   cmake \

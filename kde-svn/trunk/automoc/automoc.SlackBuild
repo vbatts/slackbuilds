@@ -50,7 +50,7 @@ cd $TMP
 
 # First, we have to build automoc4, which is required to build akonadi
 rm -rf $TMP/$PRGNAM
-cp -av $PRGNAM $TMP/
+cp -av $CWD/$PRGNAM $TMP/
 cd $TMP/$PRGNAM
   cmake \
     -DCMAKE_C_FLAGS:STRING="$SLKCFLAGS" \
