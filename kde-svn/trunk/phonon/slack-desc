@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+      |-----handy-ruler------------------------------------------------------|
+phonon: phonon (multimedia framework for KDE4)
+phonon: 
+phonon: Phonon is the multimedia framework for KDE4.
+phonon: 
+phonon: Sorry for the short (and uninformative) description of this
+phonon: package, but at some point in the future, it won't matter, as
+phonon: we'll be using either (a) the phonon bundled with qt, or
+phonon: (b) the phonon bundled with kde(libs?)
+phonon: Which one ultimately gets the nod is unknown and out of my hands.
+phonon: 
+phonon: 
