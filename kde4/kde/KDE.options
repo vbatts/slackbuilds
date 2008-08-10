@@ -3,7 +3,7 @@
 # usually has a different version number), or by setting your own
 # environment variables.
 
-[ -z $VERSION ] && export VERSION=4.0.98
+[ -z $VERSION ] && export VERSION=4.1.0
 [ -z $ARCH ] && export ARCH=i486
 [ -z $BUILD ] && export BUILD=1_coex
 

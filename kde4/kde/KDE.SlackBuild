@@ -67,3 +67,7 @@ for module in \
   fi
   cd - ;
 done
+
+cd kde-l10n
+  for i in $(cat languages) ; do PKGLANG=$i sh kde-l10n.SlackBuild ; done
+cd -

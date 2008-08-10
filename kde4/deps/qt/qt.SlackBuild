@@ -65,7 +65,7 @@ fi
 # This is only needed/wanted for qt-copy (the r###### version) that we're
 # building right now. It might require manual intervention, so don't walk
 # away during the build
-./apply_patches || true
+#./apply_patches || true
 
 # Fix path to mysql header
 zcat $CWD/qt.mysql.h.diff.gz | patch -p1 || exit 1
