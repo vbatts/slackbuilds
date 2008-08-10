@@ -24,13 +24,14 @@
 
 # Modified by Robby Workman <rworkman at slackware.com>
 
-VERSION=1.4.1
+PRGNAM=enchant
+VERSION=1.4.2
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-enchant
+PKG=$TMP/package-$PRGNAM
 
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
@@ -43,9 +44,9 @@ fi
 rm -rf $PKG
 mkdir -p $TMP $PKG
 cd $TMP
-rm -rf enchant-$VERSION
-tar xvf $CWD/enchant-$VERSION.tar.gz
-cd enchant-$VERSION || true
+rm -rf $PRGNAM-$VERSION
+tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+cd $PRGNAM-$VERSION || true
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -77,12 +78,12 @@ make install DESTDIR=$PKG
   for i in $( find . -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 )
 
-mkdir -p $PKG/usr/doc/enchant-$VERSION
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a AUTHORS BUGS COPYING.LIB HACKING MAINTAINERS NEWS README TODO \
-  $PKG/usr/doc/enchant-$VERSION || true
+  $PKG/usr/doc/$PRGNAM-$VERSION || true
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-/sbin/makepkg -l y -c n /tmp/enchant-$VERSION-$ARCH-$BUILD.tgz
+/sbin/makepkg -l y -c n /tmp/$PRGNAM-$VERSION-$ARCH-$BUILD.tgz

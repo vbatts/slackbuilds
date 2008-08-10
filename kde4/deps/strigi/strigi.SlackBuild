@@ -22,13 +22,14 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=r829724
+PRGNAM=strigi
+VERSION=0.5.11
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
-PKG=$TMP/package-strigi
+PKG=$TMP/package-$PRGNAM
 
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
@@ -41,9 +42,9 @@ fi
 rm -rf $PKG
 mkdir -p $TMP $PKG
 cd $TMP
-rm -rf strigi-$VERSION
-tar xvf $CWD/strigi-$VERSION.tar.bz2
-cd strigi-$VERSION || exit 1
+rm -rf $PRGNAM-$VERSION
+tar xvf $CWD/$PRGNAM-$VERSION.tar.bz2
+cd $PRGNAM-$VERSION || exit 1
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -71,11 +72,11 @@ cd -
   find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
 )
 
-mkdir -p $PKG/usr/doc/strigi-$VERSION
-cp -a AUTHORS COPYING ChangeLog NEWS README TODO $PKG/usr/doc/strigi-$VERSION
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a AUTHORS COPYING ChangeLog NEWS README TODO $PKG/usr/doc/$PRGNAM-$VERSION
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-/sbin/makepkg -l y -c n /tmp/strigi-$VERSION-$ARCH-$BUILD.tgz
+/sbin/makepkg -l y -c n /tmp/$PRGNAM-$VERSION-$ARCH-$BUILD.tgz

@@ -23,7 +23,7 @@
 # No additional license terms and no copyright claim
 
 PRGNAM=qca
-VERSION=2.0.0
+VERSION=2.0.1
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-2}
 

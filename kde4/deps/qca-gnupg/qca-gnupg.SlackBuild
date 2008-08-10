@@ -23,7 +23,7 @@
 # No additional license terms and no copyright claim
 
 PRGNAM=qca-gnupg
-VERSION=2.0.0_beta2
+VERSION=2.0.0_beta3
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 

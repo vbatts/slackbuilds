@@ -25,9 +25,9 @@
 # ^^ Modified more by Vincent Batts <vbatts@batts.mine.nu> for QT4 & KDE4 to coexist
 
 PRGNAM=qt4
-VERSION=${VERSION:-r829466}
+VERSION=${VERSION:-r836672}
 ARCH=${ARCH:-i486}
-BUILD=${BUILD:-2_vbatts}
+BUILD=${BUILD:-2_coex}
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
@@ -41,11 +41,15 @@ elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC"
 fi
 
+if [ -r ../DEPS.options ] ; then 
+  . ../DEPS.options
+fi
+
 rm -rf $PKG
 mkdir -p $TMP $PKG
 cd $TMP
 rm -rf qt-$VERSION
-tar -xjvf $CWD/qt-$VERSION.tar.bz2
+tar xjvf $CWD/qt-$VERSION.tar.bz2
 cd qt-$VERSION || exit 1
 chown -R root:root .
 find . \

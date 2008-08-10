@@ -54,15 +54,14 @@ for module in \
   sqlite \
   djvulibre \
   libarchive \
-  libdiscid \
-  libmusicbrainz \
-  libdvdread \
   libraw1394 \
   libvncserver \
   libxklavier \
   libzip \
   libgphoto2 \
   poppler \
+  gmm \
+  pycups \
   PyQt \
   QScintilla ;
 do  
