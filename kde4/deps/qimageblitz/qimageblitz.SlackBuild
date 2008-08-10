@@ -22,7 +22,7 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-VERSION=r836672
+VERSION=r836720
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 
@@ -42,7 +42,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG
 cd $TMP
 rm -rf qimageblitz-$VERSION
-tar xvf $CWD/qimageblitz-$VERSION.tar.bz2
+tar xvf $CWD/qimageblitz-$VERSION.tar.bz2 || exit 1
 cd qimageblitz-$VERSION || exit 1
 chown -R root:root .
 find . \
