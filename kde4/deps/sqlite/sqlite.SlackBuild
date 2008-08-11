@@ -81,7 +81,7 @@ install -D -m 0644 sqlite3.1 $PKG/usr/man/man1/sqlite3.1
 gzip -9 $PKG/usr/man/man1/sqlite3.1
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a README VERSION doc/* $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a README VERSION $PKG/usr/doc/$PRGNAM-$VERSION
 # Add a COPYING file -- http://www.sqlite.org/copyright.html
 zcat $CWD/COPYING.gz > $PKG/usr/doc/$PRGNAM-$VERSION/COPYING
 rm -rf $PKG/usr/doc/$PRGNAM-$VERSION/CVS
