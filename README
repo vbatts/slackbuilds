@@ -17,6 +17,7 @@ they are here, working or not
   xlt - 31.mar.2008, ready to submit; 5.May.2008, submitted; 25.May.2008, Published
   openmotif - 31.mar.2008, ready to submit; 5.May.2008, submitted; 25.May.2008, Published
   xmlblackberry - 31.mar.2008, ready to submit; 5.May.2008, submitted; 25.May.2008, Published
+  xmlstartlet - 23.july.2008, submitted; 1.Sep.2008, Published
 
 
 ** STABLE **
@@ -28,9 +29,8 @@ they are here, working or not
   guile
   ta-lib - 2.Mar.2008 - dependency for qtstalker, still needs slack-desc info
   hackedbox - 01.april.2008, ready to submit
-  flock - 12.july.2008
-  flock2 - 12.july.2008
-  xmlstartlet - 23.july.2008
+  flock - 12.july.2008, submitted
+  flock2 - 12.july.2008, submitted
 
 ** TESTING/BROKEN **
   xbench
