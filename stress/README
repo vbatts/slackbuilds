@@ -1,0 +1,5 @@
+stress, stress test utility 
+imposes certain types of compute stress on your system.
+ ( cpu, io, vm, hdd )
+
+http://weather.ou.edu/~apw/projects/stress/
