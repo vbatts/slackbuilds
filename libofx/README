@@ -1,0 +1,7 @@
+ LibOFX - (open financial exchange libraries)
+
+ including a parser and api for supporting OFX 
+ command resposnses, usually by financial institutions
+ for statement downloads.
+
+ http://libofx.sourceforge.net/

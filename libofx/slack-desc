@@ -1,0 +1,7 @@
+libofx:  LibOFX - (open financial exchange libraries)
+libofx: 
+libofx:  including a parser and api for supporting OFX 
+libofx:  command resposnses, usually by financial institutions
+libofx:  for statement downloads.
+libofx: 
+libofx:  http://libofx.sourceforge.net/
