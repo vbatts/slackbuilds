@@ -1,9 +1,0 @@
-#!/bin/sh
-
-export BUILD=${BUILD:-1_coex}
-export TMP=${TMP:-/tmp/kde4-coex/deps/}
-
-# This avoids compiling a version number into KDE's .la files:
-export QTDIR=/usr/lib/qt4
-export KDEDIR=/opt/kde4
-export PATH=$KDEDIR/bin:$QTDIR/bin:$PATH
