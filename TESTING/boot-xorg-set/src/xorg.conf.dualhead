@@ -1,0 +1,146 @@
+Section "ServerLayout"
+	Identifier     "Simple Layout"
+	Screen      0  "aticonfig-Screen[0]" 0 0
+        InputDevice    "Mouse0" "SendCoreEvents"
+	InputDevice    "Mouse1" "CorePointer"
+	InputDevice    "Keyboard1" "CoreKeyboard"
+EndSection
+
+Section "Files"
+#    ModulePath "/usr/lib/xorg/modules"
+	RgbPath      "/usr/share/X11/rgb"
+	FontPath     "/usr/share/fonts/local/"
+	FontPath     "/usr/share/fonts/misc/"
+	FontPath     "/usr/share/fonts/OTF/"
+	FontPath     "/usr/share/fonts/TTF/"
+	FontPath     "/usr/share/fonts/Type1/"
+	FontPath     "/usr/share/fonts/CID/"
+	FontPath     "/usr/share/fonts/Speedo/"
+	FontPath     "/usr/share/fonts/75dpi/:unscaled"
+	FontPath     "/usr/share/fonts/100dpi/:unscaled"
+	FontPath     "/usr/share/fonts/75dpi/"
+	FontPath     "/usr/share/fonts/100dpi/"
+	FontPath     "/usr/share/fonts/cyrillic/"
+EndSection
+
+Section "Module"
+	Load  "dbe"  	# Double buffer extension
+	SubSection "extmod"
+		Option	    "omit xfree86-dga"   # don't initialise the DGA extension
+	EndSubSection
+	Load  "type1"
+	Load  "freetype"
+        #Load        "speedo"
+	Load  "glx"
+	Load  "extmod"
+	Load  "xtrap"
+	Load  "record"
+	Load  "GLcore"
+	Load  "dri"
+EndSection
+
+Section "InputDevice"
+	Identifier  "Keyboard1"
+	Driver      "kbd"
+        Option      "CoreKeyboard"
+        Option      "XkbRules" "xorg"
+        Option      "XkbModel" "pc105"
+        Option      "XkbLayout" "us"
+EndSection
+
+Section "InputDevice"
+	Identifier  "Mouse0"
+	Driver      "mouse"
+	Option	    "Protocol" "auto"
+	Option	    "Device" "/dev/input/mice"
+  Option	    "ZAxisMapping" "4 5 6 7"
+  #Option      "Emulate3Buttons" "on"
+  Option      "Buttons" "5"
+EndSection
+
+Section "InputDevice"
+  Driver       "synaptics"
+  Identifier   "Mouse1"
+  Option       "AccelFactor" "0.1"
+  Option       "BottomEdge" "650"
+  #Option       "Buttons" "5"
+  Option       "CircScrollDelta" "0.1"
+  Option       "CircScrollTrigger" "2"
+  Option       "CircularScrolling" "1"
+  Option       "Device" "/dev/input/by-path/platform-i8042-serio-1-mouse"
+  Option       "EdgeMotionMaxSpeed" "15"
+  Option       "EdgeMotionMinSpeed" "15"
+  Option       "Emulate3Buttons" "on"
+  Option       "EmulateMidButtonTime" "75"
+  Option       "FingerHigh" "15"
+  Option       "FingerLow" "14"
+  Option       "HorizScrollDelta" "20"
+  Option       "InputFashion" "Mouse"
+  Option       "LeftEdge" "120"
+  Option       "MaxSpeed" "3"
+  Option       "MaxTapMove" "110"
+  Option       "MaxTapTime" "180"
+  Option       "MinSpeed" "0.2"
+  Option       "Name" "ALPS;Touchpad"
+  Option       "Protocol" "auto-dev"
+  Option       "RightEdge" "830"
+  Option       "SHMConfig" "on"
+  Option       "TopEdge" "120"
+  Option       "UpDownScrolling" "1"
+  Option       "Vendor" "Sysp"
+  Option       "VertScrollDelta" "20"
+  Option       "ZAxisMapping" "4 5 6 7"
+EndSection
+
+Section "Monitor"
+	Identifier   "aticonfig-Monitor[0]"
+	Option	    "VendorName" "ATI Proprietary Driver"
+	Option	    "ModelName" "Generic Autodetecting Monitor"
+	Option	    "DPMS" "true"
+	Option      "RightOf" "aticonfig-Monitor[1]
+EndSection
+
+Section "Monitor"
+	Identifier   "aticonfig-Monitor[1]"
+	Option	    "VendorName" "ATI Proprietary Driver"
+	Option	    "ModelName" "Generic Autodetecting Monitor"
+	Option	    "DPMS" "true"
+	Option      "LeftOf" "aticonfig-Monitor[0]
+EndSection
+
+Section "Device"
+	Identifier  "aticonfig-Device[0]"
+	Driver      "fglrx"
+	Option	    "DesktopSetup" "horizontal"
+	BusID       "PCI:1:0:0"
+EndSection
+
+Section "Device"
+	Identifier  "aticonfig-Device[1]"
+	Driver      "fglrx"
+	BusID       "PCI:1:0:0"
+	Screen      1
+EndSection
+
+Section "Screen"
+	Identifier "aticonfig-Screen[0]"
+	Device     "aticonfig-Device[0]"
+	Monitor    "aticonfig-Monitor[0]"
+	DefaultDepth     24
+	SubSection "Display"
+		Viewport   0 0
+		Depth     24
+	EndSubSection
+EndSection
+
+Section "Screen"
+	Identifier "aticonfig-Screen[1]"
+	Device     "aticonfig-Device[1]"
+	Monitor    "aticonfig-Monitor[1]"
+	DefaultDepth     24
+	SubSection "Display"
+		Viewport   0 0
+		Depth     24
+	EndSubSection
+EndSection
+

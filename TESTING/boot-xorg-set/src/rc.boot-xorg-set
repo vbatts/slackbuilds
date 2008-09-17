@@ -1,0 +1,13 @@
+#!/bin/sh
+
+case "$1" in 
+  start)
+    sh /usr/bin/boot-xorg-set.sh
+    ;;
+  restart)
+    sh /usr/bin/boot-xorg-set.sh
+    ;;
+  *)
+    echo DONE
+    ;;
+esac 
