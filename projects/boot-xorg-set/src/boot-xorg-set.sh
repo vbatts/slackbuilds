@@ -7,15 +7,16 @@ for opt in $(cat /proc/cmdline ); do
     DISPLAY=DEFAULT
   fi 
 done
+echo "setting display per $DISPLAY"
 if [ ${DISPLAY} = "DEFAULT" ] ; then
-  cp /etc/X11/xorg.conf.WORKS_fglrx /etc/X11/xorg.conf
+  cp -v /etc/X11/xorg.conf.WORKS_fglrx /etc/X11/xorg.conf
 elif [ ${DISPLAY} = "fglrx" ] ; then
-  cp /etc/X11/xorg.conf.WORKS_fglrx /etc/X11/xorg.conf
+  cp -v /etc/X11/xorg.conf.WORKS_fglrx /etc/X11/xorg.conf
 elif [ ${DISPLAY} = "radeon" ] ; then
-  cp /etc/X11/xorg.conf.WORKS_radeon /etc/X11/xorg.conf
+  cp -v /etc/X11/xorg.conf.WORKS_radeon /etc/X11/xorg.conf
 elif [ ${DISPLAY} = "d1280" ] ; then
-  cp /etc/X11/xorg.conf.dualhead /etc/X11/xorg.conf
+  cp -v /etc/X11/xorg.conf.dualhead /etc/X11/xorg.conf
 else
-  cp /etc/X11/xorg.conf.WORKS_fglrx /etc/X11/xorg.conf
+  cp -v /etc/X11/xorg.conf.WORKS_fglrx /etc/X11/xorg.conf
 fi
 
