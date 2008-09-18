@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Alice
+GenericName=Edutainment Programming Environment
+Exec=alice
+Icon=alice
+Type=Application
+Comment=A Edutainment programming environment
+Path=
+Terminal=false
+X-KDE-StartupNotify=true
+Categories=Java;Education;

@@ -1,0 +1,8 @@
+PRGNAM="alice"
+VERSION="2.0.0"
+HOMEPAGE="http://www.alice.org/"
+DOWNLOAD="http://www.alice.org/downloads/authoringtool/linux/Alice-2.0.0.tar.gz"
+MD5SUM="1a1eb35789ecf524f4a89df5d05e61c1"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@gmail.com"
+APPROVED=""
