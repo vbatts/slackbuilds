@@ -1,10 +1,10 @@
 #!/bin/sh
 
+DISPLAY=DEFAULT
+
 for opt in $(cat /proc/cmdline ); do  
   if echo $opt | egrep '^display=' >/dev/null ; then 
     DISPLAY=$(echo $opt | sed 's/.*=//g' )
-  else
-    DISPLAY=DEFAULT
   fi 
 done
 echo "setting display per $DISPLAY"
