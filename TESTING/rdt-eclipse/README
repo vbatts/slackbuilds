@@ -1,0 +1,10 @@
+rdt-eclipse is a ruby development plugin for the eclipse IDE
+
+DEPENDENCY: eclipse, available from slackbuilds.org
+
+once this is installed, you must 
+=> go to 'Prefences'
+=> 'Plug-in Development'
+=> 'Target Platform'
+=> the 'Plug-ins' tab 
+=> and 'Add' from 'File-system' this /opt/ecliplse/plugins/org.rubypeople.rdt-* directory
