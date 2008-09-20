@@ -4,7 +4,7 @@ DISPLAY=DEFAULT
 
 for opt in $(cat /proc/cmdline ); do  
   if echo $opt | egrep '^display=' >/dev/null ; then 
-    DISPLAY=$(echo $opt | sed 's/.*=//g' )
+    DISPLAY=${opt/display=/}
   fi 
 done
 echo "setting display per $DISPLAY"
