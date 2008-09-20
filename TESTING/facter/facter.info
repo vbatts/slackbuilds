@@ -1,0 +1,8 @@
+PRGNAM="facter"
+VERSION="1.5.2"
+HOMEPAGE="http://reductivelabs.com/trac/puppet"
+DOWNLOAD="http://reductivelabs.com/downloads/facter/facter-1.5.2.tgz"
+MD5SUM="3d257bc2755217690fca868c0fa0cc7b"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@gmail.com"
+APPROVED=""
