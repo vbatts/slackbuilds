@@ -1,0 +1,7 @@
+PRGNAM="twitux"
+VERSION="0.62"
+HOMEPAGE="http://live.gnome.org/DanielMorales/Twitux"
+DOWNLOAD="http://downloads.sourceforge.net/twitux/twitux-0.62.tar.bz2"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@gmail.com"
+APPROVED=""
