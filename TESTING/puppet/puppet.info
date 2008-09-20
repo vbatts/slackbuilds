@@ -1,0 +1,8 @@
+PRGNAM="puppet"
+VERSION="0.24.5"
+HOMEPAGE="http://reductivelabs.com/trac/puppet"
+DOWNLOAD="http://reductivelabs.com/downloads/puppet/puppet-0.24.5.tgz"
+MD5SUM="1160bb69966b9145d9f845f1f355dd44"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@gmail.com"
+APPROVED=""
