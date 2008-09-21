@@ -1,8 +1,0 @@
-PRGNAM="ktorrent"
-VERSION="2.2.7"
-HOMEPAGE="http://www.ktorrent.org/"
-DOWNLOAD="http://www.ktorrent.org/downloads/2.2.7/ktorrent-2.2.7.tar.bz2"
-MD5SUM="99bd7110aeae72be1a9704c42532dcaf"
-MAINTAINER="Vincent Batts"
-EMAIL="vbatts@gmail.com"
-APPROVED=""
