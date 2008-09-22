@@ -1,4 +1,10 @@
 twitux - a gnome twitter client
 
 
-Dependencies libxml-2, gconf
+Dependencies:
+ * libxml-2
+ * gconf
+ * libsexy
+ * libsoup-2.4
+ * libnotify
+
