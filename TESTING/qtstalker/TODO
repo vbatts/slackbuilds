@@ -1,0 +1,2 @@
+their Makefile is appearantly broken in regard to using --prefix and DESTDIR
+
