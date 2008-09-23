@@ -22,3 +22,5 @@ else
   cp -v /etc/X11/xorg.conf.WORKS_fglrx /etc/X11/xorg.conf
 fi
 
+echo "Removing fglrx backups"
+rm /etc/X11/xorg.conf.fglrx-*
