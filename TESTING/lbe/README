@@ -1,0 +1,6 @@
+lbe - LDAP Browser/Editor
+
+The LDAP Browser/Editor allows users to view the items stored in a LDAP directory in an hierarchical manner. It also allows modifications of the LDAP contents if the user is logged in as the Directory Manager.  
+
+DEPENDENCIES:
+  jre-1.5
