@@ -9,7 +9,7 @@ set -e
 PRGNAM=rubygems
 VERSION=1.3.0
 ARCH=${ARCH:-i486}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_vb}
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -39,6 +39,12 @@ mkdir $PKG/usr
 GEM_HOME=$PKG/usr/lib/ruby/gems/1.8 \
 ruby setup.rb \
   --destdir $PKG/usr
+
+# Setting global GEM_PATH to get rdoc correct for gems installed
+mkdir -p $PKG/etc/profile.d/
+cat $CWD/profile.d/gem.sh > $PKG/etc/profile.d/gem.sh
+cat $CWD/profile.d/gem.csh > $PKG/etc/profile.d/gem.csh
+chmod 755 $PKG/etc/profile.d/gem.sh $PKG/etc/profile.d/gem.csh
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a README ChangeLog LICENSE.txt TODO GPL.txt $PKG/usr/doc/$PRGNAM-$VERSION
