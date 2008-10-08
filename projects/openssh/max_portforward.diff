@@ -1,0 +1,11 @@
+--- ssh.h.ORIG	2008-09-16 09:53:18.000000000 -0500
++++ ssh.h	2008-09-16 09:53:26.000000000 -0500
+@@ -19,7 +19,7 @@
+ #define SSH_DEFAULT_PORT	22
+ 
+ /* Maximum number of TCP/IP ports forwarded per direction. */
+-#define SSH_MAX_FORWARDS_PER_DIRECTION	100
++#define SSH_MAX_FORWARDS_PER_DIRECTION	10000
+ 
+ /*
+  * Maximum number of RSA authentication identity files that can be specified

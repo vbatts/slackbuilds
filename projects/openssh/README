@@ -1,0 +1,5 @@
+openssh
+
+  DESCRIPTION:
+    my alteration of the slackware-12.1 openssh, with a 
+    patch to allow more local port forwards (100 => 10000)
