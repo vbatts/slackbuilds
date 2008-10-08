@@ -1,5 +1,8 @@
+#!/bin/sh
+
+PRGNAM="jre"
 CWD=`pwd`
-PKG=/tmp/package-jre
+PKG=/tmp/package-$PRGNAM
 rm -rf $PKG
 mkdir -p $PKG
 
@@ -11,7 +14,7 @@ BUILD=1
 cd $PKG
 mkdir -p usr/lib
 cd usr/lib
-sh $CWD/jre-${VERSION}-linux-${ARCH}.bin
+sh $CWD/$PRGNAM-${VERSION}-linux-${ARCH}.bin
 mkdir -p $PKG/etc/profile.d
 cp -a $CWD/profile.d/* $PKG/etc/profile.d
 chown -R root:root $PKG
@@ -29,7 +32,7 @@ find . -perm 555 -exec chmod 755 {} \;
 )
 chmod 755 $PKG/etc/profile.d/*
 ( cd $PKG/usr/lib
-  ln -sf jre${DVER} java
+  ln -sf ${PRGNAM}${DVER} java
 )
 mkdir -p $PKG/usr/lib/mozilla/plugins
 ( cd $PKG/usr/lib/mozilla/plugins
@@ -39,5 +42,5 @@ mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n /tmp/jre-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n /tmp/$PRGNAM-$VERSION-$ARCH-$BUILD.tgz
 

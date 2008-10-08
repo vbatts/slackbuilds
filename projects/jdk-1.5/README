@@ -1,0 +1,6 @@
+jdk
+
+  DESCRIPTION:
+    my alteration of the slackware-11.0 jdk-1.5 and jre-1.5, and
+    adapting it to slackware-12.1 for jre-1.5_update-15
+
