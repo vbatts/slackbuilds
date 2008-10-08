@@ -1,0 +1,43 @@
+CWD=`pwd`
+PKG=/tmp/package-jdk
+rm -rf $PKG
+mkdir -p $PKG
+
+VERSION=1_5_0_15
+DVER=1.5.0_15
+ARCH=i586
+BUILD=1
+
+cd $PKG
+mkdir -p usr/lib
+cd usr/lib
+sh $CWD/jdk-${VERSION}-linux-${ARCH}.bin
+mkdir -p $PKG/etc/profile.d
+cp -a $CWD/profile.d/* $PKG/etc/profile.d
+chown -R root.root $PKG
+( cd $PKG
+find . -perm 664 -exec chmod 644 {} \;
+find . -perm 600 -exec chmod 644 {} \;
+find . -perm 444 -exec chmod 644 {} \;
+find . -perm 400 -exec chmod 644 {} \;
+find . -perm 440 -exec chmod 644 {} \;
+find . -perm 777 -exec chmod 755 {} \;
+find . -perm 775 -exec chmod 755 {} \;
+find . -perm 511 -exec chmod 755 {} \;
+find . -perm 711 -exec chmod 755 {} \;
+find . -perm 555 -exec chmod 755 {} \;
+)
+chmod 755 $PKG/etc/profile.d/*
+( cd $PKG/usr/lib
+  ln -sf jdk${DVER} java
+)
+mkdir -p $PKG/usr/lib/mozilla/plugins
+( cd $PKG/usr/lib/mozilla/plugins
+  ln -sf /usr/lib/java/jre/plugin/i386/ns7/libjavaplugin_oji.so libjavaplugin_oji.so
+)
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+makepkg -l y -c n /tmp/jdk-$VERSION-$ARCH-$BUILD.tgz
+
