@@ -1,0 +1,5 @@
+PRGNAM="spark"
+VERSION="2_5_8"
+HOMEPAGE="http://www.igniterealtime.org/projects/spark/index.jsp"
+DOWNLOAD="http://www.igniterealtime.org/downloadServlet?filename=spark/spark_2_5_8.tar.gz"
+MD5SUM=""

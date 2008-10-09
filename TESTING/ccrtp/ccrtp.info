@@ -1,0 +1,8 @@
+PRGNAM="ccrtp"
+VERSION="1.6.0"
+HOMEPAGE="ftp://ftp.gnu.org/gnu/ccrtp/"
+DOWNLOAD="ftp://ftp.gnu.org/gnu/ccrtp/ccrtp-1.6.0.tar.gz"
+MD5SUM="ce02643d9091d769943c9b186203a7b4"
+MAINTAINER=""
+EMAIL=""
+APPROVED=""
