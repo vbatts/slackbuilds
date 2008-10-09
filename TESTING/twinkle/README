@@ -1,0 +1,12 @@
+twinkle (sip phone)
+DESCRIPTION:
+
+DEPENDENCIES:
+  * commoncpp2-1.6.1.tar.gz [GNU Common CPP framework]
+  * ccrtp-1.6.0.tar.gz [GNU ccRTP]
+  * libzrtpcpp-1.3.0.tar.gz [ZRTP extension for GNU ccRTP] (optional)
+  * Qt for open source (3.3.0 or later, but not Qt4) 
+  * libsndfile [WAV file handling]
+  * Speex (optional)
+  * ilbc library (optional). For Suse you can get the ilbc package with apt. You can build the library yourself from ilbc-rfc3951.tar.gz provided by linphone
+  * Boost [C++ libraries]
