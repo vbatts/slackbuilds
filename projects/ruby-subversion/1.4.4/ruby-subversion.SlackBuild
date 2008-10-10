@@ -48,19 +48,16 @@ CFLAGS="$SLKCFLAGS" \
   --with-neon=/usr \
   --with-pic \
   --with-ssl \
-  --disable-keychain \
   --with-zlib=/usr \
   --build=$ARCH-slackware-linux || exit 1
 make swig-rb || exit 1
-#make check-swig-rb || exit 1
+make check-swig-rb || exit 1
 make install-swig-rb DESTDIR=$PKG || exit 1
 
-( cd $PKG
-  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
-  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
-)
-rm -rf $PKG/usr/info
-gzip -9 $PKG/usr/man/man?/*
+#( cd $PKG
+#  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+#  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+#)
 
 # What is this junk for?  Since I don't know, I'll erase it.  :-)
 rm -rf $PKG/usr/build
