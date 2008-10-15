@@ -1,6 +1,8 @@
 gtwitter
 
 DESCRIPTION:
+  It's a simple GTK+ based application for Linux, 
+  designed to interact with Twitter web service. 
 
 DEPENDENCIES:
   * The latest GNOME development packages (gtk+-2.8)
