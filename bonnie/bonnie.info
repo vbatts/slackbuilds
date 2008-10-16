@@ -1,4 +1,4 @@
-PRGNAME="bonnie"
+PRGNAM="bonnie"
 VERSION="1.4"
 HOMEPAGE="http://www.garloff.de/kurt/linux/bonnie/"
 DOWNLOAD="http://www.garloff.de/kurt/linux/bonnie/bonnie-1.4.tar.bz2"

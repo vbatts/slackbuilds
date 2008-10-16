@@ -8,7 +8,7 @@
 ##
 ## Written by "Vincent Batts <vbatts@batts.mine.nu>"
 ##
-## opensync consideration added thanks 
+## opensync consideration added thanks
 ##   to "Heinz Wiesinger <HMWiesinger@gmx.at>"
 
 PKGNAME=barry
@@ -69,7 +69,7 @@ make install DESTDIR=$PKG || exit 1
 gzip -9 $PKG/usr/man/man?/*.?
 
 mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
-cp -a README INSTALL TODO COPYING AUTHORS NEWS ChangeLog \
+cp -a README TODO COPYING AUTHORS NEWS ChangeLog \
   $PKG/usr/doc/$PKGNAME-$VERSION
 
 mkdir -p $PKG/etc/udev/rules.d/
