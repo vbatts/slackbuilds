@@ -3,12 +3,13 @@
 # Slackware build script for xlt
 
 # Written by Vincent Batts, vbatts@batts.mine.nu
+# Modified by SlackBuilds.org
 
 set -e
 
 PRGNAM=xlt
 BIG_PRGNAM=Xlt
-VERSION=13.0.13
+VERSION=11.1.11
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -27,14 +28,14 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $BIG_PRGNAM-$VERSION
-tar xzvf $CWD/$BIG_PRGNAM-$VERSION.tar.gz || exit 1 
+tar xzvf $CWD/$BIG_PRGNAM-$VERSION.tar.gz || exit 1
 cd $BIG_PRGNAM-$VERSION
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
  -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
- -exec chmod 644 {} \; || exit 1 
+ -exec chmod 644 {} \; || exit 1
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
@@ -56,10 +57,6 @@ make install DESTDIR=$PKG || exit 1
   find . -type f -exec gzip -9 {} \;
   for i in $( find . -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 )
-
-#rm -f $PKG/usr/info/dir
-#gzip -9 $PKG/usr/info/*.info*
-
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 mv -v $PKG/usr/$BIG_PRGNAM/doc/* $PKG/usr/doc/$PRGNAM-$VERSION/

@@ -1,9 +1,3 @@
 #!/bin/sh
 
-HTTP_PORT=8080
-
-if [ -e /etc/hudson.conf ] ; then
-  . /etc/hudson.conf
-fi
-
 

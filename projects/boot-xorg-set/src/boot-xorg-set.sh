@@ -26,18 +26,15 @@ if [ ${DISPLAY} = "single" ] ; then
 elif [ ${DISPLAY} = "fglrx" ] ; then
   cp -v /etc/X11/xorg.conf.WORKS_fglrx /etc/X11/xorg.conf
   addMode
-elif [ ${DISPLAY} = "fglrx" ] ; then
 elif [ ${DISPLAY} = "radeon" ] ; then
   cp -v /etc/X11/xorg.conf.WORKS_radeon /etc/X11/xorg.conf
 elif [ ${DISPLAY} = "dual" ] ; then
   aticonfig --dtop=horizontal,reverse --screen-layout=left
   #cp -v /etc/X11/xorg.conf.dualhead /etc/X11/xorg.conf
   addMode
-elif [ ${DISPLAY} = "fglrx" ] ; then
 else
   cp -v /etc/X11/xorg.conf.WORKS_fglrx /etc/X11/xorg.conf
   addMode
-elif [ ${DISPLAY} = "fglrx" ] ; then
 fi
 
 echo "Removing fglrx backups"

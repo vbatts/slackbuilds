@@ -52,10 +52,10 @@ make install.man DESTDIR=$PKG || exit 1
 gzip -9 $PKG/usr/man/man1/x11-ssh-askpass.1x
 
 mkdir -p $PKG/usr/doc/x11-ssh-askpass-$VERSION
-cp -a README $PKG/usr/doc/x11-ssh-askpass-$VERSION
+cp README $CWD/xprofile.sample $PKG/usr/doc/x11-ssh-askpass-$VERSION
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
-cd $TMP/package-x11-ssh-askpass
+cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/x11-ssh-askpass-$VERSION-$ARCH-$BUILD$TAG.tgz

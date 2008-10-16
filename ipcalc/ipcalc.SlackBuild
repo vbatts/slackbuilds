@@ -9,6 +9,7 @@ VERSION=0.41
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
+
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
@@ -19,6 +20,8 @@ if [ "$ARCH" = "i486" ]; then
 elif [ "$ARCH" = "i686" ]; then
   SLKCFLAGS="-O2 -march=i686 -mtune=i686"
 fi
+
+set -e
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

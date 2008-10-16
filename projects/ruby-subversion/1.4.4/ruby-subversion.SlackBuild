@@ -4,7 +4,7 @@ CWD=`pwd`
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-subversion
 
-VERSION=1.5.2
+VERSION=1.4.4
 ARCH=${ARCH:-i486}
 BUILD=1
 
@@ -26,7 +26,7 @@ mkdir -p $PKG
 
 cd $TMP
 rm -rf subversion-$VERSION
-tar xjvf $CWD/subversion-$VERSION.tar.bz2 || exit 1
+tar xzvf $CWD/subversion-$VERSION.tar.gz || exit 1
 cd subversion-$VERSION
 
 chown -R root:root .
@@ -48,6 +48,7 @@ CFLAGS="$SLKCFLAGS" \
   --with-neon=/usr \
   --with-pic \
   --with-ssl \
+  --with-openssl \
   --with-zlib=/usr \
   --build=$ARCH-slackware-linux || exit 1
 make swig-rb || exit 1

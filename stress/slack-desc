@@ -6,7 +6,7 @@
 # customary to leave one space after the ':'.
 
       |-----handy-ruler------------------------------------------------------|
-stress: stress test utility
+stress: stress (stress test utility)
 stress: 
 stress: imposes certain types of compute stress 
 stress: on your system.

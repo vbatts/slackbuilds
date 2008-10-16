@@ -42,6 +42,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --prefix=/usr \
   --sysconfdir=/etc \
   --localstatedir=/var \
+  --infodir=/usr/info \
   --mandir=/usr/man || exit 1
 
 make || exit 1

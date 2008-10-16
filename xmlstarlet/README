@@ -4,8 +4,3 @@ XMLStarlet is a command line XML toolkit that can be used to
 transform, query, validate, and edit XML documents and files using
 a simple set of shell commands, which work similarly to 'grep',
 'sed', 'awk', 'tr', 'diff', or 'patch' on plain text files.
-
-
-Homepage http://sourceforge.net/projects/xmlstar/
-
-
