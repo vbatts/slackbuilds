@@ -1,0 +1,13 @@
+aptana studio ( web app IDE)
+
+Creating web sites and applications on your platform 
+of choice is now easier than ever. Aptana's PHP, Ruby 
+on Rails and Jaxer application engines come ready to 
+use and ready to scale in Aptana Studio, Eclipse and 
+Aptana Cloud. Develop against local or remote engines. 
+Deploy and scale on demand. 
+
+Homepage, http://www.aptana.com/studio
+
+DEPENDENCIES:
+  * xulrunner
