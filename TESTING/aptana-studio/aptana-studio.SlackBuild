@@ -22,9 +22,11 @@ unzip $CWD/Aptana_Studio_Setup_Linux.zip
 mv aptana $PRGNAM-$VERSION
 chown -R root:root .
 
+patch $PKG/usr/lib/$PRGNAM-$VERSION/configuration/config.ini $CWD/config.ini.diff
+
 mkdir -p $PKG/usr/bin
-cd $PKG/usr/bin
-ln -s ../lib/$PRGNAM-$VERSION/AptanaStudio $PRGNAM
+cp -a $CWD/${PRGNAM}.sh $PKG/usr/bin/$PRGNAM
+chmod 755 $PKG/usr/bin/$PRGNAM
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cd $PKG/usr/lib/$PRGNAM-$VERSION

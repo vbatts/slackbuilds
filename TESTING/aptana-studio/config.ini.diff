@@ -1,0 +1,11 @@
+--- aptana/configuration/config.ini	2008-07-31 13:11:08.000000000 -0500
++++ config.ini	2008-10-18 12:07:07.407351805 -0500
+@@ -4,3 +4,8 @@
+ eclipse.product=com.aptana.ide.rcp.product
+ osgi.bundles=org.eclipse.equinox.common@2:start,org.eclipse.update.configurator@3:start,org.eclipse.core.runtime@start
+ osgi.bundles.defaultStartLevel=4
++
++# The default workspace location
++osgi.instance.area.default=@user.home/aptana-workspace
++osgi.user.area=@user.home/.AptanaStudio
++
