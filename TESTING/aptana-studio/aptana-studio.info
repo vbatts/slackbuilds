@@ -1,0 +1,8 @@
+PRGNAM="aptana-studio"
+VERSION="1.1"
+HOMEPAGE="http://www.aptana.com/studio/"
+DOWNLOAD="http://ec2-67-202-39-216.compute-1.amazonaws.com/downloads/current/Linux/Aptana_Studio_Setup_Linux.zip"
+MD5SUM="e82cf0796640f82f8aec20fb19133050"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@hashbangbash.com"
+APPROVED=""
