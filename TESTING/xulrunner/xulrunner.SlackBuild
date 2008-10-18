@@ -1,0 +1,39 @@
+#!/bin/sh
+# Slackware build script for xulrunner
+# Written by Vincent Batts, vbatts@hashbangbash.com
+
+PRGNAM=xulrunner
+VERSION=${VERSION:-1.9.0.3}
+ARCH=${ARCH:-i486}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_SBo}
+
+CWD=$(pwd)
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+
+set -e
+
+rm -rf $PKG
+mkdir -p $TMP $PKG/usr/lib $OUTPUT
+cd $PKG/usr/lib
+tar xjvf $CWD/$PRGNAM-${VERSION}.en-US.linux-i686.tar.bz2
+mv $PRGNAM $PRGNAM-$VERSION
+ln -s $PRGNAM-$VERSION $PRGNAM 
+chown -R root:root .
+
+mkdir -p $PKG/usr/bin
+cd $PKG/usr/bin
+ln -s ../lib/$PRGNAM/$PRGNAM
+
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cd $PKG/usr/lib/$PRGNAM-$VERSION
+cp -a LICENSE README.txt $PKG/usr/doc/$PRGNAM-$VERSION
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz

@@ -1,0 +1,12 @@
+xulrunner: xulrunner ( mozilla runtime framework )
+xulrunner: 
+xulrunner: a Mozilla runtime package that can be used to bootstrap 
+xulrunner: XUL+XPCOM applications that are as rich as Firefox and
+xulrunner: Thunderbird. It will provide mechanisms for installing,
+xulrunner: upgrading, and uninstalling these applications. 
+xulrunner: XULRunner will also provide libxul, a solution which 
+xulrunner: allows the embedding of Mozilla technologies in other
+xulrunner: projects and products.
+xulrunner: 
+xulrunner: Homepage, http://developer.mozilla.org/en/XULRunner
+xulrunner: 
