@@ -1,0 +1,13 @@
+ta-lib (finance libraries)
+
+TA-Lib provides common functions for the technical analysis of financial market data.
+
+Widely used by trading software developers working with Excel, .NET, Java, Perl, Python or C/C++.
+ 
+* bullet More than 150 technical analysis indicators such as ADX, MACD, RSI, Stochastic, Bollinger Bands etc...
+* bullet Includes candlestick pattern recognition.
+* bullet Optional abstract API allowing your code to adapt automatically when new functions are added!
+
+ BSD License: Can be used freely in open-source or commercial software
+
+http://ta-lib.org/

@@ -1,9 +1,9 @@
-ta-lib:  ta-lib
+ta-lib:  ta-lib (finance libraries)
 ta-lib:  
+ta-lib:  TA-Lib provides common functions for the technical 
+ta-lib:  analysis of financial market data.
 ta-lib:  
-ta-lib:  
-ta-lib:  
-ta-lib:  
+ta-lib:  Homepage: http://ta-lib.org/
 ta-lib:  
 ta-lib:  
 ta-lib:  
