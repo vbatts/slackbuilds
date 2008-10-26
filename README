@@ -37,6 +37,7 @@ they are here, working or not
   alice - 18.Sept.2008
   boot-xorg-set - 18.Sept.2008
   rdt-eclipse - 20.Sept.2008
+  qtstalker - started 2.Mar.2008, 2008.10.25 - ready to submit
 
 ** TESTING/BROKEN **
   xbench
@@ -46,5 +47,4 @@ they are here, working or not
   atk
   libonobo
   at-spi
-  qtstalker - 2.Mar.2008 - stock and finance ticker
   rubygems - 25.April.2008, moved back because app isn't functioning correctly

@@ -5,15 +5,15 @@
 # make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':'.
 
-      |-----handy-ruler------------------------------------------------------|
-ta-lib:  ta-lib (finance libraries)
-ta-lib:  
-ta-lib:  TA-Lib provides common functions for the technical 
-ta-lib:  analysis of financial market data.
-ta-lib:  
-ta-lib:  Homepage: http://ta-lib.org/
-ta-lib:  
-ta-lib:  
-ta-lib:  
-ta-lib:  
-ta-lib:  
+         |-----handy-ruler------------------------------------------------------|
+qtstalker: qtstalker (stock analysis tool)
+qtstalker:
+qtstalker: Commodity and stock market
+qtstalker: charting and technical analysis
+qtstalker:
+qtstalker:
+qtstalker: Homepage: http://qtstalker.sourceforge.net/
+qtstalker:
+qtstalker:
+qtstalker:
+qtstalker:

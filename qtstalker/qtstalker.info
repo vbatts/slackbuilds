@@ -1,9 +1,9 @@
 PRGNAM="qtstalker"
-VERSION="0.35"
+VERSION="0.36"
 HOMEPAGE="http://qtstalker.sourceforge.net/"
 DOWNLOAD="http://downloads.sourceforge.net/qtstalker/qtstalker-0.36.tar.gz"
-MD5SUM="2b741bd4b8916dceb4d41316173db82b"
+MD5SUM="599589c4e84e828bd888fce6be81dab3"
 MAINTAINER="Vincent Batts"
-EMAIL="vbatts@batts.mine.nu"
+EMAIL="vbatts@hashbangbash.com"
 APPROVED=""
 
