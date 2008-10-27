@@ -1,0 +1,11 @@
+xls2csv: xls2csv ( XLS converter script )
+xls2csv: 
+xls2csv: This script will recode a spreadsheet into a different 
+xls2csv: character set and output the recoded data as a csv file.
+xls2csv: The script came about after many headaches from dealing 
+xls2csv: with Excel spreadsheets from clients that were being 
+xls2csv: received in various character sets.
+xls2csv: 
+xls2csv: 
+xls2csv: 
+xls2csv: 
