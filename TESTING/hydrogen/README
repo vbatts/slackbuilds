@@ -1,0 +1,7 @@
+hydrogen - drum machine
+
+DESCRIPTION: 
+
+DEPENDENCIES:
+ * libsndfile
+ * flac
