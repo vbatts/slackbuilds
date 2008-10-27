@@ -1,0 +1,2 @@
+currently this compiles fine, but it needs to have  SpiderMonkey (http://www.mozilla.org/js/spidermonkey/) available to builds against. 
+the application fails on loading module js-runtime, because it is not being built :/

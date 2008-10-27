@@ -28,9 +28,9 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION
+rm -rf $PRGNAM-for-linux-$VERSION
 tar xvf $CWD/$PRGNAM-for-linux-$VERSION.tar.bz2
-cd $PRGNAM-$VERSION
+cd $PRGNAM-for-linux-$VERSION
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
