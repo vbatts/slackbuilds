@@ -1,0 +1,4 @@
+google-gadgets - the widget side of google desktop
+
+DEPENDENCIES
+ * qt4 ( or gtk, but i've defaulted to qt4 )
