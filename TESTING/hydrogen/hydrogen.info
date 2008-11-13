@@ -1,5 +1,5 @@
 PRGNAM="hydrogen"
-VERSION="0.93"
+VERSION="0.9.4"
 HOMEPAGE="http://www.hydrogen-music.org/"
-DOWNLOAD=""
-MD5SUM="d5840b5d330d433d00ea1727efb0fc7f"
+DOWNLOAD="http://voxel.dl.sourceforge.net/sourceforge/hydrogen/hydrogen-0.9.4-beta2.tar.gz"
+MD5SUM="1646e5fcd91f6edc199c774d34b7f1fc"
