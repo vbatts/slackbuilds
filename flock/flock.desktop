@@ -1,10 +1,10 @@
 [Desktop Entry]
 Encoding=UTF-8
-Exec=flock2 %u
-Icon=/usr/share/pixmaps/flock2.png
+Exec=flock %u
+Icon=/usr/share/pixmaps/flock.png
 Type=Application
 Categories=Application;Network;
-Name=Flock2
+Name=Flock
 GenericName=Web Browser
 GenericName[af]=Web Blaaier
 GenericName[ar]=متصفح ويب
