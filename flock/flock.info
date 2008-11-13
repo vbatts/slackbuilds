@@ -1,8 +1,0 @@
-PRGNAM="flock"
-VERSION="1.2.3"
-HOMEPAGE="http://www.flock.com/"
-DOWNLOAD="http://mirror2.flock.com/releases/1.2.3/flock-1.2.3.en-US.linux-i686.tar.gz"
-MD5SUM=6798b72c08e811b2592af0226f8eaa35
-MAINTAINER="Vincent Batts"
-EMAIL="vbatts@gmail.com"
-APPROVED=

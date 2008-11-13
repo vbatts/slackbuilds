@@ -20,7 +20,7 @@ PKG=$TMP/package-$PRGNAM
 # Thanks to the folks at the Flock for permission to
 # distribute this, and for all the great work!  :-)
 
-VERSION=1.2.3
+VERSION=2.0.1
 ARCH=${ARCH:-i686}
 BUILD=1
 
@@ -30,9 +30,9 @@ fi
 rm -rf $PKG
 mkdir -p $PKG/usr/lib
 ( cd $PKG/usr/lib
-  tar xvf $CWD/$PRGNAM-$VERSION.en-US.linux-i686.tar.gz || exit 1
-  mv $PRGNAM $PRGNAM-$VERSION
-  ln -sf $PRGNAM-$VERSION $PRGNAM
+  tar xvf $CWD/${PRGNAM}_afc2D752E58ECCE-$VERSION.en-US.linux-i686.tar.bz2 || exit 1
+  mv ${PRGNAM} $PRGNAM-$VERSION
+  ln -sf $PRGNAM-$VERSION ${PRGNAM}
   cd $PRGNAM-$VERSION
   zcat $CWD/$PRGNAM-simple.diff.gz | patch -p0 --verbose --backup --suffix=.orig || exit 1
   if [ ! $? = 0 ]; then
@@ -47,19 +47,20 @@ mkdir -p $PKG/usr/lib
     exit 1
   fi
   rm -f defaults/pref/$PRGNAM.js.orig
+  mv ${PRGNAM}-browser ${PRGNAM}
 )
 if [ ! $? = 0 ]; then
   exit 1
 fi
 mkdir -p $PKG/usr/bin
 ( cd $PKG/usr/bin
-  ln -sf /usr/lib/$PRGNAM-$VERSION/$PRGNAM .
+  ln -sf /usr/lib/$PRGNAM-$VERSION/${PRGNAM} $PRGNAM
 )
 mkdir -p $PKG/usr/lib/mozilla/plugins
 mkdir -p $PKG/usr/share/applications
 cat $CWD/$PRGNAM.desktop > $PKG/usr/share/applications/$PRGNAM.desktop
 mkdir -p $PKG/usr/share/pixmaps
-cat $CWD/$PRGNAM.png > $PKG/usr/share/pixmaps/$PRGNAM.png
+cat $CWD/${PRGNAM}.png > $PKG/usr/share/pixmaps/$PRGNAM.png
 
 # These files/directories are usually created if Firefox is run as root, which on many
 # systems might (and possibly should) be never.  Therefore, if we don't see them we'll

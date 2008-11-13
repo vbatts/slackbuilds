@@ -1,8 +1,0 @@
-PRGNAM="flock2"
-VERSION="2.0b1"
-HOMEPAGE="http://www.flock.com/"
-DOWNLOAD="http://mirror2.flock.com/releases/2.0b1/flock-2.0b1.en-US.linux-i686.tar.bz2"
-MD5SUM=c32c93a16e7ac2de8d8213563981a33c
-MAINTAINER="Vincent Batts"
-EMAIL="vbatts@gmail.com"
-APPROVED=
