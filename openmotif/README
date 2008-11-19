@@ -5,6 +5,10 @@ distribution for the Motif user interface component
 toolkit. Open Motif is built on top of the standard
 X Toolkit(Xt) and X11 libraries.
 
+** CONFLICTS **
+openMotif is a replacement for the lesstif package in
+  a base slackware installation. to avoid any conflicts,
+  lesstif should be removed first.
 
 ** DEPENDENCIES **
 xlt (libXlt libraries), this SlackBuild is currently available 
