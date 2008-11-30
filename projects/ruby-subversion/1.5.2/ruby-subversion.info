@@ -1,7 +1,0 @@
-PRGNAM="ruby-subversion"
-VERSION="1.5.2"
-HOMEPAGE="http://subversion.tigris.org"
-DOWNLOAD="http://slackware.cs.utah.edu/pub/slackware/slackware-current/source/d/subversion/subversion-1.5.2.tar.bz2"
-MD5SUM="8321d0e1964846090f0174cb6bb18838"
-MAINTAINER="Vincent Batts"
-EMAIL="vbatts@hashbangbash.com"

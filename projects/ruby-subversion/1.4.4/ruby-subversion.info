@@ -1,7 +1,0 @@
-PRGNAM="ruby-subversion"
-VERSION="1.4.4"
-HOMEPAGE="http://subversion.tigris.org"
-DOWNLOAD="http://subversion.tigris.org/downloads/subversion-1.4.4.tar.gz"
-MD5SUM="702655defa418bab8f683f6268b4fd30"
-MAINTAINER="Vincent Batts"
-EMAIL="vbatts@hashbangbash.com"

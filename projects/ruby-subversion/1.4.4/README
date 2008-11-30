@@ -1,6 +1,0 @@
-ruby-subversion (svn bindings for ruby)
-
-this build script is pulled from the slackware/source/../subversion/
-but it only includes the bindings for ruby
-
-
