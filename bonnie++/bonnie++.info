@@ -1,0 +1,8 @@
+PRGNAM="bonnie++"
+VERSION="1.03d"
+HOMEPAGE="http://www.coker.com.au/bonnie++/"
+DOWNLOAD="http://www.coker.com.au/bonnie++/bonnie++-1.03d.tgz"
+MD5SUM=""
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@hashbangbash.com"
+APPROVED="rworkman, Michiel"

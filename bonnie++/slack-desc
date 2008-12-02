@@ -6,14 +6,14 @@
 # customary to leave one space after the ':'.
 
         |-----handy-ruler----------------------------------------------------|
-bonniexx: bonnie++ (a system benchmarking tool)
-bonniexx:  
-bonniexx: This benchmark is named Bonnie++ - it is based on the
-bonniexx: Bonnie benchmark written by Tim Bray.
-bonniexx: Bonnie++ adds the facility to test more than 2G of storage on a
-bonniexx: on a 32bit machine, and tests for file creat(), stat(), unlink() 
-bonniexx: operations.
-bonniexx:  
-bonniexx: Homepage: http://www.coker.com.au/bonnie++/
-bonniexx:  
-bonniexx:  
+bonnie++: bonnie++ (a system benchmarking tool)
+bonnie++:  
+bonnie++: This benchmark is named Bonnie++ - it is based on the
+bonnie++: Bonnie benchmark written by Tim Bray.
+bonnie++: Bonnie++ adds the facility to test more than 2G of storage on a
+bonnie++: on a 32bit machine, and tests for file creat(), stat(), unlink() 
+bonnie++: operations.
+bonnie++:  
+bonnie++: Homepage: http://www.coker.com.au/bonnie++/
+bonnie++:  
+bonnie++:  
