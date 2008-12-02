@@ -49,9 +49,8 @@ find . \
  -exec chmod 644 {} \;
 
 mkdir -p $PKG/usr/bin
-mkdir -p $PKG/usr/lib/cgi-bin
-cp -a ipcalc $PKG/usr/bin/
 mkdir -p $PKG/srv/httpd/cgi-bin/
+cp -a ipcalc $PKG/usr/bin/
 cat ipcalc.cgi | sed 's/\/usr\/local/\/usr/g' > $PKG/srv/httpd/cgi-bin/ipcalc.cgi
 chmod +x $PKG/srv/httpd/cgi-bin/ipcalc.cgi
 
