@@ -1,7 +1,0 @@
-PRGNAM="gconf"
-VERSION="2.21.2"
-HOMEPAGE="http://www.gnome.org/"
-DOWNLOAD="ftp://ftp.gnome.org/pub/GNOME/sources/GConf/2.21/GConf-2.21.2.tar.bz2"
-MAINTAINER="Vincent Batts"
-EMAIL="vbatts@batts.mine.nu"
-APPROVED=""
