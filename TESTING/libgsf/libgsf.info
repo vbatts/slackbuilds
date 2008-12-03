@@ -1,0 +1,5 @@
+PRGNAM="libgsf"
+VERSION="1.14.9"
+HOMEPAGE="http://gnome.org/"
+DOWNLOAD="ftp://ftp.gnome.org/pub/gnome/sources/libgsf/1.14/libgsf-1.14.9.tar.bz2"
+MD5SUM="422a8461927b863780d3579991a915a5"

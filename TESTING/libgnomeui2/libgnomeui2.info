@@ -1,0 +1,6 @@
+PRGNAM="libgnomeui2"
+VERSION="1.104.0"
+HOMEPAGE="http://gnome.org/"
+DOWNLOAD="ftp://ftp.gnome.org/pub/gnome/sources/libgnomeui2/1.104/libgnomeui2-1.104.0.tar.gz"
+MD5SUM="6e3aeb6903a81b8a9831e59f3dce6413"
+
