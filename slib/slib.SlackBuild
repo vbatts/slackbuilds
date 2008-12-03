@@ -1,15 +1,14 @@
 #!/bin/sh
 
 # Slackware build script for slib
-
-# Written by Vincent Batts, vbatts@batts.mine.nu
+# Written by Vincent Batts, vbatts@hashbangbash.com
 
 set -e
 
 PRGNAM=slib
 VERSION=3b1
 ARCH=${ARCH:-i486}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_vb}
 CWD=$(pwd)
 TMP=${TMP:-/tmp/vb}
@@ -53,9 +52,12 @@ make install DESTDIR=$PKG
 )
 
 # guile is suppose to look to /usr/share/slib by default
-mkdir -p $PKG/usr/share
+mkdir -p $PKG/usr/share/guile
 cd $PKG/usr/share/
 ln -s ../lib/slib/ slib
+cd -
+cd $PKG/usr/share/guile/
+ln -s ../../lib/slib/ slib
 cd -
 
 # a somewhat perculiar quirk that only seems to be an issue on slackware
