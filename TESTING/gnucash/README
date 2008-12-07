@@ -7,12 +7,14 @@ and libxml2 (which is typically on a default slackware system)
 
 also it depends on swig, gconf, gtkhtml, and gtkprint
 which lead to ORBit2, libgnomeui, bonobo ...
+just go ahead and install gware :|
 
 Dependent Libraries
 ---------------------------
 GConf (SBo GConf-2.9.91)
 libofx (vb libofx-0.9.0)
 ORbit2 (SBo ORBit2-2.14.16)
+[lib]goffice (SBo goffice-0.7.0)
 guile (slackware guile-1.8.5)
 libart2 (slackware libart_lgpl-2.3.20)
 libglade2 (slackware libglade-2.6.3)
@@ -22,7 +24,6 @@ pango (slackware pango-1.20.5)
 aqbanking (?)
 libgnomeprint2.2 (?)
 libgnomeui2 (?)
-[lib]goffice (?)
 libgsf1 (?)
 [lib]gtkhtml3 (?)
 
