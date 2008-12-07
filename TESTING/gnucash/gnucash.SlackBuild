@@ -62,6 +62,8 @@ CXXFLAGS="$SLKCFLAGS" \
   --enable-ofx \
   --disable-aqbanking \
   --disable-sql \
+  --docdir=/usr/doc/$PRGNAM-$VERSION \
+  --infodir=/usr/info \
   --mandir=/usr/man
 
 make

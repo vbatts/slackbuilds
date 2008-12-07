@@ -2,12 +2,9 @@ gnucash is opensource accounting software
 
 
 ___
-initially it is dependent on guile, and slib
-and libxml2 (which is typically on a default slackware system)
-
 also it depends on swig, gconf, gtkhtml, and gtkprint
 which lead to ORBit2, libgnomeui, bonobo ...
-just go ahead and install gware :|
+
 
 Dependent Libraries
 ---------------------------
@@ -21,7 +18,7 @@ libglade2 (slackware libglade-2.6.3)
 gtk+2 (slackware gtk+2-2.12.12)
 libxml2 (slackware libxml2-2.6.32)
 pango (slackware pango-1.20.5)
-aqbanking (?)
+aqbanking (?) OPTIONAL
 libgnomeprint2.2 (?)
 libgnomeui2 (?)
 libgsf1 (?)
@@ -31,3 +28,6 @@ libgsf1 (?)
 ---------------------------
 swig (SBo swig-1.3.35)
 slib (vb slib-3b1)
+
+
+just go ahead and install gware :/
