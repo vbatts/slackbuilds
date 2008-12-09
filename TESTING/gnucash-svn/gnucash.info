@@ -1,0 +1,8 @@
+PRGNAM="gnucash"
+VERSION="2.2.7"
+HOMEPAGE="http://www.gnucash.org/"
+DOWNLOAD="http://downloads.sourceforge.net/gnucash/gnucash-2.2.7.tar.bz2"
+MD5SUM="0f3f324c274b136070b769aa10591ccf"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@hashbangbash.com"
+APPROVED=""
