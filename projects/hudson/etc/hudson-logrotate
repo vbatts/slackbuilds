@@ -1,0 +1,8 @@
+/var/log/hudson.log {
+  rotate 10
+  notifempty
+  size=5M
+  compress
+  delaycompress
+}
+
