@@ -18,7 +18,7 @@
 ## Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 PRGNAM=hudson
-VERSION=${VERSION:-1.255}
+VERSION=${VERSION:-1.262}
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_vb}
