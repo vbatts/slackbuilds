@@ -1,4 +1,5 @@
 #!/bin/sh
+# $Id$
 
 JAVA=$(which java)
 HUDSON="/usr/lib/hudson/hudson.war"
