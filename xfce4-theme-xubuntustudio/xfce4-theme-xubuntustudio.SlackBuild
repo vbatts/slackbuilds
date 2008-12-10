@@ -1,0 +1,23 @@
+#!/bin/bash
+
+PRGNAM="xfce4-theme-xubuntustudio"
+VERSION="1.0"
+ARCH="noarch"
+TAG=${TAG:-vb}
+BUILD=${BUILD:-1_$TAG}
+TMP=${TMP:-/tmp}
+PKG=$TMP/$TAG/package-$PRGNAM
+CWD=$(pwd)
+
+rm -rf $PKG
+mkdir -p $PKG/usr/share/themes/
+cd $PKG/usr/share/themes/
+tar zxvf $CWD/65776-XubuntuStudio.tar.gz
+cd $PKG
+
+chown -R root:root .
+
+mkdir $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+/sbin/makepkg -l y -c n $TMP/$PRGNAM-$VERSION-$ARCH-$BUILD.tgz
