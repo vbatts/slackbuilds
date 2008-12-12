@@ -1,4 +1,0 @@
-Eterm is a color vt102 terminal emulator intended as a replacement for xterm.
-
-DEPENDENCIES:
-  * libast
