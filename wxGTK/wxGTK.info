@@ -1,8 +1,0 @@
-PRGNAME="wxGTK"
-VERSION="2.8.7"
-HOMEPAGE="http://www.wxwidgets.org"
-DOWNLOAD="http://prdownloads.sourceforge.net/wxwindows/wxGTK-2.8.7.tar.gz"
-MD5SUM="594391d6a585f37e79517cb97af46d84"
-MAINTAINER="Vincent Batts"
-EMAIL="vbatts@batts.mine.nu"
-APPROVED=""
