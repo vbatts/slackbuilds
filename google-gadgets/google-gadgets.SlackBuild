@@ -5,13 +5,13 @@
 # Written by Vincent Batts, vbatts@hashbangbash.com
 
 PRGNAM=google-gadgets
-VERSION=${VERSION:-0.10.2}
+VERSION=${VERSION:-0.10.3}
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_vb}
 
 CWD=$(pwd)
-TMP=${TMP:-/tmp/SBo}
+TMP=${TMP:-/tmp/vb}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
