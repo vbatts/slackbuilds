@@ -28,7 +28,7 @@ they are here, working or not
   wxGTK
   gconf
   orbit
-  truecrypt
+  truecrypt - 2008.dec.12 updated to 6.1a
   guile
   ta-lib - 2.Mar.2008 - dependency for qtstalker, still needs slack-desc info
   hackedbox - 01.april.2008, ready to submit
@@ -39,6 +39,7 @@ they are here, working or not
   qtstalker - started 2.Mar.2008, 2008.10.25 - ready to submit
   xfce4-themes-xubuntustudio - 2008.12.10 - ready to submit
   xfce4-icons-xubuntustudio - 2008.12.10 - ready to submit
+  google-gadgets - 2008.12.12
 
 ** TESTING/BROKEN **
   xbench
