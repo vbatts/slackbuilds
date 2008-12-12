@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Exec=truecrypt
+Icon=/usr/share/pixmaps/TrueCrypt.xpm
+Type=Application
+Categories=Application;System;
+Name=TrueCrypt
+GenericName=Disk Encryption Manager

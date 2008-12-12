@@ -85,8 +85,13 @@ cp -a Main/truecrypt $PKG/usr/bin/
 
 ( cd $PKG
   find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
-  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
 )
+
+mkdir -p $PKG/usr/share/pixmaps/
+cp Resources/Icons/TrueCrypt-48x48.xpm $PKG/usr/share/pixmaps/TrueCrypt.xpm
+
+mkdir -p $PKG/usr/share/applications/
+cp $CWD/truecrypt.desktop $PKG/usr/share/applications/
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a Release/Setup\ Files/TrueCrypt\ User\ Guide.pdf $PKG/usr/doc/$PRGNAM-$VERSION/TrueCrypt_User_Guide.pdf
