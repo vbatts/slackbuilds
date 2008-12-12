@@ -1,18 +1,20 @@
 #!/bin/sh
 
-# Slackware build script for truecrypt 5.0
+# Slackware build script for truecrypt
 
-# Written by Vincent Batts, vbatts@batts.mine.nu
+# Copyright 2007,2008 Vincent Batts, vbatts@hashbangbash.com
 
 set -e
 
 PRGNAM=truecrypt
-VERSION=5.0
+VERSION=6.1a
+WXWINDOWS="wxGTK"
+WXWINDOWS_VERSION="2.8.9"
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
-TAG=${TAG:-_SBo}
+TAG=${TAG:-_vb}
 CWD=$(pwd)
-TMP=${TMP:-/tmp/SBo}
+TMP=${TMP:-/tmp/vb}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
@@ -22,25 +24,43 @@ elif [ "$ARCH" = "i686" ]; then
   SLKCFLAGS="-O2 -march=i686 -mtune=i686"
 fi
 
- if [ ! -d ${TMP}/wxGTK-2.8.7/ ] ; then
-     echo "no wxGTK source dir found, looking for tar.gz"
-     if [ -f $CWD/wxGTK-2.8.7.tar.gz ] ; then
-	 echo "tar.gz found, unzipping to $TMP"
+ if [ ! -d ${TMP}/$WXWINDOWS-$WXWINDOWS_VERSION/ ] ; then
+     echo "no $WXWINDOWS source dir found, looking for tar.gz"
+     if [ -f $CWD/$WXWINDOWS-$WXWINDOWS_VERSION.tar.gz ] ; then
+	 echo "tar.gz found, extracting archive to $TMP"
 	 mkdir -p ${TMP}/
 	 cd ${TMP}/
-	 tar xvf $CWD/wxGTK-2.8.7.tar.gz
+   if [ ! -f $CWD/$WXWINDOWS-$WXWINDOWS_VERSION.tar.gz ] ; then
+     wget http://downloads.sourceforge.net/wxwindows/$WXWINDOWS-$WXWINDOWS_VERSION.tar.gz
+     mv $WXWINDOWS-$WXWINDOWS_VERSION.tar.gz $CWD
+   fi
+	 tar xvf $CWD/$WXWINDOWS-$WXWINDOWS_VERSION.tar.gz
 	 cd -
      else
-       echo "$0: please build wxGTK-2.8.7 SlackBuild First"
-       echo "$0:   or have the wxGTK-2.8.7.tar.gz source in the slackbuild directory"
+       echo "$0: please build $WXWINDOWS-$WXWINDOWS_VERSION SlackBuild First"
+       echo "$0:   or have the $WXWINDOWS-$WXWINDOWS_VERSION.tar.gz source in the slackbuild directory"
        exit 1
    fi
-   if [ ! -d ${TMP}/wxGTK-2.8.7/ ] ; then
-       echo "$0: please build wxGTK-2.8.7 SlackBuild First"
-       echo "$0:   or have the wxGTK-2.8.7.tar.gz source in the slackbuild directory"
+   if [ ! -d ${TMP}/$WXWINDOWS-$WXWINDOWS_VERSION/ ] ; then
+       echo "$0: please build $WXWINDOWS-$WXWINDOWS_VERSION SlackBuild First"
+       echo "$0:   or have the $WXWINDOWS-$WXWINDOWS_VERSION.tar.gz source in the slackbuild directory"
        exit 1
    fi
  fi
+
+ if [ ! -f ${CWD}/pkcs11.h ] ; then
+   echo "no pkcs11.h found, attempting to download it ..."
+   wget ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11.h || exit 1
+ fi
+ if [ ! -f ${CWD}/pkcs11f.h ] ; then
+   echo "no pkcs11f.h found, attempting to download it ..."
+   wget ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11f.h || exit 1
+ fi
+ if [ ! -f ${CWD}/pkcs11t.h ] ; then
+   echo "no pkcs11t.h found, attempting to download it ..."
+   wget ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11t.h || exit 1
+ fi
+export PKCS11_INC="${CWD}/"
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
@@ -55,11 +75,11 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-make WX_ROOT=${TMP}/wxGTK-2.8.7/ wxbuild
+make WX_ROOT=${TMP}/$WXWINDOWS-$WXWINDOWS_VERSION/ wxbuild
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
-make || echo "$0: compile failed"
+make WXSTATIC=1 || echo "$0: compile failed"
 mkdir -p $PKG/usr/bin
 cp -a Main/truecrypt $PKG/usr/bin/
 

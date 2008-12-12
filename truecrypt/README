@@ -11,10 +11,13 @@ To get the source bundle,
  + the click the 'Download' button between the two.
 
 
+You may also need the pkcs11.h file,
+download from: ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11.h
 
-you'll need to have the wxGTK-2.8.7.tar.gz source in this CWD
+you'll need to have the wxGTK-2.8.9.tar.gz source in this CWD
 because truecrypt builds against the wxGTK source, wxGTK doesn't have to been installed,
 just the source code needs to be present.
-this particular truecrypt.SlackBuild looks to /tmp/SBo/wxGTK-2.8.7/
+download from: http://downloads.sourceforge.net/wxwindows/wxGTK-2.8.9.tar.gz
+this particular truecrypt.SlackBuild looks to /tmp/vb/wxGTK-2.8.9/
 
 vb
