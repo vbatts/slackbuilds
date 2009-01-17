@@ -14,8 +14,8 @@ gnome-vfs
 libbonobo
 gail
 libgnomecanvas
-libbonoboui
 libgnome
+libbonoboui
 libgnomeui
 libgnomecups
 libgnomeprint
