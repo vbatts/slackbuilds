@@ -4,6 +4,23 @@ gnucash is opensource accounting software
 ___
 also it depends on swig, gconf, gtkhtml, and gtkprint
 which lead to ORBit2, libgnomeui, bonobo ...
+SBo Avaliable dependencies (including imediate and children dependencies, in order of build ):
+ORbit2
+GConf
+libtasn1
+gnome-keyring
+gnome-mime-data
+gnome-vfs
+libbonobo
+gail
+libgnomecanvas
+libbonoboui
+libgnome
+libgnomeui
+libgnomecups
+libgnomeprint
+libgnomeprintui
+
 
 
 Dependent Libraries
@@ -26,7 +43,7 @@ libgsf1 (?)
 
 "interesting libraries"
 ---------------------------
-swig (SBo swig-1.3.35)
+#swig (SBo swig-1.3.35) supposedly not a dependency with version 2.2.8
 slib (vb slib-3b1)
 
 
