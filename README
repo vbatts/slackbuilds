@@ -7,7 +7,7 @@ they are here, working or not
   barry :: Updated to v. 0.12, 12.May.2008; 16.Sep.2008, submitted 0.13 update
   x11-ssh-askpass
   bonnie
-  bonniexx
+  bonnie++ - updated to 1.03d on 21.Dec.2008
   blokkal 
   wxX11
   fcgi - 5.May.2008, ready to submit; 5.May.2008, submitted; 12.May.2008, published
@@ -29,10 +29,8 @@ they are here, working or not
   gconf
   orbit
   truecrypt - 2008.dec.12 updated to 6.1a
-  guile
   ta-lib - 2.Mar.2008 - dependency for qtstalker, still needs slack-desc info
   hackedbox - 01.april.2008, ready to submit
-  libofx - 10.sept.2008
   alice - 18.Sept.2008
   boot-xorg-set - 18.Sept.2008
   rdt-eclipse - 20.Sept.2008
@@ -41,11 +39,14 @@ they are here, working or not
   xfce4-icons-xubuntustudio - 2008.12.10 - ready to submit
   google-gadgets - 2008.12.12
   id3tool - 2008.12.13
+  guile
+  libofx - 10.sept.2008; 20.Jan.2009 submitted
+  gtkhtml - 20.Jan.2009 submitted
+  slib - 20.Jan.2009 submitted
+  gnucash - 20.Jan.2009 submitted
 
 ** TESTING/BROKEN **
   xbench
-  gtkhtml
-  gnucash
   ldtp - 25.Feb.2008 - linux desktop testing project
   atk
   libonobo

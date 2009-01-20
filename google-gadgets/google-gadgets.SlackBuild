@@ -5,7 +5,12 @@
 # Written by Vincent Batts, vbatts@hashbangbash.com
 
 PRGNAM=google-gadgets
-VERSION=${VERSION:-0.10.3}
+
+if [ -f $PRGNAM.info ] ; then 
+  . $PRGNAM.info
+fi
+
+VERSION=${VERSION}
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_vb}

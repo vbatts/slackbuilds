@@ -72,9 +72,9 @@ mkdir -p $PKG/usr/doc/$PKGNAME-$VERSION
 cp -a README TODO COPYING AUTHORS NEWS ChangeLog \
   $PKG/usr/doc/$PKGNAME-$VERSION
 
-mkdir -p $PKG/etc/udev/rules.d/
+mkdir -p $PKG/lib/udev/rules.d/
 cp -a udev/10-blackberry.rules udev/99-$PKGNAME-perms \
-  $PKG/etc/udev/rules.d/
+  $PKG/lib/udev/rules.d/
 
 mkdir -p $PKG/etc/modprobe.d
 echo "blacklist berry-charge" > $PKG/etc/modprobe.d/$PKGNAME.new

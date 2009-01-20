@@ -1,4 +1,2 @@
 slib - schema's
 
-DEPENDENCIES:
-  * you *should* install guile first or else stuff will not work right and you would need to re-run the scripts

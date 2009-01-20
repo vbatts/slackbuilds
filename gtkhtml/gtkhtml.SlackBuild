@@ -1,7 +1,6 @@
 #!/bin/sh
 
 # Slackware build script for gtkhtml
-
 # Written by Vincent Batts, vbatts@hashbangbash.com, http://hashbangbash.com/
 # Copyright 2009
 # All rights reserved.
@@ -30,7 +29,7 @@ PRGNAM=gtkhtml
 VERSION=3.17.91
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
-TAG=${TAG:-_vb}
+TAG=${TAG:-_SBo}
 CWD=$(pwd)
 TMP=${TMP:-/tmp/${TAG}}
 PKG=$TMP/package-$PRGNAM
