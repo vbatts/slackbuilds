@@ -1,10 +1,11 @@
 gnucash is opensource accounting software
 
 
-___
-also it depends on swig, gconf, gtkhtml, and gtkprint
-which lead to ORBit2, libgnomeui, bonobo ...
 SBo Avaliable dependencies (including imediate and children dependencies, in order of build ):
+
+slib
+libofx
+
 ORbit2
 GConf
 libtasn1
@@ -20,31 +21,18 @@ libgnomeui
 libgnomecups
 libgnomeprint
 libgnomeprintui
-
+gtkhtml
 
 
 Dependent Libraries
 ---------------------------
 GConf (SBo GConf-2.9.91)
-libofx (vb libofx-0.9.0)
 ORbit2 (SBo ORBit2-2.14.16)
 [lib]goffice (SBo goffice-0.7.0)
-guile (slackware guile-1.8.5)
-libart2 (slackware libart_lgpl-2.3.20)
-libglade2 (slackware libglade-2.6.3)
-gtk+2 (slackware gtk+2-2.12.12)
-libxml2 (slackware libxml2-2.6.32)
-pango (slackware pango-1.20.5)
-aqbanking (?) OPTIONAL
-libgnomeprint2.2 (?)
-libgnomeui2 (?)
-libgsf1 (?)
-[lib]gtkhtml3 (?)
 
-"interesting libraries"
----------------------------
-#swig (SBo swig-1.3.35) supposedly not a dependency with version 2.2.8
+libofx (vb libofx-0.9.0)
+gtkhtml (vb gtkhtml-3.17.91)
 slib (vb slib-3b1)
 
 
-just go ahead and install gware :/
+aqbanking (?) OPTIONAL
