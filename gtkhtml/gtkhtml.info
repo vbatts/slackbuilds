@@ -5,4 +5,4 @@ DOWNLOAD="http://ftp.acc.umu.se/pub/GNOME/sources/gtkhtml/3.17/gtkhtml-3.17.91.t
 MD5SUM="3133f367428ec4902da9feea5cf6a25a"
 MAINTAINER="Vincent Batts"
 EMAIL="vbatts@hashbangbash.com"
-APPROVED=""
+APPROVED="rworkman"

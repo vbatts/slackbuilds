@@ -8,6 +8,12 @@
        |-----handy-ruler------------------------------------------------------|
 gtkhtml: gtkhtml (html library for GTK framework)
 gtkhtml: 
+gtkhtml: GtkHTML is a lightweight HTML rendering/printing/editing engine. 
+gtkhtml: 
+gtkhtml: It was originally based on KHTMLW, part of the KDE project, but 
+gtkhtml: is now being developed independently.
 gtkhtml: 
 gtkhtml: http://www.gnome.org/
+gtkhtml: 
+gtkhtml: 
 gtkhtml: 

@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Slackware build script for gtkhtml
-# Written by Vincent Batts, vbatts@hashbangbash.com, http://hashbangbash.com/
-# Copyright 2009
+
+# Copyright 2009 Vincent Batts, vbatts@hashbangbash.com, http://hashbangbash.com/
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -22,14 +22,12 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
-set -e
-
 PRGNAM=gtkhtml
 VERSION=3.17.91
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
+
 CWD=$(pwd)
 TMP=${TMP:-/tmp/${TAG}}
 PKG=$TMP/package-$PRGNAM
@@ -39,7 +37,11 @@ if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
 elif [ "$ARCH" = "i686" ]; then
   SLKCFLAGS="-O2 -march=i686 -mtune=i686"
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
 fi
+
+set -e
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
@@ -60,14 +62,19 @@ CXXFLAGS="$SLKCFLAGS" \
   --prefix=/usr \
   --sysconfdir=/etc \
   --localstatedir=/var \
-  --mandir=/usr/man
+  --mandir=/usr/man \
+  --docdir=/usr/doc/$PRGNAM-$VERSION \
+  --disable-static \
+  --build=$ARCH-slackware-linux
 
 make
 make install DESTDIR=$PKG
 
 ( cd $PKG
-  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
-  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | \
+    xargs strip --strip-unneeded 2> /dev/null || true
+  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | \
+    xargs strip --strip-unneeded 2> /dev/null
 )
 
 ( cd $PKG/usr/man
@@ -76,7 +83,9 @@ make install DESTDIR=$PKG
 )
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a AUTHORS BUGS COPYING* ChangeLog INSTALL NEWS README TODO $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a \
+  AUTHORS BUGS COPYING* ChangeLog INSTALL NEWS README TODO \
+    $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install

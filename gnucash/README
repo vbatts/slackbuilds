@@ -1,38 +1,10 @@
-gnucash is opensource accounting software
+GNUCash is opensource accounting software.
 
+This requires the following additional software, and it is suggested
+that you build them in this order:
 
-SBo Avaliable dependencies (including imediate and children dependencies, in order of build ):
+slib libofx ORbit2 GConf libtasn1 gnome-keyring gnome-mime-data gnome-vfs
+libbonobo gail libgnomecanvas libgnome libbonoboui libgnomeui libgnomecups
+libgnomeprint libgnomeprintui gtkhtml goffice
 
-slib
-libofx
-
-ORbit2
-GConf
-libtasn1
-gnome-keyring
-gnome-mime-data
-gnome-vfs
-libbonobo
-gail
-libgnomecanvas
-libgnome
-libbonoboui
-libgnomeui
-libgnomecups
-libgnomeprint
-libgnomeprintui
-gtkhtml
-
-
-Dependent Libraries
----------------------------
-GConf (SBo GConf-2.9.91)
-ORbit2 (SBo ORBit2-2.14.16)
-[lib]goffice (SBo goffice-0.7.0)
-
-libofx (vb libofx-0.9.0)
-gtkhtml (vb gtkhtml-3.17.91)
-slib (vb slib-3b1)
-
-
-aqbanking (?) OPTIONAL
+aqbanking is optional, but it's not available at SlackBuilds.org.

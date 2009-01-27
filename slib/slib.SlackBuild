@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Slackware build script for slib
-# Written by Vincent Batts, vbatts@hashbangbash.com
-# Copyright 2009
+
+# Copyright 2009 Vincent Batts, vbatts@hashbangbash.com
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -22,16 +22,14 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
-set -e
-
 PRGNAM=slib
 VERSION=3b1
 ARCH=${ARCH:-i486}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
+
 CWD=$(pwd)
-TMP=${TMP:-/tmp/${TAG}}
+TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
@@ -39,7 +37,11 @@ if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
 elif [ "$ARCH" = "i686" ]; then
   SLKCFLAGS="-O2 -march=i686 -mtune=i686"
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
 fi
+
+set -e
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
@@ -56,14 +58,16 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-sed -i 's/\/usr\/local/\/usr/g' Makefile
+sed -i 's%/usr/local%/usr%g' Makefile
 make
 make infoz DESTDIR=$PKG
 make install DESTDIR=$PKG
 
 ( cd $PKG
-  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
-  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | \
+    xargs strip --strip-unneeded 2> /dev/null || true
+  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | \
+    xargs strip --strip-unneeded 2> /dev/null
 )
 
 ( cd $PKG/usr/man
@@ -73,22 +77,18 @@ make install DESTDIR=$PKG
 
 # guile is suppose to look to /usr/share/slib by default
 mkdir -p $PKG/usr/share/guile
-cd $PKG/usr/share/
-ln -s ../lib/slib/ slib
-cd -
-cd $PKG/usr/share/guile/
-ln -s ../../lib/slib/ slib
-cd -
+( cd $PKG/usr/share/ ; ln -s ../lib/slib . )
+( cd $PKG/usr/share/guile/ ; ln -s ../../lib/slib . )
 
 # a somewhat perculiar quirk that only seems to be an issue on slackware
-cd $PKG/usr/lib/slib
-ln -s mklibcat.scm mklibcat
-cd -
+( cd $PKG/usr/lib/slib ; ln -s mklibcat.scm mklibcat )
 
 rm -f $PKG/usr/info/dir
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a ANNOUNCE FAQ COPYING ChangeLog README $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a \
+  ANNOUNCE FAQ COPYING ChangeLog README \
+    $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
