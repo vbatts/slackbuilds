@@ -23,30 +23,28 @@ if [ "$ARCH" = "i486" ]; then
 elif [ "$ARCH" = "i686" ]; then
   SLKCFLAGS="-O2 -march=i686 -mtune=i686"
 fi
+if [ ! -f ${CWD}/TrueCrypt\ $VERSION\ Source.tar.gz ] ; then
+  echo "no \"TrueCrypt $VERSION Source.tar.gz\" found, please download it first"
+  echo "see the README"
+  exit 1
+fi
 
- if [ ! -d ${TMP}/$WXWINDOWS-$WXWINDOWS_VERSION/ ] ; then
-     echo "no $WXWINDOWS source dir found, looking for tar.gz"
-     if [ -f $CWD/$WXWINDOWS-$WXWINDOWS_VERSION.tar.gz ] ; then
-	 echo "tar.gz found, extracting archive to $TMP"
-	 mkdir -p ${TMP}/
-	 cd ${TMP}/
-   if [ ! -f $CWD/$WXWINDOWS-$WXWINDOWS_VERSION.tar.gz ] ; then
-     wget http://downloads.sourceforge.net/wxwindows/$WXWINDOWS-$WXWINDOWS_VERSION.tar.gz
-     mv $WXWINDOWS-$WXWINDOWS_VERSION.tar.gz $CWD
-   fi
-	 tar xvf $CWD/$WXWINDOWS-$WXWINDOWS_VERSION.tar.gz
-	 cd -
-     else
-       echo "$0: please build $WXWINDOWS-$WXWINDOWS_VERSION SlackBuild First"
-       echo "$0:   or have the $WXWINDOWS-$WXWINDOWS_VERSION.tar.gz source in the slackbuild directory"
-       exit 1
-   fi
-   if [ ! -d ${TMP}/$WXWINDOWS-$WXWINDOWS_VERSION/ ] ; then
-       echo "$0: please build $WXWINDOWS-$WXWINDOWS_VERSION SlackBuild First"
-       echo "$0:   or have the $WXWINDOWS-$WXWINDOWS_VERSION.tar.gz source in the slackbuild directory"
-       exit 1
-   fi
- fi
+if [ ! -d ${TMP}/$WXWINDOWS-$WXWINDOWS_VERSION/ ] ; then
+  echo "no $WXWINDOWS source dir found, looking for tar.gz"
+  if [ -f $CWD/$WXWINDOWS-$WXWINDOWS_VERSION.tar.gz ] ; then
+	  echo "tar.gz found, extracting archive to $TMP"
+	  mkdir -p ${TMP}/
+	  cd ${TMP}/
+	  tar xvf $CWD/$WXWINDOWS-$WXWINDOWS_VERSION.tar.gz
+	  cd -
+  else
+    cd $CWD/
+    wget http://downloads.sourceforge.net/wxwindows/$WXWINDOWS-$WXWINDOWS_VERSION.tar.gz
+	  mkdir -p ${TMP}/
+	  cd ${TMP}/
+	  tar xvf $CWD/$WXWINDOWS-$WXWINDOWS_VERSION.tar.gz
+  fi
+fi
 
  if [ ! -f ${CWD}/pkcs11.h ] ; then
    echo "no pkcs11.h found, attempting to download it ..."
