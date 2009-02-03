@@ -8,12 +8,12 @@
       |-----handy-ruler------------------------------------------------------|
 bchunk: bchunk ( bin chunker )
 bchunk:
+bchunk: converts a CD image in a ".bin / .cue" format to a set of .iso 
+bchunk: and .cdr tracks. This is a Unix/C rewrite of the fine BinChunker 
+bchunk: software. The non-Unix version of BinChunker has been obsoleted 
+bchunk: by the CD-R/W burning software www.FireBurner.com
 bchunk: 
-bchunk:
-bchunk: 
-bchunk: 
-bchunk: 
-bchunk: 
+bchunk: homepage http://he.fi/bchunk/
 bchunk:
 bchunk: 
 bchunk:
