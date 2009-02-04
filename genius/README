@@ -8,7 +8,8 @@ is designed to mimic how mathematics is usually written.
 
 Definite dependencies: scrollkeeper (available on SBo)
 
-Optional dependencies: libgnomeui (available on SBo)
+Optional dependencies: libgnomeui, gtksourceview (available on SBo)
 if you have the optional dependencies, pass the variable
  of GNOME=YES (or anything that isn't NO ;)
+ it will compile with *only* libgnomeui as well.
   
