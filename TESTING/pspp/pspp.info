@@ -1,0 +1,8 @@
+PRGNAM="pspp"
+VERSION="0.6.1"
+HOMEPAGE="http://www.gnu.org/software/pspp/"
+DOWNLOAD="ftp://mirrors.kernel.org/gnu/pspp/pspp-0.6.1.tar.gz"
+MD5SUM="b871739200938820d8db898cd200ed06"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@hashbangbash.com"
+APPROVED=""

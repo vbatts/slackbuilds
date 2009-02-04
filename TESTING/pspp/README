@@ -1,0 +1,8 @@
+pspp (GNU statistical software)
+
+
+dependencies:
+  libplot (or use --without-libplot)
+  libgslcblas
+  libgsl (version 1.8 or later)
+
