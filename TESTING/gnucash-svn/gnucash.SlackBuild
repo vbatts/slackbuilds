@@ -33,6 +33,7 @@ CWD=$(pwd)
 TMP=${TMP:-/tmp/vb}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
+LOCAL_SVN_PATH=${LOCAL_SVN_PATH:-/home/$USER/svn/$PRGNAM/}
 
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
@@ -44,7 +45,12 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM
-cp -av /home/vbatts/svn/$PRGNAM/ .
+if [ -d $LOCAL_SVN_PATH ] ; then
+    cp -av $LOCAL_SVN_PATH .
+    svn up $PRGNAM
+else
+    svn co http://svn.gnucash.org/repo/gnucash/trunk $PRGNAM
+fi
 cd $PRGNAM
 SVN_VERSION=$( svn info | egrep '^Last Changed Rev' | awk '{ print $4 }' )
 VERSION="${MAJOR_VERSION}_${SVN_VERSION}"
@@ -54,8 +60,6 @@ find . \
  -exec chmod 755 {} \; -o \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
-
-svn up
 
 sh autogen.sh
 
