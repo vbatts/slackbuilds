@@ -44,10 +44,13 @@ fi
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM
 if [ -d $LOCAL_SVN_PATH ] ; then
     cp -av $LOCAL_SVN_PATH .
     svn up $PRGNAM
+elif [ -d $PRGNAM ] ; then
+    ( cd $PRGNAM 
+      svn up
+    )
 else
     svn co http://svn.gnucash.org/repo/gnucash/trunk $PRGNAM
 fi
