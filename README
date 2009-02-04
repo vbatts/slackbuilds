@@ -21,30 +21,27 @@ they are here, working or not
   stress - 03.sept.2008, submitted; 16.Sep.2008, Published
   rubygems - 02.Oct.2008, submitted; 14.Oct.2008, Published
   flock - 12.july.2008, submitted ; 29.Nov.2008, Published
-
+  libofx - 10.sept.2008; 20.Jan.2009 submitted; 22.Jan.2009, Published
+  gtkhtml - 20.Jan.2009 submitted; 22.Jan.2009, Published
+  slib - 20.Jan.2009 submitted; 22.Jan.2009, Published
+  gnucash - 20.Jan.2009 submitted; 22.Jan.2009, Published
 
 ** STABLE **
   kde4, coexistisng with kde-3.5.x (and all subdirectories)
-  wxGTK
-  gconf
-  orbit
   truecrypt - 2008.dec.12 updated to 6.1a
   ta-lib - 2.Mar.2008 - dependency for qtstalker, still needs slack-desc info
+  qtstalker - started 2.Mar.2008, 2008.10.25 - ready to submit
   hackedbox - 01.april.2008, ready to submit
   alice - 18.Sept.2008
   boot-xorg-set - 18.Sept.2008
   rdt-eclipse - 20.Sept.2008
-  qtstalker - started 2.Mar.2008, 2008.10.25 - ready to submit
   xfce4-themes-xubuntustudio - 2008.12.10 - ready to submit
   xfce4-icons-xubuntustudio - 2008.12.10 - ready to submit
   google-gadgets - 2008.12.12
   id3tool - 2008.12.13
-  guile
-  libofx - 10.sept.2008; 20.Jan.2009 submitted
-  gtkhtml - 20.Jan.2009 submitted
-  slib - 20.Jan.2009 submitted
-  gnucash - 20.Jan.2009 submitted
   bchunk - 02.Feb.2009 ready to submit
+  scollkeeper - 03.Feb.2009, submitted
+  genius - 03.Feb.2009, submitted
 
 ** TESTING/BROKEN **
   xbench
