@@ -25,7 +25,7 @@
 PRGNAM=slib
 VERSION=3b1
 ARCH=${ARCH:-i486}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_SBo}
 
 CWD=$(pwd)
@@ -62,6 +62,8 @@ sed -i 's%/usr/local%/usr%g' Makefile
 make
 make infoz DESTDIR=$PKG
 make install DESTDIR=$PKG
+
+sed -i "s%$PKG%%g" $PKG/usr/bin/slib
 
 ( cd $PKG
   find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | \
