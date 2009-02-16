@@ -1,0 +1,4 @@
+#
+# Regular cron jobs for slackware and SlackBuilds stuff
+#
+0 4	* * *	root	grep "/var/spool/slackware/" /etc/mtab && /usr/bin/slackware-mirror.sh 
