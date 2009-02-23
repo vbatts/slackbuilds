@@ -34,6 +34,7 @@ TMP=${TMP:-/tmp/vb}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 LOCAL_SVN_PATH=${LOCAL_SVN_PATH:-/home/$USER/svn/$PRGNAM/}
+SVN_URL="http://svn.gnucash.org/repo/gnucash/trunk"
 
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
@@ -52,7 +53,7 @@ elif [ -d $PRGNAM ] ; then
       svn up
     )
 else
-    svn co http://svn.gnucash.org/repo/gnucash/trunk $PRGNAM
+    svn co $SVN_URL $PRGNAM
 fi
 cd $PRGNAM
 SVN_VERSION=$( svn info | egrep '^Last Changed Rev' | awk '{ print $4 }' )
