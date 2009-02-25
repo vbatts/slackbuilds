@@ -1,0 +1,8 @@
+iso-codes (ISO code catalogues)
+
+This package provides the ISO-639 Language code list, the ISO-4217
+Currency code list, the ISO-3166 Territory code list, and ISO-3166-2 
+sub-territory lists, and all their translations in gettext .po form.
+
+homepage http://pkg-isocodes.alioth.debian.org/
+
