@@ -1,0 +1,8 @@
+PRGNAM="gtkhtml"
+VERSION="3.24.4"
+HOMEPAGE="http://www.gnome.org/"
+DOWNLOAD="http://ftp.acc.umu.se/pub/GNOME/sources/gtkhtml/3.24/gtkhtml-3.24.4.tar.gz"
+MD5SUM="3133f367428ec4902da9feea5cf6a25a"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@hashbangbash.com"
+APPROVED="rworkman"
