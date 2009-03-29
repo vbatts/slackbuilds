@@ -1,0 +1,5 @@
+PRGNAM="libgmail"
+VERSION="0.1.11"
+HOMEPAGE="http://libgmail.sourceforge.net/"
+DOWNLOAD="http://downloads.sourceforge.net/libgmail/libgmail-0.1.11.tar.gz"
+MD5SUM="247477ac98b39658fdcdee8d65639e51"

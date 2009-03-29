@@ -1,0 +1,5 @@
+PRGNAM="gmailfs"
+VERSION="0.8.0"
+HOMEPAGE="http://richard.jones.name/google-hacks/gmail-filesystem/gmail-filesystem.html"
+DOWNLOAD="http://richard.jones.name/google-hacks/gmail-filesystem/gmailfs-0.8.0.tar.gz"
+MD5SUM="828417eb7355b61b0f474eabc826317f"
