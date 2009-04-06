@@ -10,9 +10,17 @@ HUDSON_LOG_FILE="/var/log/hudson.log"
 HUDSON_WEBAPPSDIR="/var/lib/hudson/apps/"
 HUDSON_WEBROOT="/var/lib/hudson/webroot/"
 
+if [ "$UID" -eq 0 ] ; then
+  echo Please be root
+  exit 1
+fi
 
 if [ -f /etc/hudson.conf ] ; then
   . /etc/hudson.conf
+fi
+
+if [ "$HUDSON_IS_DAEMON" = "true" ] ; then
+  HUDSON_DAEMON_ARG="--daemon"
 fi
 
 if [ "$HUDSON_HTTP_PORT" != "" ] ; then
@@ -56,6 +64,7 @@ if [ "$HUDSON_WEBROOT" != "" ] ; then
 fi
 
 exec $JAVA -jar $HUDSON \
+  $HUDSON_DAEMON_ARG \
   $HUDSON_HTTP_PORT_ARG \
   $HUDSON_HTTP_LISTENING_ADDRESS_ARG \
   $HUDSON_HTTPS_PORT_ARG \
