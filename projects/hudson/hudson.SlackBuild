@@ -18,7 +18,6 @@
 ## Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 PRGNAM=hudson
-VERSION=${VERSION:-1.262}
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_vb}
@@ -37,6 +36,8 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 set -e # Exit on most errors
+
+VERSION=$(unzip -p hudson.war  META-INF/maven/org.jvnet.hudson.main/hudson-war/pom.properties | grep -e '^version' | cut -d = -f 2)
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT

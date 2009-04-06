@@ -4,15 +4,20 @@
 #set -x
 
 JAVA=$(which java)
+PIDFILE="/var/run/hudson.pid"
 HUDSON="/usr/lib/hudson/hudson.war"
 HUDSON_HTTP_PORT="8080"
 HUDSON_LOG_FILE="/var/log/hudson.log"
 HUDSON_WEBAPPSDIR="/var/lib/hudson/apps/"
 HUDSON_WEBROOT="/var/lib/hudson/webroot/"
 
-if [ "$UID" -eq 0 ] ; then
+if [ "$UID" -ne 0 ] ; then
   echo Please be root
   exit 1
+fi
+
+if [ -e $PIDFILE ] ; then
+  rm $PIDFILE
 fi
 
 if [ -f /etc/hudson.conf ] ; then
@@ -74,4 +79,7 @@ exec $JAVA -jar $HUDSON \
   $HUDSON_HTTPS_KEY_MANAGER_ARG \
   $HUDSON_LOG_FILE_ARG \
   $HUDSON_WEBAPPSDIR_ARG \
-  $HUDSON_WEBROOT_ARG
+  $HUDSON_WEBROOT_ARG &
+
+ps -ef | grep "/usr/lib/hudson/hudson.war" | awk '{ print $2 }' > $PIDFILE
+
