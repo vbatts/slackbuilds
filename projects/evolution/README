@@ -1,0 +1,13 @@
+this project is a the organizing a concise and 
+simple build for the evolution email client
+
+Dependencies:
+ORBit2 (SBo)
+gconf (SBo)
+libonobo (SBo)
+libgnomeui (SBo)
+libsoup >= 2.4 (SBo)
+gtkhtml >= 3.23.5 (SBo)
+  iso-codes (vb)
+
+gnome-doc-utils >= 0.3.2 (SBo)

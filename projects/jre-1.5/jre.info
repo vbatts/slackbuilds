@@ -1,5 +1,5 @@
 PRGNAM="jre"
-VERSION="1_5_0_15"
-HOMEPAGE="http://java.sun.com/products/archive/j2se/5.0_15/index.html"
+VERSION="1_5_0_17"
+HOMEPAGE="http://java.sun.com/products/archive/j2se/5.0_17/index.html"
 DOWNLOAD=""
-MD5SUM="a980ba84c4d07ebf43d04cd810fe09c7"
+MD5SUM="adf758daf0d09d721313e34340acd96c"

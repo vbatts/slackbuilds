@@ -1,0 +1,5 @@
+PRGNAM="evolution"
+VERSION="2.24.3"
+HOMEPAGE="http://projects.gnome.org/evolution/"
+DOWNLOAD="http://ftp.acc.umu.se/pub/GNOME/sources/evolution/2.24/evolution-2.24.5.tar.bz2"
+MD5SUM="6671b2d31ea77ba6190fadbc51186567"

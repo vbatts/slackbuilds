@@ -3,8 +3,8 @@ PKG=/tmp/package-jdk
 rm -rf $PKG
 mkdir -p $PKG
 
-VERSION=1_5_0_15
-DVER=1.5.0_15
+VERSION=1_5_0_17
+DVER=1.5.0_17
 ARCH=i586
 BUILD=1
 
