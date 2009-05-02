@@ -38,7 +38,7 @@ find . \
  -exec chmod 644 {} \;
 
 GEM_HOME=$PKG/usr/lib/ruby/gems/1.8 \
-  ruby setup.rb --destdir=$PKG/usr  
+  ruby setup.rb --destdir=$PKG/
 
 # Setting global GEM_PATH to get rdoc correct for gems installed
 mkdir -p $PKG/etc/profile.d/
