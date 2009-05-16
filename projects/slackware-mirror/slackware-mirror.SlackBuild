@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# Slackware build script for slackware-mirror
+
+# Written by Vincent Batts, vbatts@hashbangbash.com
+
+PRGNAM=slackware-mirror
+ARCH=${ARCH:-noarch}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_vb}
+
+CWD=$(pwd)
+TMP=${TMP:-/tmp/${TAG}}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
+MINOR_VERSION=$(svn info . | grep -e '^Revision' | awk '{ print $2 }')
+VERSION=1.0.$MINOR_VERSION
+
+set -e
+
+rm -rf $PKG
+mkdir -p $TMP $PKG $OUTPUT
+cd $TMP
+
+mkdir -p $PKG/usr/sbin $PKG/etc/cron.d
+cp $CWD/$PRGNAM.sh $PKG/usr/sbin/
+cp $CWD/$PRGNAM.conf $PKG/etc/
+cp $CWD/$PRGNAM.cron $PKG/etc/cron.d/
+
+cd $PKG
+chown -R root:root .
+
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a \
+  $CWD/README \
+  $PKG/usr/doc/$PRGNAM-$VERSION
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+mkdir -p $PKG/install
+cat $CWD/slack-desc > $PKG/install/slack-desc
+
+cd $PKG
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz
