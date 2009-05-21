@@ -6,7 +6,7 @@
 # Modified by Vincent Batts, vbatts@gmail.com 
 
 PRGNAM="flock"
-VERSION=2.0.3
+VERSION=2.5
 ARCH=${ARCH:-i686}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -64,6 +64,7 @@ cd -
 
 mkdir $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz
