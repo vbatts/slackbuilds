@@ -1,4 +1,7 @@
 #!/bin/sh
+
+set -e
+
 CWD=`pwd`
 PKG=/tmp/package-jdk
 rm -rf $PKG
@@ -6,15 +9,42 @@ mkdir -p $PKG
 
 VERSION=1_5_0_18
 DVER=1.5.0_18
-ARCH=i586
+ARCH=${ARCH:-x86_64}
+JAVA_ARCH=${JAVA_ARCH:-x64}
 BUILD=1
 
+if [ "$JAVA_ARCH" = "x64" ]; then
+  LIB_ARCH=amd64
+else
+  LIB_ARCH=i386
+fi
+
+if [ "$ARCH" = "x86_64" ]; then
+  LIBDIRSUFFIX="64"
+else
+  LIBDIRSUFFIX=""
+fi
+
 cd $PKG
-mkdir -p usr/lib
-cd usr/lib
-sh $CWD/jdk-${VERSION}-linux-${ARCH}.bin
+mkdir -p usr/lib${LIBDIRSUFFIX}
+cd usr/lib${LIBDIRSUFFIX}
+sh $CWD/jdk-${VERSION}-linux-${LIB_ARCH}.bin
 mkdir -p $PKG/etc/profile.d
-cp -a $CWD/profile.d/* $PKG/etc/profile.d
+
+cat << EOF > $PKG/etc/profile.d/jdk.csh
+#!/bin/csh
+setenv JAVA_HOME /usr/lib${LIBDIRSUFFIX}/java
+setenv MANPATH ${MANPATH}:/usr/lib${LIBDIRSUFFIX}/java/man
+setenv PATH ${PATH}:/usr/lib${LIBDIRSUFFIX}/java/bin:/usr/lib${LIBDIRSUFFIX}/java/jre/bin
+EOF
+
+cat << EOF > $PKG/etc/profile.d/jdk.sh
+#!/bin/sh
+export JAVA_HOME=/usr/lib${LIBDIRSUFFIX}/java
+export MANPATH="$MANPATH:/usr/lib${LIBDIRSUFFIX}/java/man"
+export PATH="$PATH:/usr/lib${LIBDIRSUFFIX}/java/bin:/usr/lib${LIBDIRSUFFIX}/java/jre/bin"
+EOF
+
 chown -R root.root $PKG
 ( cd $PKG
 find . -perm 664 -exec chmod 644 {} \;
@@ -29,16 +59,16 @@ find . -perm 711 -exec chmod 755 {} \;
 find . -perm 555 -exec chmod 755 {} \;
 )
 chmod 755 $PKG/etc/profile.d/*
-( cd $PKG/usr/lib
+( cd $PKG/usr/lib${LIBDIRSUFFIX}
   ln -sf jdk${DVER} java
 )
-mkdir -p $PKG/usr/lib/mozilla/plugins
-( cd $PKG/usr/lib/mozilla/plugins
-  ln -sf /usr/lib/java/jre/plugin/i386/ns7/libjavaplugin_oji.so libjavaplugin_oji.so
+mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}/mozilla/plugins
+( cd $PKG/usr/lib${LIBDIRSUFFIX}/mozilla/plugins
+  ln -sf /usr/lib${LIBDIRSUFFIX}/java/jre/plugin/${LIB_ARCH}/ns7/libjavaplugin_oji.so libjavaplugin_oji.so
 )
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-makepkg -l y -c n /tmp/jdk-$VERSION-$ARCH-$BUILD.tgz
+makepkg -l y -c n /tmp/jdk-$VERSION-$ARCH-$BUILD.txz
 
