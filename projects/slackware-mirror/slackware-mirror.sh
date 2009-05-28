@@ -13,9 +13,11 @@ else
 fi
 
 for _source in $SLACKWARE_VERSIONS ; do
-  RSYNC_SOURCE=${SLACKWARE_RSYNC_SOURCE}slackware-${_source}/
-  RSYNC_DEST=${SLACKWARE_RSYNC_DEST}slackware-${_source}/
-
+  RSYNC_SOURCE=${SLACKWARE_RSYNC_SOURCE}${_source}/
+  RSYNC_DEST=${SLACKWARE_RSYNC_DEST}${_source}/
+  if [ ! -d $RSYNC_DEST ] ;then
+    mkdir -p $RSYNC_DEST
+  fi
   echo RSYNC_SOURCE $RSYNC_SOURCE
   echo RSYNC_DEST $RSYNC_DEST
 
