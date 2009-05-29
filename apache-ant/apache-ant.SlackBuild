@@ -11,6 +11,7 @@ PROJECT=ant
 PRGNAM=$TEAM-$PROJECT
 VERSION=1.7.1
 ARCH=${ARCH:-i486}
+ANT_HOME=${ANT_HOME:-/usr/share/$PROJECT}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 CWD=$(pwd)
@@ -19,26 +20,26 @@ PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
 rm -rf $PKG
-mkdir -p $TMP $PKG/usr/share/java $PKG/usr/share/$PROJECT $OUTPUT $PKG/usr/bin
+mkdir -p $TMP $PKG/usr/share/java $PKG/$ANT_HOME $OUTPUT $PKG/usr/bin
 cd $TMP
 rm -rf ${PRGNAM}-$VERSION
 tar xvf $CWD/${PRGNAM}-$VERSION-bin.tar.bz2
 cd ${PRGNAM}-$VERSION
-cp -a bin lib etc $PKG/usr/share/$PROJECT/
+cp -a bin lib etc $PKG/$ANT_HOME/
 
 mkdir -p $PKG/etc/profile.d/
 cat << EOF > $PKG/etc/profile.d/$PRGNAM.csh
 #!/bin/csh
-setenv ANT_HOME /usr/share/$PROJECT
+setenv ANT_HOME $ANT_HOME
 EOF
 cat << EOF > $PKG/etc/profile.d/$PRGNAM.sh
 #!/bin/sh
-export ANT_HOME=/usr/share/$PROJECT
+export ANT_HOME=$ANT_HOME
 EOF
 chmod 0755 $PKG/etc/profile.d/*
 
 cd $PKG/usr/share/java
-for jar in ../ant/lib/*.jar ; do
+for jar in ../../../$ANT_HOME/lib/*.jar ; do
   ln -s $jar
 done
 cd -

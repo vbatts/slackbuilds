@@ -4,3 +4,5 @@ wrinkles.  :-)
 Ant is extended using Java classes. The configuration files are XML- based,
 calling out a target tree where tasks get executed. Each task is run by an
 object that implements a Task interface.
+
+You can pass the environment variable of ANT_HOME if it is different that /usr/share/ant
