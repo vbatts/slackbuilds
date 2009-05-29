@@ -11,6 +11,7 @@ PRGNAM=$TEAM-$PROJECT
 VERSION=2.1.0-rc1
 DVER=2.1.0_rc1
 ARCH=${ARCH:-i486}
+ANT_HOME=${ANT_HOME:-/usr/share/ant}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 CWD=$(pwd)
@@ -31,10 +32,10 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-mkdir -p $PKG/usr/share/java $PKG/usr/share/ant/lib
-cp $PROJECT-$VERSION.jar $PKG/usr/share/ant/lib/
+mkdir -p $PKG/usr/share/java $PKG/$ANT_HOME/lib
+cp $PROJECT-$VERSION.jar $PKG/$ANT_HOME/lib/
 cd $PKG/usr/share/java
-ln -s ../ant/lib/$PROJECT-$VERSION.jar $PROJECT.jar
+ln -s ../../../$ANT_HOME/lib/$PROJECT-$VERSION.jar $PROJECT.jar
 cd -
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION

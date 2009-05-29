@@ -8,6 +8,7 @@ set -e
 PRGNAM=rhino
 VERSION=1_7R2
 ARCH=${ARCH:-i486}
+ANT_HOME=${ANT_HOME:-/usr/share/ant}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 CWD=$(pwd)
@@ -23,10 +24,10 @@ unzip $CWD/${PRGNAM}${VERSION}.zip
 cd ${PRGNAM}${VERSION}
 chown -R root:root .
 
-mkdir -p $PKG/usr/share/ant/lib/ $PKG/usr/share/java
-cp js.jar $PKG/usr/share/ant/lib/$PRGNAM.jar
+mkdir -p $PKG/$ANT_HOME/lib/ $PKG/usr/share/java
+cp js.jar $PKG/$ANT_HOME/lib/$PRGNAM.jar
 cd $PKG/usr/share/java
-ln -s ../ant/lib/$PRGNAM.jar
+ln -s ../../../$ANT_HOME/lib/$PRGNAM.jar
 cd -
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION

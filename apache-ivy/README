@@ -3,4 +3,6 @@ apache-ivy (apache-ant dependency manager)
 Ivy is a library/tool for managing (recording, tracking, resolving and 
 reporting) project dependencies.
 
+You can pass the environment variable of ANT_HOME if it is different that /usr/share/ant
+
 This package includes documention and example-src.zip in /usr/doc/apache-ivy-$VERSION
