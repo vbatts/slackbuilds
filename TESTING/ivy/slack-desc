@@ -5,16 +5,16 @@
 # make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':'.
 
-      |-----handy-ruler------------------------------------------------------|
-ivy: ivy (apache-ant dependency manager)
-ivy:
-ivy: Ivy is a tool for managing (recording, tracking, resolving and 
-ivy: reporting) project dependencies.
-ivy:
-ivy:
-ivy: Homepage http://ant.apache.org/ivy/
-ivy:
-ivy:
-ivy:
-ivy:
-ivy:
+          |-----handy-ruler------------------------------------------------------|
+apache-ivy: apache-ivy (apache-ant dependency manager)
+apache-ivy:
+apache-ivy: Ivy is a tool for managing (recording, tracking, resolving and 
+apache-ivy: reporting) project dependencies.
+apache-ivy:
+apache-ivy:
+apache-ivy: Homepage http://ant.apache.org/ivy/
+apache-ivy:
+apache-ivy:
+apache-ivy:
+apache-ivy:
+apache-ivy:
