@@ -25,7 +25,9 @@ cd $TMP
 rm -rf ${PRGNAM}-$VERSION
 tar xvf $CWD/${PRGNAM}-$VERSION-bin.tar.bz2
 cd ${PRGNAM}-$VERSION
+
 cp -a bin lib etc $PKG/$ANT_HOME/
+rm $PKG/$ANT_HOME/lib/x*jar
 
 mkdir -p $PKG/etc/profile.d/
 cat << EOF > $PKG/etc/profile.d/$PRGNAM.csh
