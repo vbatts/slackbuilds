@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Slackware build script for rhino
+# Slackware build script for ant-contrib
 # Written by Vincent Batts, vbatts@hashbangbash.com
 
 set -e
