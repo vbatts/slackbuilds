@@ -25,6 +25,8 @@ they are here, working or not
   gtkhtml - 20.Jan.2009 submitted; 22.Jan.2009, Published
   slib - 20.Jan.2009 submitted; 22.Jan.2009, Published
   gnucash - 20.Jan.2009 submitted; 22.Jan.2009, Published
+  genius - 03.Feb.2009, submitted
+  bchunk - 02.Feb.2009 ready to submit
 
 ** STABLE **
   kde4, coexistisng with kde-3.5.x (and all subdirectories)
@@ -39,9 +41,11 @@ they are here, working or not
   xfce4-icons-xubuntustudio - 2008.12.10 - ready to submit
   google-gadgets - 2008.12.12
   id3tool - 2008.12.13
-  bchunk - 02.Feb.2009 ready to submit
   scollkeeper - 03.Feb.2009, submitted
-  genius - 03.Feb.2009, submitted
+  apache-ant - 29.May.2009
+  apache-ivy - 29.May.2009
+  rhino - 29.May.2009
+  ant-contrib - 29.May.2009
 
 ** TESTING/BROKEN **
   xbench
