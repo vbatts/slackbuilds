@@ -1,0 +1,8 @@
+xerces ( apache-ant XML parsing libraries)
+
+The Apache Xerces Project is responsible for Apache Licensed software
+intended to create and maintain XML parsing and related software.
+
+You can pass the environment variable of ANT_HOME if it is different that /usr/share/ant
+
+This package includes docs in /usr/doc/xerces-$VERSION
