@@ -1,5 +1,6 @@
 PRGNAM="openssh"
-VERSION="5.1p1"
+VERSION="5.2p1"
 HOMEPAGE="http://www.openssh.com/"
-DOWNLOAD="http://slackware.cs.utah.edu/pub/slackware/slackware-current/source/n/openssh/openssh-5.1p1.tar.bz2"
+#DOWNLOAD="http://slackware.cs.utah.edu/pub/slackware/slackware-current/source/n/openssh/openssh-5.1p1.tar.bz2"
+DOWNLOAD="ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-5.2p1.tar.gz"
 MD5SUM="359542c96a64ed899f94c55fd53d3af7"

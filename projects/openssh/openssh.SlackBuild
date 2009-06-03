@@ -26,7 +26,7 @@ CWD=$(pwd)
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-openssh
 
-VERSION=5.1p1
+VERSION=5.2p1
 ARCH=${ARCH:-i486}
 BUILD=1awx
 
@@ -47,7 +47,7 @@ mkdir -p $PKG
 # Prepare the framework and extract the package:
 cd $TMP
 rm -rf $PKG openssh-$VERSION
-tar xjvf $CWD/openssh-$VERSION.tar.bz2 || exit 1
+tar xvf $CWD/openssh-$VERSION.tar.*z* || exit 1
 cd openssh-$VERSION
 chown -R root:root .
 
