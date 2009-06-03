@@ -5,9 +5,9 @@
 
 set -e
 
-PRGNAM=xalan
-VERSION=2.7.1
-DVER=j_2_7_1
+PRGNAM=xerces
+VERSION=2.9.0
+DVER=2_9_0
 ARCH=${ARCH:-i486}
 ANT_HOME=${ANT_HOME:-/usr/share/ant}
 BUILD=${BUILD:-1}
@@ -21,21 +21,24 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf ${PRGNAM}-${DVER}
-tar xvf $CWD/${PRGNAM}-${DVER}-bin-2jars.tar.gz
+tar xvf $CWD/Xerces-J-bin.${VERSION}.tar.gz
 cd ${PRGNAM}-${DVER}
 chown -R root:root .
 
 mkdir -p $PKG/$ANT_HOME/lib/ $PKG/usr/share/java
-cp $PRGNAM.jar serializer.jar xsltc.jar $PKG/$ANT_HOME/lib/
+cp ${PRGNAM}Impl.jar ${PRGNAM}Samples.jar resolver.jar xml-apis.jar $PKG/$ANT_HOME/lib/
 cd $PKG/usr/share/java
-ln -s ../../../$ANT_HOME/lib/$PRGNAM.jar
-ln -s ../../../$ANT_HOME/lib/serializer.jar
-ln -s ../../../$ANT_HOME/lib/xstlc.jar
+ln -s ../../../$ANT_HOME/lib/${PRGNAM}Impl.jar
+ln -s ../../../$ANT_HOME/lib/${PRGNAM}Samples.jar
+ln -s ../../../$ANT_HOME/lib/resolver.jar
+ln -s ../../../$ANT_HOME/lib/xml-apis.jar
 cd -
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 zip -9 -r $PKG/usr/doc/$PRGNAM-$VERSION/docs.zip docs/
-cp -a samples/ readme.html LICENSE.txt NOTICE.txt $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a samples/ data/ Readme.html NOTICE NOTICE.resolver.txt \
+  LICENSE LICENSE.resolver.txt LICENSE.DOM-{software,documentation}.html LICENSE-SAX.html \
+  $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
