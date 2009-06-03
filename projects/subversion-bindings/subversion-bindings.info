@@ -1,0 +1,8 @@
+PRGNAM="subversion-bindings"
+VERSION="1.5.4"
+HOMEPAGE="http://subversion.tigris.org"
+DOWNLOAD="http://subversion.tigris.org/downloads/subversion-1.5.4.tar.bz2"
+MD5SUM="037d1ed7a313631d50defdc3cf727415"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@hashbangbash.com"
+APPROVED=""

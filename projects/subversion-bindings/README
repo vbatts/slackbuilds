@@ -1,0 +1,7 @@
+subversion-bindings (bindings for the subversion install)
+
+Subversion is a version control system.
+This package includes the Perl, Ruby and Python bindings for the
+stock slackware installation of subversion.
+
+This package requires swig, which is available on SlackBuilds.org

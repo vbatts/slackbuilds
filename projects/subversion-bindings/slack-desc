@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|' on
+# the right side marks the last column you can put a character in.  You must make
+# exactly 11 lines for the formatting to be correct.  It's also customary to
+# leave one space after the ':'.
+
+                   |-----handy-ruler------------------------------------------------------|
+subversion-bindings: subversion-bindings (bindings for the subversion install)
+subversion-bindings:
+subversion-bindings: Subversion is a version control system.
+subversion-bindings: This package includes the Perl, Ruby and Python bindings for the
+subversion-bindings: stock slackware installation of subversion.
+subversion-bindings:
+subversion-bindings:
+subversion-bindings:
+subversion-bindings: For more information about the Subversion project, visit:
+subversion-bindings:   http://subversion.tigris.org
+subversion-bindings:
