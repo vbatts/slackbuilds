@@ -1,0 +1,8 @@
+PRGNAM="mysql-connector-java"
+VERSION="5.1"
+HOMEPAGE="http://dev.mysql.com/downloads/connector/j/5.1.html"
+DOWNLOAD="http://mysql.mirrors.hoobly.com/Downloads/Connector-J/mysql-connector-java-5.1.7.tar.gz"
+MD5SUM="5150e0a6cc4b4487e1f9134659e466c2"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@hashbangbash.com"
+APPROVED=""
