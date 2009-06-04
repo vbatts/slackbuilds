@@ -6,7 +6,7 @@
 # Modified by Vincent Batts, vbatts@gmail.com 
 
 PRGNAM="flock"
-VERSION=2.5
+VERSION=2.0.3
 ARCH=${ARCH:-i686}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}

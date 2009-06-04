@@ -25,7 +25,7 @@
 PRGNAM=slib
 VERSION=3b1
 ARCH=${ARCH:-i486}
-BUILD=${BUILD:-2}
+BUILD=${BUILD:-3}
 TAG=${TAG:-_SBo}
 
 CWD=$(pwd)
@@ -35,10 +35,13 @@ OUTPUT=${OUTPUT:-/tmp}
 
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
+  LIBDIRSUFFIX=""
 elif [ "$ARCH" = "i686" ]; then
   SLKCFLAGS="-O2 -march=i686 -mtune=i686"
+  LIBDIRSUFFIX=""
 elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC"
+  LIBDIRSUFFIX="64"
 fi
 
 set -e
@@ -47,8 +50,6 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM
-#mkdir -p $PKG/usr/share
-#cd $PKG/usr/share
 unzip $CWD/$PRGNAM-$VERSION.zip
 cd $PRGNAM
 chown -R root:root .
@@ -59,11 +60,9 @@ find . \
  -exec chmod 644 {} \;
 
 sed -i 's%/usr/local%/usr%g' Makefile
-make
+make libdir=/usr/lib${LIBDIRSUFFIX}/
 make infoz DESTDIR=$PKG
-make install DESTDIR=$PKG
-
-sed -i "s%$PKG%%g" $PKG/usr/bin/slib
+make libdir=/usr/lib${LIBDIRSUFFIX}/ install DESTDIR=$PKG
 
 ( cd $PKG
   find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | \
@@ -77,13 +76,16 @@ sed -i "s%$PKG%%g" $PKG/usr/bin/slib
   for i in $( find . -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 )
 
+# The Makefile is braindead
+sed -i "s%$PKG%%g" $PKG/usr/bin/slib
+
 # guile is suppose to look to /usr/share/slib by default
 mkdir -p $PKG/usr/share/guile
-( cd $PKG/usr/share/ ; ln -s ../lib/slib . )
-( cd $PKG/usr/share/guile/ ; ln -s ../../lib/slib . )
+( cd $PKG/usr/share/ ; ln -s ../lib${LIBDIRSUFFIX}/slib . )
+( cd $PKG/usr/share/guile/ ; ln -s ../../lib${LIBDIRSUFFIX}/slib . )
 
 # a somewhat perculiar quirk that only seems to be an issue on slackware
-( cd $PKG/usr/lib/slib ; ln -s mklibcat.scm mklibcat )
+( cd $PKG/usr/lib${LIBDIRSUFFIX}/slib ; ln -s mklibcat.scm mklibcat )
 
 rm -f $PKG/usr/info/dir
 

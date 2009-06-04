@@ -12,4 +12,6 @@ config() {
 }
 
 config etc/wvdial.conf.new
+config etc/ppp/peers/wvdial-pipe.new
+config etc/ppp/peers/wvdial.new
 
