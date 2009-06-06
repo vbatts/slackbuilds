@@ -5,4 +5,4 @@ DOWNLOAD="http://apache.mirror.rafal.ca/ant/binaries/apache-ant-1.7.1-bin.tar.bz
 MD5SUM="9330447f3763b87570dd1118c49a8efd"
 MAINTAINER="Vincent Batts"
 EMAIL="vbatts@hashbangbash.com"
-APPROVED="Erik Hanson"
+APPROVED="rworkman"

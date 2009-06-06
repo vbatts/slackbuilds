@@ -11,7 +11,6 @@ apache-ivy:
 apache-ivy: Ivy is a tool for managing (recording, tracking, resolving and 
 apache-ivy: reporting) project dependencies.
 apache-ivy:
-apache-ivy:
 apache-ivy: Homepage http://ant.apache.org/ivy/
 apache-ivy:
 apache-ivy:
