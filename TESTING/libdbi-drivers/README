@@ -1,0 +1,12 @@
+libdbi-drivers (Drivers for the Database Independent Abstraction Layer)
+
+libdbi implements a database-independent abstraction layer in C, 
+similar to the DBI/DBD layer in Perl. Writing one generic set of 
+code, programmers can leverage the power of multiple databases and 
+multiple simultaneous database connections by using this framework.
+
+
+if you want the PostgreSQL integration, you must first have postgresql 
+installed, and then pass the PGSQL=true flag.
+postgresql is available at SlackBuilds.org
+

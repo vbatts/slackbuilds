@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+              |-----handy-ruler------------------------------------------------------|
+libdbi-drivers: libdbi-drivers (Database Drivers for libdbi)
+libdbi-drivers:
+libdbi-drivers: libdbi-drivers implements a database-independent abstraction layer 
+libdbi-drivers: in C, similar to the DBI/DBD layer in Perl. Writing one generic set of 
+libdbi-drivers: code, programmers can leverage the power of multiple databases and 
+libdbi-drivers: multiple simultaneous database connections by using this framework.
+libdbi-drivers:
+libdbi-drivers: Homepage http://libdbi-drivers.sourceforge.net/
+libdbi-drivers:
+libdbi-drivers:
+libdbi-drivers:
