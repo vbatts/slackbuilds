@@ -5,4 +5,4 @@ DOWNLOAD="http://apache.tradebit.com/pub/ant/ivy/2.1.0-rc1/apache-ivy-2.1.0-rc1-
 MD5SUM="a1542db09e1353d259a1e634eb338b03"
 MAINTAINER="Vincent Batts"
 EMAIL="vbatts@hashbangbash.com"
-APPROVED=""
+APPROVED="rworkman"
