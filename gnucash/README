@@ -7,4 +7,7 @@ slib libofx ORbit2 GConf libtasn1 gnome-keyring gnome-mime-data libbonobo
 gnome-vfs gail libgnomecanvas libgnome libbonoboui libgnomeui libgnomecups
 libgnomeprint libgnomeprintui gtkhtml goffice
 
+if you want the new SQL database integration, you must first have libdbi 
+and libdbi-drivers installed, and then pass the DBI=true flag.
+
 aqbanking is optional, but it's not available at SlackBuilds.org.

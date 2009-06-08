@@ -23,7 +23,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=gnucash
-VERSION=2.2.9
+VERSION=2.3.1
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -32,6 +32,10 @@ CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
+
+DBI=${DBI:-false}
+WEBKIT=${WEBKIT:-false}
+OPT_ARGS=""
 
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
@@ -42,6 +46,13 @@ elif [ "$ARCH" = "i686" ]; then
 elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC"
   LIBDIRSUFFIX="64"
+fi
+
+if [ "$DBI" = "true" ] ; then
+  OPT_ARGS="--enable-dbi"
+fi
+if [ "$WEBKIT" = "true" ] ; then
+  OPT_ARGS="$OPT_ARGS --enable-webkit"
 fi
 
 set -e
@@ -73,6 +84,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --disable-aqbanking \
   --disable-sql \
   --disable-static \
+  $OPT_ARGS \
   --build=$ARCH-slackware-linux
 
 make
