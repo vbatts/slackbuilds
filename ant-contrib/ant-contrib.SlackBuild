@@ -3,18 +3,20 @@
 # Slackware build script for ant-contrib
 # Written by Vincent Batts, vbatts@hashbangbash.com
 
-set -e
-
 PRGNAM=ant-contrib
 VERSION=0.6
 ARCH=${ARCH:-i486}
-ANT_HOME=${ANT_HOME:-/usr/share/ant}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
+
+ANT_HOME=${ANT_HOME:-/usr/share/ant}
+
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
+
+set -e
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
@@ -22,13 +24,13 @@ cd $TMP
 rm -rf ${PRGNAM}-${VERSION}
 mkdir ${PRGNAM}-${VERSION}
 cd ${PRGNAM}-${VERSION}
-tar jxvf $CWD/${PRGNAM}-${VERSION}-bin.tar.bz2
+tar xvf $CWD/${PRGNAM}-${VERSION}-bin.tar.bz2
 chown -R root:root .
 
 mkdir -p $PKG/$ANT_HOME/lib/ $PKG/usr/share/java
 cp lib/$PRGNAM-$VERSION.jar $PKG/$ANT_HOME/lib/
 cd $PKG/usr/share/java
-ln -s ../../../$ANT_HOME/lib/$PRGNAM-$VERSION.jar $PRGNAM.jar
+  ln -s $ANT_HOME/lib/$PRGNAM-$VERSION.jar $PRGNAM.jar
 cd -
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION

@@ -6,7 +6,7 @@
 # Modified by Vincent Batts, vbatts@gmail.com 
 
 PRGNAM="flock"
-VERSION=2.0.3
+VERSION=2.5
 ARCH=${ARCH:-i686}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -37,7 +37,7 @@ cd -
 
 mkdir -p $PKG/usr/bin
 ( cd $PKG/usr/bin
-  ln -sf /usr/lib/$PRGNAM-$VERSION/${PRGNAM} $PRGNAM
+  ln -sf /usr/lib/$PRGNAM-$VERSION/${PRGNAM} $PRGNAM-bin
 )
 
 mkdir -p $PKG/usr/lib/mozilla/plugins
@@ -61,6 +61,10 @@ cd $PKG/usr/lib/$PRGNAM-$VERSION
     mkdir -p updates/0
   fi
 cd -
+
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp $PKG/usr/lib/$PRGNAM-$VERSION/README.txt $PKG/usr/doc/$PRGNAM-$VERSION
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
