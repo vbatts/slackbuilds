@@ -1,0 +1,5 @@
+this package is a home job to generate a slackpackage with
+the more proper data from an rpm, including the postinstall
+scripts.
+
+homepage: http://hashbangbash.com/
