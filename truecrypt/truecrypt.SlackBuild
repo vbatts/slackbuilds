@@ -7,7 +7,7 @@
 set -e
 
 PRGNAM=truecrypt
-VERSION=6.1a
+VERSION=6.2a
 WXWINDOWS="wxGTK"
 WXWINDOWS_VERSION="2.8.9"
 ARCH=${ARCH:-i486}
@@ -46,18 +46,18 @@ if [ ! -d ${TMP}/$WXWINDOWS-$WXWINDOWS_VERSION/ ] ; then
   fi
 fi
 
- if [ ! -f ${CWD}/pkcs11.h ] ; then
-   echo "no pkcs11.h found, attempting to download it ..."
-   wget ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11.h || exit 1
- fi
- if [ ! -f ${CWD}/pkcs11f.h ] ; then
-   echo "no pkcs11f.h found, attempting to download it ..."
-   wget ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11f.h || exit 1
- fi
- if [ ! -f ${CWD}/pkcs11t.h ] ; then
-   echo "no pkcs11t.h found, attempting to download it ..."
-   wget ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11t.h || exit 1
- fi
+if [ ! -f ${CWD}/pkcs11.h ] ; then
+  echo "no pkcs11.h found, attempting to download it ..."
+  wget ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11.h || exit 1
+fi
+if [ ! -f ${CWD}/pkcs11f.h ] ; then
+  echo "no pkcs11f.h found, attempting to download it ..."
+  wget ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11f.h || exit 1
+fi
+if [ ! -f ${CWD}/pkcs11t.h ] ; then
+  echo "no pkcs11t.h found, attempting to download it ..."
+  wget ftp://ftp.rsasecurity.com/pub/pkcs/pkcs-11/v2-20/pkcs11t.h || exit 1
+fi
 export PKCS11_INC="${CWD}/"
 
 rm -rf $PKG
