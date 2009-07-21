@@ -1,7 +1,8 @@
 #!/bin/sh
+
 # Copyright 2000 BSDi, Inc. Concord, CA, USA
 # Copyright 2001, 2002, 2003, 2004  Slackware Linux, Inc. Concord, CA, USA
-# Copyright 2006, 2007, 2008  Patrick J. Volkerding, Sebeka, MN, USA
+# Copyright 2006, 2007, 2008, 2009  Patrick J. Volkerding, Sebeka, MN, USA
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -21,23 +22,26 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+
 # Set initial variables:
 CWD=$(pwd)
 TMP=${TMP:-/tmp}
 PKG=$TMP/package-openssh
 
-VERSION=5.2p1
+VERSION=${VERSION:-5.2p1}
 ARCH=${ARCH:-i486}
-BUILD=1awx
+BUILD=${BUILD:-2}
 
-if [ "$ARCH" = "i386" ]; then
-  SLKCFLAGS="-O2 -march=i386 -mcpu=i686"
-elif [ "$ARCH" = "i486" ]; then
+if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
 elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
 elif [ "$ARCH" = "x86_64" ]; then
-  SLKCFLAGS="-O2"
+  SLKCFLAGS="-O2 -fPIC"
+elif [ "$ARCH" = "arm" ]; then
+  SLKCFLAGS="-O2 -march=armv4 -mtune=xscale"
+elif [ "$ARCH" = "armel" ]; then
+  SLKCFLAGS="-O2 -march=armv4t"
 fi
 
 # Clean target location:
@@ -47,7 +51,7 @@ mkdir -p $PKG
 # Prepare the framework and extract the package:
 cd $TMP
 rm -rf $PKG openssh-$VERSION
-tar xvf $CWD/openssh-$VERSION.tar.*z* || exit 1
+tar xjvf $CWD/openssh-$VERSION.tar.bz2 || exit 1
 cd openssh-$VERSION
 chown -R root:root .
 
@@ -100,7 +104,8 @@ chmod 755 $PKG/var/empty
 # Install docs:
 mkdir -p $PKG/usr/doc/openssh-$VERSION
 cp -a \
-  CREDITS ChangeLog INSTALL LICENCE OVERVIEW README README.privsep README.smartcard RFC.nroff TODO WARNING.RNG \
+  CREDITS ChangeLog INSTALL LICENCE OVERVIEW \
+  README README.privsep README.smartcard RFC.nroff TODO WARNING.RNG \
   $PKG/usr/doc/openssh-$VERSION
 chmod 644 $PKG/usr/doc/openssh-$VERSION/*
 
@@ -138,5 +143,5 @@ chmod 644 $PKG/usr/doc/openssh-$VERSION/*
 
 # Create the package itself:
 cd $PKG
-makepkg -l y -c n $TMP/openssh-$VERSION-$ARCH-$BUILD.tgz
+/sbin/makepkg -l y -c n $TMP/openssh-$VERSION-$ARCH-$BUILD.tgz
 
