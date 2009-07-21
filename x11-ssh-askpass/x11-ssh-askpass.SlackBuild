@@ -1,13 +1,13 @@
 #!/bin/sh
 
 # Slackware build script for x11-ssh-askpass
-# Written by "Vincent Batts <vbatts@batts.mine.nu>"
+# Written by "Vincent Batts <vbatts@hashbangbash.com>"
 
 # Modified by Robby Workman <rworkman@slackbuilds.org>
 
 VERSION=1.2.4.1
 ARCH=${ARCH:-i486}
-BUILD=${BUILD:-1}
+BUILD=${BUILD:-2}
 TAG=${TAG:-_SBo}
 
 CWD=$(pwd)
@@ -24,6 +24,7 @@ elif [ "$ARCH" = "s390" ]; then
   SLKCFLAGS="-O2"
 elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC"
+  LIBSUFFIX=64
 fi
 
 cd $TMP
@@ -36,7 +37,8 @@ chmod -R a-s,u+rw,go+r-w .
 CFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
-  --mandir=/usr/man/
+  --mandir=/usr/man/ \
+  --with-app-defaults-dir=/usr/lib${LIBSUFFIX}/X11/app-defaults/
 
 xmkmf || exit 1
 make includes || exit 1
