@@ -1,0 +1,8 @@
+PRGNAM="jython"
+VERSION="2.5.0"
+HOMEPAGE="http://www.jython.org/"
+DOWNLOAD="http://sourceforge.net/projects/jython/files/jython/jython_installer-2.5.0.jar"
+MD5SUM="f98b83fce9669feec69d0a17ee515a20"
+MAINTAINER="Vincent Batts"
+EMAIL=""
+APPROVED=""
