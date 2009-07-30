@@ -27,6 +27,7 @@ VERSION=0.8.3
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
+JOBS=${JOBS:--j4}
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -68,7 +69,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --localstatedir=/var \
   --build=$ARCH-slackware-linux
 
-make
+make $JOBS
 make install DESTDIR=$PKG
 
 ( cd $PKG
