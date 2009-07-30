@@ -28,6 +28,7 @@ DVER=0.8.3-1
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
+JOBS=${JOBS:--j4}
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -86,7 +87,7 @@ CXXFLAGS="$SLKCFLAGS" \
   $OPT_ARGS \
   --build=$ARCH-slackware-linux
 
-make -j4
+make $JOBS
 make install DESTDIR=$PKG
 
 ( cd $PKG
