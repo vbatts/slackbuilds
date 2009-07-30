@@ -23,10 +23,11 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=gnucash
-VERSION=2.3.1
+VERSION=2.3.3
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
+JOBS=${JOBS:--j4}
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -87,7 +88,7 @@ CXXFLAGS="$SLKCFLAGS" \
   $OPT_ARGS \
   --build=$ARCH-slackware-linux
 
-make
+make $JOBS
 make install DESTDIR=$PKG
 
 # Create the gconf defaults directory
