@@ -48,6 +48,7 @@ they are here, working or not
   ant-contrib - 29.May.2009
   xalan - 02.June.2009
   xerces - 02.June.2009
+  libdbi{,-drivers} - 30.June.2009
   sox - 03.Aug.2009
 
 ** TESTING/BROKEN **
