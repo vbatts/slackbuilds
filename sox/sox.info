@@ -1,0 +1,8 @@
+PRGNAM="sox"
+VERSION="14.3.0"
+HOMEPAGE="http://sox.sourceforge.net/"
+DOWNLOAD="http://downloads.sourceforge.net/project/sox/sox/14.3.0/sox-14.3.0.tar.gz"
+MD5SUM="8e3509804e6227273ef84092e1a2fea7"
+MAINTAINER=""
+EMAIL=""
+APPROVED=""
