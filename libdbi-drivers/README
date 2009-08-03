@@ -5,6 +5,7 @@ similar to the DBI/DBD layer in Perl. Writing one generic set of
 code, programmers can leverage the power of multiple databases and 
 multiple simultaneous database connections by using this framework.
 
+depends on libdbi
 
 if you want the PostgreSQL integration, you must first have postgresql 
 installed, and then pass the PGSQL=true flag.

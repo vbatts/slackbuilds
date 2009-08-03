@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Slackware build script for apache-ant
-# Started by Dugan Chen (dugan_c@fastmail.fm)
+# Started by Dugan Chen (dugan[underscore]c[at]fastmail[dot]fm)
 # Taken over by Vincent Batts (vbatts@hashbangbash.com)
 
 PRGNAM=apache-ant
@@ -12,7 +12,7 @@ TAG=${TAG:-_SBo}
 
 TEAM=$(echo $PRGNAM | cut -d- -f1)
 PROJECT=$(echo $PRGNAM | cut -d- -f2)
-ANT_HOME=${ANT_HOME:-/usr/share/$PROJECT}
+ANT_HOME=/usr/share/$PROJECT
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}

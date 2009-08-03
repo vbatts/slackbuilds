@@ -28,6 +28,7 @@ DVER=0.8.3-1
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
+JOBS=${JOBS:--j4}
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -49,7 +50,7 @@ elif [ "$ARCH" = "x86_64" ]; then
 fi
 
 if [ "$PGSQL" = "true" ] ; then
-  OPT_ARGS=" --with-pgsql"
+  OPT_ARGS=" --with-pgsql --with-pgsql-dir=/usr/lib${LIBDIRSUFFIX}/pgsql "
 fi
 
 set -e
@@ -77,12 +78,16 @@ CXXFLAGS="$SLKCFLAGS" \
   --localstatedir=/var \
   --mandir=/usr/man \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
+  --with-dbi-incdir=/usr/include \
+  --with-dbi-libdir=/usr/lib${LIBDIRSUFFIX} \
   --with-mysql \
+  --with-mysql-dir=/usr/lib${LIBDIRSUFFIX}/mysql \
   --with-sqlite3 \
+  --with-sqlite3-dir=/usr/lib${LIBDIRSUFFIX} \
   $OPT_ARGS \
   --build=$ARCH-slackware-linux
 
-make
+make $JOBS
 make install DESTDIR=$PKG
 
 ( cd $PKG
