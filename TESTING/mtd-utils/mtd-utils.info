@@ -1,0 +1,6 @@
+PRGNAM="mtd-utils"
+VERSION="1.2.0"
+HOMEPAGE="http://www.linux-mtd.infradead.org/"
+DOWNLOAD="ftp://ftp.infradead.org/pub/mtd-utils/mtd-utils-1.2.0.tar.bz2"
+MD5SUM="ca41f1fbaa056e8b8d71e8d52c0b1bad"
+

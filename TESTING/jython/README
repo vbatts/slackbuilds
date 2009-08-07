@@ -1,0 +1,4 @@
+Jython: Python for the Java Platform
+
+FYI: jython will need to be rebuilt if you 
+  change or upgrade your jre/jdk
