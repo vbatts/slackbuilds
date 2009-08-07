@@ -7,3 +7,6 @@ and freely available XSLT support on a wide variety of platforms.
 You can pass the environment variable of ANT_HOME if it is different that /usr/share/ant
 
 This package includes docs in /usr/doc/xalan-$VERSION
+
+another download location for older versions is
+https://olex.openlogic.com/packages/xalan

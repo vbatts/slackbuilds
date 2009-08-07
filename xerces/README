@@ -6,3 +6,6 @@ intended to create and maintain XML parsing and related software.
 You can pass the environment variable of ANT_HOME if it is different that /usr/share/ant
 
 This package includes docs in /usr/doc/xerces-$VERSION
+
+another good download location for older versions of xerces is 
+https://olex.openlogic.com/packages/xerces
