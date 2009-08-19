@@ -5,3 +5,5 @@ your iPod under GNU/Linux and many other Operating Systems
 with a useable Version of Perl 5 (+Modules). 
 
 Requires perl-digest-sha1, available at SlackBuilds.org
+and perl-date-parse, perl-mp3-info and perl-unicode-string
+which is available from http://github.com/vbatts/SlackBuilds/ in TESTING
