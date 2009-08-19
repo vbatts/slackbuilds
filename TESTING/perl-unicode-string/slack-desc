@@ -1,0 +1,20 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+                   |-----handy-ruler----------------------------------------------|
+perl-unicode-string: perl-unicode-string (Perl String of Unicode characters)
+perl-unicode-string:
+perl-unicode-string: The functions utf32be(), utf32le(), utf16be(), utf16le(), 
+perl-unicode-string: utf8(), utf7(), latin1(), uhex(), uchr() can be imported 
+perl-unicode-string: from the Unicode::String module and will work as 
+perl-unicode-string: constructors initializing strings of the corresponding 
+perl-unicode-string: encoding.
+perl-unicode-string: 
+perl-unicode-string: Homepage: 
+perl-unicode-string:   http://search.cpan.org/~gaas/Unicode-String-2.09/String.pm
+perl-unicode-string: 
+

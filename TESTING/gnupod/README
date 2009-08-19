@@ -1,0 +1,7 @@
+gnupod
+
+GNUpod is a collection of Perl-Scripts which allow you to use
+your iPod under GNU/Linux and many other Operating Systems
+with a useable Version of Perl 5 (+Modules). 
+
+Requires perl-digest-sha1, available at SlackBuilds.org

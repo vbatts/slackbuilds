@@ -1,0 +1,8 @@
+PRGNAM="perl-unicode-string"
+VERSION="2.09"
+HOMEPAGE="http://search.cpan.org/~gaas/Unicode-String-2.09/String.pm"
+DOWNLOAD="http://search.cpan.org/CPAN/authors/id/G/GA/GAAS/Unicode-String-2.09.tar.gz"
+MD5SUM="553e68e603723bf7c631f8701ab0d678"
+MAINTAINER=""
+EMAIL=""
+APPROVED=""

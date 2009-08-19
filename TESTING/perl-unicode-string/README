@@ -1,0 +1,6 @@
+perl-unicode-string - Unicode::String - String of Unicode characters (UTF-16BE)
+
+The functions utf32be(), utf32le(), utf16be(), utf16le(), 
+utf8(), utf7(), latin1(), uhex(), uchr() can be imported 
+from the Unicode::String module and will work as 
+constructors initializing strings of the corresponding encoding.
