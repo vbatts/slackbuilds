@@ -1,0 +1,6 @@
+perl-date-parse - Parse date strings into time values
+
+Date::Parse provides two routines for parsing date strings
+into time values.
+* str2time(DATE [, ZONE])
+* strptime(DATE [, ZONE])

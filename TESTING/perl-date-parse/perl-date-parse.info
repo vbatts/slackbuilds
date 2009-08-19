@@ -1,0 +1,8 @@
+PRGNAM="perl-date-parse"
+VERSION="1.16"
+HOMEPAGE="http://search.cpan.org/~gbarr/TimeDate-1.16/lib/Date/Parse.pm"
+DOWNLOAD="http://search.cpan.org/CPAN/authors/id/G/GB/GBARR/TimeDate-1.16.tar.gz"
+MD5SUM="b3cc35a7cabd106ac8829d2f2ff4bd9d"
+MAINTAINER=""
+EMAIL=""
+APPROVED=""
