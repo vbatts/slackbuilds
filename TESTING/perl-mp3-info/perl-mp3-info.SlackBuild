@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Slackware build script for perl-unicode-string
+# Slackware build script for perl-mp3-info
 
 # Copyright 2009 Vincent Batts, vbatts@hashbangbash.com
 # adapted from the perl-digest-sha1.SlackBuild, by
@@ -25,9 +25,9 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-PRGNAM=perl-unicode-string
-SRC_PRGNAM=Unicode-String
-VERSION=${VERSION:-2.09}
+PRGNAM=perl-mp3-info
+SRC_PRGNAM=MP3-Info
+VERSION=${VERSION:-1.24}
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -37,7 +37,7 @@ TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
-DOCFILES="Changes README"
+DOCFILES="Changes README TODO"
 
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"

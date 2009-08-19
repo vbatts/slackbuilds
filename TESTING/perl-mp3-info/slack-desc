@@ -1,0 +1,20 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+             |-----handy-ruler----------------------------------------------|
+perl-mp3-info: perl-mp3-info (Perl MP3 module)
+perl-mp3-info:
+perl-mp3-info: Manipulate / fetch info from MP3 audio files
+perl-mp3-info:
+perl-mp3-info:
+perl-mp3-info:
+perl-mp3-info:
+perl-mp3-info: 
+perl-mp3-info: Homepage: 
+perl-mp3-info:   http://search.cpan.org/~daniel/MP3-Info-1.24/Info.pm
+perl-mp3-info: 
+
