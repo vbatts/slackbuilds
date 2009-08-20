@@ -1,0 +1,8 @@
+PRGNAM="gnupod"
+VERSION="0.99.8"
+HOMEPAGE="http://www.gnu.org/software/gnupod/"
+DOWNLOAD="http://nongnu.askapache.com/gnupod/gnupod-0.99.8.tgz"
+MD5SUM="978c9f813e6930b780e81eb30a742ebe"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@hashbangbash.com"
+APPROVED=""

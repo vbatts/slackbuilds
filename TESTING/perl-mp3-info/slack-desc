@@ -10,11 +10,11 @@ perl-mp3-info: perl-mp3-info (Perl MP3 module)
 perl-mp3-info:
 perl-mp3-info: Manipulate / fetch info from MP3 audio files
 perl-mp3-info:
+perl-mp3-info: Homepage: 
+perl-mp3-info:   http://search.cpan.org/~daniel/MP3-Info-1.24/Info.pm
 perl-mp3-info:
 perl-mp3-info:
 perl-mp3-info:
 perl-mp3-info: 
-perl-mp3-info: Homepage: 
-perl-mp3-info:   http://search.cpan.org/~daniel/MP3-Info-1.24/Info.pm
 perl-mp3-info: 
 
