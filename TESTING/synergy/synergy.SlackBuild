@@ -41,6 +41,10 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
+if [ "$ARCH" = "x86_64" ]; then
+  cat $CWD/synergy-arch-includes.diff | patch -p1
+fi
+
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
@@ -51,7 +55,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --mandir=/usr/man \
   --build=$ARCH-slackware-linux
 
-make -j4
+make
 make install DESTDIR=$PKG
 
 ( cd $PKG

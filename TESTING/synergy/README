@@ -1,0 +1,14 @@
+synergy (multi-system sharing of keyboard and mouse)
+
+Synergy lets you easily share a single mouse and keyboard between 
+multiple computers with different operating systems, each with its 
+own display, without special hardware. It's intended for users with 
+multiple computers on their desk since each system uses its own 
+monitor(s). 
+
+Synergy is open source and released under
+  the GNU Public License (GPL).
+
+Homepage: http://synergy2.sourceforge.net/
+
+
