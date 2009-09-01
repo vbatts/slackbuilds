@@ -19,12 +19,15 @@ OUTPUT=${OUTPUT:-/tmp}
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
   LIBDIRSUFFIX=""
+  SRC_ARCH="x86"
 elif [ "$ARCH" = "i686" ]; then
   SLKCFLAGS="-O2 -march=i686 -mtune=i686"
   LIBDIRSUFFIX=""
+  SRC_ARCH="x86"
 elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC"
   LIBDIRSUFFIX="64"
+  SRC_ARCH=$ARCH
 fi
 
 set -e
@@ -33,7 +36,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf rssowl
-unzip $CWD/rssowl-$DVER.linux.gtk.$ARCH.zip
+unzip $CWD/rssowl-$DVER.linux.gtk.$SRC_ARCH.zip
 cd rssowl
 chown -R root:root .
 find . \
