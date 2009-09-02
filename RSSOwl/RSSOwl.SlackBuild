@@ -45,31 +45,35 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-( cd $PKG
-  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | \
-    xargs strip --strip-unneeded 2> /dev/null || true
-  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | \
-    xargs strip --strip-unneeded 2> /dev/null
-)
-
 mkdir -p $PKG/usr/bin
-cat > $PKG/usr/bin/RSSOwl << EOF
+cat > $PKG/usr/bin/$PRGNAM << EOF
 #!/bin/sh
 
 cd /usr/lib${LIBDIRSUFFIX}/$PRGNAM/
-./RSSOwl
+./$PRGNAM
 
 EOF
-chmod +x $PKG/usr/bin/RSSOwl
+chmod +x $PKG/usr/bin/$PRGNAM
 
 mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM
 cp -av * $PKG/usr/lib${LIBDIRSUFFIX}/$PRGNAM/
 
 mkdir -p $PKG/usr/share/pixmaps/
-cp -av icon.xpm $PKG/usr/share/pixmaps/RSSOwl.xpm
+cp -av icon.xpm $PKG/usr/share/pixmaps/$PRGNAM.xpm
 
 mkdir -p $PKG/usr/share/applications/
-cat $CWD/$PRGNAM.desktop > $PKG/usr/share/applications/$PRGNAM.desktop
+cat > $PKG/usr/share/applications/${PRGNAM}.desktop << EOF
+[Desktop Entry]
+Encoding=UTF-8
+Exec=$PRGNAM
+Icon=/usr/share/pixmaps/$PRGNAM.xpm
+Type=Application
+Categories=Application;Network;
+Name=$PRGNAM
+GenericName=RSS News Reader
+MimeType=application/rss+xml
+X-KDE-StartupNotify=true
+EOF
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
