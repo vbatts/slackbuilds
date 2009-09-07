@@ -75,7 +75,7 @@ if [ "$HUDSON_WEBROOT" != "" ] ; then
   HUDSON_WEBROOT_ARG="--webroot=$HUDSON_WEBROOT"
 fi
 
-exec $JAVA -jar $HUDSON \
+$JAVA -jar $HUDSON \
   $HUDSON_DAEMON_ARG \
   $HUDSON_HTTP_PORT_ARG \
   $HUDSON_HTTP_LISTENING_ADDRESS_ARG \
@@ -88,5 +88,5 @@ exec $JAVA -jar $HUDSON \
   $HUDSON_WEBAPPSDIR_ARG \
   $HUDSON_WEBROOT_ARG &
 
-ps -ef | grep "/usr/lib/hudson/hudson.war" | awk '{ print $2 }' > $PIDFILE
+pgrep -f "/usr/lib/hudson/hudson.war" > $PIDFILE
 
