@@ -1,11 +1,11 @@
 vbatts' SlackBuild Projects
-vbatts@batts.mine.nu
+vbatts@hashbangbash.com
 
 they are here, working or not
 
 ** PUBLISHED @ SlackBuilds.org **
   barry :: Updated to v. 0.12, 12.May.2008; 16.Sep.2008, submitted 0.13 update
-  x11-ssh-askpass
+  x11-ssh-askpass ; rolled into slackware trunk for slackware-13.0
   bonnie
   bonnie++ - updated to 1.03d on 21.Dec.2008
   blokkal 
@@ -29,7 +29,7 @@ they are here, working or not
   bchunk - 02.Feb.2009 ready to submit
 
 ** STABLE **
-  kde4, coexistisng with kde-3.5.x (and all subdirectories)
+  kde4-4.1.x, coexistisng with kde-3.5.x (and all subdirectories) for slackware-12.2
   truecrypt - 2008.dec.12 updated to 6.1a
   ta-lib - 2.Mar.2008 - dependency for qtstalker, still needs slack-desc info
   qtstalker - started 2.Mar.2008, 2008.10.25 - ready to submit
@@ -50,7 +50,10 @@ they are here, working or not
   xerces - 02.June.2009
   ruby-gtk2 - 24.June.2009
   libdbi{,-drivers} - 30.June.2009
-  sox - 03.Aug.2009
+  sox - 03.Aug.2009; nevermind, this was rolled into slackware-13.0 trunk
+  synergy - 25.Aug.2009
+  RSSOwl - 31.Aug.2009
+  ApacheDirectoryStudio - 02.Sept.2009
 
 ** TESTING/BROKEN **
   xbench
@@ -58,4 +61,3 @@ they are here, working or not
   atk
   libonobo
   at-spi
-  rubygems - 25.April.2008, moved back because app isn't functioning correctly

@@ -33,16 +33,16 @@ mkdir -p $PKG/etc/profile.d
 
 cat << EOF > $PKG/etc/profile.d/jdk.csh
 #!/bin/csh
-setenv JAVA_HOME /usr/lib${LIBDIRSUFFIX}/java
-setenv MANPATH ${MANPATH}:/usr/lib${LIBDIRSUFFIX}/java/man
-setenv PATH ${PATH}:/usr/lib${LIBDIRSUFFIX}/java/bin:/usr/lib${LIBDIRSUFFIX}/java/jre/bin
+setenv JAVA_HOME /usr/lib${LIBDIRSUFFIX}/java-$DVER
+setenv MANPATH ${MANPATH}:/usr/lib${LIBDIRSUFFIX}/java-$DVER/man
+setenv PATH ${PATH}:/usr/lib${LIBDIRSUFFIX}/java-$DVER/bin:/usr/lib${LIBDIRSUFFIX}/java-$DVER/jre/bin
 EOF
 
 cat << EOF > $PKG/etc/profile.d/jdk.sh
 #!/bin/sh
-export JAVA_HOME=/usr/lib${LIBDIRSUFFIX}/java
-export MANPATH="$MANPATH:/usr/lib${LIBDIRSUFFIX}/java/man"
-export PATH="$PATH:/usr/lib${LIBDIRSUFFIX}/java/bin:/usr/lib${LIBDIRSUFFIX}/java/jre/bin"
+export JAVA_HOME=/usr/lib${LIBDIRSUFFIX}/java-$DVER
+export MANPATH="$MANPATH:/usr/lib${LIBDIRSUFFIX}/java-$DVER/man"
+export PATH="$PATH:/usr/lib${LIBDIRSUFFIX}/java-$DVER/bin:/usr/lib${LIBDIRSUFFIX}/java-$DVER/jre/bin"
 EOF
 
 chown -R root.root $PKG
@@ -60,11 +60,11 @@ find . -perm 555 -exec chmod 755 {} \;
 )
 chmod 755 $PKG/etc/profile.d/*
 ( cd $PKG/usr/lib${LIBDIRSUFFIX}
-  ln -sf jdk${DVER} java
+  ln -sf jdk${DVER} java-$DVER
 )
 mkdir -p $PKG/usr/lib${LIBDIRSUFFIX}/mozilla/plugins
 ( cd $PKG/usr/lib${LIBDIRSUFFIX}/mozilla/plugins
-  ln -sf /usr/lib${LIBDIRSUFFIX}/java/jre/plugin/${LIB_ARCH}/ns7/libjavaplugin_oji.so libjavaplugin_oji.so
+  ln -sf /usr/lib${LIBDIRSUFFIX}/java-$DVER/jre/plugin/${LIB_ARCH}/ns7/libjavaplugin_oji.so libjavaplugin_oji.so
 )
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc

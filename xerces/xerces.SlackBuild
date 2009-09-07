@@ -6,8 +6,7 @@
 set -e
 
 PRGNAM=xerces
-VERSION=2.9.0
-DVER=2_9_0
+VERSION=2.8.1
 ARCH=${ARCH:-i486}
 ANT_HOME=${ANT_HOME:-/usr/share/ant}
 BUILD=${BUILD:-1}
@@ -20,9 +19,9 @@ OUTPUT=${OUTPUT:-/tmp}
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf ${PRGNAM}-${DVER}
-tar xvf $CWD/Xerces-J-bin.${VERSION}.tar.gz
-cd ${PRGNAM}-${DVER}
+rm -rf ${PRGNAM}-${VERSION}
+unzip $CWD/xerces-$VERSION-all-bin.zip
+cd ${PRGNAM}-${VERSION}
 chown -R root:root .
 
 mkdir -p $PKG/$ANT_HOME/lib/ $PKG/usr/share/java
@@ -36,8 +35,7 @@ cd -
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 zip -9 -r $PKG/usr/doc/$PRGNAM-$VERSION/docs.zip docs/
-cp -a samples/ data/ Readme.html NOTICE NOTICE.resolver.txt \
-  LICENSE LICENSE.resolver.txt LICENSE.DOM-{software,documentation}.html LICENSE-SAX.html \
+cp -a samples/ data/ Readme.html NOTICE* LICENSE* \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
