@@ -10,9 +10,16 @@ HUDSON_HTTP_PORT="8080"
 HUDSON_LOG_FILE="/var/log/hudson.log"
 HUDSON_WEBAPPSDIR="/var/lib/hudson/apps/"
 HUDSON_WEBROOT="/var/lib/hudson/webroot/"
+export HUDSON_HOME="/var/lib/hudson"
 
 if [ "$UID" -ne 0 ] ; then
   echo Please be root
+  exit 1
+fi
+
+PREV_PID=$( pgrep -f "/usr/lib/hudson/hudson.war" )
+if [ ! "$PREV_PID" = "" ] ; then
+  echo $PREV_PID still running
   exit 1
 fi
 
@@ -68,7 +75,7 @@ if [ "$HUDSON_WEBROOT" != "" ] ; then
   HUDSON_WEBROOT_ARG="--webroot=$HUDSON_WEBROOT"
 fi
 
-exec $JAVA -jar $HUDSON \
+$JAVA -jar $HUDSON \
   $HUDSON_DAEMON_ARG \
   $HUDSON_HTTP_PORT_ARG \
   $HUDSON_HTTP_LISTENING_ADDRESS_ARG \
@@ -81,5 +88,5 @@ exec $JAVA -jar $HUDSON \
   $HUDSON_WEBAPPSDIR_ARG \
   $HUDSON_WEBROOT_ARG &
 
-ps -ef | grep "/usr/lib/hudson/hudson.war" | awk '{ print $2 }' > $PIDFILE
+pgrep -f "/usr/lib/hudson/hudson.war" > $PIDFILE
 
