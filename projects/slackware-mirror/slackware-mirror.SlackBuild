@@ -13,7 +13,8 @@ CWD=$(pwd)
 TMP=${TMP:-/tmp/${TAG}}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
-MINOR_VERSION=$(svn info . | grep -e '^Revision' | awk '{ print $2 }')
+#MINOR_VERSION=$(svn info . | grep -e '^Revision' | awk '{ print $2 }')
+MINOR_VERSION=$(date +"%y%m%d")
 VERSION=1.0.$MINOR_VERSION
 
 set -e

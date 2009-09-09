@@ -47,7 +47,15 @@ mkdir -p $PKG/usr/lib/hudson
 cp -av $CWD/hudson.war $PKG/usr/lib/hudson/
 
 mkdir -p $PKG/usr/bin
-cat $CWD/hudson.sh > $PKG/usr/bin/hudson
+cat $CWD/hudsond.sh > $PKG/usr/bin/hudsond
+chmod +x $PKG/usr/bin/hudsond
+
+cat > $PKG/usr/bin/hudson << EOF
+#!/bin/sh
+
+java -jar /usr/lib$LIBDIRSUFFIX/hudson/hudson.war \${1+"\$@"}
+
+EOF
 chmod +x $PKG/usr/bin/hudson
 
 mkdir -p $PKG/etc/rc.d
