@@ -9,6 +9,9 @@ if test "$usessh" = "yes" -a -d $HOME/.ssh ; then
     ssh-agent > $HOME/.ssh/agent
     . $HOME/.ssh/agent
     ssh-add
+    for file in $HOME/.ssh/*key ; do
+      ssh-add $file
+    done
   fi
 fi
 
