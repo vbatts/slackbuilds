@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+    |-----handy-ruler------------------------------------------------------|
+ortp: ortp ( rtp protocol library )
+ortp: 
+ortp: oRTP is a LGPL licensed C library implementing the RTP protocol 
+ortp: (rfc1889). It is available for most unix clones (primilarly Linux 
+ortp: and HP-UX), and Microsoft Windows.
+ortp: 
+ortp: homepage http://www.linphone.org/
+ortp: 
+ortp: 
+ortp: 
+ortp: 
