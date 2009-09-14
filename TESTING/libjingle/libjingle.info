@@ -1,0 +1,5 @@
+PRGNAM="libjingle"
+VERSION="0.4.0"
+HOMEPAGE="http://sourceforge.net/projects/libjingle/"
+DOWNLOAD="http://downloads.sourceforge.net/project/libjingle/libjingle/0.4.0/libjingle-0.4.0.zip"
+MD5SUM="9650f126308c29704fbf8c70f27436d3"
