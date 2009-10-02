@@ -23,10 +23,14 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 
-mkdir -p $PKG/usr/sbin $PKG/etc/cron.d
-cp $CWD/$PRGNAM.sh $PKG/usr/sbin/
-cp $CWD/$PRGNAM.conf $PKG/etc/
-cp $CWD/$PRGNAM.cron $PKG/etc/cron.d/
+mkdir -p $PKG/usr/sbin $PKG/etc/cron.daily $PKG/logrotate.d
+cat $CWD/$PRGNAM.sh > $PKG/usr/sbin/$PRGNAM.sh
+chmod +x $PKG/usr/sbin/$PRGNAM.sh
+
+cat $CWD/$PRGNAM.conf > $PKG/etc/$PRGNAM.conf.new
+
+cat $CWD/$PRGNAM.cron > $PKG/etc/cron.daily/$PRGNAM
+chmod +x $PKG/etc/cron.daily/$PRGNAM
 
 cd $PKG
 chown -R root:root .
@@ -38,6 +42,24 @@ cp -a \
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
+cat > $PKG/install/doinst.sh << EOF
+config() {
+  NEW="\$1"
+  OLD="\$(dirname \$NEW)/\$(basename \$NEW .new)"
+  # If there's no config file by that name, mv it over:
+  if [ ! -r \$OLD ]; then
+    mv \$NEW \$OLD
+  elif [ "\$(cat \$OLD | md5sum)" = "\$(cat \$NEW | md5sum)" ]; then
+    # toss the redundant copy
+    rm \$NEW
+  fi  
+  # Otherwise, we leave the .new copy for the admin to consider...
+}
+
+config etc/$PRGNAM.conf.new
+
+EOF
+
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
