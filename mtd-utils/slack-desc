@@ -7,13 +7,13 @@
 
          |-----handy-ruler------------------------------------------------------|
 mtd-utils: mtd-utils (mobile technology device utilities)
-mtd-utils:
-mtd-utils:
-mtd-utils:
-mtd-utils:
-mtd-utils:
-mtd-utils:
-mtd-utils: Homepage 
-mtd-utils:
-mtd-utils:
-mtd-utils:
+mtd-utils: 
+mtd-utils: a tool for accessing jffs2 images and other such utilities
+mtd-utils: 
+mtd-utils: Homepage http://www.linux-mtd.infradead.org
+mtd-utils: 
+mtd-utils: 
+mtd-utils: 
+mtd-utils: 
+mtd-utils: 
+mtd-utils: 

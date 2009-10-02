@@ -9,7 +9,6 @@ VERSION=${VERSION:-1.2.0}
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
-JOBS=${JOBS:--j4}
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -40,7 +39,7 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-make ${JOBS}
+make
 make install DESTDIR=$PKG
 
 ( cd $PKG
