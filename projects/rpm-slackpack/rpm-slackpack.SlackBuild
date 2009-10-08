@@ -5,7 +5,7 @@
 # $Id$
 
 PRGNAM=rpm-slackpack
-VERSION=0.5
+VERSION=0.6
 ARCH=${ARCH:-noarch}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_vb}
