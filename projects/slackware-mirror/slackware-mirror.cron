@@ -1,4 +1,3 @@
-#
-# Regular cron jobs for slackware and SlackBuilds stuff
-#
-0 4	* * *	/usr/bin/slackware-mirror.sh 
+#!/bin/sh
+
+/usr/sbin/slackware-mirror.sh >> /var/log/slackware-mirror.log

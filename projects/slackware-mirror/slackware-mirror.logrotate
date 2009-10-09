@@ -1,0 +1,7 @@
+/var/log/slackware-mirror {
+  rotate 10
+  notifempty
+  size=5m
+  compress
+  delaycompress
+}
