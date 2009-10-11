@@ -56,6 +56,7 @@ fi
 for arg in $ARGS ; do
   if [ -f $arg ] ; then
     convertRpm $arg
+    cd ${CWD}
   else
     echo ERROR : $arg not readable
   fi
