@@ -1,0 +1,81 @@
+#!/bin/bash
+#
+# this script is freely available
+# and comes with NO WARRANTY.
+#
+# Vincent Batts, vbatts@gmail.com, 2008-09
+
+OWD=$(pwd)
+OUTPUT=${OUTPUT:-/tmp}
+SELF=`basename $0`
+
+function usage() {
+echo "$SELF : simply call against a *.rpm file(s)"
+}
+
+ARGS=`getopt --options "hs" -- ${1+"$@"}`
+if [ $? -ne 0 ]; then
+    usage
+    exit 1
+fi
+eval set -- ${ARGS}
+for i; do
+    case "$1" in
+        -s)
+            shift
+            _useScripts="true"
+            shift
+            ;;
+        -h)
+            usage
+            exit 0
+            ;;
+        --)
+            shift
+            break
+            ;;
+    esac
+done
+
+function makeRpm() {
+RPM=$1
+PRGNAM=$(rpm -qp --qf %{NAME} $RPM )
+ARCH=$(rpm -qp --qf %{ARCH} $RPM )
+VERSION=$(rpm -qp --qf %{VERSION} $RPM )
+BUILD=$(rpm -qp --qf %{RELEASE} $RPM )
+WRKDIR="/tmp/$PRGNAM-rpm.$RANDOM"
+
+if [ $UID != 0 ] ; then 
+    echo "Please run as root"
+    exit 1
+fi
+
+mkdir -p -m 0755 $WRKDIR/install || exit 1
+cd $WRKDIR || exit 1
+
+## Create our slack-desc
+rpm -qp --qf %{SUMMARY} $OWD/$RPM | sed -l 70 -r "s/^(.*)/$PRGNAM: $PRGNAM - \1\n/" > $WRKDIR/install/slack-desc || exit 1
+rpm -qp --qf %{DESCRIPTION} $OWD/$RPM | sed -l 70 -r "s/^/$PRGNAM: /" >> $WRKDIR/install/slack-desc || exit 1
+
+## i'm only using the {pre,post}install scripts, no {pre,post}uninstall scripts.
+if [ "$_useScripts" = "true" ] ; then
+  echo '#!/bin/sh' > $WRKDIR/install/doinst.sh || exit 1
+  if [ "$(rpm -qp --qf "%{PREIN}\n" $OWD/$RPM )" != '(none)' ] ; then
+    rpm -qp --qf %{PREIN} $OWD/$RPM >> $WRKDIR/install/doinst.sh || exit 1
+  fi
+  if [ "$(rpm -qp --qf %{POSTIN} $OWD/$RPM )" != '(none)' ] ; then
+    rpm -qp --qf "%{POSTIN}\n" $OWD/$RPM >> $WRKDIR/install/doinst.sh || exit 1
+  fi
+fi
+
+## extract the rpm
+rpm2cpio $OWD/$RPM | cpio -idvm  || exit 1
+find . -type d -perm 700 -exec chmod 755 {} \; || exit 1
+
+## make a slack package
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-${BUILD}.tgz || exit 1
+}
+
+for rpm in ${1+"$@"} ; do
+ makeRpm $rpm
+done 
