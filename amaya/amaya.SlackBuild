@@ -70,7 +70,7 @@ mkdir -p $PKG/usr/share/applications
 cp $CWD/$PRGNAM.desktop $PKG/usr/share/applications/
 
 mkdir -p $PKG/usr/share/pixmaps
-cp $PKG/opt/Amaya/resources/icons/misc/logo.png $PKG/usr/share/applications/amaya.png
+cp $PKG/opt/Amaya/resources/icons/misc/logo.png $PKG/usr/share/pixmaps/amaya.png
 
 ( cd $PKG
   find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | \
