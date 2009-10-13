@@ -1,0 +1,6 @@
+raul (Realtime Audio Utility Library)
+
+is a C++ utility library primarily aimed at audio/musical applications.
+It is used by Ingen, Patchage, and Machina
+
+Requires: jack-audio-connection-kit
