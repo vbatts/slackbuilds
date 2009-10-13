@@ -6,8 +6,8 @@ PKG=/tmp/package-$PRGNAM
 rm -rf $PKG
 mkdir -p $PKG
 
-VERSION=1_5_0_18
-DVER=1.5.0_18
+VERSION=1_5_0_21
+DVER=1.5.0_21
 ARCH=i586
 BUILD=1
 
