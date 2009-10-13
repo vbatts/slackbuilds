@@ -26,7 +26,16 @@ they are here, working or not
   slib - 20.Jan.2009 submitted; 22.Jan.2009, Published
   gnucash - 20.Jan.2009 submitted; 22.Jan.2009, Published
   genius - 03.Feb.2009, submitted
-  bchunk - 02.Feb.2009 ready to submit
+  bchunk - 02.Feb.2009
+  synergy - 25.Aug.2009
+  RSSOwl - 31.Aug.2009
+  ApacheDirectoryStudio - 02.Sept.2009
+  apache-ant - 29.May.2009
+  apache-ivy - 29.May.2009
+  rhino - 29.May.2009
+  ant-contrib - 29.May.2009
+  xalan - 02.June.2009
+  xerces - 02.June.2009
 
 ** STABLE **
   kde4-4.1.x, coexistisng with kde-3.5.x (and all subdirectories) for slackware-12.2
@@ -42,19 +51,13 @@ they are here, working or not
   google-gadgets - 2008.12.12
   id3tool - 2008.12.13
   scollkeeper - 03.Feb.2009, submitted
-  apache-ant - 29.May.2009
-  apache-ivy - 29.May.2009
-  rhino - 29.May.2009
-  ant-contrib - 29.May.2009
-  xalan - 02.June.2009
-  xerces - 02.June.2009
   ruby-gtk2 - 24.June.2009
   libdbi{,-drivers} - 30.June.2009
   sox - 03.Aug.2009; nevermind, this was rolled into slackware-13.0 trunk
-  synergy - 25.Aug.2009
-  RSSOwl - 31.Aug.2009
-  ApacheDirectoryStudio - 02.Sept.2009
   mtd-utils - 09.Sept.2009
+  dash - 12.Oct.2009
+  skrooge - 12.Oct.2009
+  amaya - 12.Oct.2009
 
 ** TESTING/BROKEN **
   xbench

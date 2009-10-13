@@ -7,8 +7,8 @@ PKG=/tmp/package-jdk
 rm -rf $PKG
 mkdir -p $PKG
 
-VERSION=1_5_0_18
-DVER=1.5.0_18
+VERSION=1_5_0_20
+DVER=1.5.0_20
 ARCH=${ARCH:-x86_64}
 JAVA_ARCH=${JAVA_ARCH:-x64}
 BUILD=1

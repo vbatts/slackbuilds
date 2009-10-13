@@ -5,4 +5,4 @@ documents directly on the Web. Browsing features are seamlessly
 integrated with the editing and remote access features in a 
 uniform environment.
 
-Requires: a wxWidgets (either wxPython or wxGTK)
+Uses wxWidgets, but it includes its own that it compiles against

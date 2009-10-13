@@ -49,6 +49,8 @@ CXXFLAGS="$SLKCFLAGS" \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --sysconfdir=/etc \
   --localstatedir=/var \
+  --enable-maintainer-mode \
+  --disable-shared \
   --mandir=/usr/man \
   --disable-static \
   --build=$ARCH-slackware-linux
