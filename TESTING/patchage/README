@@ -1,0 +1,6 @@
+patchage (modular sound utility)
+
+Patchage is a modular patch bay for audio and MIDI
+systems based on Jack, Lash, and Alsa.
+
+Requires: raul
