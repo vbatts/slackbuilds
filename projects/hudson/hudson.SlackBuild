@@ -35,37 +35,37 @@ elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC"
 fi
 
-set -e # Exit on most errors
+set -e
 
-VERSION=$(unzip -p hudson.war  META-INF/maven/org.jvnet.hudson.main/hudson-war/pom.properties | grep -e '^version' | cut -d = -f 2)
+VERSION=$(unzip -p $PRGNAM.war  META-INF/maven/org.jvnet.$PRGNAM.main/$PRGNAM-war/pom.properties | grep -e '^version' | cut -d = -f 2)
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 
-mkdir -p $PKG/usr/lib/hudson
-cp -av $CWD/hudson.war $PKG/usr/lib/hudson/
+mkdir -p $PKG/opt/$PRGNAM
+cp -av $CWD/$PRGNAM.war $PKG/opt/$PRGNAM
 
 mkdir -p $PKG/usr/bin
-cat $CWD/hudsond.sh > $PKG/usr/bin/hudsond
-chmod +x $PKG/usr/bin/hudsond
+cat $CWD/${PRGNAM}d.sh > $PKG/usr/bin/${PRGNAM}d
+chmod +x $PKG/usr/bin/${PRGNAM}d
 
-cat > $PKG/usr/bin/hudson << EOF
+cat > $PKG/usr/bin/$PRGNAM << EOF
 #!/bin/sh
 
-java -jar /usr/lib$LIBDIRSUFFIX/hudson/hudson.war \${1+"\$@"}
+java -jar /opt/$PRGNAM/$PRGNAM.war \${1+"\$@"}
 
 EOF
-chmod +x $PKG/usr/bin/hudson
+chmod +x $PKG/usr/bin/$PRGNAM
 
 mkdir -p $PKG/etc/rc.d
 mkdir -p $PKG/etc/logrotate.d
-cat $CWD/etc/rc.hudson > $PKG/etc/rc.d/rc.hudson.new
-cat $CWD/etc/hudson.conf > $PKG/etc/hudson.conf.new
-cat $CWD/etc/hudson-logrotate > $PKG/etc/logrotate.d/hudson
+cat $CWD/etc/rc.$PRGNAM > $PKG/etc/rc.d/rc.$PRGNAM.new
+cat $CWD/etc/$PRGNAM.conf > $PKG/etc/$PRGNAM.conf.new
+cat $CWD/etc/$PRGNAM-logrotate > $PKG/etc/logrotate.d/$PRGNAM
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-java -jar $CWD/hudson.war --help > $PKG/usr/doc/$PRGNAM-$VERSION/HELP.txt
+java -jar $CWD/$PRGNAM.war --help > $PKG/usr/doc/$PRGNAM-$VERSION/HELP.txt
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install

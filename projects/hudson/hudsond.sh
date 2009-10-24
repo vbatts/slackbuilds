@@ -5,11 +5,12 @@
 
 JAVA=$(which java)
 PIDFILE="/var/run/hudson.pid"
-HUDSON="/usr/lib/hudson/hudson.war"
+HUDSON="/opt/hudson/hudson.war"
 HUDSON_HTTP_PORT="8080"
 HUDSON_LOG_FILE="/var/log/hudson.log"
 HUDSON_WEBAPPSDIR="/var/lib/hudson/apps/"
 HUDSON_WEBROOT="/var/lib/hudson/webroot/"
+OPT_ARGS=""
 export HUDSON_HOME="/var/lib/hudson"
 
 if [ "$UID" -ne 0 ] ; then
@@ -17,7 +18,7 @@ if [ "$UID" -ne 0 ] ; then
   exit 1
 fi
 
-PREV_PID=$( pgrep -f "/usr/lib/hudson/hudson.war" )
+PREV_PID=$( pgrep -f "/opt/hudson/hudson.war" )
 if [ ! "$PREV_PID" = "" ] ; then
   echo $PREV_PID still running
   exit 1
@@ -86,7 +87,8 @@ $JAVA -jar $HUDSON \
   $HUDSON_HTTPS_KEY_MANAGER_ARG \
   $HUDSON_LOG_FILE_ARG \
   $HUDSON_WEBAPPSDIR_ARG \
+  $OPT_ARGS \
   $HUDSON_WEBROOT_ARG &
 
-pgrep -f "/usr/lib/hudson/hudson.war" > $PIDFILE
+pgrep -f "/opt/hudson/hudson.war" > $PIDFILE
 
