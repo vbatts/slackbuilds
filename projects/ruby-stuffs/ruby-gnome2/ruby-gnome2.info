@@ -1,0 +1,7 @@
+PRGNAM="ruby-gnome2"
+VERSION="0.19.3"
+HOMEPAGE="http://ruby-gnome2.sourceforge.jp/"
+DOWNLOAD="http://downloads.sourceforge.net/project/ruby-gnome2/ruby-gnome2/ruby-gnome2-0.19.3/ruby-gnome2-all-0.19.3.tar.gz"
+MD5SUM="771b0cb607a27bddd02860d38e94666f"
+DOWNLOAD_x86_64=""
+MD5SUM_x86_64=""
