@@ -11,7 +11,6 @@ TAG=${TAG:-_SBo}
 
 TEAM=$(echo $PRGNAM | cut -d- -f1)
 PROJECT=$(echo $PRGNAM | cut -d- -f2)
-SRC_VERSION=$(echo $VERSION | tr _ -)
 ANT_HOME=/usr/share/ant
 
 CWD=$(pwd)
@@ -24,9 +23,9 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$SRC_VERSION
-tar xvf $CWD/$PRGNAM-$SRC_VERSION-bin.tar.gz
-cd $PRGNAM-$SRC_VERSION
+rm -rf $PRGNAM-$VERSION
+tar xvf $CWD/$PRGNAM-$VERSION-bin.tar.gz
+cd $PRGNAM-$VERSION
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -35,9 +34,9 @@ find . \
  -exec chmod 644 {} \;
 
 mkdir -p $PKG/usr/share/java $PKG/$ANT_HOME/lib
-cp $PROJECT-$SRC_VERSION.jar $PKG/$ANT_HOME/lib/
+cp $PROJECT-$VERSION.jar $PKG/$ANT_HOME/lib/
 cd $PKG/usr/share/java
-  ln -s $ANT_HOME/lib/$PROJECT-$SRC_VERSION.jar $PROJECT.jar
+  ln -s $ANT_HOME/lib/$PROJECT-$VERSION.jar $PROJECT.jar
 cd -
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
