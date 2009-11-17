@@ -3,4 +3,6 @@ patchage (modular sound utility)
 Patchage is a modular patch bay for audio and MIDI
 systems based on Jack, Lash, and Alsa.
 
-Requires: raul
+Requires: raul (which requires jack-audio-connection-kit)
+     and gtkmm (which requires glibmm, cairomm & pangomm)
+     and libgnomecanvasmm ... :\

@@ -4,10 +4,10 @@
 # Written by Vincent Batts, vbatts@hashbangbash.com
 
 PRGNAM=mysql-connector-java
-VERSION=${VERSION:-5.1.7}
-ARCH=${ARCH:-i486}
+VERSION=${VERSION:-5.1.10}
+ARCH=noarch
 BUILD=${BUILD:-1}
-TAG=${TAG:-_SBo}
+TAG=${TAG:-_vb}
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -31,6 +31,16 @@ find . \
 
 mkdir -p $PKG/usr/share/java
 cp $PRGNAM-$VERSION-bin.jar $PKG/usr/share/java
+
+mkdir -p $PKG/etc/profile.d
+cat >> $PKG/etc/profile.d/$PRGNAM.sh << xxEOFxx
+#/!bin/sh
+export set CLASSPATH=/usr/share/java/$PRGNAM-$VERSION-bin.jar:\$CLASSPATH
+xxEOFxx
+cat >> $PKG/etc/profile.d/$PRGNAM.csh << xxEOFxx
+setenv CLASSPATH /path/$PRGNAM-$VERSION-bin.jar:\$CLASSPATH
+xxEOFxx
+chmod +x $PKG/etc/profile.d/*
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 zip -9 -r $PKG/usr/doc/$PRGNAM-$VERSION/src.zip build.xml src/
