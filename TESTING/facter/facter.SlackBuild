@@ -2,10 +2,10 @@
 
 # Slackware build script for facter
 
-# Written by Vincent Batts, vbatts@gmail.com
+# Written by Vincent Batts, vbatts@hashbangbash.com
 
 PRGNAM=facter
-VERSION=${VERSION:-1.5.2}
+VERSION=${VERSION:-1.5.7}
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -15,13 +15,13 @@ TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
-set -e # Exit on most errors
+set -e
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tgz
+tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
 cd $PRGNAM-$VERSION
 chown -R root:root .
 find . \
