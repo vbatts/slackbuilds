@@ -20,55 +20,48 @@
 #  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-set -e
-
 PRGNAM=skrooge
-CWD=$(pwd)
-TMP=${TMP:-/tmp}
-PKG=$TMP/package-$PRGNAM
-
-VERSION=${VERSION:-0.5.2}
-ARCH=${ARCH:-x86_64}
+VERSION=${VERSION:-0.5.3}
+ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
+TAG=${TAG:-_SBo}
 
-# Use this as CFLAGS and CXXFLAGS:
-if [ -z "$SLKCFLAGS" ]; then
-  if [ "$ARCH" = "i486" ]; then
-    export SLKCFLAGS="-O2 -march=i486 -mtune=i686"
-    export LIBDIRSUFFIX=""
-  elif [ "$ARCH" = "s390" ]; then
-    export SLKCFLAGS="-O2"
-    export LIBDIRSUFFIX=""
-  elif [ "$ARCH" = "x86_64" ]; then
-    export SLKCFLAGS="-O2 -fPIC"
-    export LIBDIRSUFFIX="64"
-  elif [ "$ARCH" = "arm" ]; then
-    export SLKCFLAGS="-O2 -march=armv4 -mtune=xscale"
-    export LIBDIRSUFFIX=""
-  elif [ "$ARCH" = "armel" ]; then
-    export SLKCFLAGS="-O2 -march=armv4t"
-    export LIBDIRSUFFIX=""
-  fi
-fi
+CWD=$(pwd)
+TMP=${TMP:-/tmp/SBo}
+PKG=$TMP/package-$PRGNAM
+OUTPUT=${OUTPUT:-/tmp}
 
-# Use this to set the number of parallel make jobs:
-if [ -z "$NUMJOBS" ]; then
-  export NUMJOBS="-j7"
+if [ "$ARCH" = "i486" ]; then
+  export SLKCFLAGS="-O2 -march=i486 -mtune=i686"
+  export LIBDIRSUFFIX=""
+elif [ "$ARCH" = "s390" ]; then
+  export SLKCFLAGS="-O2"
+  export LIBDIRSUFFIX=""
+elif [ "$ARCH" = "x86_64" ]; then
+  export SLKCFLAGS="-O2 -fPIC"
+  export LIBDIRSUFFIX="64"
+elif [ "$ARCH" = "arm" ]; then
+  export SLKCFLAGS="-O2 -march=armv4 -mtune=xscale"
+  export LIBDIRSUFFIX=""
+elif [ "$ARCH" = "armel" ]; then
+  export SLKCFLAGS="-O2 -march=armv4t"
+  export LIBDIRSUFFIX=""
 fi
 
 # Additional cmake flags that are spanned across the KDE modules
-export KDE_OPT_ARGS=" -DKDE4_ENABLE_FINAL=\"ON\"  -DSITE=\"slackware.com\" "
+export KDE_OPT_ARGS=" -DKDE4_ENABLE_FINAL=\"ON\"  -DSITE=\"slackbuilds.org\" "
 
 # Avoid a version number in .la files:
 if [ -d /usr/lib${LIBDIRSUFFIX}/qt ]; then
   QTDIR=/usr/lib${LIBDIRSUFFIX}/qt
 fi
 
+set -e
+
 rm -rf $PKG
-mkdir -p $PKG/usr
+mkdir -p $TMP $PKG/usr $OUTPUT
 cd $TMP
-echo "Building $PRGNAM-$VERSION..."
-tar xvf $CWD/$PRGNAM-$VERSION.tar.?z* || exit 1
+tar xjvf $CWD/$PRGNAM-$VERSION.tar.bz2
 cd $PRGNAM-$VERSION
 
 chown -R root:root .
@@ -90,8 +83,8 @@ cd build
     -DSYSCONF_INSTALL_DIR=/etc/kde \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     ..
-   make $NUMJOBS || exit 1
-   make install DESTDIR=$PKG || exit 1
+   make
+   make install DESTDIR=$PKG
 cd -
 
 if [ -d $PKG/usr/man ]; then
@@ -102,13 +95,16 @@ mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a COPYING* $PKG/usr/doc/$PRGNAM-$VERSION
 
 ( cd $PKG
-  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
-  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | \
+    xargs strip --strip-unneeded 2> /dev/null || true
+  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | \
+    xargs strip --strip-unneeded 2> /dev/null || true
 )
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-/sbin/makepkg -l y -c n $TMP/$PRGNAM-$(echo $VERSION | tr - _)-$ARCH-$BUILD.tgz
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
 
