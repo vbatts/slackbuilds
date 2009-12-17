@@ -1,1 +1,6 @@
-requires libgnomeui
+requires: libgnomeui
+
+provides: ruby-gtk2, Ruby/GnomeCanvas2, Ruby/GNOME2, Ruby/Libart2,
+Ruby/Libglade2, Ruby/GConf2, Ruby/GnomeVFS, Ruby/GtkGLExt, 
+Ruby/GtkHtml2, Ruby/GtkSourceView, Ruby/PanelApplet, Ruby/GnomePrint,
+Ruby/GnomePrintUI, Ruby/RSVG, Ruby/GtkMozEmbed, Ruby/Poppler, Ruby/VTE
