@@ -37,6 +37,11 @@ fi
 
 set -e
 
+if [ ! -f $CWD/$PRGNAM.war ] ; then
+  . $CWD/$PRGNAM.info
+  wget "$DOWNLOAD"
+fi
+
 VERSION=$(unzip -p $PRGNAM.war  META-INF/maven/org.jvnet.$PRGNAM.main/$PRGNAM-war/pom.properties | grep -e '^version' | cut -d = -f 2)
 
 rm -rf $PKG
