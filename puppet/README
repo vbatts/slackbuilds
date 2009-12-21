@@ -5,4 +5,11 @@ providing developers and system administrators with a simple
 service-based policy framework that allows for more consistent,
 transparent and flexible systems.
 
-Homepage: http://reductivelabs.com/products/
+There are manpages, but the project's wiki pages have much
+additional material.
+
+See http://reductivelabs.com/trac/puppet/ for more information
+on getting started using puppet and a reference guide.
+
+Find configuration file documentation at
+http://reductivelabs.com/trac/puppet/wiki/ConfigurationReference
