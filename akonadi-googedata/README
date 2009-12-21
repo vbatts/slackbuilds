@@ -1,0 +1,6 @@
+akonadi-googledata (google resource for akonadi)
+
+A resource plugin for akonadi to connect to Google 
+ calendar and contacts.
+
+requires: libgcal
