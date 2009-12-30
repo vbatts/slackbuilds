@@ -22,14 +22,12 @@ hudson_start() {
 hudson_stop() {
   echo "Stopping hudson daemon..."
   if [ -e $PIDFILE ]; then
-    kill $(cat $PIDFILE) 2>/dev/null
+    kill $(cat $PIDFILE) 2>/dev/null || true
     rm -f $PIDFILE 2>/dev/null
   else
-    pgrep -f "/usr/lib/hudson/hudson.war" | xargs kill 
+    pgrep -f "/opt/hudson/hudson.war" | xargs kill 
   fi
 }
-
-
 
 # See how we were called and take appropriate action	
 

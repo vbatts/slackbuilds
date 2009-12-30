@@ -1,6 +1,6 @@
 PRGNAM="pkgconfigviewer"
 VERSION="1.0"
-HOMEPAGE="http://ruby-gnome2.sourceforge.jp/"
+HOMEPAGE="http://ruby-gnome2.sourceforge.jp/hiki.cgi?pkg-config+viewer"
 DOWNLOAD="http://ruby-gnome2.sourceforge.jp/hiki.cgi?c=plugin;plugin=attach_download;p=pkg-config+viewer;file_name=pkgconfigviewer-1.0.tar.gz"
 MD5SUM=""
 DOWNLOAD_x86_64=""
