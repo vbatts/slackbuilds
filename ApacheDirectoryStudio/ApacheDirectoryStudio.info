@@ -7,4 +7,4 @@ DOWNLOAD_x86_64="http://apache.imghat.com/directory/studio/stable/1.4.0.v2009040
 MD5SUM_x86_64="38c037ebaa0999efe1e3fcce61e3ed50"
 MAINTAINER="Vincent Batts"
 EMAIL="vbatts@hashbangbash.com"
-APPROVED=""
+APPROVED="dsomero"

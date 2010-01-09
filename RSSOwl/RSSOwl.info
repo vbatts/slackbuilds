@@ -7,4 +7,4 @@ DOWNLOAD_x86_64="http://downloads.sourceforge.net/rssowl/rssowl-2.0-M9.linux.gtk
 MD5SUM_x86_64="5cde0ff6de44044f6c231d9018a66192"
 MAINTAINER="Vincent Batts"
 EMAIL="vbatts@hashbangbash.com"
-APPROVED=""
+APPROVED="dsomero"
