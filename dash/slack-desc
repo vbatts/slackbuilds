@@ -6,14 +6,14 @@
 # customary to leave one space after the ':'.
 
     |-----handy-ruler------------------------------------------------------|
-dash: dash ( POSIX compliant shell )
-dash: 
+dash: dash (POSIX compliant shell)
+dash:
 dash: DASH is a POSIX-compliant implementation of /bin/sh that aims 
 dash: to be as small as possible. It does this without sacrificing 
 dash: speed where possible. In fact, it is significantly faster than 
 dash: bash (the GNU Bourne-Again SHell) for most tasks. 
-dash: 
-dash: 
-dash: 
-dash: 
-dash: 
+dash:
+dash:
+dash:
+dash:
+dash:

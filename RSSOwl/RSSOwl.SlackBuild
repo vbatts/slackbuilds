@@ -5,7 +5,6 @@
 # Written by Vincent Batts, vbatts@hashbangbash.com
 
 PRGNAM=RSSOwl
-DVER=2.0-M9
 VERSION=${VERSION:-2.0_M9}
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
@@ -16,18 +15,23 @@ TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
+DVER=2.0-M9
+
 if [ "$ARCH" = "i486" ]; then
   SLKCFLAGS="-O2 -march=i486 -mtune=i686"
   LIBDIRSUFFIX=""
-  SRC_ARCH="x86"
 elif [ "$ARCH" = "i686" ]; then
   SLKCFLAGS="-O2 -march=i686 -mtune=i686"
   LIBDIRSUFFIX=""
-  SRC_ARCH="x86"
 elif [ "$ARCH" = "x86_64" ]; then
   SLKCFLAGS="-O2 -fPIC"
   LIBDIRSUFFIX="64"
-  SRC_ARCH=$ARCH
+fi
+
+if [ "$ARCH" = "x86_64" ]; then
+  SRC_ARCH="x86_64"
+else
+  SRC_ARCH="x86"
 fi
 
 set -e
@@ -83,6 +87,7 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}

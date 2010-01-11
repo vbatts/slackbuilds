@@ -3,13 +3,14 @@
 # this script is freely available
 # and comes with NO WARRANTY.
 #
-# Vincent Batts, vbatts@gmail.com, 2008-09
+# Vincent Batts, vbatts@hashbangbash.com, 2008-09
 
 
 # Global Variables
 ARGS=$@
 OWD=$(pwd)
 OUTPUT=${OUTPUT:-/tmp}
+PKGTYPE=${PKGTYPE:-txz}
 
 # Functions
 convertRpm() {
@@ -44,7 +45,7 @@ convertRpm() {
   find . -type d -perm 700 -exec chmod 755 {} \; || exit 1
   
   ## make a slack package
-  /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-${BUILD}.tgz || exit 1
+  /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-${BUILD}.${PKGTYPE} || exit 1
 }
 
 # Main

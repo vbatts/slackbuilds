@@ -1,4 +1,4 @@
 mtd-utils (mobile technology device utilities)
 
-a tool for accessing jffs2 images and other such utilities,
+Tools for accessing jffs2 images and other such utilities;
 helpful for working with mobile platforms.

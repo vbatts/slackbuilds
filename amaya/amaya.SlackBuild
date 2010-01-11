@@ -8,10 +8,10 @@ PRGNAM=amaya
 VERSION=${VERSION:-11.2}
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
-TAG=${TAG:-_vb}
+TAG=${TAG:-_SBo}
 
 CWD=$(pwd)
-TMP=${TMP:-/tmp/vb}
+TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
@@ -43,34 +43,21 @@ find . \
 
 mkdir build
 cd build
-CFLAGS="$SLKCFLAGS" \
-CXXFLAGS="$SLKCFLAGS" \
-../configure \
-  --prefix=/opt/ \
-  --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --sysconfdir=/etc \
-  --localstatedir=/var \
-  --mandir=/usr/man \
-  --docdir=/usr/doc/$PRGNAM-$VERSION \
-  --with-gl \
-  --enable-system-raptor \
-  --build=$ARCH-slackware-linux
-
-make
-make install DESTDIR=$PKG
-
-# silly hack to linked correctly
-rm -r $PKG/opt/bin/
-mkdir -p $PKG/usr/bin
-cd $PKG/usr/bin/
-ln -s ../../opt/Amaya/wx/bin/$PRGNAM
-cd -
-
-mkdir -p $PKG/usr/share/applications
-cp $CWD/$PRGNAM.desktop $PKG/usr/share/applications/
-
-mkdir -p $PKG/usr/share/pixmaps
-cp $PKG/opt/Amaya/resources/icons/misc/logo.png $PKG/usr/share/pixmaps/amaya.png
+  CFLAGS="$SLKCFLAGS" \
+  CXXFLAGS="$SLKCFLAGS" \
+  ../configure \
+    --prefix=/opt/ \
+    --libdir=/usr/lib${LIBDIRSUFFIX} \
+    --sysconfdir=/etc \
+    --localstatedir=/var \
+    --mandir=/usr/man \
+    --docdir=/usr/doc/$PRGNAM-$VERSION \
+    --with-gl \
+    --enable-system-raptor \
+    --build=$ARCH-slackware-linux
+  make
+  make install DESTDIR=$PKG
+cd ..
 
 ( cd $PKG
   find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | \
@@ -79,15 +66,23 @@ cp $PKG/opt/Amaya/resources/icons/misc/logo.png $PKG/usr/share/pixmaps/amaya.png
     xargs strip --strip-unneeded 2> /dev/null
 )
 
+# silly hack to link correctly
+rm -r $PKG/opt/bin/
+mkdir -p $PKG/usr/bin
+( cd $PKG/usr/bin/ ; ln -s ../../opt/Amaya/wx/bin/$PRGNAM )
+
+mkdir -p $PKG/usr/share/{applications,pixmaps}
+cat $CWD/$PRGNAM.desktop > $PKG/usr/share/applications/$PRGNAM.desktop
+( cd $PKG/usr/share/pixmaps
+  ln -s ../../../opt/Amaya/resources/icons/misc/logo.png amaya.png
+)
+
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a \
-  $TMP/Amaya${VERSION}/Amaya/README* \
-  $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a README* $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz
-
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}

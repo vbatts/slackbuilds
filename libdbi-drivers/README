@@ -1,13 +1,9 @@
-libdbi-drivers (Drivers for the Database Independent Abstraction Layer)
+The libdbi-drivers project maintains drivers for the libdbi database
+abstraction layer written in C. Drivers are distributed seperately
+from the library itself.
 
-libdbi implements a database-independent abstraction layer in C, 
-similar to the DBI/DBD layer in Perl. Writing one generic set of 
-code, programmers can leverage the power of multiple databases and 
-multiple simultaneous database connections by using this framework.
+This includes the drivers for mysql and sqlite by default. 
+if the PGSQL="true" variable is set, then postgresql will is 
+required and will be built as well.
 
-depends on libdbi
-
-if you want the PostgreSQL integration, you must first have postgresql 
-installed, and then pass the PGSQL=true flag.
-postgresql is available at SlackBuilds.org
-
+This requires libdbi.

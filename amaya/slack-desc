@@ -5,15 +5,15 @@
 # make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':'.
 
-       |-----handy-ruler------------------------------------------------------|
-amaya: amaya ( W3 Web Editor )
+     |-----handy-ruler------------------------------------------------------|
+amaya: amaya (W3 Web Editor)
 amaya: 
 amaya: Amaya is a Web editor, i.e. a tool used to create and update 
-amaya: documents directly on the Web. Browsing features are seamlessly 
+amaya: documents directly on the Web.  Browsing features are seamlessly 
 amaya: integrated with the editing and remote access features in a 
 amaya: uniform environment.
-amaya: 
+amaya:
 amaya: Homepage: http://www.w3.org/Amaya/
-amaya: 
-amaya: 
-amaya: 
+amaya:
+amaya:
+amaya:
