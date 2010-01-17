@@ -1,4 +1,4 @@
-#!/bin/bash
+#/bin/bash
 #
 # this script is freely available
 # and comes with NO WARRANTY.
@@ -23,11 +23,17 @@ convertRpm() {
   WRKDIR="/tmp/$PRGNAM-rpm.$RANDOM"
 
   mkdir -p -m 0755 $WRKDIR/install || exit 1
+  mkdir -p -m 0755 $WRKDIR/usr/doc/$PRGNAM-$VERSION || exit 1
   cd $WRKDIR || exit 1
   
   ## Create our slack-desc
   rpm -qp --qf %{SUMMARY} $OWD/$RPM | sed -l 70 -r "s/^(.*)/$PRGNAM: $PRGNAM - \1\n/" > $WRKDIR/install/slack-desc || exit 1
   rpm -qp --qf %{DESCRIPTION} $OWD/$RPM | sed -l 70 -r "s/^/$PRGNAM: /" >> $WRKDIR/install/slack-desc || exit 1
+
+  # Add a friendly notice of expected dependencies
+  if [ $(rpm -qp --qf %{REQUIRES} $OWD/$RPM | wc -l ) -ne 0 ] ; then
+    rpm -qp --qf %{REQUIRES} $OWD/$RPM  > $WRKDIR/usr/doc/$PRGNAM-$VERSION/README-$PRGNAM-rpm-dependencies.txt || exit 1
+  fi
   
   ## i'm only using the {pre,post}install scripts, no {pre,post}uninstall scripts.
   echo '#!/bin/sh' > $WRKDIR/install/doinst.sh || exit 1
@@ -39,6 +45,7 @@ convertRpm() {
     rpm -qp --qf %{POSTIN} $OWD/$RPM >> $WRKDIR/install/doinst.sh || exit 1
   fi
   echo "" >> $WRKDIR/install/doinst.sh || exit 1
+  fi
   
   ## extract the rpm
   rpm2cpio $OWD/$RPM | cpio -idvm  || exit 1
