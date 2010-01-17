@@ -1,8 +1,8 @@
 #!/bin/sh
 
-# Slackware build script for <appname>
+# Slackware build script for mic
 
-# Written by (your name) (your contact information)
+# Written by Vincent Batts, vbatts@hashbangbash.com
 
 # (add license information here if you desire; otherwise,
 # all submissions are considered to be in the public domain)
