@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+       |-----handy-ruler------------------------------------------------------|
+0xFFFF: 0xFFFF (open free fiasco firmware flasher)
+0xFFFF: 
+0xFFFF: The 'Open Free Fiasco Firmware Flasher' aka 0xFFFF utility
+0xFFFF: implements a free (GPL3) userspace handler for the NOLO bootloader
+0xFFFF: and related utilities for the Nokia Internet Tablets like flashing
+0xFFFF: setting device options, packing/unpacking FIASCO firmware format
+0xFFFF: and more..
+0xFFFF: 
+0xFFFF: 
+0xFFFF: 
+0xFFFF: 

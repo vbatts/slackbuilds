@@ -1,0 +1,7 @@
+0xFFFF (open free fiasco firmware flasher)
+
+The 'Open Free Fiasco Firmware Flasher' aka 0xFFFF utility
+implements a free (GPL3) userspace handler for the NOLO bootloader
+and related utilities for the Nokia Internet Tablets like flashing
+setting device options, packing/unpacking FIASCO firmware format
+and more..
