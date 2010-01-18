@@ -1,6 +1,6 @@
-diff -Nur gtkhtml-3.18.3.orig/a11y/Makefile.am gtkhtml-3.18.3/a11y/Makefile.am
---- gtkhtml-3.18.3.orig/a11y/Makefile.am	2008-04-04 04:06:50.000000000 -0500
-+++ gtkhtml-3.18.3/a11y/Makefile.am	2009-06-03 10:27:22.879317264 -0500
+diff -Nur gtkhtml-3.28.0.orig/a11y/Makefile.am gtkhtml-3.28.0/a11y/Makefile.am
+--- gtkhtml-3.28.0.orig/a11y/Makefile.am	2008-04-04 04:06:50.000000000 -0500
++++ gtkhtml-3.28.0/a11y/Makefile.am	2009-06-03 10:27:22.879317264 -0500
 @@ -2,7 +2,7 @@
  
  INCLUDES = -I$(top_srcdir)/gtkhtml $(GTKHTML_CFLAGS) $(I18N_LIB_CFLAGS)
@@ -10,9 +10,9 @@ diff -Nur gtkhtml-3.18.3.orig/a11y/Makefile.am gtkhtml-3.18.3/a11y/Makefile.am
  
  noinst_LTLIBRARIES = libgtkhtml-a11y.la
  
-diff -Nur gtkhtml-3.18.3.orig/a11y/Makefile.in gtkhtml-3.18.3/a11y/Makefile.in
---- gtkhtml-3.18.3.orig/a11y/Makefile.in	2008-06-29 00:41:02.000000000 -0500
-+++ gtkhtml-3.18.3/a11y/Makefile.in	2009-06-03 10:28:28.053709547 -0500
+diff -Nur gtkhtml-3.28.0.orig/a11y/Makefile.in gtkhtml-3.28.0/a11y/Makefile.in
+--- gtkhtml-3.28.0.orig/a11y/Makefile.in	2008-06-29 00:41:02.000000000 -0500
++++ gtkhtml-3.28.0/a11y/Makefile.in	2009-06-03 10:28:28.053709547 -0500
 @@ -244,7 +244,7 @@
  top_srcdir = @top_srcdir@
  END = 
@@ -22,9 +22,9 @@ diff -Nur gtkhtml-3.18.3.orig/a11y/Makefile.in gtkhtml-3.18.3/a11y/Makefile.in
  noinst_LTLIBRARIES = libgtkhtml-a11y.la
  libgtkhtml_a11y_la_SOURCES = \
  	cell.h						\
-diff -Nur gtkhtml-3.18.3.orig/components/html-editor/Makefile.am gtkhtml-3.18.3/components/html-editor/Makefile.am
---- gtkhtml-3.18.3.orig/components/html-editor/Makefile.am	2008-04-04 04:06:35.000000000 -0500
-+++ gtkhtml-3.18.3/components/html-editor/Makefile.am	2009-06-03 10:29:16.240612316 -0500
+diff -Nur gtkhtml-3.28.0.orig/components/html-editor/Makefile.am gtkhtml-3.28.0/components/html-editor/Makefile.am
+--- gtkhtml-3.28.0.orig/components/html-editor/Makefile.am	2008-04-04 04:06:35.000000000 -0500
++++ gtkhtml-3.28.0/components/html-editor/Makefile.am	2009-06-03 10:29:16.240612316 -0500
 @@ -28,7 +28,6 @@
  	-DGNOMELOCALEDIR=\""$(prefix)/$(DATADIRNAME)/locale"\"\
  	-DGLADE_DATADIR=\"$(gladedir)\"			\
@@ -33,9 +33,9 @@ diff -Nur gtkhtml-3.18.3.orig/components/html-editor/Makefile.am gtkhtml-3.18.3/
  	-DPREFIX=\""$(prefix)"\"			\
  	-DSYSCONFDIR=\""$(sysconfdir)"\"		\
  	-DDATADIR=\""$(datadir)"\"			\
-diff -Nur gtkhtml-3.18.3.orig/components/html-editor/Makefile.in gtkhtml-3.18.3/components/html-editor/Makefile.in
---- gtkhtml-3.18.3.orig/components/html-editor/Makefile.in	2008-06-29 00:41:03.000000000 -0500
-+++ gtkhtml-3.18.3/components/html-editor/Makefile.in	2009-06-03 10:29:41.423922363 -0500
+diff -Nur gtkhtml-3.28.0.orig/components/html-editor/Makefile.in gtkhtml-3.28.0/components/html-editor/Makefile.in
+--- gtkhtml-3.28.0.orig/components/html-editor/Makefile.in	2008-06-29 00:41:03.000000000 -0500
++++ gtkhtml-3.28.0/components/html-editor/Makefile.in	2009-06-03 10:29:41.423922363 -0500
 @@ -328,7 +328,6 @@
  	-DGNOMELOCALEDIR=\""$(prefix)/$(DATADIRNAME)/locale"\"\
  	-DGLADE_DATADIR=\"$(gladedir)\"			\
@@ -44,9 +44,9 @@ diff -Nur gtkhtml-3.18.3.orig/components/html-editor/Makefile.in gtkhtml-3.18.3/
  	-DPREFIX=\""$(prefix)"\"			\
  	-DSYSCONFDIR=\""$(sysconfdir)"\"		\
  	-DDATADIR=\""$(datadir)"\"			\
-diff -Nur gtkhtml-3.18.3.orig/gtkhtml/Makefile.am gtkhtml-3.18.3/gtkhtml/Makefile.am
---- gtkhtml-3.18.3.orig/gtkhtml/Makefile.am	2008-04-04 04:06:49.000000000 -0500
-+++ gtkhtml-3.18.3/gtkhtml/Makefile.am	2009-06-03 10:30:32.202760845 -0500
+diff -Nur gtkhtml-3.28.0.orig/gtkhtml/Makefile.am gtkhtml-3.28.0/gtkhtml/Makefile.am
+--- gtkhtml-3.28.0.orig/gtkhtml/Makefile.am	2008-04-04 04:06:49.000000000 -0500
++++ gtkhtml-3.28.0/gtkhtml/Makefile.am	2009-06-03 10:30:32.202760845 -0500
 @@ -20,7 +20,6 @@
  
  AM_CFLAGS = 						\
@@ -63,9 +63,9 @@ diff -Nur gtkhtml-3.18.3.orig/gtkhtml/Makefile.am gtkhtml-3.18.3/gtkhtml/Makefil
  
  lib_LTLIBRARIES = libgtkhtml-3.14.la
  
-diff -Nur gtkhtml-3.18.3.orig/gtkhtml/Makefile.in gtkhtml-3.18.3/gtkhtml/Makefile.in
---- gtkhtml-3.18.3.orig/gtkhtml/Makefile.in	2008-06-29 00:41:03.000000000 -0500
-+++ gtkhtml-3.18.3/gtkhtml/Makefile.in	2009-06-03 10:30:53.710234099 -0500
+diff -Nur gtkhtml-3.28.0.orig/gtkhtml/Makefile.in gtkhtml-3.28.0/gtkhtml/Makefile.in
+--- gtkhtml-3.28.0.orig/gtkhtml/Makefile.in	2008-06-29 00:41:03.000000000 -0500
++++ gtkhtml-3.28.0/gtkhtml/Makefile.in	2009-06-03 10:30:53.710234099 -0500
 @@ -384,7 +384,6 @@
  
  AM_CFLAGS = \
