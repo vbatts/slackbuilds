@@ -8,12 +8,12 @@
        |-----handy-ruler------------------------------------------------------|
 dirvish: dirvish ( backup system )
 dirvish: 
+dirvish: Dirvish is a fast, disk based, rotating network backup system.
 dirvish: 
+dirvish: With dirvish you can maintain a set of complete images of your
+dirvish: filesystems with unattended creation and expiration. A dirvish
+dirvish: backup vault is like a time machine for your data.
 dirvish: 
-dirvish: 
-dirvish: 
-dirvish: 
-dirvish: 
-dirvish: 
+dirvish: Dirvish was originally created by jw schultz .
 dirvish: 
 dirvish: 
