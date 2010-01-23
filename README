@@ -62,6 +62,9 @@ they are here, working or not
   sox - 03.Aug.2009; nevermind, this was rolled into slackware-13.0 trunk
   gnuski - 13.Jan.2010
   0xFFFF - 16.Jan.2010
+  perl-time-period - 23.Jan.2010
+  perl-time-parsedate - 23.Jan.2010
+  dirvish - 23.Jan.2010
 
 ** TESTING/BROKEN **
   xbench
