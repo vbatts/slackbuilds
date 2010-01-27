@@ -6,6 +6,9 @@ backup vault is like a time machine for your data.
 
 Dirvish was originally created by jw schultz .
 
+after installation, see DIRVISH.CONF(5)
+
 requires:
- perl-time-parsedate http://search.cpan.org/~muir/Time-modules-2003.0211/lib/Time/ParseDate.pm
+ perl-time-parsedate
+ perl-time-period
 

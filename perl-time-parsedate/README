@@ -1,0 +1,3 @@
+perl-time-parsedate - Parse date and time strings into time values
+
+provides Time::ParseDate

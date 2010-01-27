@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+       |-----handy-ruler------------------------------------------------------|
+dirvish: dirvish ( backup system )
+dirvish: 
+dirvish: Dirvish is a fast, disk based, rotating network backup system.
+dirvish: 
+dirvish: With dirvish you can maintain a set of complete images of your
+dirvish: filesystems with unattended creation and expiration. A dirvish
+dirvish: backup vault is like a time machine for your data.
+dirvish: 
+dirvish: Dirvish was originally created by jw schultz .
+dirvish: 
+dirvish: 
