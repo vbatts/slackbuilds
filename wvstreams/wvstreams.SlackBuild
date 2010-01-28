@@ -5,7 +5,7 @@
 # Written by Vincent Batts, vbatts@batts.mine.nu
 
 PRGNAM=wvstreams
-VERSION=4.4.1
+VERSION=4.6.1
 ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -68,7 +68,7 @@ mv $PKG/etc/uniconf.conf $PKG/etc/uniconf.conf.new
 )
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a COPYING.LIB ChangeLog README README.TESTS $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a ChangeLog README LICENSE README.TESTS $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
