@@ -1,0 +1,8 @@
+PRGNAM="apache-tomcat"
+VERSION="6.0.24"
+HOMEPAGE="http://tomcat.apache.org/"
+DOWNLOAD="http://apache.cs.utah.edu/tomcat/tomcat-6/v6.0.24/bin/apache-tomcat-6.0.24.tar.gz"
+MD5SUM="de8bec8e4eb87f00d588339f49ba7e83"
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@hashbangbash.com"
+APPROVED="rworkman"
