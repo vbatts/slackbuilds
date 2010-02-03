@@ -1,0 +1,40 @@
+#!/bin/sh
+
+CATALINA_HOME=/srv/tomcat
+TOMCAT_USER=tomcat
+
+# for multi instances adapt those lines.
+TMP_DIR=/var/tmp
+
+start() {
+    /bin/su - $TOMCAT_USER -c "$CATALINA_HOME/bin/setenv.sh"
+    /bin/su - $TOMCAT_USER -c "$CATALINA_HOME/bin/startup.sh"
+}
+
+stop() {
+    /bin/su - $TOMCAT_USER -c "$CATALINA_HOME/bin/shutdown.sh"
+}
+
+case "$1" in
+  start)
+    start;
+    exit $?
+    ;;
+
+  stop)
+    stop;
+    exit $?
+    ;;
+
+  restart)
+    stop;
+    sleep 3;
+    start;
+    exit $?
+    ;;
+
+  *)
+    echo "Usage tomcat [start|stop]"
+    exit 1;;
+esac
+
