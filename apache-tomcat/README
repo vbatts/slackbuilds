@@ -1,0 +1,19 @@
+apache-tomcat (java serlets server)
+
+An Open Source JSP and Servlet Container
+from the Apache Foundation
+
+just add to /etc/rc.d/rc.local
+
+if [ -x /etc/rc.d/rc.tomcat ] ; then
+  sh /etc/rc.d/rc.tomcat start
+fi
+
+and add to /etc/rc.d/rc.local_shutdown
+
+if [ -x /etc/rc.d/rc.tomcat ] ; then
+  sh /etc/rc.d/rc.tomcat stop
+fi
+
+The server is by default on listens port 8080
+and this is configured in /srv/tomcat/conf/server.xml
