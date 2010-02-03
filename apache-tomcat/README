@@ -23,3 +23,7 @@ Additionally there is an environment variable
  configuration at /etc/tomcat-setenv.conf
  which is helpful for setting options for 
  some of the servlets as well.
+ Like for hudson, you can include 
+ "-DHUDSON_HOME=/var/lib/hudson" in the 
+ CATALINA_OPTS to write the files to a directory other 
+ than $TOMCAT_HOME/.hudson/
