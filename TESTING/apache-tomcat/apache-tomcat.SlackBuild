@@ -31,6 +31,7 @@ TAG=${TAG:-_SBo}
 
 TEAM=$(echo $PRGNAM | cut -d- -f1)
 PROJECT=$(echo $PRGNAM | cut -d- -f2)
+T_UID=231
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -54,10 +55,10 @@ if ! grep ^tomcat: /etc/passwd 2>&1 > /dev/null; then
 
 cat << EOF
 
-  You must have a tomcat user to run this script
+  You must have a $PROJECT user to run this script
 
-  # groupadd -g 231 tomcat
-  # useradd -u 231 -d /srv/tomcat -s /bin/sh -g tomcat tomcat
+  # groupadd -g $T_UID $PROJECT
+  # useradd -u $T_UID -d /srv/$PROJECT -s /bin/sh -g $PROJECT $PROJECT
 
 EOF
   exit
@@ -86,7 +87,7 @@ cp -a bin conf lib logs temp webapps work \
 
 rm $PKG/srv/$PROJECT/bin/*.bat
 
-cat > $PKG/srv/$PROJECT/bin/setenv.sh <<EOF
+cat > $PKG/etc/${PROJECT}-setenv.conf.new <<EOF
 export JAVA_HOME="/usr/lib${LIBDIRSUFFIX}/java"
 export JAVA_OPTS="-Xms512m -Xmx1024m -XX:MaxPermSize=512m -Xss128k"
 export CATALINA_OPTS="\$CATALINA_OPTS "
@@ -100,7 +101,26 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
+cat > $PKG/install/doinst.sh <<EOF
+config() {
+  NEW="\$1"
+  OLD="\$(dirname \$NEW)/\$(basename \$NEW .new)"
+  # If there's no config file by that name, mv it over:
+  if [ ! -r \$OLD ]; then
+    mv \$NEW \$OLD
+  elif [ "\$(cat \$OLD | md5sum)" = "\$(cat \$NEW | md5sum)" ]; then
+    # toss the redundant copy
+    rm \$NEW
+  fi
+  # Otherwise, we leave the .new copy for the admin to consider...
+}
+
+config etc/rc.d/rc.$PROJECT.new
+config etc/${PROJECT}-setenv.conf.new
+
+find srv/$PROJOECT ! -uid $T_UID -exec chown $PROJECT.$PROJECT {} \;
+
+EOF
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz

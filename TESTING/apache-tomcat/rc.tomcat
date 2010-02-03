@@ -7,8 +7,7 @@ TOMCAT_USER=tomcat
 TMP_DIR=/var/tmp
 
 start() {
-    /bin/su - $TOMCAT_USER -c "$CATALINA_HOME/bin/setenv.sh"
-    /bin/su - $TOMCAT_USER -c "$CATALINA_HOME/bin/startup.sh"
+    /bin/su - $TOMCAT_USER -c "eval $(cat /etc/tomcat-setenv.conf) ; $CATALINA_HOME/bin/startup.sh"
 }
 
 stop() {
