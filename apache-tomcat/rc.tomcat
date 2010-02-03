@@ -11,7 +11,7 @@ start() {
 }
 
 stop() {
-    /bin/su - $TOMCAT_USER -c "$CATALINA_HOME/bin/shutdown.sh"
+    /bin/su - $TOMCAT_USER -c "eval $(cat /etc/tomcat-setenv.conf) ; $CATALINA_HOME/bin/shutdown.sh"
 }
 
 case "$1" in
