@@ -16,4 +16,10 @@ if [ -x /etc/rc.d/rc.tomcat ] ; then
 fi
 
 The server is by default on listens port 8080
-and this is configured in /srv/tomcat/conf/server.xml
+and this is configured in /srv/tomcat/conf/
+ * server.xml and friends
+
+Additionally there is an environment variable 
+ configuration at /etc/tomcat-setenv.conf
+ which is helpful for setting options for 
+ some of the servlets as well.

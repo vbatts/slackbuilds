@@ -2,6 +2,7 @@
 
 # Slackware build script for apache-tomcat
 
+# Copyright 2008-2010 Heinz Wiesinger, Amsterdam, The Netherlands
 # Copyright 2010  Vincent Batts, vbatts@hashbangbash.com, http://hashbangbash.com/
 # All rights reserved.
 #
@@ -82,17 +83,20 @@ cat $CWD/rc.$PROJECT > $PKG/etc/rc.d/rc.$PROJECT.new
 chmod 0755 $PKG/etc/rc.d/rc.$PROJECT.new
 
 mkdir -p $PKG/srv/$PROJECT
-cp -a bin conf lib logs temp webapps work \
+cp -a bin lib logs temp webapps work \
   $PKG/srv/$PROJECT/
 
-rm $PKG/srv/$PROJECT/bin/*.bat
-
-cat > $PKG/etc/${PROJECT}-setenv.conf.new <<EOF
+cp -a conf $PKG/etc/$PROJECT
+ln -s /etc/$PROJECT $PKG/srv/$PROJECT/conf
+cat > $PKG/etc/${PROJECT}/setenv.conf <<EOF
 export JAVA_HOME="/usr/lib${LIBDIRSUFFIX}/java"
 export JAVA_OPTS="-Xms512m -Xmx1024m -XX:MaxPermSize=512m -Xss128k"
-export CATALINA_OPTS="\$CATALINA_OPTS "
+export CATALINA_OPTS="\$CATALINA_OPTS -Djava.awt.headless=true "
 
 EOF
+
+
+rm $PKG/srv/$PROJECT/bin/*.bat
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a RUNNING.txt LICENSE NOTICE RELEASE-NOTES \
@@ -116,11 +120,20 @@ config() {
 }
 
 config etc/rc.d/rc.$PROJECT.new
-config etc/${PROJECT}-setenv.conf.new
 
 find srv/$PROJOECT ! -uid $T_UID -exec chown $PROJECT.$PROJECT {} \;
 
 EOF
+
+#Let's not clobber config files
+cd $PKG/etc/$PROJECT
+  for i in $(find . -type f); do
+    file=${i/.\//}
+    mv $file $file.new
+    echo "config etc/$PROJECT/$file.new" >> $PKG/install/doinst.sh
+  done
+cd -
+
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz
