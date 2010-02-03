@@ -8,8 +8,8 @@
              |-----handy-ruler------------------------------------------------------|
 apache-tomcat: apache-tomcat (java servlet)
 apache-tomcat:
-apache-tomcat: 
-apache-tomcat:
+apache-tomcat: An Open Source JSP and Servlet Container
+apache-tomcat:  from the Apache Foundation
 apache-tomcat:
 apache-tomcat: Homepage http://tomcat.apache.org/
 apache-tomcat:
