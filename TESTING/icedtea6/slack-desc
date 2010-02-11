@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+       |-----handy-ruler------------------------------------------------------|
+icedtea6: icedtea6 ( openJDK 6 )
+icedtea6: 
+icedtea6: The IcedTea project provides a harness to build the source code
+icedtea6: from http://openjdk.java.net  using Free Software build tools and
+icedtea6: adds a number of key features to the upstream OpenJDK codebase
+icedtea6: like a Free 64-bit plugin with LiveConnect and Java Web Start
+icedtea6: support.
+icedtea6: 
+icedtea6: 
+icedtea6: 
+icedtea6: 
