@@ -1,0 +1,11 @@
+The IcedTea project provides a harness to build the
+source code from http://openjdk.java.net  using Free
+Software build tools and adds a number of key features
+to the upstream OpenJDK codebase like a Free 64-bit
+plugin with LiveConnect and Java Web Start support 
+
+Requires:
+  * apache-ant
+  * rhino
+  * xerces
+  * xalan
