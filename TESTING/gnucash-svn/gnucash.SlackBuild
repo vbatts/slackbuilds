@@ -25,9 +25,9 @@
 set -e
 
 PRGNAM=gnucash
-ARCH=${ARCH:-i486}
-MAJOR_VERSION="2.2.99"
+ARCH=${ARCH:-$(uname -m)}
 BUILD=${BUILD:-1}
+JOBS=${JOBS:--j4}
 TAG=${TAG:-_vb}
 CWD=$(pwd)
 TMP=${TMP:-/tmp/vb}
@@ -35,11 +35,31 @@ PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 LOCAL_SVN_PATH=${LOCAL_SVN_PATH:-/home/$USER/svn/$PRGNAM/}
 SVN_URL="http://svn.gnucash.org/repo/gnucash/trunk"
+DBI=${DBI:-true}
+WEBKIT=${WEBKIT:-true}
+OPT_ARGS=""
 
-if [ "$ARCH" = "i486" ]; then
-  SLKCFLAGS="-O2 -march=i486 -mtune=i686"
-elif [ "$ARCH" = "i686" ]; then
+if [ "$ARCH" = "i686" ]; then
   SLKCFLAGS="-O2 -march=i686 -mtune=i686"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "x86_64" ]; then
+  SLKCFLAGS="-O2 -fPIC"
+  LIBDIRSUFFIX="64"
+elif [ "$ARCH" = "s390" ]; then
+  SLKCFLAGS="-O2"
+  LIBDIRSUFFIX=""
+elif [ "$ARCH" = "arm" ]; then
+  SLKCFLAGS="-O2 -march=armv4t"
+  LIBDIRSUFFIX=""
+fi
+
+if [ "$dbi" = "true" ] ; then
+  opt_args="--enable-dbi --with-dbi-dbd-dir=/usr/lib${libdirsuffix}/dbd/"
+  echo $0 : building with dbi enabled
+fi
+if [ "$webkit" = "true" ] ; then
+  opt_args="$opt_args --enable-webkit --with-html-engine=webkit"
+  echo $0 : building with webkit enabled
 fi
 
 rm -rf $PKG
@@ -56,8 +76,6 @@ else
     svn co $SVN_URL $PRGNAM
 fi
 cd $PRGNAM
-SVN_VERSION=$( svn info | egrep '^Last Changed Rev' | awk '{ print $4 }' )
-VERSION="${MAJOR_VERSION}_${SVN_VERSION}"
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -67,25 +85,39 @@ find . \
 
 sh autogen.sh
 
+MAJOR_VERSION=$(grep GNUCASH_MAJOR_VERSION Makefile | awk '{ print $3 }' )
+MINOR_VERSION=$(grep GNUCASH_MINOR_VERSION Makefile | awk '{ print $3 }' )
+MICRO_VERSION=$(grep GNUCASH_MICRO_VERSION Makefile | awk '{ print $3 }' )
+SVN_VERSION=$( svn info | egrep '^Last Changed Rev' | awk '{ print $4 }' )
+VERSION="${MAJOR_VERSION}.${MINOR_VERSION}.${MICRO_VERSION}.${SVN_VERSION}"
+
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
+  --libdir=/usr/lib${LIBDIRSUFFIX} \
   --sysconfdir=/etc \
   --localstatedir=/var \
+  --infodir=/usr/info \
+  --mandir=/usr/man \
+  --docdir=/usr/doc/$PRGNAM-$VERSION \
   --enable-ofx \
   --disable-aqbanking \
-  --disable-sql \
-  --docdir=/usr/doc/$PRGNAM-$VERSION \
-  --infodir=/usr/info \
-  --mandir=/usr/man
+  --enable-python-bindings \
+  $OPT_ARGS \
+  --build=$ARCH-slackware-linux
 
-make
+make $JOBS
 make install DESTDIR=$PKG
 
+# Create the gconf defaults directory
+mkdir -p $PKG/etc/gconf/gconf.xml.defaults
+
 ( cd $PKG
-  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
-  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null
+  find . | xargs file | grep "executable" | grep ELF | cut -f 1 -d : | \
+    xargs strip --strip-unneeded 2> /dev/null || true
+  find . | xargs file | grep "shared object" | grep ELF | cut -f 1 -d : | \
+    xargs strip --strip-unneeded 2> /dev/null
 )
 
 ( cd $PKG/usr/man
@@ -94,26 +126,37 @@ make install DESTDIR=$PKG
 )
 
 rm -f $PKG/usr/info/dir
-gzip -9 $PKG/usr/info/*.info*
+gzip -9 $PKG/usr/info/*
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a ChangeLog* \
-  DBI_STATUS \
-  GNOME2_STATUS \
-  README* \
-  TODO \
-  AUTHORS \
-  COPYING \
-  DOCUMENTERS \
-  HACKING \
-  INSTALL \
-  LICENSE \
-  NEWS \
-  $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a \
+  ChangeLog* README* TODO AUTHORS COPYING \
+  DOCUMENTERS HACKING INSTALL LICENSE NEWS \
+    $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
+# handle the schemas and such (hopefully) properly
+gconf_config_source="xml::etc/gconf/gconf.xml.defaults"
+for rawname in $(find $pkg/etc/gconf/schemas -name "*.schemas") ; do
+  schema=$(basename $rawname)
+  cat << eof >> $pkg/install/doinst.sh
+gconf_config_source="xml::etc/gconf/gconf.xml.defaults" \
+chroot . gconftool-2 --makefile-install-rule /etc/gconf/schemas/$schema 1>/dev/null
+eof
+done
+for rawname in $(find $pkg/etc/gconf/schemas -name "*.entries") ; do
+  entry=$(basename $rawname)
+  cat << eof >> $pkg/install/doinst.sh
+gconf_config_source="xml::etc/gconf/gconf.xml.defaults" \
+chroot . gconftool-2 --direct \
+  --config-source=$gconf_config_source \
+  --load /etc/gconf/schemas/$entry 1>/dev/null
+eof
+done
+unset gconf_config_source
+
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz
+/sbin/makepkg -p -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
