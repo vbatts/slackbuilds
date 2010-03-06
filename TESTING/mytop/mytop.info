@@ -1,0 +1,11 @@
+PRGNAM="mytop"
+VERSION=""
+HOMEPAGE="http://jeremy.zawodny.com/mysql/mytop/"
+DOWNLOAD="http://jeremy.zawodny.com/mysql/mytop/mytop-1.6.tar.gz"
+MD5SUM=""
+DOWNLOAD_x86_64=""
+MD5SUM_x86_64=""
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@hashbangbash.com"
+APPROVED=""
+
