@@ -1,0 +1,5 @@
+perl-term-readkey
+
+A perl module for simple terminal control
+
+provides Term::ReadKey
