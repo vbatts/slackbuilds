@@ -1,0 +1,14 @@
+audit - Linux Audit System
+
+this requires recompiling the kernel with at least
+  AUDIT=y
+but could use
+  AUDIT_GENERIC
+  AUDIT_ARCH
+  AUDIT_TREE
+  AUDITSYSCALL
+
+You'll need to add the /etc/rc.d/rc.local
+if [ -x /etc/rc.d/init.d/audit ] ; then
+  /etc/rc.d/init.d/audit start
+fi
