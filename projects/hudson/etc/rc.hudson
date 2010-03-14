@@ -1,31 +1,26 @@
 #!/bin/sh
 
-set -e
-
-PIDFILE="/var/run/hudson.pid"
-
+PID=$(pgrep -f 'java.*hudson.war')
 
 # Define start and stop functions
 
 hudson_start() {
-  if [ -e $PIDFILE ]; then
+  if [ $PID ]; then
     echo "hudson appears to already be running."
-    echo "If this is not the case, then remove "
-    echo "$PIDFILE and try again..."
+    echo "on $PID, check it first ..."
     exit 1
   else
     echo "Starting hudson daemon..."
-    hudsond 2>/dev/null 1>&2
+    hudsond 2>/dev/null 1>&2 || exit 1
   fi
 }
 
 hudson_stop() {
   echo "Stopping hudson daemon..."
-  if [ -e $PIDFILE ]; then
-    kill $(cat $PIDFILE) 2>/dev/null || true
-    rm -f $PIDFILE 2>/dev/null
+  if [ $PID ]; then
+    kill $PID || exit 1
   else
-    pgrep -f "/opt/hudson/hudson.war" | xargs kill 
+    pgrep -f "/opt/hudson/hudson.war" | xargs kill || exit 1
   fi
 }
 
