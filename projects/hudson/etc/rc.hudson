@@ -20,7 +20,7 @@ hudson_stop() {
   if [ $PID ]; then
     kill $PID || exit 1
   else
-    pgrep -f "/opt/hudson/hudson.war" | xargs kill || exit 1
+    pgrep -f "/opt/hudson/hudson.war" | xargs kill 2>/dev/null
   fi
 }
 
