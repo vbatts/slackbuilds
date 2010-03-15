@@ -52,12 +52,12 @@ elif [ "$ARCH" = "arm" ]; then
   LIBDIRSUFFIX=""
 fi
 
-if [ "$DBI" = "true" ] ; then
-  OPT_ARGS="--enable-dbi --with-dbi-dbd-dir=/usr/lib${LIBDIRSUFFIX}/dbd/"
+if [ "$dbi" = "true" ] ; then
+  opt_args="--enable-dbi --with-dbi-dbd-dir=/usr/lib${libdirsuffix}/dbd/"
   echo $0 : building with dbi enabled
 fi
-if [ "$WEBKIT" = "true" ] ; then
-  OPT_ARGS="$OPT_ARGS --enable-webkit --with-html-engine=webkit"
+if [ "$webkit" = "true" ] ; then
+  opt_args="$opt_args --enable-webkit --with-html-engine=webkit"
   echo $0 : building with webkit enabled
 fi
 
@@ -123,25 +123,25 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
-# Handle the schemas and such (hopefully) properly
-GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults"
-for RAWNAME in $(find $PKG/etc/gconf/schemas -name "*.schemas") ; do
-  SCHEMA=$(basename $RAWNAME)
-  cat << EOF >> $PKG/install/doinst.sh
-GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults" \
-chroot . gconftool-2 --makefile-install-rule /etc/gconf/schemas/$SCHEMA 1>/dev/null
-EOF
+# handle the schemas and such (hopefully) properly
+gconf_config_source="xml::etc/gconf/gconf.xml.defaults"
+for rawname in $(find $PKG/etc/gconf/schemas -name "*.schemas") ; do
+  schema=$(basename $rawname)
+  cat << eof >> $PKG/install/doinst.sh
+gconf_config_source="xml::etc/gconf/gconf.xml.defaults" \
+chroot . gconftool-2 --makefile-install-rule /etc/gconf/schemas/$schema 1>/dev/null
+eof
 done
-for RAWNAME in $(find $PKG/etc/gconf/schemas -name "*.entries") ; do
-  ENTRY=$(basename $RAWNAME)
-  cat << EOF >> $PKG/install/doinst.sh
-GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults" \
+for rawname in $(find $PKG/etc/gconf/schemas -name "*.entries") ; do
+  entry=$(basename $rawname)
+  cat << eof >> $PKG/install/doinst.sh
+gconf_config_source="xml::etc/gconf/gconf.xml.defaults" \
 chroot . gconftool-2 --direct \
-  --config-source=$GCONF_CONFIG_SOURCE \
-  --load /etc/gconf/schemas/$ENTRY 1>/dev/null
-EOF
+  --config-source=$gconf_config_source \
+  --load /etc/gconf/schemas/$entry 1>/dev/null
+eof
 done
-unset GCONF_CONFIG_SOURCE
+unset gconf_config_source
 
 cd $PKG
 /sbin/makepkg -p -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz
