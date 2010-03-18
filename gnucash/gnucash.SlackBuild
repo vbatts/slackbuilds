@@ -2,7 +2,7 @@
 
 # Slackware build script for gnucash
 
-# Copyright 2008  Vincent Batts, vbatts@hashbangbash.com, http://hashbangbash.com/
+# Copyright 2008,2009,2010  Vincent Batts, vbatts@hashbangbash.com, http://hashbangbash.com/
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -52,12 +52,12 @@ elif [ "$ARCH" = "arm" ]; then
   LIBDIRSUFFIX=""
 fi
 
-if [ "$dbi" = "true" ] ; then
-  opt_args="--enable-dbi --with-dbi-dbd-dir=/usr/lib${libdirsuffix}/dbd/"
+if [ "$DBI" = "true" ] ; then
+  OPT_ARGS="--enable-dbi --with-dbi-dbd-dir=/usr/lib${libdirsuffix}/dbd/"
   echo $0 : building with dbi enabled
 fi
-if [ "$webkit" = "true" ] ; then
-  opt_args="$opt_args --enable-webkit --with-html-engine=webkit"
+if [ "$WEBKIT" = "true" ] ; then
+  OPT_ARGS="$OPT_ARGS --enable-webkit --with-html-engine=webkit"
   echo $0 : building with webkit enabled
 fi
 
@@ -124,7 +124,7 @@ mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 # handle the schemas and such (hopefully) properly
-gconf_config_source="xml::etc/gconf/gconf.xml.defaults"
+GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults"
 for rawname in $(find $PKG/etc/gconf/schemas -name "*.schemas") ; do
   schema=$(basename $rawname)
   cat << eof >> $PKG/install/doinst.sh
@@ -137,11 +137,11 @@ for rawname in $(find $PKG/etc/gconf/schemas -name "*.entries") ; do
   cat << eof >> $PKG/install/doinst.sh
 gconf_config_source="xml::etc/gconf/gconf.xml.defaults" \
 chroot . gconftool-2 --direct \
-  --config-source=$gconf_config_source \
+  --config-source=$GCONF_CONFIG_SOURCE \
   --load /etc/gconf/schemas/$entry 1>/dev/null
 eof
 done
-unset gconf_config_source
+unset GCONF_CONFIG_SOURCE
 
 cd $PKG
 /sbin/makepkg -p -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz
