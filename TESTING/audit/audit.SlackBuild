@@ -49,6 +49,7 @@ CXXFLAGS="$SLKCFLAGS" \
   --sysconfdir=/etc \
   --localstatedir=/var \
   --mandir=/usr/man \
+  --infodir=/usr/info \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
   --build=$ARCH-slackware-linux
 
@@ -59,8 +60,8 @@ make install DESTDIR=$PKG
   mv usr/bin .
   mv usr/sbin .
   chmod 0750 sbin/audispd
-  mkdir lib
-  mv usr/lib/libau* lib/
+  mkdir lib${LIBDIRSUFFIX}
+  mv usr/lib${LIBDIRSUFFIX}/libau* lib${LIBDIRSUFFIX}/
   mkdir -p var/log/subsys/
   touch var/log/subsys/auditd
 )
