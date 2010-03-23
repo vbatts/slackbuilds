@@ -58,8 +58,11 @@ make install DESTDIR=$PKG
 ( cd $PKG
   mv usr/bin .
   mv usr/sbin .
+  chmod 0750 sbin/audispd
   mkdir lib
   mv usr/lib/libau* lib/
+  mkdir -p var/log/subsys/
+  touch var/log/subsys/auditd
 )
 
 ( cd $PKG
