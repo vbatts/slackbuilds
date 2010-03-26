@@ -57,6 +57,8 @@ make
 make install DESTDIR=$PKG
 
 ( cd $PKG
+  mv etc/rc.d/init.d/auditd etc/rc.d/rc.auditd
+  rm -r etc/rc.d/init.d
   mv usr/bin .
   mv usr/sbin .
   chmod 0750 sbin/audispd
