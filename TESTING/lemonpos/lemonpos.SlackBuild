@@ -1,7 +1,6 @@
 #!/bin/sh
 
 # Slackware build script for lemonpos
-
 # Written by Vincent Batts, vbatts@hashbangbash.com
 
 PRGNAM=lemonpos
