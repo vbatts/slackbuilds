@@ -13,4 +13,18 @@ first have webkit installed, and then pass the WEBKIT=true flag.
 if you want the new SQL database integration, you must first have libdbi 
 and libdbi-drivers installed, and then pass the DBI=true flag.
 
-aqbanking is optional, but it's not available at SlackBuilds.org.
+**************************
+The libglade from slackware removed the *.la files, and these are
+needed in the gnucash compile. You'll need to comment out the following
+line from the libglade.SlackBuild (around line 86), and recompile:
+<before>
+rm -f $PKG/usr/lib${LIBDIRSUFFIX}/libglade*.la
+</before>
+<after>
+#rm -f $PKG/usr/lib${LIBDIRSUFFIX}/libglade*.la
+</after>
+
+Then you can reinstall the outcome, (with properly set variables) with:
+upgradepkg --reinstall /tmp/libglade-$VERSION-$ARCH-$BUILD.txz
+**************************
+

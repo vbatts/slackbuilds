@@ -23,7 +23,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=gnucash
-VERSION=2.3.10
+VERSION=2.3.12
 ARCH=${ARCH:-i686}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -53,7 +53,7 @@ elif [ "$ARCH" = "arm" ]; then
 fi
 
 if [ "$DBI" = "true" ] ; then
-  OPT_ARGS="--enable-dbi --with-dbi-dbd-dir=/usr/lib${libdirsuffix}/dbd/"
+  OPT_ARGS="--enable-dbi --with-dbi-dbd-dir=/usr/lib${LIBDIRSUFFIX}/dbd/"
   echo $0 : building with dbi enabled
 fi
 if [ "$WEBKIT" = "true" ] ; then
@@ -88,9 +88,10 @@ CXXFLAGS="$SLKCFLAGS" \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
   --enable-ofx \
   --disable-aqbanking \
-  --enable-python-bindings \
   $OPT_ARGS \
   --build=$ARCH-slackware-linux
+  ## this is failing now
+  #--enable-python-bindings \
 
 make $JOBS
 make install DESTDIR=$PKG
@@ -144,4 +145,5 @@ done
 unset GCONF_CONFIG_SOURCE
 
 cd $PKG
-/sbin/makepkg -p -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz
+/sbin/makepkg -p -l y -c n ${OUTPUT}/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-tgz}
+
