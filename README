@@ -44,6 +44,8 @@ they are here, working or not
   mtd-utils - 09.Sept.2009
   ruby-gtk2 - 24.June.2009
   bvi - Jan.2010; 2010-02-14 published
+  lemonpos - 26.Mar.2010
+  gnuski - 13.Jan.2010
 
 ** STABLE **
   kde4-4.1.x, coexistisng with kde-3.5.x (and all subdirectories) for slackware-12.2
@@ -61,12 +63,11 @@ they are here, working or not
   scollkeeper - 03.Feb.2009, submitted
   libdbi{,-drivers} - 30.June.2009
   sox - 03.Aug.2009; nevermind, this was rolled into slackware-13.0 trunk
-  gnuski - 13.Jan.2010
   0xFFFF - 16.Jan.2010
   perl-time-period - 23.Jan.2010
   perl-time-parsedate - 23.Jan.2010
   dirvish - 23.Jan.2010
-  lemonpos - 26.Mar.2010
+  kernbench - 29.Apr.2010
 
 ** TESTING/BROKEN **
   xbench

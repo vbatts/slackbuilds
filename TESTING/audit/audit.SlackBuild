@@ -62,11 +62,10 @@ make install DESTDIR=$PKG
   mv usr/bin .
   mv usr/sbin .
   chmod 0750 sbin/audispd
-  mkdir lib${LIBDIRSUFFIX}
-  mv usr/lib${LIBDIRSUFFIX}/libau* lib${LIBDIRSUFFIX}/
   mkdir -p var/log/audit
   mkdir -p var/lock/subsys
-  touch var/lock/subsys/auditd
+  mkdir lib${LIBDIRSUFFIX}
+  mv usr/lib${LIBDIRSUFFIX}/libau* lib${LIBDIRSUFFIX}/
 )
 
 ( cd $PKG
