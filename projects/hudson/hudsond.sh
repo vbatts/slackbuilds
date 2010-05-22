@@ -4,7 +4,6 @@
 #set -x
 
 JAVA=$(which java)
-PIDFILE="/var/run/hudson.pid"
 HUDSON="/opt/hudson/hudson.war"
 HUDSON_HTTP_PORT="8080"
 HUDSON_LOG_FILE="/var/log/hudson.log"
@@ -22,10 +21,6 @@ PREV_PID=$( pgrep -f "/opt/hudson/hudson.war" )
 if [ ! "$PREV_PID" = "" ] ; then
   echo $PREV_PID still running
   exit 1
-fi
-
-if [ -e $PIDFILE ] ; then
-  rm $PIDFILE
 fi
 
 if [ -f /etc/hudson.conf ] ; then
@@ -89,6 +84,4 @@ $JAVA -jar $HUDSON \
   $HUDSON_WEBAPPSDIR_ARG \
   $OPT_ARGS \
   $HUDSON_WEBROOT_ARG &
-
-pgrep -f "/opt/hudson/hudson.war" > $PIDFILE
 

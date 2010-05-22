@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+         |-----handy-ruler------------------------------------------------------|
+kernbench: kernbench ( CPU/kernel benchmark )
+kernbench:
+kernbench: It is a cpu throughput benchmark originally devised and used
+kernbench: by Martin J. Bligh. It is designed to compare kernels on the same
+kernbench: machine, or to compare hardware. To compare hardware you need to
+kernbench: be running the same architecture machines (eg i386), the same
+kernbench: userspace binaries and run kernbench on the same kernel source tree.
+kernbench:
+kernbench:
+kernbench:
+kernbench:
