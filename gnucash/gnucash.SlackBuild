@@ -23,8 +23,8 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=gnucash
-VERSION=2.3.12
-ARCH=${ARCH:-i686}
+VERSION=2.3.13
+ARCH=${ARCH:-$(uname -m)}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 JOBS=${JOBS:--j4}
@@ -52,11 +52,11 @@ elif [ "$ARCH" = "arm" ]; then
   LIBDIRSUFFIX=""
 fi
 
-if [ "$DBI" = "true" ] ; then
+if [ ! "$DBI" = "false" ] ; then
   OPT_ARGS="--enable-dbi --with-dbi-dbd-dir=/usr/lib${LIBDIRSUFFIX}/dbd/"
   echo $0 : building with dbi enabled
 fi
-if [ "$WEBKIT" = "true" ] ; then
+if [ ! "$WEBKIT" = "false" ] ; then
   OPT_ARGS="$OPT_ARGS --enable-webkit --with-html-engine=webkit"
   echo $0 : building with webkit enabled
 fi
