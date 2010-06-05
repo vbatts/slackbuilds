@@ -17,10 +17,10 @@ hudson_start() {
 
 hudson_stop() {
   echo "Stopping hudson daemon..."
-  if [ $PID ]; then
+  if [ -n $PID ]; then
     kill $PID || exit 1
   else
-    pgrep -f "/opt/hudson/hudson.war" | xargs kill 2>/dev/null
+    echo "hudson.war not found running"
   fi
 }
 
