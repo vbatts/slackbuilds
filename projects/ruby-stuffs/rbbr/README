@@ -1,0 +1,6 @@
+rbbr (ruby source browser)
+
+rbbr is an application to browse modules/classes hierarchy and
+their constants and methods.
+
+Requires ruby-gtk2

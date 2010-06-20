@@ -5,3 +5,6 @@ DOWNLOAD="http://downloads.sourceforge.net/project/ruby-gnome2/rbbr/rbbr-0.6.0/r
 MD5SUM="2cb0648b87590db04d702f7fd26f8c8f"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
+MAINTAINER="Vincent Batts"
+EMAIL="vbatts@hashbangbash.com"
+APPROVED=""
