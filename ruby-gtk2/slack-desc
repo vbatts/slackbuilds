@@ -10,7 +10,7 @@ ruby-gtk2: ruby-gtk2 (ruby bindings for gtk2)
 ruby-gtk2:
 ruby-gtk2: This is a subset of the Ruby-GNOME2 project. Ruby-GNOME2 is a set of
 ruby-gtk2: Ruby language bindings for the GNOME 2.0 development environment. 
-ruby-gtk2: 
+ruby-gtk2:
 ruby-gtk2: This is the next generation of Ruby-GNOME.
 ruby-gtk2:
 ruby-gtk2: Homepage: http://ruby-gnome2.sourceforge.jp/
