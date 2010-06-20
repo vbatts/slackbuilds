@@ -68,6 +68,9 @@ they are here, working or not
   perl-time-parsedate - 23.Jan.2010
   dirvish - 23.Jan.2010
   kernbench - 29.Apr.2010
+  perl-Curses - 19.Jun.2010
+  perl-Term-Animation - 19.Jun.2010
+  asciiquarium - 19.Jun.2010
 
 ** TESTING/BROKEN **
   xbench
