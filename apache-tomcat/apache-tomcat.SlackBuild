@@ -23,10 +23,9 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
 PRGNAM=apache-tomcat
 VERSION=6.0.24
-ARCH=${ARCH:-i486}
+ARCH=noarch
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -41,16 +40,6 @@ OUTPUT=${OUTPUT:-/tmp}
 
 set -e
 
-if [ "$ARCH" = "i686" ]; then
-  LIBDIRSUFFIX=""
-elif [ "$ARCH" = "x86_64" ]; then
-  LIBDIRSUFFIX="64"
-elif [ "$ARCH" = "s390" ]; then
-  LIBDIRSUFFIX=""
-elif [ "$ARCH" = "arm" ]; then
-  LIBDIRSUFFIX=""
-fi
-
 # Bail if user or group isn't valid on your system
 if ! grep ^tomcat: /etc/passwd 2>&1 > /dev/null; then
 
@@ -59,7 +48,7 @@ cat << EOF
   You must have a $PROJECT user to run this script
 
   # groupadd -g $T_UID $PROJECT
-  # useradd -u $T_UID -d /srv/$PROJECT -s /bin/sh -g $PROJECT $PROJECT
+  # useradd -u $T_UID -d /var/lib/$PROJECT -s /bin/sh -g $PROJECT $PROJECT
 
 EOF
   exit
@@ -82,21 +71,50 @@ mkdir -p $PKG/etc/rc.d
 cat $CWD/rc.$PROJECT > $PKG/etc/rc.d/rc.$PROJECT.new
 chmod 0755 $PKG/etc/rc.d/rc.$PROJECT.new
 
-mkdir -p $PKG/srv/$PROJECT
-cp -a bin lib logs temp webapps work \
-  $PKG/srv/$PROJECT/
+mkdir -p $PKG/var/lib/$PROJECT
+cp -a bin conf lib logs temp webapps work \
+  $PKG/var/lib/$PROJECT/
 
-cp -a conf $PKG/etc/$PROJECT
-ln -s /etc/$PROJECT $PKG/srv/$PROJECT/conf
-cat > $PKG/etc/${PROJECT}/setenv.conf <<EOF
-export JAVA_HOME="/usr/lib${LIBDIRSUFFIX}/java"
+cd $PKG/etc/
+  ln -s /var/lib/$PROJECT/conf $PROJECT
+cd -
+
+mkdir -p $PKG/var/log
+cd $PKG/var/log/
+  ln -s /var/lib/$PROJECT/logs $PROJECT
+cd -
+
+mkdir -p $PKG/var/tmp
+cd $PKG/var/tmp
+  ln -s /var/lib/$PROJECT/temp $PROJECT
+  rm $PKG/var/lib/$PROJECT/temp/*
+cd -
+
+mkdir -p $PKG/usr/share/$PROJECT
+cd $PKG/usr/share/$PROJECT/
+  ln -s /var/lib/$PROJECT/bin
+  ln -s /var/lib/$PROJECT/lib
+cd -
+
+mkdir -p $PKG/srv
+cd $PKG/srv
+  ln -s /var/lib/$PROJECT
+cd -
+
+cat > $PKG/var/lib/${PROJECT}/conf/setenv.conf <<EOF
+if [ -r /etc/profile.d/jdk.sh ] ;then
+  . /etc/profile.d/jdk.sh
+elif [ -r /etc/profile.d/jre.sh ] ;then
+  . /etc/profile.d/jre.sh
+fi
 export JAVA_OPTS="-Xms512m -Xmx1024m -XX:MaxPermSize=512m -Xss128k"
+export CATALINA_HOME=/usr/share/$PROJECT
+export CATALINA_BASE=/var/lib/$PROJECT
+export CATALINA_TMPDIR=/var/tmp/$PROJECT
 export CATALINA_OPTS="\$CATALINA_OPTS -Djava.awt.headless=true "
-
 EOF
 
-
-rm $PKG/srv/$PROJECT/bin/*.bat
+rm $PKG/var/lib/$PROJECT/bin/*.bat
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a RUNNING.txt LICENSE NOTICE RELEASE-NOTES \
@@ -121,12 +139,12 @@ config() {
 
 config etc/rc.d/rc.$PROJECT.new
 
-find srv/$PROJOECT ! -uid $T_UID -exec chown $PROJECT.$PROJECT {} \;
+find /var/lib/$PROJOECT/ ! -uid $T_UID -exec chown $PROJECT.$PROJECT {} \;
 
 EOF
 
 #Let's not clobber config files
-cd $PKG/etc/$PROJECT
+cd $PKG/var/lib/$PROJECT/conf
   for i in $(find . -type f); do
     file=${i/.\//}
     mv $file $file.new

@@ -1,17 +1,17 @@
 #!/bin/sh
 
-CATALINA_HOME=/srv/tomcat
+CATALINA_HOME=/var/lib/tomcat/
 TOMCAT_USER=tomcat
 
 # for multi instances adapt those lines.
 TMP_DIR=/var/tmp
 
 start() {
-    /bin/su - $TOMCAT_USER -c "eval $(cat /etc/tomcat-setenv.conf) ; $CATALINA_HOME/bin/startup.sh"
+    /bin/su - $TOMCAT_USER -c "eval $(cat /etc/tomcat/setenv.conf) ; $CATALINA_HOME/bin/startup.sh"
 }
 
 stop() {
-    /bin/su - $TOMCAT_USER -c "eval $(cat /etc/tomcat-setenv.conf) ; $CATALINA_HOME/bin/shutdown.sh"
+    /bin/su - $TOMCAT_USER -c "eval $(cat /etc/tomcat/setenv.conf) ; $CATALINA_HOME/bin/shutdown.sh"
 }
 
 case "$1" in
