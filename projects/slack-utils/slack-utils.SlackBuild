@@ -53,6 +53,7 @@ chmod 0755 $PKG/usr/libexec/$PRGNAM.rb
 cd $PKG/usr/bin
 ln -s ../libexec/$PRGNAM.rb slp
 ln -s ../libexec/$PRGNAM.rb slf
+ln -s ../libexec/$PRGNAM.rb slt
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc

@@ -11,3 +11,8 @@ slf - search installed slackware packages for a file
   packages matching your search args.
   the args support regex
 
+slt - mtime/install time of slackware packages
+  with no args, it will show all.
+  or for each arg it will search the package names.
+  the args support regex
+

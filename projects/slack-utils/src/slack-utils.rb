@@ -23,6 +23,26 @@ def slp
   end
 end
 
+def slt
+  if ARGV.count == 0
+    @pa.each {|pkg|
+      p = File.absolute_path File.join(@pd, '/', pkg)
+      f = File.open(p)
+      ft = f.mtime
+      puts "#{pkg}:\s#{ft}"
+    }
+  else
+    ARGV.each {|arg|
+      @pa.grep(/#{arg}/).each {|pkg|
+        p = File.absolute_path File.join(@pd, '/', pkg)
+        f = File.open(p)
+        ft = f.mtime
+        puts "#{pkg}:\s#{ft}"
+      }
+    }
+  end
+end
+
 def slf
   if ARGV.count == 0
     puts "#{@me}: what file do you want me to search for?"
@@ -37,12 +57,13 @@ def slf
         f = File.open(p)
         f.each {|line|
           o = line.gsub! r, "#{@st}\\&#{@en}"
-          puts pkg + ": " + o if ! o.nil?
+          puts pkg + ":\s" + o if ! o.nil?
         }
       }
     }
   end
 end
+
 
 # Main
 
@@ -51,4 +72,7 @@ slp if @me == "slp"
 
 # Do file related functions if called as slf
 slf if @me == "slf"
+
+# Do file related functions if called as slf
+slt if @me == "slt"
 
