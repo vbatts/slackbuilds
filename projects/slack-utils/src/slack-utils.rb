@@ -7,8 +7,8 @@
 @pd = '/var/log/packages'
 @pa = Dir.entries(@pd)
 @me = File.basename($0)
-@st = "\033[7m"
-@en = "\033[m"
+@st = "\033[31;1m"
+@en = "\033[0m"
 
 # Functions
 def slp

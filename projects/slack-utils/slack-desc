@@ -1,8 +1,8 @@
 slack-utils: slack-utils (simple slackware sysadmin utils)
 slack-utils:
 slack-utils: a simple tool for looking over packages installed,
-slack-utils: finding file owners, or the package that owns a 
-slack-utils: file, etc.
+slack-utils: finding file owners, or the install times of packages.
+slack-utils:
 slack-utils:
 slack-utils:
 slack-utils:
