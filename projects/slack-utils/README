@@ -1,0 +1,13 @@
+slack-utils
+
+this project currently provides two commands
+slp - shows installed slackware packages
+  with no args, it will show all.
+  or for each arg it will search the package names.
+  the args support regex
+
+slf - search installed slackware packages for a file
+  this expects an arg(s), and will output, in grep fashion
+  packages matching your search args.
+  the args support regex
+
