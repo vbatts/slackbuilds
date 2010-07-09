@@ -48,7 +48,7 @@ def slf
     puts "#{@me}: what file do you want me to search for?"
   else
     ARGV.each {|arg|
-      r = Regexp::new /#{arg}/
+      r = Regexp::new(/#{arg}/)
       @pa.each {|pkg|
         p = File.absolute_path File.join(@pd, '/', pkg)
         if p == @pd || p == "/var/log"
