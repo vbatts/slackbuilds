@@ -46,9 +46,11 @@ mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 cat $CWD/README > $PKG/usr/doc/$PRGNAM-$VERSION/README
 
-mkdir -p $PKG/usr/bin $PKG/usr/libexec
+mkdir -p $PKG/usr/bin $PKG/usr/libexec $PKG/usr/man/man8
 cp $CWD/src/$PRGNAM.rb $PKG/usr/libexec
 chmod 0755 $PKG/usr/libexec/$PRGNAM.rb
+
+cat $CWD/src/$PRGNAM.8 | gzip > $PKG/usr/man/man8/$PRGNAM.8.gz
 
 cd $PKG/usr/bin
 ln -s ../libexec/$PRGNAM.rb slp

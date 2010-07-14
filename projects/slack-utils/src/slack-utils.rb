@@ -64,6 +64,9 @@ def slf
   end
 end
 
+def sll #XXX stub for slack-utils package listing
+end
+
 
 # Main
 
