@@ -7,10 +7,10 @@
 set -e
 
 PRGNAM=truecrypt
-VERSION=6.2a
+VERSION=6.3a
 WXWINDOWS="wxGTK"
 WXWINDOWS_VERSION="2.8.9"
-ARCH=${ARCH:-i486}
+ARCH=${ARCH:-$(uname -m)}
 BUILD=${BUILD:-2}
 TAG=${TAG:-_vb}
 CWD=$(pwd)
