@@ -67,6 +67,8 @@ end
 def sll #XXX stub for slack-utils package listing
 end
 
+def slo #XXX stub for slack-utils orpaned .new files
+end
 
 # Main
 
