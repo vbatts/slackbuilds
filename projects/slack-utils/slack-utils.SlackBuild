@@ -23,7 +23,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=slack-utils
-VERSION=${VERSION:-0.1}
+VERSION=${VERSION:-0.2}
 ARCH=noarch
 BUILD=${BUILD:-1}
 TAG=${TAG:-_vb}
@@ -48,7 +48,9 @@ cat $CWD/README > $PKG/usr/doc/$PRGNAM-$VERSION/README
 
 mkdir -p $PKG/usr/bin $PKG/usr/libexec $PKG/usr/man/man8
 cp $CWD/src/$PRGNAM.rb $PKG/usr/libexec
+cp $CWD/src/slfindlinked $PKG/usr/bin
 chmod 0755 $PKG/usr/libexec/$PRGNAM.rb
+chmod 0755 $PKG/usr/bin/slfindlinked
 
 cat $CWD/src/$PRGNAM.8 | gzip > $PKG/usr/man/man8/$PRGNAM.8.gz
 
