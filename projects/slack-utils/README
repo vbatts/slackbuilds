@@ -16,3 +16,6 @@ slt - mtime/install time of slackware packages
   or for each arg it will search the package names.
   the args support regex
 
+slfindlinked - finds what is linked to your argument, and it's package
+  expects 1 argument passed. 
+
