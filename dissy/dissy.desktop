@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=dissy
+GenericName=objdump Disassembler
+Comment=a graphical frontend to the objdump disassembler
+Exec=dissy
+Icon=dissy.svg
+Categories=Development;
+Terminal=false
+Type=Application
+Encoding=UTF-8

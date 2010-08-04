@@ -46,6 +46,9 @@ they are here, working or not
   bvi - Jan.2010; 2010-02-14 published
   lemonpos - 26.Mar.2010
   gnuski - 13.Jan.2010
+  perl-Curses - 19.Jun.2010
+  perl-Term-Animation - 19.Jun.2010
+  asciiquarium - 19.Jun.2010
 
 ** STABLE **
   kde4-4.1.x, coexistisng with kde-3.5.x (and all subdirectories) for slackware-12.2
@@ -68,9 +71,7 @@ they are here, working or not
   perl-time-parsedate - 23.Jan.2010
   dirvish - 23.Jan.2010
   kernbench - 29.Apr.2010
-  perl-Curses - 19.Jun.2010
-  perl-Term-Animation - 19.Jun.2010
-  asciiquarium - 19.Jun.2010
+  dissy - 4.Jul.2010
 
 ** TESTING/BROKEN **
   xbench
