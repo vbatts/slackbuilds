@@ -49,15 +49,25 @@ cat $CWD/README > $PKG/usr/doc/$PRGNAM-$VERSION/README
 mkdir -p $PKG/usr/bin $PKG/usr/libexec $PKG/usr/man/man8
 cp $CWD/src/$PRGNAM.rb $PKG/usr/libexec
 cp $CWD/src/slfindlinked $PKG/usr/bin
+cp $CWD/src/slo.sh $PKG/usr/bin/slo
 chmod 0755 $PKG/usr/libexec/$PRGNAM.rb
 chmod 0755 $PKG/usr/bin/slfindlinked
 
 cat $CWD/src/$PRGNAM.8 | gzip > $PKG/usr/man/man8/$PRGNAM.8.gz
+(  cd $PKG/usr/man/man8/
+  ln -s $PRGNAM.8.gz slp.8.gz
+  ln -s $PRGNAM.8.gz slf.8.gz
+  ln -s $PRGNAM.8.gz slt.8.gz
+  ln -s $PRGNAM.8.gz sll.8.gz
+)
+ 
 
-cd $PKG/usr/bin
-ln -s ../libexec/$PRGNAM.rb slp
-ln -s ../libexec/$PRGNAM.rb slf
-ln -s ../libexec/$PRGNAM.rb slt
+(  cd $PKG/usr/bin
+  ln -s ../libexec/$PRGNAM.rb slp
+  ln -s ../libexec/$PRGNAM.rb slf
+  ln -s ../libexec/$PRGNAM.rb slt
+  ln -s ../libexec/$PRGNAM.rb sll
+)
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
