@@ -74,8 +74,7 @@ def sll #XXX stub for slack-utils package listing
 				if p == @pd || p == "/var/log"
 						next
 				end
-				fileLine = system("grep -n ^FILE #{p} | cut -d : -f 1")
-				puts fileLine
+				system("tail +$(expr $(grep -n ^FILE #{p} | cut -d : -f 1 ) + 2) #{p} ")
 			}
 		}
 	end
