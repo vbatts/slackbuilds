@@ -23,7 +23,6 @@
 
 PRGNAM=rubygems
 VERSION=1.3.5
-ARCH=${ARCH:-i486}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -31,16 +30,27 @@ CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
-if [ -x $(which ruby18) ] ; then
+
+if [ -x "$(which ruby18)" ] ; then
 	ruby=$(which ruby18)
 else
 	ruby=$(which ruby)
 fi
-if $ruby --version | grep -q " 1.9.1" ; then
+
+if $ruby --version | grep -qe " 1.9.[1|2]" ; then
 	echo "ruby-1.9.1 includes rubygems"
 	exit 1
 elif $ruby --version | grep -q " 1.8." ; then
 	dist_ver=1.8
+fi
+
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) export ARCH=i486 ;;
+    arm*) export ARCH=arm ;;
+    # Unless $ARCH is already set, use uname -m for all other archs:
+       *) export ARCH=$( uname -m ) ;;
+  esac
 fi
 
 if [ "$ARCH" = "i486" ]; then
