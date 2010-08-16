@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+       |-----handy-ruler------------------------------------------------------|
+mod_ruby: mod_ruby (apache module for ruby)
+mod_ruby:
+mod_ruby: mod_ruby embeds the Ruby interpreter into the Apache web server,
+mod_ruby: allowing Ruby CGI scripts to be executed natively. These scripts
+mod_ruby: will start up much faster than without mod_ruby.
+mod_ruby:
+mod_ruby: You can also extend Apache by mod_ruby. mod_ruby provides Apache
+mod_ruby: API to Ruby.
+mod_ruby:
+mod_ruby:
+mod_ruby:
