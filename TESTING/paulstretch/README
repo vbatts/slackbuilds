@@ -1,0 +1,5 @@
+
+
+Requires: fltk, portaudio
+
+Optional: fftw (pass FFTW=true)
