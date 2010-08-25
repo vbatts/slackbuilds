@@ -1,9 +1,13 @@
-hudson
+hudson CI Engine - for slackware
 
 FYI:
-  to wget this, add the flag '--no-check-certificate' to your wget command 
+  * to wget this, the flag '--no-check-certificate' maybe needed
+  * after installation see the /etc/hudson.conf and /usr/bin/hudson --help
+    for more information 
 
 DESCRIPTION:
+  Extensible continuous integration engine 
+  https://hudson.dev.java.net/
   
 MORE INFORMATION: 
  setting up jobs http://wiki.hudson-ci.org/display/HUDSON/Administering+Hudson
