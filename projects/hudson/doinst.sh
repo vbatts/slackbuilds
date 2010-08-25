@@ -13,3 +13,13 @@ config() {
 config etc/hudson.conf.new
 config etc/rc.d/rc.hudson.new
 
+if ! grep -qw hudson /etc/group ; then
+	groupadd -g 300 -r hudson
+fi
+
+if ! grep -qw hudson /etc/passwd ; then
+	useradd -k /dev/null -g 300 -M -r -s /bin/bash -d /var/lib/hudson -g hudson hudson
+fi
+
+chown -R hudson.hudson /var/lib/hudson
+
