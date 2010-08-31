@@ -1,0 +1,7 @@
+PRGNAM="ipv6calc"
+VERSION="0.73.0"
+HOMEPAGE="http://www.deepspace6.net/projects/ipv6calc.html"
+DOWNLOAD="ftp://ftp.bieringer.de/pub/linux/IPv6/ipv6calc/ipv6calc-0.73.0.tar.gz"
+MD5SUM=""
+DOWNLOAD_x86_64=""
+MD5SUM_x86_64=""
