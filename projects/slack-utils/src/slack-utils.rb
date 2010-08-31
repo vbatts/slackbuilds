@@ -3,6 +3,10 @@
 # updated for args - Tue Mar 23 14:54:19 CDT 2010
 # Copyright 2009, 2010 Vincent Batts, http://hashbangbash.com/
 
+ENV['LC_ALL'] = nil if not ENV['LC_ALL'].nil?
+ENV['LC_LANG'] = nil if not ENV['LC_LANG'].nil?
+ENV['LC_COLLATE'] = nil if not ENV['LC_COLLATE'].nil?
+
 # Variables
 @pd = '/var/log/packages'
 @pa = Dir.entries(@pd)
