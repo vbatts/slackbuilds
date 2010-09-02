@@ -68,7 +68,9 @@ def slf
 	end
 end
 
-def sll #XXX stub for slack-utils package listing
+# package file listing
+# TODO re-write in pure ruby :\
+def sll
 	if ARGV.count == 0
 		puts "#{@me}: what package do you want to list?"
 	else
@@ -84,20 +86,7 @@ def sll #XXX stub for slack-utils package listing
 	end
 end
 
-def slo #XXX stub for slack-utils orpaned .new files (to be written in ruby)
+# XXX stub for slack-utils orpaned .new files (to be written in ruby)
+def slo
 end
-
-# Main
-
-# Do package related functions if called as slp
-slp if @me == "slp"
-
-# Do file related functions if called as slf
-slf if @me == "slf"
-
-# Show times if called as slt
-slt if @me == "slt"
-
-# List files if called as sll
-sll if @me == "sll"
 
