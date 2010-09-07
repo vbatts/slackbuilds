@@ -95,10 +95,6 @@ cd build
    make install DESTDIR=$PKG
 cd -
 
-if [ -d $PKG/usr/man ]; then
-  gzip -9 $PKG/usr/man/man?/*
-fi
-
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a COPYING* $PKG/usr/doc/$PRGNAM-$VERSION
 
