@@ -1,0 +1,11 @@
+CuteCom
+
+CuteCom is a graphical serial terminal, like minicom (or Hyperterminal
+on Windows, but I don't want to compare CuteCom to it, since
+Hyperterminal is really one of the worst applications I know).
+
+It is aimed mainly at hardware developers or other people who need
+a terminal to talk to their devices. It is free software and
+distributed under the GNU General Public License Version 2, which
+can find in the file COPYING. It is written using the Qt library
+by Trolltech. 
