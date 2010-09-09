@@ -47,28 +47,22 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 cat $CWD/README > $PKG/usr/doc/$PRGNAM-$VERSION/README
 
 mkdir -p $PKG/usr/bin $PKG/usr/libexec $PKG/usr/man/man8
-cp $CWD/src/$PRGNAM.rb $PKG/usr/libexec
-cp $CWD/src/slfindlinked $PKG/usr/bin
-cp $CWD/src/slo.sh $PKG/usr/bin/slo
-chmod 0755 $PKG/usr/libexec/$PRGNAM.rb
-chmod 0755 $PKG/usr/bin/slfindlinked
 
-cat $CWD/src/$PRGNAM.8 | gzip > $PKG/usr/man/man8/$PRGNAM.8.gz
+cp $CWD/src/$PRGNAM.rb $PKG/usr/libexec
+chmod 0755 $PKG/usr/libexec/$PRGNAM.rb
+
+install -m 0755 $CWD/src/slfindlinked $PKG/usr/bin
+install -m 0755 $CWD/src/apps/slo.sh $PKG/usr/bin/slo
+for file in sll slf slt slp ; do
+	install -m 0755 $CWD/src/apps/$file $PKG/usr/bin/$file
+done
+
 (  cd $PKG/usr/man/man8/
-  ln -s $PRGNAM.8.gz slp.8.gz
-  ln -s $PRGNAM.8.gz slf.8.gz
-  ln -s $PRGNAM.8.gz slt.8.gz
-  ln -s $PRGNAM.8.gz sll.8.gz
+	for file in slack-utils sll slf slt slp slo ; do
+		cat $CWD/src/man/$file.8 | gzip > $PKG/usr/man/man8/$file.8.gz
+	done
 )
  
-
-(  cd $PKG/usr/bin
-  ln -s ../libexec/$PRGNAM.rb slp
-  ln -s ../libexec/$PRGNAM.rb slf
-  ln -s ../libexec/$PRGNAM.rb slt
-  ln -s ../libexec/$PRGNAM.rb sll
-)
-
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
