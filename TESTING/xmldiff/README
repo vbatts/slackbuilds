@@ -1,0 +1,7 @@
+xmldiff (xml diff utility)
+
+A python tool that figures out the differences between two similar
+XML files, in the same way the diff utility does it Xmldiff was
+initially developed for the Narval project and could also be used
+as a library or as a command line tool. It can work either with
+XML files or DOM trees
