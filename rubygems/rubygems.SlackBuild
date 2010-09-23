@@ -22,7 +22,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=rubygems
-VERSION=1.3.5
+VERSION=1.3.7
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -33,6 +33,7 @@ OUTPUT=${OUTPUT:-/tmp}
 
 if [ -x "$(which ruby18)" ] ; then
 	ruby=$(which ruby18)
+	suffix=18
 else
 	ruby=$(which ruby)
 fi
@@ -102,4 +103,4 @@ mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz
+/sbin/makepkg -l y -c n $OUTPUT/${PRGNAM}${suffix}-$VERSION-$ARCH-$BUILD$TAG.tgz
