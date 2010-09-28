@@ -25,15 +25,24 @@
 set -e
 
 PRGNAM=gnucash
-ARCH=${ARCH:-$(uname -m)}
 BUILD=${BUILD:-1}
-JOBS=${JOBS:--j4}
 TAG=${TAG:-_vb}
+JOBS=${JOBS:--j4}
+
+if [ -z "$ARCH" ]; then
+  case "$( uname -m )" in
+    i?86) export ARCH=i486 ;;
+    arm*) export ARCH=arm ;;
+    # Unless $ARCH is already set, use uname -m for all other archs:
+       *) export ARCH=$( uname -m ) ;;
+  esac
+fi
+
 CWD=$(pwd)
 TMP=${TMP:-/tmp/vb}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
-LOCAL_SVN_PATH=${LOCAL_SVN_PATH:-/home/$USER/svn/$PRGNAM/}
+LOCAL_SVN_PATH=${LOCAL_SVN_PATH:-/home/vbatts/svn/$PRGNAM/}
 SVN_URL="http://svn.gnucash.org/repo/gnucash/trunk"
 DBI=${DBI:-true}
 WEBKIT=${WEBKIT:-true}
@@ -139,24 +148,25 @@ mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 # handle the schemas and such (hopefully) properly
-gconf_config_source="xml::etc/gconf/gconf.xml.defaults"
-for rawname in $(find $pkg/etc/gconf/schemas -name "*.schemas") ; do
+GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults"
+for rawname in $(find $PKG/etc/gconf/schemas -name "*.schemas") ; do
   schema=$(basename $rawname)
-  cat << eof >> $pkg/install/doinst.sh
+  cat << eof >> $PKG/install/doinst.sh
 gconf_config_source="xml::etc/gconf/gconf.xml.defaults" \
 chroot . gconftool-2 --makefile-install-rule /etc/gconf/schemas/$schema 1>/dev/null
 eof
 done
-for rawname in $(find $pkg/etc/gconf/schemas -name "*.entries") ; do
+for rawname in $(find $PKG/etc/gconf/schemas -name "*.entries") ; do
   entry=$(basename $rawname)
-  cat << eof >> $pkg/install/doinst.sh
+  cat << eof >> $PKG/install/doinst.sh
 gconf_config_source="xml::etc/gconf/gconf.xml.defaults" \
 chroot . gconftool-2 --direct \
-  --config-source=$gconf_config_source \
+  --config-source=$GCONF_CONFIG_SOURCE \
   --load /etc/gconf/schemas/$entry 1>/dev/null
 eof
 done
-unset gconf_config_source
+unset GCONF_CONFIG_SOURCE
 
 cd $PKG
-/sbin/makepkg -p -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
+/sbin/makepkg -p -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
+
