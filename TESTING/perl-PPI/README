@@ -2,4 +2,10 @@ perl-PPI (perl module for PPI)
 
 Parse, Analyze and Manipulate Perl (without perl)  
 
-requires: Params::Util, Clone
+required perl: Params::Util, Clone, Task::Weaken, List::MoreUtils, IO::String
+required SBo: perl-Params-Util, perl-Clone, perl-Task-Weaken, perl-List-MoreUtils, perl-IO-String
+
+More possible libraries:
+  http://search.cpan.org/~chorny/Hook-LexWrap-0.24/
+  http://search.cpan.org/~adamk/Test-SubCalls-1.09/
+  http://search.cpan.org/~adamk/Class-Inspector-1.24/

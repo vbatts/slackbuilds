@@ -1,0 +1,4 @@
+perl-IO-String (perl module for IO-String)
+
+Emulate file interface for in-core strings
+
