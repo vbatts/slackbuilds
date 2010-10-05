@@ -1,22 +1,14 @@
 #!/bin/sh
 
-# Slackware build script for puppet
+# Slackware build script for fortune-dharma
 
 # Written by Vincent Batts, vbatts@hashbangbash.com
 
-PRGNAM=puppet
-VERSION=${VERSION:-0.25.5}
+PRGNAM=fortune-dharma
+VERSION=${VERSION:-1.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
-
-if [ -z "$ARCH" ]; then
-  case "$( uname -m )" in
-    i?86) export ARCH=i486 ;;
-    arm*) export ARCH=arm ;;
-    # Unless $ARCH is already set, use uname -m for all other archs:
-       *) export ARCH=$( uname -m ) ;;
-  esac
-fi
+ARCH=noarch
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/SBo}
@@ -38,21 +30,18 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-./install.rb \
-  --destdir=$PKG \
-
-( cd $PKG/usr/man
-  find . -type f -exec gzip -9 {} \;
-  for i in $( find . -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
-)
+make all
+make install DESTDIR=$PKG
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a CHANGELOG* COPYING LICENSE README* $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a \
+  README \
+  $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.tgz
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
 
