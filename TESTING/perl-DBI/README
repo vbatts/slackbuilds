@@ -1,4 +1,4 @@
-perl-Clone (perl module for Clone)
+perl-DBI (perl module for DBI)
 
-recursively copy Perl datatypes
+Database independent interface for Perl
 
