@@ -1,0 +1,19 @@
+ # HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+      |-----handy-ruler------------------------------------------------------|
+p4ruby: p4ruby (ruby bindings for Perforce api)
+p4ruby:
+p4ruby: Perforce is the fast SCM system at www.perforce.com.
+p4ruby: This package provides a simple interface from Ruby wrapping the
+p4ruby: Perforce C++ API to gain performance and ease of coding.
+p4ruby: Similar to interfaces available for Python and Perl.
+p4ruby:
+p4ruby: API: http://www.perforce.com/perforce/doc.current/manuals/p4script/
+p4ruby:
+p4ruby:
+p4ruby:

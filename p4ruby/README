@@ -1,0 +1,8 @@
+Perforce is the fast SCM system at www.perforce.com.
+This package provides a simple interface from Ruby wrapping the
+Perforce C++ API to gain performance and ease of coding.
+Similar to interfaces available for Python and Perl.
+
+API: http://www.perforce.com/perforce/doc.current/manuals/p4script/index.html
+
+This requires p4api.
