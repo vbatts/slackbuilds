@@ -1,0 +1,4 @@
+perl-Carp-Clan (perl module for Carp-Clan)
+
+Report errors from perspective of caller of a "clan" of modules
+
