@@ -1,0 +1,5 @@
+PRGNAM="base-ruby"
+VERSION="1.9.2-p0"
+HOMEPAGE="http://ruby-lang.org/"
+DOWNLOAD="ftp://ftp.ruby-lang.org//pub/ruby/1.9/ruby-1.9.2-p0.tar.gz"
+MD5SUM="755aba44607c580fddc25e7c89260460"
