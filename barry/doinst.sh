@@ -1,4 +1,3 @@
-#!/bin/sh
 config() {
   NEW="$1"
   OLD="$(dirname $NEW)/$(basename $NEW .new)"
@@ -12,5 +11,9 @@ config() {
   # Otherwise, we leave the .new copy for the admin to consider...
 }
 
-config etc/modprobe.d/barry.new
+config etc/modprobe.d/barry.conf.new
+
+if [ -x /usr/bin/update-desktop-database ]; then
+  /usr/bin/update-desktop-database -q usr/share/applications >/dev/null 2>&1
+fi
 
