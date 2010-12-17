@@ -22,7 +22,7 @@ fi
 if ! grep -qw hudson /etc/passwd ; then
 	echo -ne "adding hudson user : "
 	echo "useradd -k /dev/null -g 300 -M -r -s /bin/bash -d /var/lib/hudson -g hudson hudson"
-	useradd -k /dev/null -g 300 -M -r -s /bin/bash -d /var/lib/hudson -g hudson hudson
+	useradd -m -k /dev/null -u 300 -g 300 -r -s /bin/bash -d /var/lib/hudson -g hudson hudson
 fi
 
 echo -ne "changing ownership of hudson's home : "
