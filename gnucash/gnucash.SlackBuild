@@ -23,7 +23,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=gnucash
-VERSION=2.3.15
+VERSION=2.4.0
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 JOBS=${JOBS:--j4}
@@ -57,6 +57,9 @@ elif [ "$ARCH" = "s390" ]; then
   LIBDIRSUFFIX=""
 elif [ "$ARCH" = "arm" ]; then
   SLKCFLAGS="-O2 -march=armv4t"
+  LIBDIRSUFFIX=""
+else
+  SLKCFLAGS="-O2"
   LIBDIRSUFFIX=""
 fi
 
@@ -94,12 +97,12 @@ CXXFLAGS="$SLKCFLAGS" \
   --infodir=/usr/info \
   --mandir=/usr/man \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
+  --enable-python-bindings \
   --enable-ofx \
   --disable-aqbanking \
   $OPT_ARGS \
   --build=$ARCH-slackware-linux
   ## this is failing now
-  #--enable-python-bindings \
 
 make $JOBS
 make install DESTDIR=$PKG
@@ -133,18 +136,18 @@ mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
 
 # handle the schemas and such (hopefully) properly
-GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults"
+export GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults"
 for rawname in $(find $PKG/etc/gconf/schemas -name "*.schemas") ; do
   schema=$(basename $rawname)
   cat << eof >> $PKG/install/doinst.sh
-gconf_config_source="xml::etc/gconf/gconf.xml.defaults" \
-chroot . gconftool-2 --makefile-install-rule /etc/gconf/schemas/$schema 1>/dev/null
+chroot . gconftool-2 \
+  --config-source=$GCONF_CONFIG_SOURCE \
+  --makefile-install-rule /etc/gconf/schemas/$schema 1>/dev/null
 eof
 done
 for rawname in $(find $PKG/etc/gconf/schemas -name "*.entries") ; do
   entry=$(basename $rawname)
   cat << eof >> $PKG/install/doinst.sh
-gconf_config_source="xml::etc/gconf/gconf.xml.defaults" \
 chroot . gconftool-2 --direct \
   --config-source=$GCONF_CONFIG_SOURCE \
   --load /etc/gconf/schemas/$entry 1>/dev/null
