@@ -140,6 +140,7 @@ export GCONF_CONFIG_SOURCE="xml::etc/gconf/gconf.xml.defaults"
 for rawname in $(find $PKG/etc/gconf/schemas -name "*.schemas") ; do
   schema=$(basename $rawname)
   cat << eof >> $PKG/install/doinst.sh
+GCONF_CONFIG_SOURCE="${GCONF_CONFIG_SOURCE}" \
 chroot . gconftool-2 \
   --config-source=$GCONF_CONFIG_SOURCE \
   --makefile-install-rule /etc/gconf/schemas/$schema 1>/dev/null
@@ -148,6 +149,7 @@ done
 for rawname in $(find $PKG/etc/gconf/schemas -name "*.entries") ; do
   entry=$(basename $rawname)
   cat << eof >> $PKG/install/doinst.sh
+GCONF_CONFIG_SOURCE="${GCONF_CONFIG_SOURCE}" \
 chroot . gconftool-2 --direct \
   --config-source=$GCONF_CONFIG_SOURCE \
   --load /etc/gconf/schemas/$entry 1>/dev/null
