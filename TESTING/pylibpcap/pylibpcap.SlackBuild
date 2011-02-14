@@ -1,13 +1,13 @@
 #!/bin/sh
 
-# Slackware build script for mod_ruby
+# Slackware build script for pylibpcap
 
 # Written by Vincent Batts, vbatts@hashbangbash.com
 
-PRGNAM=mod_ruby
-VERSION=${VERSION:-1.3.0}
+PRGNAM=pylibpcap
+VERSION=${VERSION:-0.6.2}
 BUILD=${BUILD:-1}
-TAG=${TAG:-_SBo}	
+TAG=${TAG:-_SBo}
 
 # Automatically determine the architecture we're building on:
 if [ -z "$ARCH" ]; then
@@ -53,21 +53,14 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-ruby18 configure.rb \
-	--prefix=/usr \
-	--with-apr-includes=/usr/include/apr-1/
-make
-sed -ie "s|^DESTDIR.*$|DESTDIR = $PKG|" Makefile
-make install
+python setup.py install --root=$PKG
 
-# Strip binaries and libraries.
-find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
+find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
-  examples/httpd.conf \
-  COPYING ChangeLog LEGAL LEGAL LICENSE.apreq NOTICE README* \
+  README COPYING ChangeLog examples/ \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
@@ -77,4 +70,3 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
-
