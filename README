@@ -49,6 +49,8 @@ they are here, working or not
   perl-Curses - 19.Jun.2010
   perl-Term-Animation - 19.Jun.2010
   asciiquarium - 19.Jun.2010
+  cutecom - 09.sept.2010, published 13.sept.2010
+  fortune-dharma - 27.sept.2010, published 25.oct.2010
 
 ** STABLE **
   kde4-4.1.x, coexistisng with kde-3.5.x (and all subdirectories) for slackware-12.2
@@ -73,9 +75,9 @@ they are here, working or not
   kernbench - 29.Apr.2010
   dissy - 4.Jul.2010
   mod_ruby - 16.Jul.2010
-  cutecom - 09.sept.2010
   jruby - 27.sept.2010
-  fortune-dharma - 27.sept.2010
+  dpkt - 22.Feb.2011
+  pylibpcap - 22.Feb.2011
 
 ** TESTING/BROKEN **
   xbench

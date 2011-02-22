@@ -52,7 +52,7 @@ find . \
 
 echo "[p4python_config]" > setup.cfg
 echo "p4_api=/usr/lib$LIBDIRSUFFIX/p4" >> setup.cfg
-yes y | ruby p4conf.rb --api=/usr/lib${LIBDIRSUFFIX}/p4
+yes y | jruby p4conf.rb --api=/usr/lib${LIBDIRSUFFIX}/p4
 make install DESTDIR=$PKG
 
 # Strip binaries and libraries.
