@@ -1,5 +1,5 @@
 PRGNAM="rubinius"
-VERSION="1.2.2"
+VERSION="1.2.2-20110222"
 HOMEPAGE="http://rubini.us/"
 DOWNLOAD="http://asset.rubini.us/rubinius-1.2.2-20110222.tar.gz"
 MD5SUM="59124378fb7ee040e9ee4e4736d89fc0"
