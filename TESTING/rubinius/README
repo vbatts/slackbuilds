@@ -1,0 +1,9 @@
+rubinius ruby, rbx
+
+An environment for the Ruby programming language
+providing performance, accessibility, and improved
+programmer productivity
+
+The build fetches and includes the LLVM framework by default.
+If you would like to disable this, pass LLVM=false to 
+the SlackBuild

@@ -1,12 +1,12 @@
 #!/bin/sh
 
 # Slackware build script for rubinius
-
 # Written by Vincent Batts, vbatts@hashbangbash.com
 
-
 PRGNAM=rubinius
-VERSION=${VERSION:-1.2.2-20110222}
+SRC_VER=${SRC_VER:-1.2.2}
+VER_DATE=${VER_DATE:-20110222}
+VERSION=$SRC_VER-$VER_DATE
 BUILD=${BUILD:-1}
 TAG=${TAG:-_vb}
 
@@ -19,6 +19,8 @@ if [ -z "$ARCH" ]; then
        *) ARCH=$( uname -m ) ;;
   esac
 fi
+
+LLVM=${LLVM:-true}
 
 CWD=$(pwd)
 TMP=${TMP:-/tmp/vb}
@@ -39,14 +41,20 @@ else
   LIBDIRSUFFIX=""
 fi
 
+if [ "$LLVM" = "true" ]; then
+	CONF_ARGS=""
+else
+	CONF_ARGS=" --disable-llvm "
+fi
+
 set -e
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION
+rm -rf $PRGNAM-$SRC_VER
 tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
-cd $PRGNAM-$VERSION
+cd $PRGNAM-$SRC_VER
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -57,17 +65,15 @@ find . \
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
-  --prefix=/opt/rubinius/$VERSION
-
-# We'll try this, so that nothing else is fetched
-#--disable-llvm
+  $CONF_ARGS \
+  --prefix=/opt/rubinius/$SRC_VER
 
 rake build
 
 # there is no DESTDIR yet :/
 touch my.ts
 rake install
-find /opt/rubinius/$VERSION -cnewer my.ts | cpio -dump $PKG/
+find /opt/rubinius/$SRC_VER -cnewer my.ts | cpio -dump $PKG/
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
@@ -81,9 +87,20 @@ cp -a \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
+mkdir -p $PKG/etc/profile.d
+cat > $PKG/etc/profile.d/rubinius-$SRC_VER.sh << EOF
+export MANPATH="/opt/rubinius/$SRC_VER/man:${MANPATH}"
+export PATH="/opt/rubinius/$SRC_VER/bin:${PATH}"
+EOF
+
+cat > $PKG/etc/profile.d/rubinius-$SRC_VER.csh << EOF
+setenv MANPATH /opt/rubinius/$SRC_VER/man:${MANPATH}
+setenv PATH /opt/rubinius/$SRC_VER/bin:${PATH}
+EOF
+
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-#cat $CWD/doinst.sh > $PKG/install/doinst.sh
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$(echo $VERSION | tr '-' '_' )-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
