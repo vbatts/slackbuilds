@@ -36,7 +36,7 @@ if [ ! -f $CWD/$PRGNAM.war ] ; then
   wget "$DOWNLOAD"
 fi
 
-VERSION=$(unzip -p $PRGNAM.war  META-INF/maven/org.jvnet.$PRGNAM.main/$PRGNAM-war/pom.properties | grep -e '^version' | cut -d = -f 2)
+VERSION=$(unzip -p $PRGNAM.war META-INF/maven/org.jenkins-ci.main/jenkins-war/pom.properties | grep -e '^version' | cut -d = -f 2)
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
