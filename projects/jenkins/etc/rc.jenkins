@@ -1,28 +1,28 @@
 #!/bin/sh
 
-PID="$(pgrep -f 'java.*hudson.war')"
+PID="$(pgrep -f 'java.*jenkins.war')"
 max_wait=8
 
 # Define start and stop functions
 
-hudson_start() {
+jenkins_start() {
   if [ $PID ]; then
-    echo "hudson appears to already be running."
+    echo "jenkins appears to already be running."
     echo "on $PID, check it first ..."
     exit 1
   else
-    echo "Starting hudson daemon..."
-    hudsond 2>/dev/null 1>&2 || exit 1
+    echo "Starting jenkins daemon..."
+    jenkinsd 2>/dev/null 1>&2 || exit 1
   fi
 }
 
-hudson_stop() {
-  echo -ne "Stopping hudson daemon...  "
+jenkins_stop() {
+  echo -ne "Stopping jenkins daemon...  "
   if [ ${PID} -gt 1 ] 2>/dev/null ; then
     echo "pid ${PID}"
     kill ${PID}
   else
-    echo "hudson.war not found running"
+    echo "jenkins.war not found running"
   fi
 }
 
@@ -30,23 +30,23 @@ hudson_stop() {
 
 case $1 in
   start)
-    hudson_start
+    jenkins_start
    ;;
   stop)
-    hudson_stop
+    jenkins_stop
    ;;
   restart)
-    hudson_stop
+    jenkins_stop
     i=0
     while [ $i -lt $max_wait ] ; do
-      if pgrep -f 'java.*hudson.war' >/dev/null; then
+      if pgrep -f 'java.*jenkins.war' >/dev/null; then
         sleep 1
       else
         break
       fi
       i=$[$i+1]
     done
-    hudson_start
+    jenkins_start
    ;;
   *)
     echo "Usage: $0 {start|stop|restart}"

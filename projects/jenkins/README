@@ -1,0 +1,13 @@
+jenkins CI Engine - for slackware
+
+FYI:
+  * to wget this, the flag '--no-check-certificate' maybe needed
+  * after installation see the /etc/jenkins.conf and /usr/bin/jenkins --help
+    for more information 
+
+DESCRIPTION:
+  Extensible continuous integration engine 
+  http://jenkins-ci.org/
+  
+MORE INFORMATION: 
+ setting up jobs http://wiki.jenkins-ci.org/display/JENKINS/Administering+Jenkins

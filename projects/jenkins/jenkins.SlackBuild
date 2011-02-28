@@ -1,6 +1,6 @@
 #!/bin/sh
 # $Id$
-# Slackware build script for hudson
+# Slackware build script for jenkins
 # Copyright 2008, Vincent Batts, vbatts@hashbangbash.com, http://hashbangbash.com/
 ## This program is free software; you can redistribute it and/or
 ## modify it under the terms of the Common Development and
@@ -17,9 +17,9 @@
 ## Version 2.1 along with this program; if not, write to the Free Software
 ## Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
-PRGNAM=hudson
-ARCH=${ARCH:-i486}
-BUILD=${BUILD:-2}
+PRGNAM=jenkins
+ARCH=${ARCH:-noarch}
+BUILD=${BUILD:-1}
 TAG=${TAG:-_vb}
 ARCH=noarch
 PKGTYPE=tgz

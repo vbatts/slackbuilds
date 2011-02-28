@@ -1,4 +1,4 @@
-/var/log/hudson.log {
+/var/log/jenkins.log {
   rotate 10
   notifempty
   size=5M
