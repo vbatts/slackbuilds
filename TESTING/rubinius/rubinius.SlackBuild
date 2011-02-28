@@ -68,10 +68,10 @@ CXXFLAGS="$SLKCFLAGS" \
   $CONF_ARGS \
   --prefix=/opt/rubinius/$SRC_VER
 
-rake build
 
 # there is no DESTDIR yet :/
 touch my.ts
+rake build
 rake install
 find /opt/rubinius/$SRC_VER -cnewer my.ts | cpio -dump $PKG/
 
