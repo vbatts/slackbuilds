@@ -78,6 +78,7 @@ they are here, working or not
   jruby - 27.sept.2010
   dpkt - 22.Feb.2011
   pylibpcap - 22.Feb.2011
+  torsocks - 09.Mar.2011
 
 ** TESTING/BROKEN **
   xbench
