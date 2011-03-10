@@ -54,7 +54,7 @@ find . \
  -exec chmod 644 {} \;
 
 # i can not imagine this being different than /usr/share/vim, but who knows ...
-runtimepath=$(vim --version | grep "fall-back for .VIM" | cut -d : -f 2 | tr -d \")
+runtimepath=$(vim --version | grep "fall-back for .VIM" | cut -d : -f 2 | tr -d ' ' | tr -d \")
 
 mkdir -p $PKG/${runtimepath}/vimfiles/{syntax,ftplugin,ftdetect,doc,colors}
 cp syntax/vo_base.vim $PKG/${runtimepath}/vimfiles/syntax/
@@ -66,6 +66,7 @@ cp colors/vo_light.vim $PKG/${runtimepath}/vimfiles/colors/
 
 mkdir -p $PKG/usr/bin
 cp scripts/vo_maketags.pl $PKG/usr/bin/vo_maketags
+cp add-ons/scripts/otl2html.py $PKG/usr/bin/otl2html
 
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
