@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+           |-----handy-ruler------------------------------------------------------|
+vimoutliner: vimoutliner (outline plugin for Vim)
+vimoutliner:
+vimoutliner: Vim Outliner is a vim plugin that turns the powerful vim editor into a
+vimoutliner: powerful outliner of the likes of GrandView, More and MaxThink. It is
+vimoutliner: keyboarder friendly and very fast. If you can touchtype, you can
+vimoutliner: outline as fast as you think.
+vimoutliner:
+vimoutliner:
+vimoutliner:
+vimoutliner:
+vimoutliner:
