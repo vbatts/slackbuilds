@@ -2,5 +2,5 @@
 Encoding=UTF-8
 Name=subtle
 Comment=grid-based tiling window manager
-Exec=subtle
+Exec=/usr/bin/subtle
 Type=XSession

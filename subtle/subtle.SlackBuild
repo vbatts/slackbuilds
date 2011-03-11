@@ -52,6 +52,8 @@ cp -a $CWD/xinitrc.subtle $PKG/etc/X11/xinit/
 
 mkdir -p $PKG/usr/share/xsessions
 cp -a $CWD/subtle.desktop $PKG/usr/share/xsessions/
+mkdir -p $PKG/usr/share/apps/kdm/sessions
+cp -a $CWD/subtle.desktop $PKG/usr/share/apps/kdm/sessions/
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
