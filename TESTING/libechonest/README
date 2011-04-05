@@ -1,0 +1,6 @@
+libechonest (Qt library for Echo Nest)
+
+It currently supports almost all of the features of the Echo Nest
+API, including all the API functions minus the new artist/suggest
+method.
+
