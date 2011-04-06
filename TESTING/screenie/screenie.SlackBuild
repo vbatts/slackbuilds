@@ -56,11 +56,13 @@ find . \
 mkdir -p $PKG/usr/{bin,lib${LIBDIRSUFFIX}}
 
 qmake 
-qmake install
+make
+make install
 cd dist
 
 mv Screenie $PKG/usr/bin/
 mv lib* $PKG/usr/lib${LIBDIRSUFFIX}/
+cd ..
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
