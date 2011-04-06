@@ -1,12 +1,13 @@
 #!/bin/sh
 
-# SlackBuild for p4ruby, Andy Bailey <bailey@akamai.com
+# copied from SlackBuild for p4python, Andy Bailey <bailey@akamai.com>
+# SlackBuild for p4ruby, Vincent Batts <vbatts@hashbangbash.com>
 
 LOCALVER=`tar tf p4ruby.tgz 2> /dev/null | head -1 | cut -d- -f 2 | cut -d/ -f1`
 PRGNAM=p4ruby
 VERSION=${VERSION:-$LOCALVER}
 BUILD=${BUILD:-1}
-TAG=${TAG:-_SBo}
+TAG=${TAG:-_vb}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
