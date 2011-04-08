@@ -1,0 +1,9 @@
+kdesrc-build (KDE source build utiliy)
+
+This is a tool to allow you to easily build KDE from its source
+repositories. (It used to be called kdesvn-build, the name was
+changed to this more generic form in June 2010 when KDE started
+adopting git-based source control). 
+
+Homepage: http://kdesvn-build.kde.org/
+

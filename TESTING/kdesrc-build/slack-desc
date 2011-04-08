@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+            |-----handy-ruler------------------------------------------------------|
+kdesrc-build: kdesrc-build (KDE source build utiliy)
+kdesrc-build:
+kdesrc-build: This is a tool to allow you to easily build KDE from its source
+kdesrc-build: repositories. (It used to be called kdesvn-build, the name was
+kdesrc-build: changed to this more generic form in June 2010 when KDE started
+kdesrc-build: adopting git-based source control). 
+kdesrc-build:
+kdesrc-build: Homepage: http://kdesvn-build.kde.org/
+kdesrc-build:
+kdesrc-build:
+kdesrc-build:
