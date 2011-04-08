@@ -44,7 +44,7 @@ rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
 rm -rf $PRGNAM-$VERSION
-tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
+tar xvf $CWD/$PRGNAM-$VERSION.tar.*z?
 cd $PRGNAM-$VERSION
 chown -R root:root .
 find . \
@@ -61,6 +61,7 @@ mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
   AUTHORS CHANGES README kdesrc-buildrc* \
   $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a $CWD/README $PKG/usr/doc/$PRGNAM-$VERSION/README_SlackBuild
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
