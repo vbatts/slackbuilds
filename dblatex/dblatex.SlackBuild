@@ -56,6 +56,8 @@ find . \
 python setup.py build
 python setup.py install --root=$PKG
 
+mv $PKG/usr/share/man $PKG/usr/
+
 find $PKG/usr/man -type f -exec gzip -9 {} \;
 for i in $( find $PKG/usr/man -type l ) ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 
@@ -64,6 +66,9 @@ cp -a \
   COPYRIGHT \
   $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+mv $PKG/usr/share/doc/* $PKG/usr/doc/$PRGNAM-$VERSION/
+rm -r $PKG/usr/share/doc/
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
