@@ -1,2 +1,4 @@
---- []
-
+--- 
+- :pkg: gnucash
+  :old: submit latest release
+  :new: 2.4.5
