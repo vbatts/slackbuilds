@@ -8,3 +8,6 @@
 - :pkg: dblatex
   :old: new submission
   :new: ""
+- :pkg: gtkpod
+  :old: upgrade from 0.99.14
+  :new: upgrade 2.0.2, since it is using gtk2
