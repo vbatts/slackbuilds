@@ -1,0 +1,19 @@
+--- mytop.orig	2011-05-24 12:44:19.802861134 -0400
++++ mytop	2011-05-24 12:44:11.162861134 -0400
+@@ -1,4 +1,7 @@
+ #!/usr/bin/perl -w
++
++eval 'exec /usr/bin/perl -w -S $0 ${1+"$@"}'
++    if 0; # not running under some shell
+ #
+ # $Id: mytop,v 1.53 2003/09/18 17:58:36 jzawodn Exp $
+ 
+@@ -153,7 +156,7 @@
+     "idle|i"              => \$config{idle},
+     "resolve|r"           => \$config{resolve},
+     "prompt!"             => \$config{prompt},
+-    "long|!"              => \$config{long_nums},
++    "long!"              => \$config{long_nums},
+     "mode|m=s"            => \$config{mode},
+     "sort=s"              => \$config{sort},
+ );
