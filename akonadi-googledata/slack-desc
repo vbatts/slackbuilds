@@ -8,12 +8,12 @@
                   |-----handy-ruler------------------------------------------------------|
 akonadi-googledata: akonadi-googledata (google resource for akonadi)
 akonadi-googledata: 
-akonadi-googledata: A resource plugin for akonadi to connect to Google 
-akonadi-googledata:  calendar and contacts.
-akonadi-googledata: 
+akonadi-googledata: akonadi-googledata is a resource plugin for akonadi 
+akonadi-googledata: to connect to Google calendar and contacts.
+akonadi-googledata:
 akonadi-googledata: homepage: http://code.google.com/p/libgcal/
-akonadi-googledata: 
-akonadi-googledata: 
-akonadi-googledata: 
-akonadi-googledata: 
-akonadi-googledata: 
+akonadi-googledata:
+akonadi-googledata:
+akonadi-googledata:
+akonadi-googledata:
+akonadi-googledata:
