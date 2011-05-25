@@ -1,19 +1,4 @@
 --- 
-- :pkg: gnucash
-  :old: submit latest release
-  :new: 2.4.5
-- :pkg: gtkpod
-  :old: upgrade from 0.99.14
-  :new: upgrade 2.0.2, since it is using gtk2
-- :pkg: genius
-  :old: 1.0.11
-  :new: 1.0.12
-- :pkg: mtd-utils
-  :old: 1.2.0
-  :new: 1.4.4
-- :pkg: synergy
-  :old: request removal, since the synergy-plus succeeds this project
-  :new: ""
 - :pkg: kdesrc-build
   :old: check it for submission
   :new: ""
