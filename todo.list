@@ -2,3 +2,6 @@
 - :pkg: kdesrc-build
   :old: check it for submission
   :new: ""
+- :pkg: wkhtmltopdf
+  :old: submit it
+  :new: ""
