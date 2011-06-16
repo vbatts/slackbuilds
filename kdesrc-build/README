@@ -7,5 +7,8 @@ adopting git-based source control).
 
 Homepage: http://kdesvn-build.kde.org/
 
-For More information on building KDE, 
+For more information on building KDE, 
 see http://techbase.kde.org/Getting_Started
+
+For help with the kdesrc-buildrc (~/.kdesrc-buildrc), see
+https://projects.kde.org/projects/extragear/utils/kdesrc-build/repository/revisions/master/entry/kdesrc-buildrc-sample
