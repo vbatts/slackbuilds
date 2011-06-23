@@ -6,10 +6,11 @@ It currently has a gtk2 and a command-line interface.
 Rubyripper has the optional dependencies:
 
 * In SBo:
-** ruby-gtk2 (for gtk2 gui, use env GTK2=true)
-** cd-discid (for proper freedb support)
-** lame (if the codec is wanted)
-** vorbisgain, mp3gain (for replaygain support)
+-- ruby-gtk2 (for gtk2 gui, use env GTK2=true)
+-- cd-discid (for proper freedb support)
+-- lame (if the codec is wanted)
+-- vorbisgain, mp3gain (for replaygain support)
+-- rubygem-gettext (for translations)
+
 * NOT in SBo:
-** wavgain (for replaygain support)
-** ruby-gettext (for translations)
+-- wavgain (for replaygain support)
