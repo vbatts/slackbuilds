@@ -29,3 +29,7 @@ echo -ne "changing ownership of jenkins's home : "
 echo "chown -R jenkins.jenkins /var/lib/jenkins"
 chown -R jenkins.jenkins /var/lib/jenkins
 
+echo -ne "changing ownership of jenkins's log : "
+echo "chown -R jenkins.jenkins /var/log/jenkins.log"
+touch /var/log/jenkins.log
+chown -R jenkins.jenkins /var/log/jenkins.log
