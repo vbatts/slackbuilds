@@ -18,32 +18,32 @@ groupid=300
 
 if ! grep -qw jenkins etc/group ; then
 	cmd="groupadd -g ${groupid} -r jenkins"
-	echo "adding jenkins group : ${cmd}"
+	echo "INFO: adding jenkins group : ${cmd}"
 	${cmd}
 fi
 
 if ! grep -qw jenkins etc/passwd ; then
 	cmd="useradd -k /dev/null -g ${userid} -M -r -s bin/bash -d var/lib/jenkins -g jenkins jenkins"
-	echo "adding jenkins user : ${cmd}"
+	echo "INFO: adding jenkins user : ${cmd}"
 	${cmd}
 fi
 
 cmd="chown -R jenkins.jenkins var/lib/jenkins"
-echo "changing ownership of jenkins's home : ${cmd}"
+echo "INFO: changing ownership of jenkins's home : ${cmd}"
 ${cmd}
 
 cmd="chown -R jenkins.jenkins var/log/jenkins_console.log"
-echo "setting ownership of jenkins's console log : ${cmd}"
+echo "INFO: setting ownership of jenkins's console log : ${cmd}"
 touch var/log/jenkins_console.log
 ${cmd}
 
 cmd="chown -R jenkins.jenkins var/log/jenkins.log"
-echo "setting ownership of jenkins's log : ${cmd}"
+echo "INFO: setting ownership of jenkins's log : ${cmd}"
 touch var/log/jenkins.log
 ${cmd}
 
 cmd="chown -R jenkins.jenkins var/run/jenkins.pid"
-echo "setting ownership of jenkins's pid : ${cmd}"
+echo "INFO: setting ownership of jenkins's pid : ${cmd}"
 touch var/run/jenkins.pid
 ${cmd}
 
