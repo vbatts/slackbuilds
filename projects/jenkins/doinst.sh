@@ -13,23 +13,23 @@ config() {
 config etc/jenkins.conf.new
 config etc/rc.d/rc.jenkins.new
 
-if ! grep -qw jenkins /etc/group ; then
+if ! grep -qw jenkins etc/group ; then
 	echo -ne "adding jenkins group : "
 	echo "groupadd -g 300 -r jenkins"
 	groupadd -g 300 -r jenkins
 fi
 
-if ! grep -qw jenkins /etc/passwd ; then
+if ! grep -qw jenkins etc/passwd ; then
 	echo -ne "adding jenkins user : "
-	echo "useradd -k /dev/null -g 300 -M -r -s /bin/bash -d /var/lib/jenkins -g jenkins jenkins"
-	useradd -m -k /dev/null -u 300 -g 300 -r -s /bin/bash -d /var/lib/jenkins -g jenkins jenkins
+	echo "useradd -k /dev/null -g 300 -M -r -s bin/bash -d var/lib/jenkins -g jenkins jenkins"
+	useradd -m -k /dev/null -u 300 -g 300 -r -s bin/bash -d var/lib/jenkins -g jenkins jenkins
 fi
 
 echo -ne "changing ownership of jenkins's home : "
-echo "chown -R jenkins.jenkins /var/lib/jenkins"
-chown -R jenkins.jenkins /var/lib/jenkins
+echo "chown -R jenkins.jenkins var/lib/jenkins"
+chown -R jenkins.jenkins var/lib/jenkins
 
 echo -ne "changing ownership of jenkins's log : "
-echo "chown -R jenkins.jenkins /var/log/jenkins.log"
-touch /var/log/jenkins.log
-chown -R jenkins.jenkins /var/log/jenkins.log
+echo "chown -R jenkins.jenkins var/log/jenkins.log"
+touch var/log/jenkins.log
+chown -R jenkins.jenkins var/log/jenkins.log
