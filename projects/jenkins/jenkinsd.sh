@@ -31,10 +31,6 @@ if [ -f /etc/jenkins.conf ] ; then
   . /etc/jenkins.conf
 fi
 
-if [ "$JENKINS_IS_DAEMON" = "true" ] ; then
-  JENKINS_DAEMON_ARG="--daemon"
-fi
-
 if [ "$JENKINS_PREFIX" != "" ] ; then
   JENKINS_PREFIX_ARG="--prefix=$JENKINS_PREFIX"
 fi
@@ -83,7 +79,6 @@ su - $JENKINS_USER -c " \
 	JENKINS_HOME=$JENKINS_HOME \
 	exec setsid \
 	$JAVA -jar $JENKINS \
-	$JENKINS_DAEMON_ARG \
       	$JENKINS_HTTP_PORT_ARG \
       	$JENKINS_HTTP_LISTENING_ADDRESS_ARG \
       	$JENKINS_HTTPS_PORT_ARG \
