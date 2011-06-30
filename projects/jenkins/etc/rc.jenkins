@@ -9,7 +9,7 @@ max_wait=8
 # Define start and stop functions
 
 jenkins_start() {
-  $p=$(getPid)
+  p=$(getPid)
   if [ $p ]; then
     echo "jenkins appears to already be running."
     echo "on $p, check it first ..."
@@ -22,9 +22,9 @@ jenkins_start() {
 
 jenkins_stop() {
   echo -ne "Stopping jenkins daemon...  "
-  kill $(cat $pid_file)
+  kill $(cat $pid_file) 2>/dev/null >/dev/null
 
-  $p=$(getPid)
+  p=$(getPid)
   if [ ${p} -gt 1 ] 2>/dev/null ; then
     echo "pid ${p}"
     kill ${p}
@@ -46,7 +46,7 @@ case $1 in
     jenkins_stop
     i=0
     while [ $i -lt $max_wait ] ; do
-      if pgrep -f 'java.*jenkins.war' >/dev/null; then
+    if $(getPid) >/dev/null; then
         sleep 1
       else
         break
