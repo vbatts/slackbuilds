@@ -13,23 +13,37 @@ config() {
 config etc/jenkins.conf.new
 config etc/rc.d/rc.jenkins.new
 
+userid=300
+groupid=300
+
 if ! grep -qw jenkins etc/group ; then
-	echo -ne "adding jenkins group : "
-	echo "groupadd -g 300 -r jenkins"
-	groupadd -g 300 -r jenkins
+	cmd="groupadd -g ${groupid} -r jenkins"
+	echo "adding jenkins group : ${cmd}"
+	${cmd}
 fi
 
 if ! grep -qw jenkins etc/passwd ; then
-	echo -ne "adding jenkins user : "
-	echo "useradd -k /dev/null -g 300 -M -r -s bin/bash -d var/lib/jenkins -g jenkins jenkins"
-	useradd -m -k /dev/null -u 300 -g 300 -r -s bin/bash -d var/lib/jenkins -g jenkins jenkins
+	cmd="useradd -k /dev/null -g ${userid} -M -r -s bin/bash -d var/lib/jenkins -g jenkins jenkins"
+	echo "adding jenkins user : ${cmd}"
+	${cmd}
 fi
 
-echo -ne "changing ownership of jenkins's home : "
-echo "chown -R jenkins.jenkins var/lib/jenkins"
-chown -R jenkins.jenkins var/lib/jenkins
+cmd="chown -R jenkins.jenkins var/lib/jenkins"
+echo "changing ownership of jenkins's home : ${cmd}"
+${cmd}
 
-echo -ne "changing ownership of jenkins's log : "
-echo "chown -R jenkins.jenkins var/log/jenkins.log"
+cmd="chown -R jenkins.jenkins var/log/jenkins_console.log"
+echo "setting ownership of jenkins's console log : ${cmd}"
+touch var/log/jenkins_console.log
+${cmd}
+
+cmd="chown -R jenkins.jenkins var/log/jenkins.log"
+echo "setting ownership of jenkins's log : ${cmd}"
 touch var/log/jenkins.log
-chown -R jenkins.jenkins var/log/jenkins.log
+${cmd}
+
+cmd="chown -R jenkins.jenkins var/run/jenkins.pid"
+echo "setting ownership of jenkins's pid : ${cmd}"
+touch var/run/jenkins.pid
+${cmd}
+

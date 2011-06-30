@@ -6,3 +6,11 @@
   delaycompress
 }
 
+/var/log/jenkins_console.log {
+  rotate 10
+  notifempty
+  size=5M
+  compress
+  delaycompress
+}
+

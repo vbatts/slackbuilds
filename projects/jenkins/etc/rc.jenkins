@@ -1,14 +1,18 @@
 #!/bin/sh
 
-PID="$(pgrep -f 'java.*jenkins.war')"
+function getPid() {
+	pgrep -f 'java.*jenkins.war'
+}
+pid_file="/var/run/jenkins.pid"
 max_wait=8
 
 # Define start and stop functions
 
 jenkins_start() {
-  if [ $PID ]; then
+  $p=$(getPid)
+  if [ $p ]; then
     echo "jenkins appears to already be running."
-    echo "on $PID, check it first ..."
+    echo "on $p, check it first ..."
     exit 1
   else
     echo "Starting jenkins daemon..."
@@ -18,9 +22,12 @@ jenkins_start() {
 
 jenkins_stop() {
   echo -ne "Stopping jenkins daemon...  "
-  if [ ${PID} -gt 1 ] 2>/dev/null ; then
-    echo "pid ${PID}"
-    kill ${PID}
+  kill $(cat $pid_file)
+
+  $p=$(getPid)
+  if [ ${p} -gt 1 ] 2>/dev/null ; then
+    echo "pid ${p}"
+    kill ${p}
   else
     echo "jenkins.war not found running"
   fi
