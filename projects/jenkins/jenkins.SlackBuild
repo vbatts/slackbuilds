@@ -1,21 +1,26 @@
 #!/bin/sh
-# $Id$
 # Slackware build script for jenkins
-# Copyright 2008, Vincent Batts, vbatts@hashbangbash.com, http://hashbangbash.com/
-## This program is free software; you can redistribute it and/or
-## modify it under the terms of the Common Development and
-## Distribution License (CDDL) Version 1.0 or under the terms
-## of the Lesser GNU General Public License Version 2.1 or later as
-## published by the Free Software Foundation.
-## 
-## This program is distributed in the hope that it will be useful,
-## but WITHOUT ANY WARRANTY; without even the implied warranty of
-## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-## Lesser GNU General Public License Version 2.1 for more details.
-## 
-## You should have received a copy of the Lesser GNU General Public License
-## Version 2.1 along with this program; if not, write to the Free Software
-## Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+# Copyright 2008,2009 Vincent Batts, Birmingham, AL, USA
+# Copyright 2008,2009 Vincent Batts, Vienna, VA, USA
+#		vbatts@hashbangbash.com, http://hashbangbash.com/
+# All rights reserved.
+#
+# Redistribution and use of this script, with or without modification, is
+# permitted provided that the following conditions are met:
+#
+# 1. Redistributions of this script must retain the above copyright
+#    notice, this list of conditions and the following disclaimer.
+#
+# THIS SOFTWARE IS PROVIDED BY THE AUTHOR ''AS IS'' AND ANY EXPRESS OR IMPLIED
+# WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+# MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+# EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+# SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+# PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+# OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+# WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+# OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+# ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=jenkins
 ARCH=${ARCH:-noarch}
