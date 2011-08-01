@@ -51,6 +51,16 @@ they are here, working or not
   asciiquarium - 19.Jun.2010
   cutecom - 09.sept.2010, published 13.sept.2010
   fortune-dharma - 27.sept.2010, published 25.oct.2010
+  slack-utils - 25.May.2011
+  mytop - 10.Mar.2011
+  torsocks - 09.Mar.2011
+  dpkt - 22.Feb.2011
+  pylibpcap - 22.Feb.2011
+  dissy - 4.Jul.2010
+  subtle - 11.Mar.2011
+  dblatex - 15.April.2011
+  wkhtmltopdf - 06.June.2011
+  libdbi{,-drivers} - 30.June.2009
 
 ** STABLE **
   kde4-4.1.x, coexistisng with kde-3.5.x (and all subdirectories) for slackware-12.2
@@ -66,26 +76,17 @@ they are here, working or not
   google-gadgets - 2008.12.12
   id3tool - 2008.12.13
   scollkeeper - 03.Feb.2009, submitted
-  libdbi{,-drivers} - 30.June.2009
   sox - 03.Aug.2009; nevermind, this was rolled into slackware-13.0 trunk
   0xFFFF - 16.Jan.2010
   perl-time-period - 23.Jan.2010
   perl-time-parsedate - 23.Jan.2010
   dirvish - 23.Jan.2010
   kernbench - 29.Apr.2010
-  dissy - 4.Jul.2010
   mod_ruby - 16.Jul.2010
   jruby - 27.sept.2010
-  dpkt - 22.Feb.2011
-  pylibpcap - 22.Feb.2011
-  torsocks - 09.Mar.2011
-  mytop - 10.Mar.2011
-  subtle - 11.Mar.2011
   libechonest - 5.April.2011
   kdesrc-build - 8.April.2011
-  dblatex - 15.April.2011
-  slack-utils - 25.May.2011
-  wkhtmltopdf - 06.June.2011
+  cream - 01.aug.2011
 
 ** TESTING/BROKEN **
   xbench
