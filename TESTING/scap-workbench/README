@@ -1,0 +1,7 @@
+scap-workbench (GUI tool for SCAP content)
+
+scap-workbench is GUI tool that provides scanning, tailoring, editing
+and validation functionality for SCAP content. 
+
+requires: openscap
+
