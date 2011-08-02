@@ -3,5 +3,5 @@ scap-workbench (GUI tool for SCAP content)
 scap-workbench is GUI tool that provides scanning, tailoring, editing
 and validation functionality for SCAP content. 
 
-requires: openscap
+requires: openscap, gnome-python (which require: GConf, gnome-mime-data, ORBit2, libbonobo, gnome-vfs, libgnome)
 
