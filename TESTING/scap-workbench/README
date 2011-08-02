@@ -5,3 +5,4 @@ and validation functionality for SCAP content.
 
 requires: openscap, gnome-python (which require: GConf, gnome-mime-data, ORBit2, libbonobo, gnome-vfs, libgnome)
 
+HtmlTextView: https://github.com/andersbll/htmltextview
