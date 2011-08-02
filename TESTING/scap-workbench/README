@@ -4,5 +4,6 @@ scap-workbench is GUI tool that provides scanning, tailoring, editing
 and validation functionality for SCAP content. 
 
 requires: openscap, gnome-python (which require: GConf, gnome-mime-data, ORBit2, libbonobo, gnome-vfs, libgnome)
+optional: pywebkitgtk, BeautifulSoup
 
 HtmlTextView: https://github.com/andersbll/htmltextview

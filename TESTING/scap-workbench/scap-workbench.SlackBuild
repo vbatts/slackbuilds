@@ -70,6 +70,7 @@ find . \
  -exec chmod 644 {} \;
 
 cat $CWD/gnome_ui.patch | patch -p1 --backup
+cat $CWD/htmltextview.patch | patch -p1 --backup
 
 make install DESTDIR=$PKG
 

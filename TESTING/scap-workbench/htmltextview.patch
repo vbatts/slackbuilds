@@ -1,0 +1,12 @@
+Index: scap-workbench-0.4.0/src/scap_workbench/abstract.py
+===================================================================
+--- scap-workbench-0.4.0.orig/src/scap_workbench/abstract.py
++++ scap-workbench-0.4.0/src/scap_workbench/abstract.py
+@@ -31,6 +31,7 @@ import re               # Regular expres
+ import logging                  # Logger for debug/info/error messages
+ from core import Notification   # core.Notification levels for reference
+ from events import EventObject  # abstract module EventObject
++from htmltextview import HtmlTextView
+ 
+ # Initializing Logger
+ logger = logging.getLogger("scap-workbench")
