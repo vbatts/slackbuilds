@@ -69,6 +69,8 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
+cat $CWD/gnome_ui.patch | patch -p1 --backup
+
 make install DESTDIR=$PKG
 
 mv $PKG/etc/scap-workbench/logger.conf{,.new}
