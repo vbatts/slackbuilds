@@ -1,0 +1,6 @@
+SCC is the compiler used for SC. SC is a small language intended to
+make the creation of OVAL content easier. The SC language is more
+"human readable" than the XML of OVAL.
+
+Requires: PLY and python-elementtree
+
