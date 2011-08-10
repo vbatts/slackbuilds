@@ -1,0 +1,26 @@
+Index: scap-workbench-0.4.0/src/scap_workbench/edit.py
+===================================================================
+--- scap-workbench-0.4.0.orig/src/scap_workbench/edit.py
++++ scap-workbench-0.4.0/src/scap_workbench/edit.py
+@@ -29,7 +29,7 @@ import re               # Regular expres
+ import sre_constants    # For re.compile exception
+ import os               # os Path join/basename, ..
+ import threading        # Main window is running in thread
+-import gnome, gnome.ui  # Gnome icons in HTML editor
++import gnome            # Gnome icons in HTML editor
+ import tempfile         # Temporary file for XCCDF preview
+ 
+ """ Importing SCAP Workbench modules
+Index: scap-workbench-0.4.0/src/scap_workbench/scanner.py
+===================================================================
+--- scap-workbench-0.4.0.orig/src/scap_workbench/scanner.py
++++ scap-workbench-0.4.0/src/scap_workbench/scanner.py
+@@ -24,7 +24,7 @@
+ """
+ import gtk              # GTK library
+ import threading        # Main window is running in thread
+-import gnome, gnome.ui  # Gnome icons in HTML editor
++import gnome            # Gnome icons in HTML editor
+ import pango            # Pango enumeration constants
+ 
+ """ Importing SCAP Workbench modules
