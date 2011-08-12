@@ -119,27 +119,33 @@ Index: p4ruby/p4ruby-2010.2.295040./p4.cpp
      return Qtrue;
  }
  
-@@ -535,7 +535,8 @@ static VALUE p4_run( VALUE self, VALUE a
+@@ -535,7 +535,11 @@ static VALUE p4_run( VALUE self, VALUE a
      if ( ! NUM2INT( rb_funcall( flatArgs, idLength, 0 ) ) )
  	rb_raise( eP4, "P4#run requires an argument" );
  
 -    char *cmd = STR2CSTR( rb_funcall( flatArgs, rb_intern( "shift" ), 0 ) );
-+    VALUE tmp1 = rb_funcall( flatArgs, rb_intern( "shift" ), 0 );
-+    char *cmd = StringValueCStr( tmp1 );
++    // Due the amount of pointers and casts,
++    // I've put this in its own variable, that will get 
++    // reclaimed when out of scope. --vbatts
++    VALUE args_shift = rb_funcall( flatArgs, rb_intern( "shift" ), 0 );
++    char *cmd = StringValueCStr( args_shift );
      argc = NUM2INT( rb_funcall( flatArgs, idLength, 0 ) );
  
      // Allocate storage on the stack so it's automatically reclaimed 
-@@ -546,7 +547,8 @@ static VALUE p4_run( VALUE self, VALUE a
+@@ -546,7 +550,11 @@ static VALUE p4_run( VALUE self, VALUE a
      for ( i = 0; i < argc; i++ )
      {
  	VALUE	entry = rb_ary_entry( flatArgs, i );
 -	p4args[ i ] = STR2CSTR( rb_funcall( entry, idTo_S, 0 ) );
-+	VALUE tmp2 = rb_funcall( entry, idTo_S, 0 );
-+	p4args[ i ] = StringValueCStr( tmp2 );
++	// Due the amount of pointers and casts,
++	// I've put this in its own variable, that will get 
++	// reclaimed when out of scope. --vbatts
++	VALUE	entry_str = rb_funcall( entry, idTo_S, 0 );
++	p4args[ i ] = StringValueCStr( entry_str );
      }
      p4args[ i ] = 0;
  
-@@ -614,7 +616,7 @@ static VALUE p4_parse_spec( VALUE self,
+@@ -614,7 +622,7 @@ static VALUE p4_parse_spec( VALUE self,
      Check_Type( type, T_STRING );
  
      Data_Get_Struct( self, P4ClientApi, p4 );
@@ -148,7 +154,7 @@ Index: p4ruby/p4ruby-2010.2.295040./p4.cpp
  }
  
  static VALUE p4_format_spec( VALUE self, VALUE type, VALUE hash )
-@@ -625,7 +627,7 @@ static VALUE p4_format_spec( VALUE self,
+@@ -625,7 +633,7 @@ static VALUE p4_format_spec( VALUE self,
      Check_Type( hash, T_HASH );
  
      Data_Get_Struct( self, P4ClientApi, p4 );
