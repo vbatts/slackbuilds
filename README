@@ -61,6 +61,7 @@ they are here, working or not
   dblatex - 15.April.2011
   wkhtmltopdf - 06.June.2011
   libdbi{,-drivers} - 30.June.2009
+  cream - 01.aug.2011
 
 ** STABLE **
   kde4-4.1.x, coexistisng with kde-3.5.x (and all subdirectories) for slackware-12.2
@@ -86,7 +87,7 @@ they are here, working or not
   jruby - 27.sept.2010
   libechonest - 5.April.2011
   kdesrc-build - 8.April.2011
-  cream - 01.aug.2011
+  google-api-python-client - 14.Aug.2011
 
 ** TESTING/BROKEN **
   xbench
