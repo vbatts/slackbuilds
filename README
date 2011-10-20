@@ -90,6 +90,9 @@ they are here, working or not
   google-api-python-client - 14.Aug.2011
   afpfs-ng - 15.Aug.2011
   hte - 15.Aug.2011
+  sslstrip - 11.Oct.2011
+  cx_Freeze - 13.Oct.2011
+  openscap - 13.Oct.2011
 
 ** TESTING/BROKEN **
   xbench

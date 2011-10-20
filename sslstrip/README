@@ -5,5 +5,5 @@ It will transparently hijack HTTP traffic on a network, watch for
 HTTPS links and redirects, then map those links into either
 look-alike HTTP links or homograph-similar HTTPS links. 
 
-requires: python-twisted-web2 (which require pysetuptools,
+requires: pyOpenSSL and python-twisted-web2 (which require pysetuptools,
           zope.interface, and python-twisted)
