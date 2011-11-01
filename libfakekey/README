@@ -1,0 +1,5 @@
+libfakekey (library for fake X11 key events)
+
+libfakekey allows an interface to send key events the an active X11
+display.
+
