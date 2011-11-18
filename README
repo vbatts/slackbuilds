@@ -95,6 +95,7 @@ they are here, working or not
   cx_Freeze - 13.Oct.2011
   python-xrandr - 30.Oct.2011
   pygraphviz - 18.Nov.2011
+  pymake - 18.Nov.2011
 
 ** TESTING/BROKEN **
   xbench

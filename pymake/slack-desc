@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+      |-----handy-ruler------------------------------------------------------|
+pymake: pymake (python implementation of GNU make)
+pymake:
+pymake: make.py (and the pymake modules that support it) are an
+pymake: implementation of the make tool which are mostly compatible with
+pymake: makefiles written for GNU make.
+pymake:
+pymake: Homepage: http://benjamin.smedbergs.us/pymake/
+pymake:
+pymake:
+pymake:
+pymake:

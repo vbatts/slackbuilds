@@ -1,0 +1,6 @@
+pymake (python implementation of GNU make)
+
+make.py (and the pymake modules that support it) are an
+implementation of the make tool which are mostly compatible with
+makefiles written for GNU make.
+
