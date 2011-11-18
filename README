@@ -94,6 +94,7 @@ they are here, working or not
   sslstrip - 11.Oct.2011
   cx_Freeze - 13.Oct.2011
   python-xrandr - 30.Oct.2011
+  pygraphviz - 18.Nov.2011
 
 ** TESTING/BROKEN **
   xbench
