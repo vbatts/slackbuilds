@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+       |-----handy-ruler------------------------------------------------------|
+ofxparse: ofxparse (python tools for OFX parsing)
+ofxparse:
+ofxparse: ofxparse is a parser for Open Financial Exchange (.ofx) format
+ofxparse: files. OFX files are available from almost any online banking site,
+ofxparse: so they work well if you want to pull together your finances from
+ofxparse: multiple sources. Online trading accounts also provide account
+ofxparse: statements in OFX files.
+ofxparse:
+ofxparse:
+ofxparse:
+ofxparse:
