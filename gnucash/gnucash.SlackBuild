@@ -23,7 +23,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=gnucash
-VERSION=2.4.5
+VERSION=2.4.8
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 JOBS=${JOBS:--j4}
@@ -43,6 +43,7 @@ OUTPUT=${OUTPUT:-/tmp}
 
 DBI=${DBI:-false}
 WEBKIT=${WEBKIT:-false}
+DOCS=${DOCS:-false}
 OPT_ARGS=""
 
 if [ "$ARCH" = "i486" ]; then
@@ -73,6 +74,11 @@ fi
 if [ ! "$WEBKIT" = "false" ] ; then
   OPT_ARGS="$OPT_ARGS --enable-webkit --with-html-engine=webkit"
   echo $0 : building with webkit enabled
+  sleep 0.5
+fi
+if [ ! "$DOCS" = "false" ] ; then
+  OPT_ARGS="$OPT_ARGS --enable-doxygen --enable-html-docs"
+  echo $0 : building docs
   sleep 0.5
 fi
 
