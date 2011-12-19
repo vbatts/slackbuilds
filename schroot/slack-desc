@@ -6,7 +6,7 @@
 # customary to leave one space after the ':'.
 
        |-----handy-ruler------------------------------------------------------|
-schroot: schroot 
+schroot: schroot (secure chroot utility)
 schroot:
 schroot: Securely enter a chroot and run a command or login shell.
 schroot: 

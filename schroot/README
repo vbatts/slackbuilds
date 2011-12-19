@@ -11,10 +11,5 @@ and group files, etc.
   
  To get started, see schroot.conf(5) and schroot-setup(5).
 
- This package depends on the following Slackware packages:
+ This package will link against Linux-PAM if it is present.
 
- boost
- cppunit
- Linux-PAM
-
-TODO: fix a doinst up for schroot.conf and /etc in general
