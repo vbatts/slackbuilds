@@ -8,8 +8,8 @@
             |-----handy-ruler------------------------------------------------------|
 gnucash-docs: gnucash-docs (gnucash documentation)
 gnucash-docs:
-gnucash-docs:
-gnucash-docs:
+gnucash-docs: The Help Manual is designed to be a quick reference of how to
+gnucash-docs: accomplish specific tasks and how to use the features in GnuCash.
 gnucash-docs:
 gnucash-docs:
 gnucash-docs:
