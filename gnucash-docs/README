@@ -1,3 +1,11 @@
+gnucash-docs (gnucash documentation)
 
-requires: rarian?
+The Help Manual is designed to be a quick reference of how to
+accomplish specific tasks and how to use the features in GnuCash.
+The Concepts Guide is designed to be an in depth guide to the
+concepts behind using GnuCash with a tutorial to show how to put
+those concepts into practice.
+
+
+requires: gnucash to be rebuilt; rarian
 
