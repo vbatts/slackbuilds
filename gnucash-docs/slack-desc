@@ -5,15 +5,15 @@
 # make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':' except on otherwise blank lines.
 
-       |-----handy-ruler------------------------------------------------------|
-gnucash-docs: gnucash-docs (short description of app)
+            |-----handy-ruler------------------------------------------------------|
+gnucash-docs: gnucash-docs (gnucash documentation)
 gnucash-docs:
-gnucash-docs: Long description of gnucash-docs, wrapped at 71 characters *after* the
-gnucash-docs: colon following "gnucash-docs" (and the 'handy ruler' should start at
-gnucash-docs: that colon and be exactly 71 characters long).
-gnucash-docs: If there is room, there might be a link to the homepage of the
-gnucash-docs: application on one of these lines, but it's not necessary.
 gnucash-docs:
-gnucash-docs: The maximum number of lines prefixed by "gnucash-docs:" is 11.
-gnucash-docs: Lines without any other text should *not* have a space after the :
+gnucash-docs:
+gnucash-docs:
+gnucash-docs:
+gnucash-docs:
+gnucash-docs:
+gnucash-docs:
+gnucash-docs:
 gnucash-docs:
