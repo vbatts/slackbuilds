@@ -34,7 +34,7 @@ TMP=${TMP:-/tmp/SBo}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
-set -e
+#set -e
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
@@ -60,6 +60,17 @@ find . \
 
 make
 make install DESTDIR=$PKG
+
+for xml in $PKG/usr/share/gnome/help/*/*/*.xml; do
+    echo $xml
+    echo $xml | grep -E 'share/gnome/help/([^/]*)/[^/]*/\1\.xml$'
+    if echo $xml | grep -E 'share/gnome/help/([^/]*)/[^/]*/\1\.xml$' > /dev/null; then
+        echo $xml | sed 's/xml$/cache.bz2/'
+        meinproc4 --check --cache `echo $xml | sed 's/xml$/cache.bz2/'` $xml || true
+        echo meinproc4 --check --cache `echo $xml | sed 's/xml$/cache.bz2/'` $xml
+    fi
+done
+bash
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \

@@ -55,8 +55,9 @@ find . \
  \( -perm 666 -o -perm 664 -o -perm 600 -o -perm 444 -o -perm 440 -o -perm 400 \) \
  -exec chmod 644 {} \;
 
-DESTDIR=$PKG \
-	rake install
+#DESTDIR=$PKG \
+	#rake install
+rake install manprefix=/usr/man destdir=$PKG
 
 mv $PKG/etc/xdg/subtle/subtle.rb{,.new}
 mv $PKG/usr/share/man $PKG/usr/
