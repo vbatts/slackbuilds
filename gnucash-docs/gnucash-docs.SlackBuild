@@ -3,6 +3,7 @@
 # Slackware build script for gnucash-docs
 
 # Copyright 2011  Vincent Batts, Vienna, VA, USA
+# Copyright 2012  Vincent Batts, Raleigh, NC, USA
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -61,6 +62,7 @@ find . \
 make
 make install DESTDIR=$PKG
 
+function fart() {
 for xml in $PKG/usr/share/gnome/help/*/*/*.xml; do
     echo $xml
     echo $xml | grep -E 'share/gnome/help/([^/]*)/[^/]*/\1\.xml$'
@@ -71,6 +73,7 @@ for xml in $PKG/usr/share/gnome/help/*/*/*.xml; do
     fi
 done
 bash
+}
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
@@ -81,7 +84,7 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-#cat $CWD/doinst.sh > $PKG/install/doinst.sh
+cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
