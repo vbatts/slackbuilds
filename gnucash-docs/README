@@ -7,5 +7,5 @@ concepts behind using GnuCash with a tutorial to show how to put
 those concepts into practice.
 
 
-requires: gnucash to be rebuilt; rarian
+requires: yelp (which require xulrunner), rarian
 
