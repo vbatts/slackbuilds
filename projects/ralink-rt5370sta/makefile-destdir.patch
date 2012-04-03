@@ -1,0 +1,76 @@
+Index: 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO/Makefile
+===================================================================
+--- 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO.orig/Makefile
++++ 2011_0719_RT3070_RT3370_RT5370_RT5372_Linux_STA_V2.5.0.3_DPO/Makefile
+@@ -323,26 +323,26 @@ ifeq ($(OSABL),YES)
+ endif
+ 
+ ifeq ($(RT28xx_MODE),AP)
+-	cp -f $(RT28xx_DIR)/os/linux/rt$(CHIPSET)ap.o /tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rt$(CHIPSET)ap.o $(DESTDIR)/tftpboot
+ ifeq ($(OSABL),YES)
+-	cp -f $(RT28xx_DIR)/os/linux/rtutil$(CHIPSET)ap.o /tftpboot
+-	cp -f $(RT28xx_DIR)/os/linux/rtnet$(CHIPSET)ap.o /tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rtutil$(CHIPSET)ap.o $(DESTDIR)/tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rtnet$(CHIPSET)ap.o $(DESTDIR)/tftpboot
+ endif
+ ifeq ($(PLATFORM),INF_AMAZON_SE)
+-	cp -f /tftpboot/rt2870ap.o /backup/ifx/build/root_filesystem/lib/modules/2.4.31-Amazon_SE-3.6.2.2-R0416_Ralink/kernel/drivers/net
++	cp -f $(DESTDIR)/tftpboot/rt2870ap.o /backup/ifx/build/root_filesystem/lib/modules/2.4.31-Amazon_SE-3.6.2.2-R0416_Ralink/kernel/drivers/net
+ endif
+ else	
+ ifeq ($(RT28xx_MODE),APSTA)
+-	cp -f $(RT28xx_DIR)/os/linux/rt$(CHIPSET)apsta.o /tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rt$(CHIPSET)apsta.o $(DESTDIR)/tftpboot
+ ifeq ($(OSABL),YES)
+-	cp -f $(RT28xx_DIR)/os/linux/rtutil$(CHIPSET)apsta.o /tftpboot
+-	cp -f $(RT28xx_DIR)/os/linux/rtnet$(CHIPSET)apsta.o /tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rtutil$(CHIPSET)apsta.o $(DESTDIR)/tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rtnet$(CHIPSET)apsta.o $(DESTDIR)/tftpboot
+ endif
+ else
+-	cp -f $(RT28xx_DIR)/os/linux/rt$(CHIPSET)sta.o /tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rt$(CHIPSET)sta.o $(DESTDIR)/tftpboot
+ ifeq ($(OSABL),YES)
+-	cp -f $(RT28xx_DIR)/os/linux/rtutil$(CHIPSET)sta.o /tftpboot
+-	cp -f $(RT28xx_DIR)/os/linux/rtnet$(CHIPSET)sta.o /tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rtutil$(CHIPSET)sta.o $(DESTDIR)/tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rtnet$(CHIPSET)sta.o $(DESTDIR)/tftpboot
+ endif
+ endif	
+ endif	
+@@ -370,25 +370,25 @@ ifeq ($(OSABL),YES)
+ endif
+ 
+ ifeq ($(RT28xx_MODE),AP)
+-	cp -f $(RT28xx_DIR)/os/linux/rt$(CHIPSET)ap.ko /tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rt$(CHIPSET)ap.ko $(DESTDIR)/tftpboot
+ ifeq ($(OSABL),YES)
+-	cp -f $(RT28xx_DIR)/os/linux/rtutil$(CHIPSET)ap.ko /tftpboot
+-	cp -f $(RT28xx_DIR)/os/linux/rtnet$(CHIPSET)ap.ko /tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rtutil$(CHIPSET)ap.ko $(DESTDIR)/tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rtnet$(CHIPSET)ap.ko $(DESTDIR)/tftpboot
+ endif
+ 	rm -f os/linux/rt$(CHIPSET)ap.ko.lzma
+ 	/root/bin/lzma e os/linux/rt$(CHIPSET)ap.ko os/linux/rt$(CHIPSET)ap.ko.lzma
+ else	
+ ifeq ($(RT28xx_MODE),APSTA)
+-	cp -f $(RT28xx_DIR)/os/linux/rt$(CHIPSET)apsta.ko /tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rt$(CHIPSET)apsta.ko $(DESTDIR)/tftpboot
+ ifeq ($(OSABL),YES)
+-	cp -f $(RT28xx_DIR)/os/linux/rtutil$(CHIPSET)apsta.ko /tftpboot
+-	cp -f $(RT28xx_DIR)/os/linux/rtnet$(CHIPSET)apsta.ko /tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rtutil$(CHIPSET)apsta.ko $(DESTDIR)/tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rtnet$(CHIPSET)apsta.ko $(DESTDIR)/tftpboot
+ endif
+ else
+-	cp -f $(RT28xx_DIR)/os/linux/rt$(CHIPSET)sta.ko /tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rt$(CHIPSET)sta.ko $(DESTDIR)/tftpboot
+ ifeq ($(OSABL),YES)
+-	cp -f $(RT28xx_DIR)/os/linux/rtutil$(CHIPSET)sta.ko /tftpboot
+-	cp -f $(RT28xx_DIR)/os/linux/rtnet$(CHIPSET)sta.ko /tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rtutil$(CHIPSET)sta.ko $(DESTDIR)/tftpboot
++	cp -f $(RT28xx_DIR)/os/linux/rtnet$(CHIPSET)sta.ko $(DESTDIR)/tftpboot
+ endif
+ endif
+ endif
