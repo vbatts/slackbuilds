@@ -2,6 +2,7 @@
 
 # Slackware build script for jruby
 
+# Copyright 2012  Vincent Batts, Raleigh, NC, USA
 # Copyright 2010, 2011  Vincent Batts, Vienna, VA, USA
 # All rights reserved.
 #
@@ -23,7 +24,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=jruby
-VERSION=${VERSION:-1.6.3}
+VERSION=${VERSION:-1.6.7.2}
 ARCH=noarch
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -60,7 +61,8 @@ EOF
 cat > $PKG/etc/profile.d/$PRGNAM.csh <<EOF
 setenv PATH \${PATH}:/opt/$PRGNAM/bin
 EOF
-chmod 0755 $PKG/etc/profile.d/*sh
+
+chmod 0755 $PKG/etc/profile.d/$PRGNAM.{,c}sh
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
