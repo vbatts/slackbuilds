@@ -2,6 +2,7 @@
 
 # Slackware build script for subtle
 
+# Copyright 2012  Vincent Batts, Raleigh, NC, USA
 # Copyright 2011  Vincent Batts, vbatts@hashbangbash.com, http://hashbangbash.com/
 # All rights reserved.
 #
@@ -23,9 +24,9 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=subtle
-VERSION=${VERSION:-0.9.2773-mu}
+VERSION=${VERSION:-0.11.3224-xi}
 BUILD=${BUILD:-1}
-TAG=${TAG:-_SBo}
+TAG=${TAG:-_vb}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -60,7 +61,6 @@ find . \
 rake install manprefix=/usr/man destdir=$PKG
 
 mv $PKG/etc/xdg/subtle/subtle.rb{,.new}
-mv $PKG/usr/share/man $PKG/usr/
 
 mkdir -p $PKG/etc/X11/xinit
 cp -a $CWD/xinitrc.subtle $PKG/etc/X11/xinit/
