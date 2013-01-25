@@ -5,7 +5,7 @@
 # Written by (your name) (your contact information)
 
 PRGNAM=pam_krb5
-VERSION=${VERSION:-2003.06.01}
+VERSION=${VERSION:-2.3.13-1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -46,9 +46,9 @@ set -e # Exit on most errors
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf ${PRGNAM}_snap-$VERSION
-tar xvf $CWD/${PRGNAM}_snap-$VERSION.tar.gz
-cd ${PRGNAM}_snap-$VERSION
+rm -rf ${PRGNAM}-$VERSION
+tar xvf $CWD/${PRGNAM}-$VERSION.tar.gz
+cd ${PRGNAM}-$VERSION
 chown -R root:root .
 find . \
  \( -perm 777 -o -perm 775 -o -perm 711 -o -perm 555 -o -perm 511 \) \
@@ -64,7 +64,13 @@ CXXFLAGS="$SLKCFLAGS" \
   --sysconfdir=/etc \
   --localstatedir=/var \
   --mandir=/usr/man \
-  --with-pamdir=/lib64/security \
+  --enable-shared \
+  --disable-static \
+  --with-default-use-shmem="sshd" \
+  --with-default-external="sshd sshd-rekey gssftp" \
+  --with-default-multiple-ccaches="su su-l" \
+  --with-default-no-cred-session="sshd" \
+  --with-pamdir=/lib${LIBDIRSUFFIX}/security \
   --build=$ARCH-slackware-linux
 
 make
@@ -92,4 +98,4 @@ cat $CWD/doinst.sh > $PKG/install/doinst.sh
 # your custom contents of doinst.sh runs, then add the -p switch to
 # the makepkg command below -- see makepkg(8) for details
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$(echo $VERSION | tr '-' '_')-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
