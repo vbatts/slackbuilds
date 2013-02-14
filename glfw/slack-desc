@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+    |-----handy-ruler------------------------------------------------------|
+glfw: glfw (easy OpenGL window help)
+glfw:
+glfw: GLFW is a free, Open Source, multi-platform library for opening a
+glfw: window, creating an OpenGL context and managing input. It is easy to
+glfw: integrate into existing applications and does not lay claim to the
+glfw: main loop.
+glfw:
+glfw:
+glfw:
+glfw:
+glfw:
