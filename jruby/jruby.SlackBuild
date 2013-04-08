@@ -2,7 +2,7 @@
 
 # Slackware build script for jruby
 
-# Copyright 2012  Vincent Batts, Raleigh, NC, USA
+# Copyright 2012, 2013  Vincent Batts, Raleigh, NC, USA
 # Copyright 2010, 2011  Vincent Batts, Vienna, VA, USA
 # All rights reserved.
 #
@@ -24,7 +24,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=jruby
-VERSION=${VERSION:-1.6.7.2}
+VERSION=${VERSION:-1.7.3}
 ARCH=noarch
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -52,7 +52,7 @@ find . \
 mkdir -p $PKG/opt/$PRGNAM
 
 rm -rf bin/*.bat bin/*.dll bin/*.exe
-mv bin/ lib/ docs/ samples/ share/ tool/ $PKG/opt/$PRGNAM
+mv bin/ lib/ docs/ samples/ tool/ $PKG/opt/$PRGNAM
 
 mkdir -p $PKG/etc/profile.d
 cat > $PKG/etc/profile.d/$PRGNAM.sh <<EOF
@@ -66,7 +66,7 @@ chmod 0755 $PKG/etc/profile.d/$PRGNAM.{,c}sh
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
-  COPYING README LICENSE.RUBY \
+  COPYING LICENSE.RUBY \
   $PKG/usr/doc/$PRGNAM-$VERSION
 ( cd $PKG/usr/doc/$PRGNAM-$VERSION
   ln -s /opt/$PRGNAM/docs
