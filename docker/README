@@ -5,5 +5,9 @@ bare metal, OpenStack clusters, public clouds and more.
 
 See also http://docker.io/
 
+to use docker as a limited user, add your user to the 'docker' group
+
+	#> usermod -a -G docker <your_username>
+
 NOTE: google-go-lang is only needed at compile time, and is not needed for
 runtime.
