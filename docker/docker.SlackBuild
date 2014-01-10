@@ -5,7 +5,7 @@
 # Written by Vincent Batts <vbatts@hashbangbash.com>
 
 PRGNAM=docker
-VERSION=${VERSION:-0.7.1}
+VERSION=${VERSION:-0.7.5}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
