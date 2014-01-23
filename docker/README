@@ -7,7 +7,10 @@ See also http://docker.io/
 
 to use docker as a limited user, add your user to the 'docker' group
 
+ 	#> groupadd -r -g 278 docker
 	#> usermod -a -G docker <your_username>
+
+This will require log out and login
 
 NOTE: google-go-lang is only needed at compile time, and is not needed for
 runtime.
