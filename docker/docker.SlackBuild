@@ -5,7 +5,7 @@
 # Written by Vincent Batts <vbatts@hashbangbash.com>
 
 PRGNAM=docker
-VERSION=${VERSION:-0.7.6}
+VERSION=${VERSION:-0.8.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -58,8 +58,12 @@ unset GOPATH
 mkdir -p ${PKG}/usr/share/gocode/src/github.com/dotcloud/docker
 cp -a .  ${PKG}/usr/share/gocode/src/github.com/dotcloud/docker/
 
+# back out this commit, which causes btrfs headers to not be found on slackware
+# since btrfs-progs removes the <btrfs/ioctl.h> header
+cat $CWD/docker-btrfs.patch | patch -p1 -R
+
 GOPATH=${PKG}/usr/share/gocode:$(pwd)/vendor \
-DOCKER_GITCOMMIT="0d078b65" \
+DOCKER_GITCOMMIT="cc3a8c8" \
 	./hack/make.sh dynbinary
 
 # do not strip these binaries. they have a SHA1 baked into them.

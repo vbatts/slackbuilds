@@ -67,7 +67,7 @@ case "$1" in
   docker_restart
   ;;
 'status')
-  if ps -o cmd $(cat ${DOCKER_PIDFILE}) | grep -q $BASE ; then
+  if [ -f ${DOCKER_PIDFILE} ] && ps -o cmd $(cat ${DOCKER_PIDFILE}) | grep -q $BASE ; then
 	  echo "status of $BASE: running"
   else
 	  echo "status of $BASE: stopped"
