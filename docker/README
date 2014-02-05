@@ -12,5 +12,18 @@ to use docker as a limited user, add your user to the 'docker' group
 
 This will require log out and login
 
+To have the docker daemon start and stop with you host,
+add to /etc/rc.d/rc.local:
+
+	if [ -x /etc/rc.d/rc.docker ]; then
+		/etc/rc.d/rc.docker start
+	fi
+
+and to /etc/rc.d/rc.local_shutdown (creating it if needed):
+
+	if [ -x /etc/rc.d/rc.docker ]; then
+		/etc/rc.d/rc.docker stop
+	fi
+
 NOTE: google-go-lang is only needed at compile time, and is not needed for
 runtime.

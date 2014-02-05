@@ -67,6 +67,10 @@ mkdir -p ${PKG}/usr/libexec/docker ${PKG}/usr/bin
 mv bundles/${VERSION}/dynbinary/dockerinit-${VERSION} ${PKG}/usr/libexec/docker/dockerinit
 mv bundles/${VERSION}/dynbinary/docker-${VERSION} ${PKG}/usr/bin/docker
 
+install -D --mode 0644 $CWD/docker.default $PKG/etc/default/docker.new
+install -D --mode 0644 $CWD/docker.logrotate $PKG/etc/logrotate.d/docker.new
+install -D --mode 0755 $CWD/rc.docker $PKG/etc/rc.d/rc.docker.new
+
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a \
   AUTHORS CONTRIBUTING.md CHANGELOG.md FIXME LICENSE README.md \
