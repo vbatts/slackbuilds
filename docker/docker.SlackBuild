@@ -59,7 +59,8 @@ mkdir -p ${PKG}/usr/share/gocode/src/github.com/dotcloud/docker
 cp -a .  ${PKG}/usr/share/gocode/src/github.com/dotcloud/docker/
 
 # back out this commit, which causes btrfs headers to not be found on slackware
-# since btrfs-progs removes the <btrfs/ioctl.h> header
+# since btrfs-progs removes the <btrfs/ioctl.h> header.
+# https://github.com/dotcloud/docker/commit/6922f1be08111d889b0585b763b08f92d7a55e05
 cat $CWD/docker-btrfs.patch | patch -p1 -R
 
 GOPATH=${PKG}/usr/share/gocode:$(pwd)/vendor \
