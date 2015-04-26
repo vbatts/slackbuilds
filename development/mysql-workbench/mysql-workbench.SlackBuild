@@ -3,7 +3,7 @@
 # Slackware build script for mysql-workbench
 
 # Originally written by André Geraldo Vieira <andre.geraldo@gmail.com>
-# Copyright 2013-2014 Willy Sudiarto Raharjo <willysr@slackbuilds.org>
+# Copyright 2013-2015 Willy Sudiarto Raharjo <willysr@slackbuilds.org>
 # All rights reserved.
 #
 # Redistribution and use of this script, with or without modification, is
@@ -24,7 +24,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=mysql-workbench
-VERSION=${VERSION:-6.2.5}
+VERSION=${VERSION:-6.3.4}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -75,10 +75,6 @@ find -L . \
 # Patch from Ponce
 patch -p1 < $CWD/config_and_ifconfig_paths.patch
 
-# fix schema and table inspector with mysql-connector-c++ >= 1.1.5
-# still not really working, so mysql-connector-c++ is kept at 1.1.3
-patch -p1 < $CWD/mysql-workbench-column-label.patch
-
 # Patch to fix gdal include path
 patch -p1 < $CWD/workbench-gdal.patch
 
@@ -89,6 +85,8 @@ patch -p1 < $CWD/mysql-workbench-no-set-gtid-purged.patch
 # this is reserved for future gnome-keyring releases, but harmless for
 # gnome-keyring package in stable release as well
 patch -p1 < $CWD/mysql-workbench-gnome-keyring.patch
+
+patch -p1 < $CWD/mysql-workbench-object.patch
 
 install -D $CWD/antlr-3.4-complete.jar $TMP/linux-res/bin/antlr-3.4-complete.jar
 
