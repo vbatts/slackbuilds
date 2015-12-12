@@ -37,7 +37,7 @@ docker_start() {
         rm -f ${DOCKER_PIDFILE}
       fi
     fi
-    nohup ${DOCKER} -d -p ${DOCKER_PIDFILE} ${DOCKER_OPTS} >> ${DOCKER_LOG} 2>&1 &
+    nohup ${DOCKER} daemon -p ${DOCKER_PIDFILE} ${DOCKER_OPTS} >> ${DOCKER_LOG} 2>&1 &
   fi
 }
 
