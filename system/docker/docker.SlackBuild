@@ -5,7 +5,7 @@
 # Written by Vincent Batts <vbatts@hashbangbash.com>
 
 PRGNAM=docker
-VERSION=${VERSION:-1.8.2}
+VERSION=${VERSION:-1.10.3}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -56,16 +56,8 @@ find . ! -type l \
 
 unset GOPATH
 
-# back out this commit, which causes btrfs headers to not be found on slackware
-# since btrfs-progs removes the <btrfs/ioctl.h> header.
-# https://github.com/docker/docker/commit/6922f1be08111d889b0585b763b08f92d7a55e05
-patch -p1 -R < $CWD/docker-btrfs.patch
-
-# a couple of patches that missed the 1.8.2 release window, but are essential
-for patch in ${CWD}/patches/*.patch
-do
-	patch -p1 < ${patch}
-done
+# C unions are not straightforward in golang
+patch -p1 < $CWD/docker-btrfs.patch
 
 mkdir -p ${PKG}/usr/share/gocode/src/github.com/docker/docker
 cp -a .  ${PKG}/usr/share/gocode/src/github.com/docker/docker/
