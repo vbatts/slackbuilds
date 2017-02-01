@@ -1,0 +1,7 @@
+systemd
+
+This package is intentionally not providing the /sbin/init replacement. Other
+folks have worked on doing that. 
+
+This package is inteded to provide access to the tools that ship with systemd,
+namely nspawn for containers.
