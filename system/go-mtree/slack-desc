@@ -1,0 +1,12 @@
+        |-----handy-ruler------------------------------------------------------|
+go-mtree: go-mtree (passive filesystem verification)
+go-mtree:
+go-mtree: BSD mtree is a manifest format and tool to compare (and sometimes
+go-mtree: restore) a filesystem compared to that manifest.
+go-mtree: go-mtree is an largely compatible implementation that has additional
+go-mtree: features for linux xattrs and tar archives.
+go-mtree:
+go-mtree:
+go-mtree:
+go-mtree:
+go-mtree:
