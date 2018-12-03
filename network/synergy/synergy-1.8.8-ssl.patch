@@ -1,0 +1,22 @@
+--- ./src/lib/net/SecureSocket.cpp.orig	2018-12-03 09:50:54.386652344 -0500
++++ ./src/lib/net/SecureSocket.cpp	2018-12-03 09:54:26.979574568 -0500
+@@ -670,7 +670,7 @@ bool
+ SecureSocket::verifyCertFingerprint()
+ {
+ 	// calculate received certificate fingerprint
+-	X509 *cert = cert = SSL_get_peer_certificate(m_ssl->m_ssl);
++	X509 *cert = SSL_get_peer_certificate(m_ssl->m_ssl);
+ 	EVP_MD* tempDigest;
+ 	unsigned char tempFingerprint[EVP_MAX_MD_SIZE];
+ 	unsigned int tempFingerprintLen;
+@@ -805,9 +805,7 @@ SecureSocket::showSecureCipherInfo()
+ 		showCipherStackDesc(sStack);
+ 	}
+ 
+-	// m_ssl->m_ssl->session->ciphers is not forward compatable, In future release
+-	// of OpenSSL, it's not visible, need to use SSL_get_client_ciphers() instead
+-	STACK_OF(SSL_CIPHER) * cStack = m_ssl->m_ssl->session->ciphers;
++	STACK_OF(SSL_CIPHER) * cStack = SSL_get_client_ciphers(m_ssl->m_ssl);
+ 		if (cStack == NULL) {
+ 		LOG((CLOG_DEBUG1 "remote cipher list not available"));
+ 	}
