@@ -95,6 +95,8 @@ cd core
 patch -p1 < $CWD/fix_build_core.patch
 cd ..
 
+patch -p0 < $CWD/sysmacros.patch
+
 cd selinux
 patch -p1 < $CWD/fix_build_selinux.patch
 cd ..
