@@ -23,11 +23,13 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=casync
-GIT_COMMIT="e4a3c5efc8f11e0e99f8cc97bd417665d92b40a9"
+GIT_COMMIT="5310c6cb7f578fa30bbe520023322d8b05e47200"
 SHORT_COMMIT="${GIT_COMMIT:0:6}"
 VERSION=${VERSION:-2.git.${SHORT_COMMIT}}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
+
+MAN_PAGE=${MAN_PAGE:-false}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -71,12 +73,10 @@ find -L . \
  \( -perm 666 -o -perm 664 -o -perm 640 -o -perm 600 -o -perm 444 \
   -o -perm 440 -o -perm 400 \) -exec chmod 644 {} \;
 
-cat $CWD/meson-build.diff | patch -p1 || exit 1
-
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 meson --prefix /usr --libdir lib${LIBDIRSUFFIX} \
-  build -Dman=false -Dselinux=false
+  build -Dman="${MAN_PAGE}" -Dselinux=false
 
 DESTDIR=$PKG ninja -C build all install
 

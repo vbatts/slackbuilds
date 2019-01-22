@@ -2,3 +2,7 @@ casync (Content Addressable Data Synchronizer)
 
 casync is a backup utility or indexing utility
 Home page:  https://github.com/systemd/casync/
+
+Optionally:
+If you want the man page, export MAN_PAGE=true for the build. This requires
+the 'Sphinx' package.
