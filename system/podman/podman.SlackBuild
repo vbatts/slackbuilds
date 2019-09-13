@@ -24,7 +24,7 @@
 
 PRGNAM=podman
 REPONAME=libpod
-VERSION=${VERSION:-1.0.1}
+VERSION=${VERSION:-1.5.1}
 GIT_COMMIT="2c74edd0ac6509d6e533cb4e012e3e3f9e03434d"
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
@@ -79,7 +79,7 @@ find -L . \
 export GOPATH="$TMP/$REPONAME-$VERSION"
 
 make GIT_COMMIT="$GIT_COMMIT"
-make install DESTDIR="$PKG" PREFIX="$PKG/usr" MANDIR="$PKG/usr/man" GIT_COMMIT="$GIT_COMMIT"
+make install DESTDIR="$PKG" PREFIX="/usr" MANDIR="/usr/man" GIT_COMMIT="$GIT_COMMIT"
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
