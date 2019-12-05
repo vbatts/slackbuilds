@@ -23,7 +23,7 @@
 #  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=WireGuard
-VERSION=${VERSION:-0.0.20191127}
+VERSION=${VERSION:-0.0.20191205}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
@@ -83,6 +83,7 @@ cd src
   env -u ARCH make \
     KERNELRELEASE="${KERNEL}"
   env -u ARCH make install \
+    KERNELRELEASE="${KERNEL}" \
     MANDIR=/usr/man \
     DESTDIR=$PKG \
     INSTALL_MOD_PATH=$PKG \
